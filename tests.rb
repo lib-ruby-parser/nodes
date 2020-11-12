@@ -49,6 +49,6 @@ def assert_fields(node)
   end
 end
 
-YAML.load_file('nodes.yaml').each_with_index do |node, idx|
+YAML.load_file('src/nodes.yaml').each_with_index do |node, idx|
   assert_node(node, idx)
 end
