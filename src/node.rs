@@ -2,7 +2,7 @@ use serde::Deserialize;
 
 use crate::{Field, Options};
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct Node {
     pub struct_name: String,
     pub str_type: String,
@@ -37,11 +37,12 @@ impl Node {
 
     pub fn code(&self, options: &Options) -> String {
         let epilogue = &options.epilogue;
+        let prologue = &options.prologue;
 
         format!(
             "{uses}
 {comment}
-#[derive(Debug, Clone, PartialEq)]
+{prologue}#[derive(Debug, Clone, PartialEq)]
 pub struct {struct_name} {{
 {declare_fields}
 }}
@@ -49,6 +50,7 @@ pub struct {struct_name} {{
 {epilogue}
 ",
             uses = self.uses(options).join("\n"),
+            prologue = prologue(self),
             comment = self.comment(),
             struct_name = self.struct_name,
             declare_fields = self.fields_declaration(options),

@@ -1,6 +1,6 @@
 use serde::Deserialize;
 
-#[derive(PartialEq, Clone, Deserialize)]
+#[derive(PartialEq, Clone, Deserialize, Debug)]
 pub enum FieldType {
     Node,
     Nodes,

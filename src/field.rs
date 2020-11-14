@@ -3,7 +3,7 @@ use serde::Deserialize;
 use crate::FieldType;
 use crate::Options;
 
-#[derive(Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Field {
     pub field_name: String,
     pub field_type: FieldType,
