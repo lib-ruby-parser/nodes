@@ -618,6 +618,7 @@
                 break :foo
                 ~~~~~
                 ```
+        -
             field_name: expression_l
             field_type: Range
             always_print: false
