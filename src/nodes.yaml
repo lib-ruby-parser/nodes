@@ -618,33 +618,6 @@
                 break :foo
                 ~~~~~
                 ```
-        -
-            field_name: begin_l
-            field_type: MaybeRange
-            always_print: false
-            comment: |
-                Location of the open parenthesis
-
-                ```text
-                break(:foo)
-                     ~
-                ```
-
-                `None` if there are no parentheses
-        -
-            field_name: end_l
-            field_type: MaybeRange
-            always_print: false
-            comment: |
-                Location of the closing parenthesis
-
-                ```text
-                break(:foo)
-                          ~
-                ```
-
-                `None` if there are no parentheses
-        -
             field_name: expression_l
             field_type: Range
             always_print: false
@@ -3822,32 +3795,6 @@
                 next 42
                 ```
         -
-            field_name: begin_l
-            field_type: MaybeRange
-            always_print: false
-            comment: |
-                Location of the open parenthesis
-
-                ```text
-                next(42)
-                    ~
-                ```
-
-                `None` if there are no parentheses
-        -
-            field_name: end_l
-            field_type: MaybeRange
-            always_print: false
-            comment: |
-                Location of the closing parenthesis
-
-                ```text
-                next(42)
-                       ~
-                ```
-
-                `None` if there are no parentheses
-        -
             field_name: expression_l
             field_type: Range
             always_print: false
@@ -5142,6 +5089,8 @@
     filename: sym
     comment: |
         Represents a plain symbol literal (i.e. `:foo`)
+
+        Note that `:` in `{ foo: bar }` belongs to a `pair` node.
     fields:
         -
             field_name: name
@@ -5171,19 +5120,6 @@
                 ```
 
                 `None` if symbol is a label (`{ foo: 1 }`) or a part of the symbols array (`%i[foo bar baz]`)
-        -
-            field_name: end_l
-            field_type: MaybeRange
-            always_print: false
-            comment: |
-                Location of the symbol end
-
-                ```text
-                { foo: 1 }
-                     ~
-                ```
-
-                `None` if symbol is **not** a label (`:foo`) or a part of the symbols array (`%i[foo bar baz]`)
         -
             field_name: expression_l
             field_type: Range
