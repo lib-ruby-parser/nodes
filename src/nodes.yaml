@@ -5122,6 +5122,19 @@
 
                 `None` if symbol is a label (`{ foo: 1 }`) or a part of the symbols array (`%i[foo bar baz]`)
         -
+            field_name: end_l
+            field_type: MaybeRange
+            always_print: false
+            comment: |
+                Location of the symbol end
+
+                ```text
+                { 'foo': 1 }
+                       ~
+                ```
+
+                `None` if symbol is **not** a string label (`:foo`) or a part of the symbols array (`%i[foo bar baz]`)
+        -
             field_name: expression_l
             field_type: Range
             always_print: false
