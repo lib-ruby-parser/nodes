@@ -54,8 +54,6 @@ pub fn nodes() -> Result<Vec<Node>, Error> {
 }
 
 pub fn generate_nodes(options: &Options) -> Result<(), Error> {
-    println!("cargo:rerun-if-changed=nodes.yaml");
-
     let nodes = nodes()?;
 
     std::fs::create_dir_all(&options.target_dir)
