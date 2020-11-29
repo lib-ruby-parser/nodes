@@ -2194,6 +2194,30 @@
                 ~~~~~~~~
                 ```
 -
+    struct_name: Kwargs
+    str_type: kwargs
+    filename: kwargs
+    comment: |
+        Represents kwargs that are given to a method call, super or yield (i.e. `foo(bar: 1)`)
+    fields:
+        -
+            field_name: pairs
+            field_type: Nodes
+            always_print: false
+            comment: |
+                A list of key-value pairs
+        -
+            field_name: expression_l
+            field_type: Range
+            always_print: false
+            comment: |
+                Location of the full expression
+
+                ```text
+                foo(bar: 1)
+                    ~~~~~~
+                ```
+-
     struct_name: HashPattern
     str_type: hash_pattern
     filename: hash_pattern
