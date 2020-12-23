@@ -2602,11 +2602,11 @@
                    ~~~~~~~~
                 ```
 -
-    struct_name: InMatch
-    str_type: in_match
-    filename: in_match
+    struct_name: MatchPattern
+    str_type: match_pattern
+    filename: match_pattern
     comment: |
-        Represents a one-line pattern matching (i.e. `foo in pattern`)
+        Represents a one-line pattern matching that can throw an error (i.e. `foo => pattern`)
     fields:
         -
             field_name: value
@@ -2625,7 +2625,48 @@
             field_type: Range
             always_print: false
             comment: |
-                Location of the `in` keyword
+                Location of the `=>` operator
+
+                ```text
+                foo => pattern
+                    ~~
+                ```
+        -
+            field_name: expression_l
+            field_type: Range
+            always_print: false
+            comment: |
+                Location of the full expression
+
+                ```text
+                foo => pattern
+                ~~~~~~~~~~~~~~
+                ```
+-
+    struct_name: MatchPatternP
+    str_type: match_pattern_p
+    filename: match_pattern_p
+    comment: |
+        Represents a one-line pattern matching that never throws but returns true/false (i.e. `foo in pattern`)
+    fields:
+        -
+            field_name: value
+            field_type: Node
+            always_print: false
+            comment: |
+                Value that is used for matching
+        -
+            field_name: pattern
+            field_type: Node
+            always_print: false
+            comment: |
+                Pattern that is used for matching
+        -
+            field_name: operator_l
+            field_type: Range
+            always_print: false
+            comment: |
+                Location of the `in` operator
 
                 ```text
                 foo in pattern
@@ -2636,7 +2677,7 @@
             field_type: Range
             always_print: false
             comment: |
-                Location of the `in` keyword
+                Location of the full expression
 
                 ```text
                 foo in pattern
