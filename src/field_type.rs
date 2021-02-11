@@ -5,8 +5,8 @@ pub enum FieldType {
     Node,
     Nodes,
     MaybeNode,
-    Range,
-    MaybeRange,
+    Loc,
+    MaybeLoc,
     Str,
     MaybeStr,
     Chars,
@@ -23,8 +23,8 @@ impl FieldType {
             FieldType::Node => true,
             FieldType::Nodes => true,
             FieldType::MaybeNode => true,
-            FieldType::Range => false,
-            FieldType::MaybeRange => false,
+            FieldType::Loc => false,
+            FieldType::MaybeLoc => false,
             FieldType::Str => false,
             FieldType::MaybeStr => false,
             FieldType::Chars => false,
@@ -36,13 +36,13 @@ impl FieldType {
         }
     }
 
-    pub fn has_reference_to_range(&self) -> bool {
+    pub fn has_reference_to_loc(&self) -> bool {
         match self {
             FieldType::Node => false,
             FieldType::Nodes => false,
             FieldType::MaybeNode => false,
-            FieldType::Range => true,
-            FieldType::MaybeRange => true,
+            FieldType::Loc => true,
+            FieldType::MaybeLoc => true,
             FieldType::Str => false,
             FieldType::MaybeStr => false,
             FieldType::Chars => false,

@@ -23,7 +23,7 @@
                 `Sym("bar")` node for `alias :foo :bar`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `alias` keyword
@@ -34,7 +34,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -68,7 +68,7 @@
                 `Int("1")` node for `a &&= 1`
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `&&=` operator
@@ -79,7 +79,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -113,7 +113,7 @@
                 `Lvar("bar")` node for `foo && bar`
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `&&` (or `and`) operator
@@ -124,7 +124,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -150,7 +150,7 @@
                 Name of the argument
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -176,7 +176,7 @@
                 List of arguments
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -187,7 +187,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -200,7 +200,7 @@
                 `None` for code like `def m; end` or `def m arg; end`
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -226,7 +226,7 @@
                 A list of elements
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open bracket
@@ -237,7 +237,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing bracket
@@ -248,7 +248,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -272,7 +272,7 @@
                 A list of elements
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open bracket
@@ -285,7 +285,7 @@
                 `None` for pattern like `1, 2` without brackets
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing bracket
@@ -298,7 +298,7 @@
                 `None` for pattern like `1, 2` without brackets
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -324,7 +324,7 @@
                 A list of elements
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open bracket
@@ -337,7 +337,7 @@
                 `None` for pattern like `1, 2,` without brackets
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing bracket
@@ -350,7 +350,7 @@
                 `None` for pattern like `1, 2,` without brackets
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -378,7 +378,7 @@
                 Name of the variable (`"$+"` for `$+`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -404,7 +404,7 @@
                 A list of statements
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Begin of the block
@@ -421,7 +421,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 End of the block
@@ -438,7 +438,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -480,7 +480,7 @@
                 Block body, `None` if block has no body.
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open brace
@@ -491,7 +491,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the closing brace
@@ -502,7 +502,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -528,7 +528,7 @@
                 `Int("1")` in `foo(&1)` (yes, it's possible)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `&` operator
@@ -539,7 +539,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -563,7 +563,7 @@
                 Name of the argument, `String("foo")` for `def m(&foo)`
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `&` operator
@@ -574,7 +574,7 @@
                 ```
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the name
@@ -585,7 +585,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -609,7 +609,7 @@
                 A list of arguments
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `break` keyword
@@ -620,7 +620,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -663,7 +663,7 @@
                 Body of the `else` branch, `None` if there's no `else` branch
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `case` keyword
@@ -674,7 +674,7 @@
                 ```
         -
             field_name: else_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `else` keyword
@@ -687,7 +687,7 @@
                 `None` if there's no `else` branch
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -698,7 +698,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -741,7 +741,7 @@
                 Body of the `else` branch, `None` if there's no `else` branch
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `case` keyword
@@ -752,7 +752,7 @@
                 ```
         -
             field_name: else_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `else` keyword
@@ -765,7 +765,7 @@
                 `None` if there's no `else` branch
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -776,7 +776,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -818,7 +818,7 @@
                 In such case `value` belongs to `Masgn` node of the multi-assignment.
         -
             field_name: double_colon_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `::` operator
@@ -834,7 +834,7 @@
                 `None` if the constant is defined in the current scope
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the constant name
@@ -845,7 +845,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -859,7 +859,7 @@
                 In such case `=` belongs to a `Masgn` node
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -877,7 +877,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -915,7 +915,7 @@
                 Body of the method, `None` if there's no body.
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `class` keyword.
@@ -926,7 +926,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `<` operator
@@ -939,7 +939,7 @@
                 `None` if there's no explicit superclass given.
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword.
@@ -950,7 +950,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -974,7 +974,7 @@
                 Value of the complex literal, returned as a `String`, `String("1i")` for `1i`
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `-` (but not `+`) operator. `+` is a part of the literal:
@@ -987,7 +987,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1020,7 +1020,7 @@
                 Name of the constant, `String("Foo")` for `Foo`
         -
             field_name: double_colon_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `::` operator. `None` if constant is taken from the current scope.
@@ -1031,7 +1031,7 @@
                 ```
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the constant name
@@ -1043,7 +1043,7 @@
 
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1075,7 +1075,7 @@
                 `ArrayPattern(vec![ Int("1") ])` for `Foo(1)`
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -1086,7 +1086,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -1097,7 +1097,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1139,7 +1139,7 @@
                 ```
         -
             field_name: dot_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `&.` operator
@@ -1150,7 +1150,7 @@
                 ```
         -
             field_name: selector_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the method name
@@ -1161,7 +1161,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -1174,7 +1174,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -1187,7 +1187,7 @@
                 `None` if there are no parentheses
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the operator if `CSend` is a part of assignment like
@@ -1200,7 +1200,7 @@
                 `None` for a regular call.
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1225,7 +1225,7 @@
                 Name of the class variable, `String("@@foo")` for `@@foo`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1255,7 +1255,7 @@
                 Value that is assigned to class variable, `Int("1")` for `@@foo = 1`
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the class variable name
@@ -1266,7 +1266,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -1277,7 +1277,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1315,7 +1315,7 @@
                 Body of a method, `None` if there's no body.
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `def` keyword.
@@ -1326,7 +1326,7 @@
                 ```
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the method name.
@@ -1337,7 +1337,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `end` keyword.
@@ -1350,7 +1350,7 @@
                 `None` for endless method definition
         -
             field_name: assignment_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator for endless method definition
@@ -1363,7 +1363,7 @@
                 `None` for regular method definition
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1387,7 +1387,7 @@
                 Value given to `defined?`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `defined?` keyword
@@ -1398,7 +1398,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -1411,7 +1411,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -1424,7 +1424,7 @@
                 `None` if there are no parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1468,7 +1468,7 @@
                 Body of the method, `None` if there's no body.
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `def` keyword
@@ -1479,7 +1479,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `.`
@@ -1490,7 +1490,7 @@
                 ```
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the method name
@@ -1501,7 +1501,7 @@
                 ```
         -
             field_name: assignment_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator for endless method definition
@@ -1514,7 +1514,7 @@
                 `None` for regular method definition
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -1527,7 +1527,7 @@
                 `None` for endless method definition
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1551,7 +1551,7 @@
                 A list of string parts (static literals and interpolated expressions)
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the string begin
@@ -1565,7 +1565,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the string end
@@ -1579,7 +1579,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1606,7 +1606,7 @@
                 A list of symbol parts (static literals and interpolated expressions)
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the symbol begin
@@ -1623,7 +1623,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the symbol begin
@@ -1640,7 +1640,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1670,7 +1670,7 @@
                 Right part of the flip-flop. `None` if based on a range without end (`foo...`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `...` operator
@@ -1681,7 +1681,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1704,7 +1704,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `else` keyword
@@ -1722,7 +1722,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `__ENCODING__` keyword
@@ -1757,7 +1757,7 @@
                 `Int("2")` for `begin; 1; ensure; 2; end`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `ensure` keyword
@@ -1768,7 +1768,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1800,7 +1800,7 @@
                 End of the range, `None` if range has no end (i.e `42...`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `...` operator
@@ -1811,7 +1811,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1829,7 +1829,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `false` literal
@@ -1847,7 +1847,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `__FILE__` literal
@@ -1873,7 +1873,7 @@
                 Inner part of the find pattern
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the begin
@@ -1886,7 +1886,7 @@
                 `None` if there are no brackets/parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the end
@@ -1899,7 +1899,7 @@
                 `None` if there are no brackets/parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1923,7 +1923,7 @@
                 String value of the literal, `String("42.5")` for `42.5`
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of unary `-` (but not `+`)
@@ -1934,7 +1934,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -1970,7 +1970,7 @@
                 Body of the loop. `None` if there's no body
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `for` keyword
@@ -1981,7 +1981,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `in` keyword
@@ -1992,7 +1992,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `do` keyword
@@ -2005,7 +2005,7 @@
                 **Note**: this `do` is optional, and so `begin_l` can be `None`.
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -2016,7 +2016,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2034,7 +2034,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `...`
@@ -2052,7 +2052,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `...`
@@ -2076,7 +2076,7 @@
                 Name of the global variable, `String("$foo")` for `$foo`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2109,7 +2109,7 @@
                 In such case `value` is a part of the `Masgn` node.
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the global variable name
@@ -2120,7 +2120,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -2134,7 +2134,7 @@
                 In such case `=` operator belongs to the `Masgn` node.
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2158,7 +2158,7 @@
                 A list of key-value pairs
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -2171,7 +2171,7 @@
                 `None` if hash literal is implicit, e.g. `foo(key: "value")`
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -2184,7 +2184,7 @@
                 `None` if hash literal is implicit, e.g. `foo(key: "value")`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2208,7 +2208,7 @@
                 A list of key-value pairs
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2232,7 +2232,7 @@
                 A list of inner patterns
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -2245,7 +2245,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -2258,7 +2258,7 @@
                 `None` if there are no parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2284,7 +2284,7 @@
                 A list of string parts (static literals and interpolated expressions)
         -
             field_name: heredoc_body_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the here-document body
@@ -2295,7 +2295,7 @@
                 ```
         -
             field_name: heredoc_end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the here-document end
@@ -2306,7 +2306,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the here-document identifier
@@ -2351,7 +2351,7 @@
                 False-branch of the `if` statement, `Lvar("c")` for `if a; b; else; c; end`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `if` keyword
@@ -2362,7 +2362,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `then` keyword
@@ -2375,7 +2375,7 @@
                 `None` if `then` keyword is omitted
         -
             field_name: else_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `else` keyword
@@ -2388,7 +2388,7 @@
                 `None` if there's no `else` branch
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -2399,7 +2399,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2423,7 +2423,7 @@
                 Condition of the guard, `Lvar("foo")` in `in pattern if guard`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `if` keyword
@@ -2434,7 +2434,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2476,7 +2476,7 @@
                 Always `None` for `if` modifier.
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `if`/`unless` keyword
@@ -2490,7 +2490,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2529,7 +2529,7 @@
                 True-branch
         -
             field_name: question_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `?` operator
@@ -2540,7 +2540,7 @@
                 ```
         -
             field_name: colon_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `:` operator
@@ -2551,7 +2551,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2581,7 +2581,7 @@
                 Right part of the flip-flop. `None` if based on a range without end (`foo..`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `..` operator
@@ -2592,7 +2592,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2622,7 +2622,7 @@
                 Pattern that is used for matching
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=>` operator
@@ -2633,7 +2633,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2663,7 +2663,7 @@
                 Pattern that is used for matching
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `in` operator
@@ -2674,7 +2674,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2712,7 +2712,7 @@
                 Body of the branch that is invoked if value matches pattern
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `in` keyword
@@ -2723,7 +2723,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `then` keyword
@@ -2734,7 +2734,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2764,7 +2764,7 @@
                 A list of indexes
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of open bracket
@@ -2775,7 +2775,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of closing bracket
@@ -2786,7 +2786,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2825,7 +2825,7 @@
                 In such case `value` belongs to `Masgn` node.
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of open bracket
@@ -2836,7 +2836,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of closing bracket
@@ -2847,7 +2847,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -2861,7 +2861,7 @@
                 In such case operator `=` belongs to `Masgn` node.
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2885,7 +2885,7 @@
                 String value of the literal, `String("42")` for `42`
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of unary `-` (but not `+`)
@@ -2896,7 +2896,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2926,7 +2926,7 @@
                 End of the range, `None` if range has no `end` (i.e. `2..`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `..` operator
@@ -2937,7 +2937,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2961,7 +2961,7 @@
                 Name of the instance variable, `String("@foo")` in `@foo`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -2994,7 +2994,7 @@
                 In such case `value` is a part of the `Masgn` node.
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the instance variable name.
@@ -3005,7 +3005,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator.
@@ -3019,7 +3019,7 @@
                 In such case `value` is a part of the `Masgn` node.
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3043,7 +3043,7 @@
                 Name of the keyword argument
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the name
@@ -3054,7 +3054,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3084,7 +3084,7 @@
                 A list of statements
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `begin` keyword
@@ -3095,7 +3095,7 @@
                 ```
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `begin` keyword
@@ -3106,7 +3106,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3124,7 +3124,7 @@
     fields:
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `nil`
@@ -3135,7 +3135,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `nil`
@@ -3165,7 +3165,7 @@
                 Default value of the optional keyword argument
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the argument name
@@ -3176,7 +3176,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the argument name
@@ -3202,7 +3202,7 @@
                 `None` if argument has no name (`def m(**); end`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `**` operator
@@ -3213,7 +3213,7 @@
                 ```
         -
             field_name: name_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the argument name
@@ -3226,7 +3226,7 @@
                 `None` if argument has no name (`def m(**); end`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3250,7 +3250,7 @@
                 Value that is converted into a `Hash` using `**`
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `**` operator
@@ -3261,7 +3261,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3281,7 +3281,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `->`
@@ -3299,7 +3299,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `__LINE__` literal
@@ -3330,7 +3330,7 @@
                 Name of the local variable
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the local variable
@@ -3360,7 +3360,7 @@
                 Value that is assigned to a local variable
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the local variable name
@@ -3371,7 +3371,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -3385,7 +3385,7 @@
                 In such case `value` is a part of the `Masgn` node.
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3415,7 +3415,7 @@
                 Left hand statement of the assignment
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -3426,7 +3426,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3456,7 +3456,7 @@
                 Right pattern
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `|` operator
@@ -3467,7 +3467,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3497,7 +3497,7 @@
                 Variable that is assigned if matched (see `MatchVar` node)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=>` operator
@@ -3508,7 +3508,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=>` operator
@@ -3552,7 +3552,7 @@
                 Given regex
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the regex
@@ -3573,7 +3573,7 @@
     fields:
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `**` operator
@@ -3584,7 +3584,7 @@
                 ```
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the name
@@ -3595,7 +3595,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3621,7 +3621,7 @@
                 `None` if there's no name (i.e. `in *`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `*` operator
@@ -3632,7 +3632,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `*` operator
@@ -3656,7 +3656,7 @@
                 Name of the variable that is assigned if matching succeeds
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the name
@@ -3674,7 +3674,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3713,7 +3713,7 @@
                 Value that is used for matching
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=~` operatir
@@ -3724,7 +3724,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3748,7 +3748,7 @@
                 A list of items that are assigned
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -3761,7 +3761,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -3774,7 +3774,7 @@
                 `None` if there are no parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3806,7 +3806,7 @@
                 `None` if module has no body
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `module` keyword
@@ -3817,7 +3817,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -3828,7 +3828,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3852,7 +3852,7 @@
                 Arguments given to `next`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `next` keyword
@@ -3862,7 +3862,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3880,7 +3880,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `nil` keyword
@@ -3904,7 +3904,7 @@
                 Name of the variable, `String("1")` for `$1`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -3940,7 +3940,7 @@
                 Block body
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open brace
@@ -3951,7 +3951,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the closing brace
@@ -3962,7 +3962,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open brace
@@ -4009,7 +4009,7 @@
                 Right hand statement of the assignment
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the operator
@@ -4020,7 +4020,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the operator
@@ -4050,7 +4050,7 @@
                 Default value of the argument
         -
             field_name: name_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the argument name
@@ -4061,7 +4061,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `=` operator
@@ -4072,7 +4072,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4102,7 +4102,7 @@
                 Right hand statement
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `||`/`or` operator
@@ -4113,7 +4113,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4143,7 +4143,7 @@
                 Right hand statement
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `||=` operator
@@ -4154,7 +4154,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4184,7 +4184,7 @@
                 Value of the pair
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `:` or `=>` operator
@@ -4198,7 +4198,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4225,7 +4225,7 @@
                 Variable that is pinned
         -
             field_name: selector_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `^` operator
@@ -4236,7 +4236,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4260,7 +4260,7 @@
                 Body of the block
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `END` keyword
@@ -4271,7 +4271,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -4282,7 +4282,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -4293,7 +4293,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4317,7 +4317,7 @@
                 Body of the block
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `BEGIN` keyword
@@ -4328,7 +4328,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -4339,7 +4339,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -4350,7 +4350,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4381,7 +4381,7 @@
                     2. Multiple `Arg` nodes  (for `proc { |(a, b, c)| }` case)
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -4394,7 +4394,7 @@
                 `None` if there's only one argument
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -4407,7 +4407,7 @@
                 `None` if there's only one argument
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4431,7 +4431,7 @@
                 String value of the literal, `String("1r")` for `1r`
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the unary `-` (but not `+`)
@@ -4442,7 +4442,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4460,7 +4460,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4484,7 +4484,7 @@
                 A list of flags
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4516,7 +4516,7 @@
                 `None` if regex has no explicit flags
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the regex begin
@@ -4530,7 +4530,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the regex end
@@ -4544,7 +4544,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4582,7 +4582,7 @@
                 `None` if there's no `else` branch
         -
             field_name: else_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `else` keyword
@@ -4595,7 +4595,7 @@
                 `None` if there's no `else` branch
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4637,7 +4637,7 @@
                 Body of the handler
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `rescue` keyword
@@ -4648,7 +4648,7 @@
                 ```
         -
             field_name: assoc_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `=>` operator
@@ -4661,7 +4661,7 @@
                 `None` if exception is not captured.
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `then` keyword
@@ -4674,7 +4674,7 @@
                 `then` is optional, so `begin_l` can be `None`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4700,7 +4700,7 @@
                 `None` if argument has no name (i.e. `def m(*); end`)
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `*` operator
@@ -4711,7 +4711,7 @@
                 ```
         -
             field_name: name_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the argument name
@@ -4722,7 +4722,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4740,7 +4740,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `retry` keyword
@@ -4764,7 +4764,7 @@
                 A list of values that is returned
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `return` keyword
@@ -4775,7 +4775,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4807,7 +4807,7 @@
                 Body of the block
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `class` keyword
@@ -4818,7 +4818,7 @@
                 ```
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `<<` operator
@@ -4829,7 +4829,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -4840,7 +4840,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4858,7 +4858,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `self` keyword
@@ -4896,7 +4896,7 @@
                 A list of arguments
         -
             field_name: dot_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `.` operator
@@ -4909,7 +4909,7 @@
                 `None` for implicit method call (e.g. `foo(42)`)
         -
             field_name: selector_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the method name
@@ -4922,7 +4922,7 @@
                 `None` in a very special case when method call is implicit (i.e. `foo.(42)`)
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of open parenthesis
@@ -4935,7 +4935,7 @@
                 `None` if there are parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of closing parenthesis
@@ -4948,7 +4948,7 @@
                 `None` if there are parentheses
         -
             field_name: operator_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the operator if method is a setter
@@ -4961,7 +4961,7 @@
                 `None` otherwise
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -4985,7 +4985,7 @@
                 Name of the argument
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the argument
@@ -5009,7 +5009,7 @@
                 Value that is converted to array
         -
             field_name: operator_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `*` operator
@@ -5020,7 +5020,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5053,7 +5053,7 @@
                 You can use `to_string_lossy` or `to_string` methods to get a raw string value.
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the string begin
@@ -5066,7 +5066,7 @@
                 `None` if string literal is a part of the words array (like `%w[foo bar baz]`)
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the string begin
@@ -5079,7 +5079,7 @@
                 `None` if string literal is a part of the words array (like `%w[foo bar baz]`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5103,7 +5103,7 @@
                 A list of arguments given to `super`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `super` keyword
@@ -5114,7 +5114,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -5127,7 +5127,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -5140,7 +5140,7 @@
                 `None` if there are no parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5175,7 +5175,7 @@
                 You can use `to_string_lossy` or `to_string` methods to get a raw symbol value.
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the symbol begin
@@ -5188,7 +5188,7 @@
                 `None` if symbol is a label (`{ foo: 1 }`) or a part of the symbols array (`%i[foo bar baz]`)
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the symbol end
@@ -5201,7 +5201,7 @@
                 `None` if symbol is **not** a string label (`:foo`) or a part of the symbols array (`%i[foo bar baz]`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5225,7 +5225,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `true` keyword
@@ -5249,7 +5249,7 @@
                 A list of names to `undef`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location the `undef` keyword
@@ -5260,7 +5260,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5284,7 +5284,7 @@
                 Condition of the guard, `Lvar("foo")` in `in pattern unless guard`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `unless` keyword
@@ -5295,7 +5295,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5327,7 +5327,7 @@
                 `None` if body is empty
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `until` keyword
@@ -5338,7 +5338,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `do` keyword
@@ -5351,7 +5351,7 @@
                 `do` is optional, and so `begin_l` can be `None`
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -5364,7 +5364,7 @@
                 `None` if loop is a modifier (i.e. `foo until bar`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5403,7 +5403,7 @@
                 Body of the loop
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `until` keyword
@@ -5414,7 +5414,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `until` keyword
@@ -5444,7 +5444,7 @@
                 Body of the `when` branch
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `when` keyword
@@ -5455,7 +5455,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `then` keyword
@@ -5468,7 +5468,7 @@
                 `then` is optional, and so `begin_l` can be `None`
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5500,7 +5500,7 @@
                 `None` if body is empty
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `while` keyword
@@ -5511,7 +5511,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `do` keyword
@@ -5524,7 +5524,7 @@
                 `do` is optional, and so `begin_l` can be `None`
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the `end` keyword
@@ -5537,7 +5537,7 @@
                 `None` if loop is a modifier (i.e. `foo while bar`)
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5576,7 +5576,7 @@
                 Body of the loop
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `while` keyword
@@ -5587,7 +5587,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `while` keyword
@@ -5613,7 +5613,7 @@
                 A list of string parts (static literals and interpolated expressions)
         -
             field_name: heredoc_body_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the executable here-document body
@@ -5624,7 +5624,7 @@
                 ```
         -
             field_name: heredoc_end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the executable here-document end
@@ -5635,7 +5635,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the executable here-document identifier
@@ -5668,7 +5668,7 @@
                 A list of string parts (static literals and interpolated expressions)
         -
             field_name: begin_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the string begin
@@ -5682,7 +5682,7 @@
                 ```
         -
             field_name: end_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the string end
@@ -5696,7 +5696,7 @@
                 ```
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5723,7 +5723,7 @@
                 A list of arguments given to `yield`
         -
             field_name: keyword_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `yield` keyword
@@ -5734,7 +5734,7 @@
                 ```
         -
             field_name: begin_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the open parenthesis
@@ -5747,7 +5747,7 @@
                 `None` if there are no parentheses
         -
             field_name: end_l
-            field_type: MaybeRange
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the closing parenthesis
@@ -5760,7 +5760,7 @@
                 `None` if there are no parentheses
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the full expression
@@ -5780,7 +5780,7 @@
     fields:
         -
             field_name: expression_l
-            field_type: Range
+            field_type: Loc
             always_print: false
             comment: |
                 Location of the `super` keyword

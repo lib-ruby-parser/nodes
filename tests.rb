@@ -21,8 +21,8 @@ KNOWN_TYPES = %w[
   Node
   Nodes
   MaybeNode
-  Range
-  MaybeRange
+  Loc
+  MaybeLoc
   Str
   MaybeStr
   Chars
