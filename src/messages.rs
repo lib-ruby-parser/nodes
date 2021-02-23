@@ -16,8 +16,7 @@ pub struct MessageField {
 
 #[derive(Debug, Clone, Deserialize)]
 pub enum MessageFieldType {
-    StaticStr,
-    OwnedStr,
+    Str,
     Byte,
 }
 

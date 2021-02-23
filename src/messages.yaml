@@ -117,7 +117,7 @@ sections:
       - name: UnterminatedHeredoc
         fields:
           - name: heredoc_id
-            field_type: OwnedStr
+            field_type: Str
             comment: Heredoc identifier
         comment: |
           Emitted for code like
@@ -195,10 +195,10 @@ sections:
       - name: AmbiguousOperator
         fields:
           - name: operator
-            field_type: StaticStr
+            field_type: Str
             comment: Operator that is ambiguous
           - name: interpreted_as
-            field_type: StaticStr
+            field_type: Str
             comment: Interpretation of this operator
         comment: |
           Emitted for code like (only in $VERBOSE mode)
@@ -209,7 +209,7 @@ sections:
       - name: InvalidCharacterSyntax
         fields:
           - name: suggestion
-            field_type: OwnedStr
+            field_type: Str
             comment: Valid syntax sugestions
         comment: |
           Emitted for code like
@@ -321,7 +321,7 @@ sections:
       - name: UnknownRegexOptions
         fields:
           - name: options
-            field_type: OwnedStr
+            field_type: Str
             comment: Concatenated unknown options
         comment: |
           Emitted for code like
@@ -340,7 +340,7 @@ sections:
       - name: EncodingError
         fields:
           - name: error
-            field_type: OwnedStr
+            field_type: Str
             comment: Error from decoder
         comment: |
           Emitted for code like
@@ -353,7 +353,7 @@ sections:
       - name: AmbiguousTernaryOperator
         fields:
           - name: condition
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the condition expression
         comment: |
           Emitted for code like
@@ -422,7 +422,7 @@ sections:
       - name: UnexpectedToken
         fields:
           - name: token_name
-            field_type: OwnedStr
+            field_type: Str
             comment: Name of the token
         comment: |
           Emitted for any code that produces invalid sequence of tokens
@@ -486,7 +486,7 @@ sections:
       - name: NoSuchLocalVariable
         fields:
           - name: var_name
-            field_type: OwnedStr
+            field_type: Str
             comment: Variable name
         comment: |
           Emitted for code like
@@ -513,7 +513,7 @@ sections:
       - name: TokAtEolWithoutExpression
         fields:
           - name: token_name
-            field_type: OwnedStr
+            field_type: Str
             comment: Name of the token
         comment: |
           Emitted for code like (only in $VERBOSE mode)
@@ -536,7 +536,7 @@ sections:
       - name: ComparisonAfterComparison
         fields:
           - name: comparison
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the first comparison
         comment: |
           Emitted for code like (only in $VERBOSE mode)
@@ -549,7 +549,7 @@ sections:
       - name: CircularArgumentReference
         fields:
           - name: arg_name
-            field_type: OwnedStr
+            field_type: Str
             comment: Name of the argument
         comment: |
           Emitted for code like
@@ -624,7 +624,7 @@ sections:
       - name: CantAssignToNumparam
         fields:
           - name: numparam
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the numbered parameter
         comment: |
           Emitted for code like
@@ -635,7 +635,7 @@ sections:
       - name: CantSetVariable
         fields:
           - name: var_name
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the read-only variable that is assigned
         comment: |
           Emitted for code like
@@ -670,7 +670,7 @@ sections:
       - name: ReservedForNumparam
         fields:
           - name: numparam
-            field_type: OwnedStr
+            field_type: Str
             comment: Numbered parameter that is treated as a local variable
         comment: |
           Emitted for code like
@@ -713,7 +713,7 @@ sections:
       - name: NthRefIsTooBig
         fields:
           - name: nth_ref
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the nth_ref that is techincally a regular global variable
         comment: |
           Emitted for code like (only in $VERBOSE mode)
@@ -732,7 +732,7 @@ sections:
       - name: RegexError
         fields:
           - name: error
-            field_type: OwnedStr
+            field_type: Str
             comment: Error from Onigurama engine
         comment: |
           Emitted for code like
@@ -743,7 +743,7 @@ sections:
       - name: InvalidSymbol
         fields:
           - name: symbol
-            field_type: OwnedStr
+            field_type: Str
             comment: Source of the symbol
         comment: |
           Emitted for code like
