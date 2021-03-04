@@ -1150,7 +1150,7 @@
                 ```
         -
             field_name: selector_l
-            field_type: Loc
+            field_type: MaybeLoc
             always_print: false
             comment: |
                 Location of the method name
@@ -1159,6 +1159,8 @@
                 foo&.bar(42)
                      ~~~
                 ```
+
+                `None` in a very special case when method call is implicit (i.e. `foo&.()`)
         -
             field_name: begin_l
             field_type: MaybeLoc
