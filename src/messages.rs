@@ -18,7 +18,6 @@ pub struct MessageField {
 pub enum MessageFieldType {
     Str,
     Byte,
-    Bytes,
 }
 
 #[derive(Debug, Clone, Deserialize)]

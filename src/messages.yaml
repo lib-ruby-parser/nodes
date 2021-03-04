@@ -349,10 +349,7 @@ sections:
           ```
 
       - name: InvalidMultibyteChar
-        fields:
-          - name: bytes
-            field_type: Bytes
-            comment: Bytes that represent invalid UTF-8 char
+        fields: []
         comment: |
           Emitter for code like
           ```text
