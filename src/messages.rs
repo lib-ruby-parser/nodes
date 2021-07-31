@@ -48,6 +48,20 @@ pub struct Message {
     pub comment: String,
 }
 
+impl Message {
+    pub fn camelcase_name(&self) -> String {
+        self.name.to_string()
+    }
+
+    pub fn upper_name(&self) -> String {
+        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_uppercase()
+    }
+
+    pub fn lower_name(&self) -> String {
+        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_lowercase()
+    }
+}
+
 #[derive(Debug, Clone, Deserialize)]
 pub struct MessageFieldList(pub Vec<MessageField>);
 
