@@ -49,6 +49,10 @@ pub struct Message {
 }
 
 impl Message {
+    pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
+        crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
+    }
+
     pub fn camelcase_name(&self) -> String {
         self.name.to_string()
     }
