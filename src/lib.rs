@@ -3,6 +3,8 @@ extern crate serde_yaml;
 
 use std::path::Path;
 
+pub mod comment;
+pub mod helpers;
 mod messages;
 mod nodes;
 
@@ -21,14 +23,16 @@ fn yaml_file(yaml: &str) -> std::fs::File {
     std::fs::File::open(&path).unwrap()
 }
 
-pub fn nodes() -> Vec<Node> {
+pub fn nodes() -> NodeList {
     let nodes_yaml = yaml_file("nodes.yaml");
-    serde_yaml::from_reader(nodes_yaml).unwrap()
+    let nodes: Vec<Node> = serde_yaml::from_reader(nodes_yaml).unwrap();
+    NodeList::new(nodes)
 }
 
-pub fn messages() -> Messages {
+pub fn messages() -> SectionList {
     let messages_yaml = yaml_file("messages.yaml");
-    serde_yaml::from_reader(messages_yaml).unwrap()
+    let sections: Vec<Section> = serde_yaml::from_reader(messages_yaml).unwrap();
+    SectionList::new(sections)
 }
 
 #[cfg(test)]
@@ -37,16 +41,15 @@ mod tests {
 
     #[test]
     fn test_nodes() {
-        assert!(nodes().len() > 0)
+        assert!(nodes().0.len() > 0);
     }
 
     #[test]
     fn test_messages() {
         let messages = messages();
-        assert!(messages.sections.len() > 0);
-        for section in messages.sections.iter() {
-            assert!(section.messages.len() > 0);
+        assert!(messages.0.len() > 0);
+        for section in messages.0.iter() {
+            assert!(section.messages.0.len() > 0);
         }
-        println!("{:#?}", messages);
     }
 }

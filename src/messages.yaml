@@ -1,768 +1,767 @@
-sections:
-  - name: Lexer errors
-    messages:
-      - name: FractionAfterNumeric
-        fields: []
-        comment: |
-          Emitted for code
-          ```text
-          1.2.3
-          ```
-
-      - name: NoDigitsAfterDot
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          foo.2
-          ```
-
-      - name: UnknownTypeOfPercentString
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          %k[foo]
-          ```
-
-      - name: NumericLiteralWithoutDigits
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          0b
-          ```
-
-      - name: UnterminatedList
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          %w[foo bar
-          ```
-
-      - name: UnterminatedRegexp
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          /foo
-          ```
-
-      - name: UnterminatedString
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "foo
-          ```
-
-      - name: UnterminatedQuotedString
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          %s
-          //    ^ EOF, not \n
-          ```
-
-      - name: InvalidUnicodeEscape
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\ufoo"
-          ```
-
-      - name: TooLargeUnicodeCodepoint
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\u{999999}"
-          ```
-
-      - name: InvalidUnicodeCodepoint
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\u{d800}"
-          ```
-
-      - name: MultipleCodepointAtSingleChar
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          ?\u{41 42}
-          ```
-
-      - name: InvalidEscapeCharacter
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\M-"
-          ```
-
-      - name: InvalidHexEscape
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\xZZ"
-          ```
-
-      - name: UnterminatedHeredoc
-        fields:
-          - name: heredoc_id
-            field_type: Str
-            comment: Heredoc identifier
-        comment: |
-          Emitted for code like
-          ```text
-          <<-HERE
-          ```
-
-      - name: UnterminatedHeredocId
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          <<-"HERE
-          ```
-
-      - name: SlashRAtMiddleOfLine
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          eval("foo \r = 42")
-          ```
-
-      - name: DStarInterpretedAsArgPrefix
-        fields: []
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          foo **arg
-          ```
-
-      - name: StarInterpretedAsArgPrefix
-        fields: []
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          foo *arg
-          ```
-
-      - name: AmpersandInterpretedAsArgPrefix
-        fields: []
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          foo &arg
-          ```
-
-      - name: TripleDotAtEol
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          range = 1...
-          ```
-
-      - name: ParenthesesIterpretedAsArglist
-        fields: []
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          def m (a, b, c); end
-          ```
-
-      - name: AmbiguousFirstArgument
-        fields:
-          - name: operator
-            field_type: Byte
-            comment: Operator that is ambiguous
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          m +foo
-          ```
-
-      - name: AmbiguousOperator
-        fields:
-          - name: operator
-            field_type: Str
-            comment: Operator that is ambiguous
-          - name: interpreted_as
-            field_type: Str
-            comment: Interpretation of this operator
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          1 *2
-          ```
-
-      - name: InvalidCharacterSyntax
-        fields:
-          - name: suggestion
-            field_type: Str
-            comment: Valid syntax sugestions
-        comment: |
-          Emitted for code like
-          ```text
-          "\M- "
-          ```
-
-      - name: InvalidOctalDigit
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          09
-          ```
-
-      - name: TrailingCharInNumber
-        fields:
-          - name: c
-            field_type: Byte
-            comment: Invalid trailing char
-        comment: |
-          Emitted for code like
-          ```text
-          0_a
-          ```
-
-      - name: EmbeddedDocumentMeetsEof
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          =begin
-          ```
-
-      - name: InvalidChar
-        fields:
-          - name: c
-            field_type: Byte
-            comment: char
-        comment: |
-          Emitted for code like
-          ```text
-          eval("\x01foo")
-          ```
-
-      - name: IncompleteCharacterSyntax
-        fields: []
-        comment: |
-          It is unknown how to trigger this error.
-          Code that triggers it in MRI can be dead.
-
-      - name: GvarWithoutId
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          $
-          ```
-
-      - name: InvalidGvarName
-        fields:
-          - name: c
-            field_type: Byte
-            comment: char after `$`
-        comment: |
-          Emitted for code like
-          ```text
-          $@
-          ```
-
-      - name: IvarWithoutId
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          @
-          ```
-
-      - name: InvalidIvarName
-        fields:
-          - name: c
-            field_type: Byte
-            comment: char after `@`
-        comment: |
-          Emitted for code like
-          ```text
-          @1
-          ```
-
-      - name: CvarWithoutId
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          @@
-          ```
-
-      - name: InvalidCvarName
-        fields:
-          - name: c
-            field_type: Byte
-            comment: char after `@@`
-        comment: |
-          Emitted for code like
-          ```text
-          @@1
-          ```
-
-      - name: UnknownRegexOptions
-        fields:
-          - name: options
-            field_type: Str
-            comment: Concatenated unknown options
-        comment: |
-          Emitted for code like
-          ```text
-          /re/foo
-          ```
-
-      - name: UnterminatedUnicodeEscape
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          "\u{1234"
-          ```
-
-      - name: EncodingError
-        fields:
-          - name: error
-            field_type: Str
-            comment: Error from decoder
-        comment: |
-          Emitted for code like
-          ```text
-          # encoding: foo
-          ```
-
-      - name: InvalidMultibyteChar
-        fields: []
-        comment: |
-          Emitter for code like
-          ```text
-          eval("\xFF = 42")
-          ```
-
-  - name: Lexer warnings
-    messages:
-      - name: AmbiguousTernaryOperator
-        fields:
-          - name: condition
-            field_type: Str
-            comment: Source of the condition expression
-        comment: |
-          Emitted for code like
-          ```text
-          a ?AA : 2
-          ```
-
-      - name: AmbiguousRegexp
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          m /foo/
-          ```
-
-  - name: Parser errors
-    messages:
-      - name: ElseWithoutRescue
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          begin; else; end
-          ```
-
-      - name: BeginNotAtTopLevel
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def f; BEGIN{}; end
-          ```
-
-      - name: AliasNthRef
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          alias $a $1
-          ```
-
-      - name: CsendInsideMasgn
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          *a&.x = 0
-          ```
-
-      - name: ClassOrModuleNameMustBeConstant
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          module foo; end
-          ```
-
-      - name: EndlessSetterDefinition
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo=() = 42
-          ```
-
-      - name: UnexpectedToken
-        fields:
-          - name: token_name
-            field_type: Str
-            comment: Name of the token
-        comment: |
-          Emitted for any code that produces invalid sequence of tokens
-
-      - name: ClassDefinitionInMethodBody
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def a; class Foo; end; end
-          ```
-
-      - name: ModuleDefinitionInMethodBody
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def a; module Foo; end; end
-          ```
-
-      - name: InvalidReturnInClassOrModuleBody
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          class A; return; end
-          ```
-
-      - name: ConstArgument
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo(Abc); end
-          ```
-
-      - name: IvarArgument
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo(@abc); end
-          ```
-
-      - name: GvarArgument
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo($abc); end
-          ```
-
-      - name: CvarArgument
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo(@@abc); end
-          ```
-
-      - name: NoSuchLocalVariable
-        fields:
-          - name: var_name
-            field_type: Str
-            comment: Variable name
-        comment: |
-          Emitted for code like
-          ```text
-          case 0; in ^a; true; end
-          ```
-
-      - name: OrdinaryParamDefined
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          m { |a| _1 }
-          ```
-
-      - name: NumparamUsed
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          foo { _1; bar { _2 }; }
-          ```
-
-      - name: TokAtEolWithoutExpression
-        fields:
-          - name: token_name
-            field_type: Str
-            comment: Name of the token
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          if
-          42
-          end
-          ```
-
-  - name: Parser warnings
-    messages:
-      - name: EndInMethod
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def m; END {}; end
-          ```
-
-      - name: ComparisonAfterComparison
-        fields:
-          - name: comparison
-            field_type: Str
-            comment: Source of the first comparison
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          a < b < c
-          ```
-
-  - name: Builder errors
-    messages:
-      - name: CircularArgumentReference
-        fields:
-          - name: arg_name
-            field_type: Str
-            comment: Name of the argument
-        comment: |
-          Emitted for code like
-          ```text
-          def m(foo = foo) end
-          ```
-
-      - name: DynamicConstantAssignment
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def m; FOO = 1; end
-          ```
-
-      - name: CantAssignToSelf
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          self = foo
-          ```
-
-      - name: CantAssignToNil
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          nil = foo
-          ```
-
-      - name: CantAssignToTrue
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          true = foo
-          ```
-
-      - name: CantAssignToFalse
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          false = foo
-          ```
-
-      - name: CantAssignToFile
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          __FILE__ = foo
-          ```
-
-      - name: CantAssignToLine
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          __LINE__ = foo
-          ```
-
-      - name: CantAssignToEncoding
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          __ENCODING__ = foo
-          ```
-
-      - name: CantAssignToNumparam
-        fields:
-          - name: numparam
-            field_type: Str
-            comment: Source of the numbered parameter
-        comment: |
-          Emitted for code like
-          ```text
-          proc {_1; _1 = nil}
-          ```
-
-      - name: CantSetVariable
-        fields:
-          - name: var_name
-            field_type: Str
-            comment: Source of the read-only variable that is assigned
-        comment: |
-          Emitted for code like
-          ```text
-          $1 = foo
-          ```
-
-      - name: BlockGivenToYield
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          yield(&foo)
-          ```
-
-      - name: BlockAndBlockArgGiven
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          fun(&bar) do end
-          ```
-
-      - name: SymbolLiteralWithInterpolation
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          case a; in "#{a}": 1; end
-          ```
-
-      - name: ReservedForNumparam
-        fields:
-          - name: numparam
-            field_type: Str
-            comment: Numbered parameter that is treated as a local variable
-        comment: |
-          Emitted for code like
-          ```text
-          _1 = 1
-          ```
-
-      - name: KeyMustBeValidAsLocalVariable
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          case a; in a?:; end
-          ```
-
-      - name: DuplicateVariableName
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          case 0; in a, a; end
-          ```
-
-      - name: DuplicateKeyName
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          case 0; in a: 1, a: 2; end
-          ```
-
-      - name: SingletonLiteral
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def (1).foo; end
-          ```
-
-      - name: NthRefIsTooBig
-        fields:
-          - name: nth_ref
-            field_type: Str
-            comment: Source of the nth_ref that is techincally a regular global variable
-        comment: |
-          Emitted for code like (only in $VERBOSE mode)
-          ```text
-          $100
-          ```
-
-      - name: DuplicatedArgumentName
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          def foo(aa, aa); end
-          ```
-
-      - name: RegexError
-        fields:
-          - name: error
-            field_type: Str
-            comment: Error from Onigurama engine
-        comment: |
-          Emitted for code like
-          ```text
-          /[/
-          ```
-
-      - name: InvalidSymbol
-        fields:
-          - name: symbol
-            field_type: Str
-            comment: Source of the symbol
-        comment: |
-          Emitted for code like
-          ```text
-          %I"x .\xc3."
-          ```
-
-      - name: VoidValueExpression
-        fields: []
-        comment: |
-          Emitted for code like
-          ```text
-          a = return
-          ```
+- name: Lexer errors
+  messages:
+    - name: FractionAfterNumeric
+      fields: []
+      comment: |
+        Emitted for code
+        ```text
+        1.2.3
+        ```
+
+    - name: NoDigitsAfterDot
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        foo.2
+        ```
+
+    - name: UnknownTypeOfPercentString
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        %k[foo]
+        ```
+
+    - name: NumericLiteralWithoutDigits
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        0b
+        ```
+
+    - name: UnterminatedList
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        %w[foo bar
+        ```
+
+    - name: UnterminatedRegexp
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        /foo
+        ```
+
+    - name: UnterminatedString
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "foo
+        ```
+
+    - name: UnterminatedQuotedString
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        %s
+        //    ^ EOF, not \n
+        ```
+
+    - name: InvalidUnicodeEscape
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\ufoo"
+        ```
+
+    - name: TooLargeUnicodeCodepoint
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\u{999999}"
+        ```
+
+    - name: InvalidUnicodeCodepoint
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\u{d800}"
+        ```
+
+    - name: MultipleCodepointAtSingleChar
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        ?\u{41 42}
+        ```
+
+    - name: InvalidEscapeCharacter
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\M-"
+        ```
+
+    - name: InvalidHexEscape
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\xZZ"
+        ```
+
+    - name: UnterminatedHeredoc
+      fields:
+        - name: heredoc_id
+          field_type: Str
+          comment: Heredoc identifier
+      comment: |
+        Emitted for code like
+        ```text
+        <<-HERE
+        ```
+
+    - name: UnterminatedHeredocId
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        <<-"HERE
+        ```
+
+    - name: SlashRAtMiddleOfLine
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        eval("foo \r = 42")
+        ```
+
+    - name: DStarInterpretedAsArgPrefix
+      fields: []
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        foo **arg
+        ```
+
+    - name: StarInterpretedAsArgPrefix
+      fields: []
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        foo *arg
+        ```
+
+    - name: AmpersandInterpretedAsArgPrefix
+      fields: []
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        foo &arg
+        ```
+
+    - name: TripleDotAtEol
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        range = 1...
+        ```
+
+    - name: ParenthesesIterpretedAsArglist
+      fields: []
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        def m (a, b, c); end
+        ```
+
+    - name: AmbiguousFirstArgument
+      fields:
+        - name: operator
+          field_type: Byte
+          comment: Operator that is ambiguous
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        m +foo
+        ```
+
+    - name: AmbiguousOperator
+      fields:
+        - name: operator
+          field_type: Str
+          comment: Operator that is ambiguous
+        - name: interpreted_as
+          field_type: Str
+          comment: Interpretation of this operator
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        1 *2
+        ```
+
+    - name: InvalidCharacterSyntax
+      fields:
+        - name: suggestion
+          field_type: Str
+          comment: Valid syntax sugestions
+      comment: |
+        Emitted for code like
+        ```text
+        "\M- "
+        ```
+
+    - name: InvalidOctalDigit
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        09
+        ```
+
+    - name: TrailingCharInNumber
+      fields:
+        - name: c
+          field_type: Byte
+          comment: Invalid trailing char
+      comment: |
+        Emitted for code like
+        ```text
+        0_a
+        ```
+
+    - name: EmbeddedDocumentMeetsEof
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        =begin
+        ```
+
+    - name: InvalidChar
+      fields:
+        - name: c
+          field_type: Byte
+          comment: char
+      comment: |
+        Emitted for code like
+        ```text
+        eval("\x01foo")
+        ```
+
+    - name: IncompleteCharacterSyntax
+      fields: []
+      comment: |
+        It is unknown how to trigger this error.
+        Code that triggers it in MRI can be dead.
+
+    - name: GvarWithoutId
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        $
+        ```
+
+    - name: InvalidGvarName
+      fields:
+        - name: c
+          field_type: Byte
+          comment: char after `$`
+      comment: |
+        Emitted for code like
+        ```text
+        $@
+        ```
+
+    - name: IvarWithoutId
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        @
+        ```
+
+    - name: InvalidIvarName
+      fields:
+        - name: c
+          field_type: Byte
+          comment: char after `@`
+      comment: |
+        Emitted for code like
+        ```text
+        @1
+        ```
+
+    - name: CvarWithoutId
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        @@
+        ```
+
+    - name: InvalidCvarName
+      fields:
+        - name: c
+          field_type: Byte
+          comment: char after `@@`
+      comment: |
+        Emitted for code like
+        ```text
+        @@1
+        ```
+
+    - name: UnknownRegexOptions
+      fields:
+        - name: options
+          field_type: Str
+          comment: Concatenated unknown options
+      comment: |
+        Emitted for code like
+        ```text
+        /re/foo
+        ```
+
+    - name: UnterminatedUnicodeEscape
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        "\u{1234"
+        ```
+
+    - name: EncodingError
+      fields:
+        - name: error
+          field_type: Str
+          comment: Error from decoder
+      comment: |
+        Emitted for code like
+        ```text
+        # encoding: foo
+        ```
+
+    - name: InvalidMultibyteChar
+      fields: []
+      comment: |
+        Emitter for code like
+        ```text
+        eval("\xFF = 42")
+        ```
+
+- name: Lexer warnings
+  messages:
+    - name: AmbiguousTernaryOperator
+      fields:
+        - name: condition
+          field_type: Str
+          comment: Source of the condition expression
+      comment: |
+        Emitted for code like
+        ```text
+        a ?AA : 2
+        ```
+
+    - name: AmbiguousRegexp
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        m /foo/
+        ```
+
+- name: Parser errors
+  messages:
+    - name: ElseWithoutRescue
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        begin; else; end
+        ```
+
+    - name: BeginNotAtTopLevel
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def f; BEGIN{}; end
+        ```
+
+    - name: AliasNthRef
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        alias $a $1
+        ```
+
+    - name: CsendInsideMasgn
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        *a&.x = 0
+        ```
+
+    - name: ClassOrModuleNameMustBeConstant
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        module foo; end
+        ```
+
+    - name: EndlessSetterDefinition
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo=() = 42
+        ```
+
+    - name: UnexpectedToken
+      fields:
+        - name: token_name
+          field_type: Str
+          comment: Name of the token
+      comment: |
+        Emitted for any code that produces invalid sequence of tokens
+
+    - name: ClassDefinitionInMethodBody
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def a; class Foo; end; end
+        ```
+
+    - name: ModuleDefinitionInMethodBody
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def a; module Foo; end; end
+        ```
+
+    - name: InvalidReturnInClassOrModuleBody
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        class A; return; end
+        ```
+
+    - name: ConstArgument
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo(Abc); end
+        ```
+
+    - name: IvarArgument
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo(@abc); end
+        ```
+
+    - name: GvarArgument
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo($abc); end
+        ```
+
+    - name: CvarArgument
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo(@@abc); end
+        ```
+
+    - name: NoSuchLocalVariable
+      fields:
+        - name: var_name
+          field_type: Str
+          comment: Variable name
+      comment: |
+        Emitted for code like
+        ```text
+        case 0; in ^a; true; end
+        ```
+
+    - name: OrdinaryParamDefined
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        m { |a| _1 }
+        ```
+
+    - name: NumparamUsed
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        foo { _1; bar { _2 }; }
+        ```
+
+    - name: TokAtEolWithoutExpression
+      fields:
+        - name: token_name
+          field_type: Str
+          comment: Name of the token
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        if
+        42
+        end
+        ```
+
+- name: Parser warnings
+  messages:
+    - name: EndInMethod
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def m; END {}; end
+        ```
+
+    - name: ComparisonAfterComparison
+      fields:
+        - name: comparison
+          field_type: Str
+          comment: Source of the first comparison
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        a < b < c
+        ```
+
+- name: Builder errors
+  messages:
+    - name: CircularArgumentReference
+      fields:
+        - name: arg_name
+          field_type: Str
+          comment: Name of the argument
+      comment: |
+        Emitted for code like
+        ```text
+        def m(foo = foo) end
+        ```
+
+    - name: DynamicConstantAssignment
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def m; FOO = 1; end
+        ```
+
+    - name: CantAssignToSelf
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        self = foo
+        ```
+
+    - name: CantAssignToNil
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        nil = foo
+        ```
+
+    - name: CantAssignToTrue
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        true = foo
+        ```
+
+    - name: CantAssignToFalse
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        false = foo
+        ```
+
+    - name: CantAssignToFile
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        __FILE__ = foo
+        ```
+
+    - name: CantAssignToLine
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        __LINE__ = foo
+        ```
+
+    - name: CantAssignToEncoding
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        __ENCODING__ = foo
+        ```
+
+    - name: CantAssignToNumparam
+      fields:
+        - name: numparam
+          field_type: Str
+          comment: Source of the numbered parameter
+      comment: |
+        Emitted for code like
+        ```text
+        proc {_1; _1 = nil}
+        ```
+
+    - name: CantSetVariable
+      fields:
+        - name: var_name
+          field_type: Str
+          comment: Source of the read-only variable that is assigned
+      comment: |
+        Emitted for code like
+        ```text
+        $1 = foo
+        ```
+
+    - name: BlockGivenToYield
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        yield(&foo)
+        ```
+
+    - name: BlockAndBlockArgGiven
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        fun(&bar) do end
+        ```
+
+    - name: SymbolLiteralWithInterpolation
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        case a; in "#{a}": 1; end
+        ```
+
+    - name: ReservedForNumparam
+      fields:
+        - name: numparam
+          field_type: Str
+          comment: Numbered parameter that is treated as a local variable
+      comment: |
+        Emitted for code like
+        ```text
+        _1 = 1
+        ```
+
+    - name: KeyMustBeValidAsLocalVariable
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        case a; in a?:; end
+        ```
+
+    - name: DuplicateVariableName
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        case 0; in a, a; end
+        ```
+
+    - name: DuplicateKeyName
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        case 0; in a: 1, a: 2; end
+        ```
+
+    - name: SingletonLiteral
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def (1).foo; end
+        ```
+
+    - name: NthRefIsTooBig
+      fields:
+        - name: nth_ref
+          field_type: Str
+          comment: Source of the nth_ref that is techincally a regular global variable
+      comment: |
+        Emitted for code like (only in $VERBOSE mode)
+        ```text
+        $100
+        ```
+
+    - name: DuplicatedArgumentName
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        def foo(aa, aa); end
+        ```
+
+    - name: RegexError
+      fields:
+        - name: error
+          field_type: Str
+          comment: Error from Onigurama engine
+      comment: |
+        Emitted for code like
+        ```text
+        /[/
+        ```
+
+    - name: InvalidSymbol
+      fields:
+        - name: symbol
+          field_type: Str
+          comment: Source of the symbol
+      comment: |
+        Emitted for code like
+        ```text
+        %I"x .\xc3."
+        ```
+
+    - name: VoidValueExpression
+      fields: []
+      comment: |
+        Emitted for code like
+        ```text
+        a = return
+        ```
