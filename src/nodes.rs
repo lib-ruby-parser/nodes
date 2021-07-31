@@ -41,7 +41,7 @@ impl Node {
 }
 
 #[derive(Deserialize, Debug, Clone)]
-pub struct NodeFieldList(Vec<NodeField>);
+pub struct NodeFieldList(pub Vec<NodeField>);
 
 impl NodeFieldList {
     pub fn any_field_has_type(&self, field_type: NodeFieldType) -> bool {
