@@ -5,7 +5,7 @@ edition = "2018"
 license = "MIT"
 name = "lib-ruby-parser-nodes"
 repository = "https://github.com/lib-ruby-parser/nodes"
-version = "0.15.0"
+version = "0.16.0"
 
 [dependencies]
 serde = {version = "1.0", features = ["derive"]}
