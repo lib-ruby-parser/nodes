@@ -51,6 +51,10 @@ impl NodeFieldList {
     pub fn map(&self, f: &dyn Fn(&NodeField) -> String) -> Vec<String> {
         self.0.iter().map(f).collect()
     }
+
+    pub fn flat_map(&self, f: &dyn Fn(&NodeField) -> Vec<String>) -> Vec<String> {
+        self.0.iter().flat_map(f).collect()
+    }
 }
 
 #[derive(Debug, Clone, Deserialize)]
