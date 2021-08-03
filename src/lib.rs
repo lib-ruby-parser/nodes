@@ -29,15 +29,19 @@ pub fn nodes() -> NodeList {
     NodeList::new(nodes)
 }
 
-pub fn messages() -> SectionList {
+pub fn message_sections() -> SectionList {
     let messages_yaml = yaml_file("messages.yaml");
     let sections: Vec<Section> = serde_yaml::from_reader(messages_yaml).unwrap();
     SectionList::new(sections)
 }
 
+pub fn messages() -> MessageList {
+    message_sections().messages()
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{messages, nodes};
+    use super::{message_sections, messages, nodes};
 
     #[test]
     fn test_nodes() {
@@ -45,11 +49,16 @@ mod tests {
     }
 
     #[test]
-    fn test_messages() {
-        let messages = messages();
-        assert!(messages.0.len() > 0);
-        for section in messages.0.iter() {
+    fn test_message_sections() {
+        let message_sections = message_sections();
+        assert!(message_sections.0.len() > 0);
+        for section in message_sections.0.iter() {
             assert!(section.messages.0.len() > 0);
         }
+    }
+
+    #[test]
+    fn test_messages() {
+        assert!(messages().0.len() > 0)
     }
 }
