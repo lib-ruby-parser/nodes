@@ -2500,7 +2500,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "false",
+            struct_name: "False",
             str_type: "false",
             filename: "false_",
             fields: NodeFieldList(
@@ -7219,7 +7219,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "true",
+            struct_name: "True",
             str_type: "true",
             filename: "true_",
             fields: NodeFieldList(
