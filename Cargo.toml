@@ -5,6 +5,6 @@ edition = "2018"
 license = "MIT"
 name = "lib-ruby-parser-nodes"
 repository = "https://github.com/lib-ruby-parser/nodes"
-version = "0.19.0"
+version = "0.20.0"
 
 [dependencies]
