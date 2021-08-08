@@ -1,41 +1,22 @@
-extern crate serde;
-extern crate serde_yaml;
-
-use std::path::Path;
-
 pub mod comment;
 pub mod helpers;
 mod messages;
+mod messages_data;
 mod nodes;
+mod nodes_data;
 
 pub use messages::*;
 pub use nodes::*;
 
-fn yaml_file(yaml: &str) -> std::fs::File {
-    let path = Path::new(file!())
-        .parent()
-        .unwrap()
-        .join(yaml)
-        .to_str()
-        .unwrap()
-        .to_owned();
-
-    std::fs::File::open(&path).unwrap()
-}
-
 pub fn nodes() -> NodeList {
-    let nodes_yaml = yaml_file("nodes.yaml");
-    let nodes: Vec<Node> = serde_yaml::from_reader(nodes_yaml).unwrap();
-    NodeList::new(nodes)
+    nodes_data::ALL_NODES
 }
 
 pub fn message_sections() -> SectionList {
-    let messages_yaml = yaml_file("messages.yaml");
-    let sections: Vec<Section> = serde_yaml::from_reader(messages_yaml).unwrap();
-    SectionList::new(sections)
+    messages_data::ALL_SECTIONS
 }
 
-pub fn messages() -> MessageList {
+pub fn messages() -> DynamicMessageList {
     message_sections().messages()
 }
 

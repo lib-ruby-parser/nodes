@@ -1,13 +1,7 @@
-use serde::Deserialize;
-
 #[derive(Debug, Clone)]
-pub struct NodeList(pub Vec<Node>);
+pub struct NodeList(pub &'static [Node]);
 
 impl NodeList {
-    pub(crate) fn new(nodes: Vec<Node>) -> Self {
-        Self(nodes)
-    }
-
     pub fn map(&self, f: &dyn Fn(&Node) -> String) -> Vec<String> {
         self.0.iter().map(f).collect()
     }
@@ -17,13 +11,13 @@ impl NodeList {
     }
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Debug, Clone)]
 pub struct Node {
-    pub struct_name: String,
-    pub str_type: String,
-    pub filename: String,
+    pub struct_name: &'static str,
+    pub str_type: &'static str,
+    pub filename: &'static str,
     pub fields: NodeFieldList,
-    pub comment: String,
+    pub comment: &'static [&'static str],
 }
 
 impl Node {
@@ -44,8 +38,8 @@ impl Node {
     }
 }
 
-#[derive(Deserialize, Debug, Clone)]
-pub struct NodeFieldList(pub Vec<NodeField>);
+#[derive(Debug, Clone)]
+pub struct NodeFieldList(pub &'static [NodeField]);
 
 impl NodeFieldList {
     pub fn any_field_has_type(&self, field_type: NodeFieldType) -> bool {
@@ -61,12 +55,12 @@ impl NodeFieldList {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct NodeField {
-    pub field_name: String,
+    pub field_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
-    pub comment: String,
+    pub comment: &'static [&'static str],
 }
 
 impl NodeField {
@@ -75,7 +69,7 @@ impl NodeField {
     }
 }
 
-#[derive(PartialEq, Clone, Deserialize, Debug)]
+#[derive(PartialEq, Clone, Debug)]
 pub enum NodeFieldType {
     Node,
     Nodes,

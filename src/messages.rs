@@ -1,13 +1,7 @@
-use serde::Deserialize;
-
 #[derive(Debug, Clone)]
-pub struct SectionList(pub Vec<Section>);
+pub struct SectionList(pub &'static [Section]);
 
 impl SectionList {
-    pub(crate) fn new(sections: Vec<Section>) -> Self {
-        Self(sections)
-    }
-
     pub fn map(&self, f: &dyn Fn(&Section) -> String) -> Vec<String> {
         self.0.iter().map(f).collect()
     }
@@ -16,22 +10,22 @@ impl SectionList {
         self.0.iter().flat_map(f).collect()
     }
 
-    pub fn messages(&self) -> MessageList {
-        let messages: Vec<Message> = self.0.iter().flat_map(|s| s.messages.0.clone()).collect();
-        MessageList(messages)
+    pub fn messages(&self) -> DynamicMessageList {
+        let messages: Vec<Message> = self.0.iter().flat_map(|s| s.messages.0.to_vec()).collect();
+        DynamicMessageList(messages)
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct Section {
-    pub name: String,
-    pub messages: MessageList,
+    pub name: &'static str,
+    pub messages: BuiltinMessageList,
 }
 
-#[derive(Debug, Clone, Deserialize)]
-pub struct MessageList(pub Vec<Message>);
+#[derive(Debug, Clone)]
+pub struct BuiltinMessageList(pub &'static [Message]);
 
-impl MessageList {
+impl BuiltinMessageList {
     pub fn map(&self, f: &dyn Fn(&Message) -> String) -> Vec<String> {
         self.0.iter().map(f).collect()
     }
@@ -41,11 +35,24 @@ impl MessageList {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
+pub struct DynamicMessageList(pub Vec<Message>);
+
+impl DynamicMessageList {
+    pub fn map(&self, f: &dyn Fn(&Message) -> String) -> Vec<String> {
+        self.0.iter().map(f).collect()
+    }
+
+    pub fn flat_map(&self, f: &dyn Fn(&Message) -> Vec<String>) -> Vec<String> {
+        self.0.iter().flat_map(f).collect()
+    }
+}
+
+#[derive(Debug, Clone)]
 pub struct Message {
-    pub name: String,
+    pub name: &'static str,
     pub fields: MessageFieldList,
-    pub comment: String,
+    pub comment: &'static [&'static str],
 }
 
 impl Message {
@@ -66,8 +73,8 @@ impl Message {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
-pub struct MessageFieldList(pub Vec<MessageField>);
+#[derive(Debug, Clone)]
+pub struct MessageFieldList(pub &'static [MessageField]);
 
 impl MessageFieldList {
     pub fn map(&self, f: &dyn Fn(&MessageField) -> String) -> Vec<String> {
@@ -79,11 +86,11 @@ impl MessageFieldList {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct MessageField {
-    pub name: String,
+    pub name: &'static str,
     pub field_type: MessageFieldType,
-    pub comment: String,
+    pub comment: &'static [&'static str],
 }
 
 impl MessageField {
@@ -92,7 +99,7 @@ impl MessageField {
     }
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone)]
 pub enum MessageFieldType {
     Str,
     Byte,
