@@ -1433,7 +1433,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        field_name: "const_",
+                        field_name: "const",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4759,7 +4759,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        field_name: "as_",
+                        field_name: "as",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -6240,7 +6240,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        field_name: "else_",
+                        field_name: "else",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6621,7 +6621,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            camelcase_name: "Self_",
+            camelcase_name: "Self",
             wqp_name: "self",
             fields: NodeFieldList(
                 &[
