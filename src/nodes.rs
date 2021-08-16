@@ -13,9 +13,8 @@ impl NodeList {
 
 #[derive(Debug, Clone)]
 pub struct Node {
-    pub struct_name: &'static str,
-    pub str_type: &'static str,
-    pub filename: &'static str,
+    pub camelcase_name: &'static str,
+    pub wqp_name: &'static str,
     pub fields: NodeFieldList,
     pub comment: &'static [&'static str],
 }
@@ -25,16 +24,12 @@ impl Node {
         crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
     }
 
-    pub fn camelcase_name(&self) -> String {
-        self.struct_name.to_string()
-    }
-
     pub fn upper_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_uppercase()
+        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_uppercase()
     }
 
     pub fn lower_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_lowercase()
+        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_lowercase()
     }
 }
 
@@ -73,17 +68,13 @@ impl NodeField {
 pub enum NodeFieldType {
     Node,
     Nodes,
-    MaybeNode,
+    MaybeNode { regexp_options: bool },
     Loc,
     MaybeLoc,
-    Str,
-    MaybeStr,
-    Chars,
+    Str { raw: bool },
+    MaybeStr { chars: bool },
     StringValue,
     U8,
-    Usize,
-    RawString,
-    RegexOptions,
 }
 
 impl NodeFieldType {}

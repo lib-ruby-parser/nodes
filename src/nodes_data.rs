@@ -3,9 +3,8 @@ use crate::{Node, NodeField, NodeFieldList, NodeFieldType, NodeList};
 pub(crate) const ALL_NODES: NodeList = NodeList(
     &[
         Node {
-            struct_name: "Alias",
-            str_type: "alias",
-            filename: "alias",
+            camelcase_name: "Alias",
+            wqp_name: "alias",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -66,9 +65,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "AndAsgn",
-            str_type: "and_asgn",
-            filename: "and_asgn",
+            camelcase_name: "AndAsgn",
+            wqp_name: "and_asgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -129,9 +127,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "And",
-            str_type: "and",
-            filename: "and",
+            camelcase_name: "And",
+            wqp_name: "and",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -192,14 +189,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Arg",
-            str_type: "arg",
-            filename: "arg",
+            camelcase_name: "Arg",
+            wqp_name: "arg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the argument"
@@ -230,9 +226,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Args",
-            str_type: "args",
-            filename: "args",
+            camelcase_name: "Args",
+            wqp_name: "args",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -300,9 +295,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Array",
-            str_type: "array",
-            filename: "array",
+            camelcase_name: "Array",
+            wqp_name: "array",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -364,9 +358,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ArrayPattern",
-            str_type: "array_pattern",
-            filename: "array_pattern",
+            camelcase_name: "ArrayPattern",
+            wqp_name: "array_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -432,9 +425,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ArrayPatternWithTail",
-            str_type: "array_pattern_with_tail",
-            filename: "array_pattern_with_tail",
+            camelcase_name: "ArrayPatternWithTail",
+            wqp_name: "array_pattern_with_tail",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -502,14 +494,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "BackRef",
-            str_type: "back_ref",
-            filename: "back_ref",
+            camelcase_name: "BackRef",
+            wqp_name: "back_ref",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the variable (`\"$+\"` for `$+`)"
@@ -542,9 +533,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Begin",
-            str_type: "begin",
-            filename: "begin",
+            camelcase_name: "Begin",
+            wqp_name: "begin",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -620,9 +610,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Block",
-            str_type: "block",
-            filename: "block",
+            camelcase_name: "Block",
+            wqp_name: "block",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -638,7 +627,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "args",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "A list of argument that block takes",
@@ -651,7 +640,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Block body, `None` if block has no body."
@@ -708,9 +697,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "BlockPass",
-            str_type: "block_pass",
-            filename: "block_pass",
+            camelcase_name: "BlockPass",
+            wqp_name: "block_pass",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -760,14 +748,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Blockarg",
-            str_type: "blockarg",
-            filename: "blockarg",
+            camelcase_name: "Blockarg",
+            wqp_name: "blockarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the argument, `String(\"foo\")` for `def m(&foo)`"
@@ -824,9 +811,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Break",
-            str_type: "break",
-            filename: "break_",
+            camelcase_name: "Break",
+            wqp_name: "break",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -874,14 +860,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Case",
-            str_type: "case",
-            filename: "case",
+            camelcase_name: "Case",
+            wqp_name: "case",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "expr",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Expression given to `case`, `Int(\"1\")` for `case 1; end`",
@@ -906,7 +891,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "else_body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the `else` branch, `None` if there's no `else` branch"
@@ -979,9 +964,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "CaseMatch",
-            str_type: "case_match",
-            filename: "case_match",
+            camelcase_name: "CaseMatch",
+            wqp_name: "case_match",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1011,7 +995,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "else_body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the `else` branch, `None` if there's no `else` branch"
@@ -1084,14 +1068,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Casgn",
-            str_type: "casgn",
-            filename: "casgn",
+            camelcase_name: "Casgn",
+            wqp_name: "casgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "scope",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Scope where the constant is defined:",
@@ -1103,7 +1086,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the constant, `String(\"A\")` for `A = 1`"
@@ -1112,7 +1095,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned to a constant, `Int(\"1\")` for `A = 1`.",
@@ -1194,9 +1177,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Cbase",
-            str_type: "cbase",
-            filename: "cbase",
+            camelcase_name: "Cbase",
+            wqp_name: "cbase",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1221,9 +1203,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Class",
-            str_type: "class",
-            filename: "class",
+            camelcase_name: "Class",
+            wqp_name: "class",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1237,7 +1218,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "superclass",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Superclass. Can be an expression in cases like `class A < (obj.foo + 1); end`",
@@ -1248,7 +1229,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the method, `None` if there's no body."
@@ -1321,14 +1302,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Complex",
-            str_type: "complex",
-            filename: "complex",
+            camelcase_name: "Complex",
+            wqp_name: "complex",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Value of the complex literal, returned as a `String`, `String(\"1i\")` for `1i`"
@@ -1373,14 +1353,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Const",
-            str_type: "const",
-            filename: "const_",
+            camelcase_name: "Const",
+            wqp_name: "const",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "scope",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Scope where the constant is taken from:",
@@ -1392,7 +1371,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the constant, `String(\"Foo\")` for `Foo`"
@@ -1449,9 +1428,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ConstPattern",
-            str_type: "const_pattern",
-            filename: "const_pattern",
+            camelcase_name: "ConstPattern",
+            wqp_name: "const_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1524,9 +1502,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "CSend",
-            str_type: "csend",
-            filename: "csend",
+            camelcase_name: "CSend",
+            wqp_name: "csend",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1540,7 +1517,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "method_name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the method, `String(\"foo\")` for `1&.foo`"
@@ -1662,14 +1639,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Cvar",
-            str_type: "cvar",
-            filename: "cvar",
+            camelcase_name: "Cvar",
+            wqp_name: "cvar",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the class variable, `String(\"@@foo\")` for `@@foo`"
@@ -1698,14 +1674,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Cvasgn",
-            str_type: "cvasgn",
-            filename: "cvasgn",
+            camelcase_name: "Cvasgn",
+            wqp_name: "cvasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the class variable, `String(\"@@foo\")` for `@@foo = 1`"
@@ -1714,7 +1689,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned to class variable, `Int(\"1\")` for `@@foo = 1`"
@@ -1771,14 +1746,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Def",
-            str_type: "def",
-            filename: "def",
+            camelcase_name: "Def",
+            wqp_name: "def",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the method, `String(\"foo\")` for `def foo; end`"
@@ -1787,7 +1761,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "args",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Arguments of a method, `None` if there's no arguments.",
@@ -1798,7 +1772,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of a method, `None` if there's no body."
@@ -1887,9 +1861,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Defined",
-            str_type: "defined?",
-            filename: "defined",
+            camelcase_name: "Defined",
+            wqp_name: "defined?",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1969,9 +1942,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Defs",
-            str_type: "defs",
-            filename: "defs",
+            camelcase_name: "Defs",
+            wqp_name: "defs",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -1985,7 +1957,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the method, `String(\"foo\")` for `def x.foo; end`"
@@ -1994,7 +1966,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "args",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Arguments of a method, `None` if there's no arguments.",
@@ -2005,7 +1977,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the method, `None` if there's no body."
@@ -2108,9 +2080,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Dstr",
-            str_type: "dstr",
-            filename: "dstr",
+            camelcase_name: "Dstr",
+            wqp_name: "dstr",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2181,9 +2152,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Dsym",
-            str_type: "dsym",
-            filename: "dsym",
+            camelcase_name: "Dsym",
+            wqp_name: "dsym",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2257,14 +2227,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "EFlipFlop",
-            str_type: "eflipflop",
-            filename: "eflipflop",
+            camelcase_name: "EFlipFlop",
+            wqp_name: "eflipflop",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "left",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Left part of the flip-flop. `None` if based on a range without begin (`...bar`)"
@@ -2273,7 +2242,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "right",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Right part of the flip-flop. `None` if based on a range without end (`foo...`)"
@@ -2316,9 +2285,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "EmptyElse",
-            str_type: "empty_else",
-            filename: "empty_else",
+            camelcase_name: "EmptyElse",
+            wqp_name: "empty_else",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2348,9 +2316,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Encoding",
-            str_type: "__ENCODING__",
-            filename: "encoding_",
+            camelcase_name: "Encoding",
+            wqp_name: "__ENCODING__",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2375,14 +2342,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Ensure",
-            str_type: "ensure",
-            filename: "ensure",
+            camelcase_name: "Ensure",
+            wqp_name: "ensure",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Block of code that is wrapped into `ensure`",
@@ -2394,7 +2360,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "ensure",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the `ensure` block",
@@ -2441,14 +2407,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Erange",
-            str_type: "erange",
-            filename: "erange",
+            camelcase_name: "Erange",
+            wqp_name: "erange",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "left",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Begin of the range, `None` if range has no begin (i.e `...42`)"
@@ -2457,7 +2422,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "right",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "End of the range, `None` if range has no end (i.e `42...`)"
@@ -2500,9 +2465,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "False",
-            str_type: "false",
-            filename: "false_",
+            camelcase_name: "False",
+            wqp_name: "false",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2527,9 +2491,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "File",
-            str_type: "__FILE__",
-            filename: "file",
+            camelcase_name: "File",
+            wqp_name: "__FILE__",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2554,9 +2517,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "FindPattern",
-            str_type: "find_pattern",
-            filename: "find_pattern",
+            camelcase_name: "FindPattern",
+            wqp_name: "find_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2624,14 +2586,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Float",
-            str_type: "float",
-            filename: "float",
+            camelcase_name: "Float",
+            wqp_name: "float",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "String value of the literal, `String(\"42.5\")` for `42.5`"
@@ -2674,9 +2635,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "For",
-            str_type: "for",
-            filename: "for_",
+            camelcase_name: "For",
+            wqp_name: "for",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2699,7 +2659,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the loop. `None` if there's no body"
@@ -2786,9 +2746,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ForwardArg",
-            str_type: "forward_arg",
-            filename: "forward_arg",
+            camelcase_name: "ForwardArg",
+            wqp_name: "forward_arg",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2813,9 +2772,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ForwardedArgs",
-            str_type: "forwarded_args",
-            filename: "forwarded_args",
+            camelcase_name: "ForwardedArgs",
+            wqp_name: "forwarded_args",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -2840,14 +2798,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Gvar",
-            str_type: "gvar",
-            filename: "gvar",
+            camelcase_name: "Gvar",
+            wqp_name: "gvar",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the global variable, `String(\"$foo\")` for `$foo`"
@@ -2876,14 +2833,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Gvasgn",
-            str_type: "gvasgn",
-            filename: "gvasgn",
+            camelcase_name: "Gvasgn",
+            wqp_name: "gvasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the global variable, `String(\"$foo\")` for `$foo`"
@@ -2892,7 +2848,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned to global variable, `Int(\"42\")` for `$foo = 42`",
@@ -2955,9 +2911,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Hash",
-            str_type: "hash",
-            filename: "hash",
+            camelcase_name: "Hash",
+            wqp_name: "hash",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3023,9 +2978,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwargs",
-            str_type: "kwargs",
-            filename: "kwargs",
+            camelcase_name: "Kwargs",
+            wqp_name: "kwargs",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3059,9 +3013,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "HashPattern",
-            str_type: "hash_pattern",
-            filename: "hash_pattern",
+            camelcase_name: "HashPattern",
+            wqp_name: "hash_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3127,9 +3080,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Heredoc",
-            str_type: "dstr",
-            filename: "heredoc",
+            camelcase_name: "Heredoc",
+            wqp_name: "dstr",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3202,9 +3154,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "If",
-            str_type: "if",
-            filename: "if_",
+            camelcase_name: "If",
+            wqp_name: "if",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3218,7 +3169,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "if_true",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "True-branch of the `if` statement, `Lvar(\"b\")` for `if a; b; else; c; end`"
@@ -3227,7 +3178,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "if_false",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "False-branch of the `if` statement, `Lvar(\"c\")` for `if a; b; else; c; end`"
@@ -3316,9 +3267,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "IfGuard",
-            str_type: "if_guard",
-            filename: "if_guard",
+            camelcase_name: "IfGuard",
+            wqp_name: "if_guard",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3366,9 +3316,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "IfMod",
-            str_type: "if",
-            filename: "if_mod",
+            camelcase_name: "IfMod",
+            wqp_name: "if",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3382,7 +3331,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "if_true",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "True-branch of the modifier.",
@@ -3394,7 +3343,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "if_false",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "False-branch of the modifier.",
@@ -3446,9 +3395,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "IfTernary",
-            str_type: "if",
-            filename: "if_ternary",
+            camelcase_name: "IfTernary",
+            wqp_name: "if",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3528,14 +3476,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "IFlipFlop",
-            str_type: "iflipflop",
-            filename: "iflipflop",
+            camelcase_name: "IFlipFlop",
+            wqp_name: "iflipflop",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "left",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Left part of the flip-flop. `None` if based on a range without begin (`..bar`)"
@@ -3544,7 +3491,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "right",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Right part of the flip-flop. `None` if based on a range without end (`foo..`)"
@@ -3587,9 +3534,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchPattern",
-            str_type: "match_pattern",
-            filename: "match_pattern",
+            camelcase_name: "MatchPattern",
+            wqp_name: "match_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3646,9 +3592,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchPatternP",
-            str_type: "match_pattern_p",
-            filename: "match_pattern_p",
+            camelcase_name: "MatchPatternP",
+            wqp_name: "match_pattern_p",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3705,9 +3650,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "InPattern",
-            str_type: "in_pattern",
-            filename: "in_pattern",
+            camelcase_name: "InPattern",
+            wqp_name: "in_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3721,7 +3665,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "guard",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Guard that is used for matching",
@@ -3732,7 +3676,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the branch that is invoked if value matches pattern"
@@ -3789,9 +3733,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Index",
-            str_type: "index",
-            filename: "index",
+            camelcase_name: "Index",
+            wqp_name: "index",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3862,9 +3805,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "IndexAsgn",
-            str_type: "indexasgn",
-            filename: "index_asgn",
+            camelcase_name: "IndexAsgn",
+            wqp_name: "indexasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -3887,7 +3829,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned",
@@ -3964,14 +3906,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Int",
-            str_type: "int",
-            filename: "int",
+            camelcase_name: "Int",
+            wqp_name: "int",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "String value of the literal, `String(\"42\")` for `42`"
@@ -4014,14 +3955,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Irange",
-            str_type: "irange",
-            filename: "irange",
+            camelcase_name: "Irange",
+            wqp_name: "irange",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "left",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Begin of the range, `None` if range has no `begin` (i.e. `..4`)"
@@ -4030,7 +3970,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "right",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "End of the range, `None` if range has no `end` (i.e. `2..`)"
@@ -4073,14 +4013,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Ivar",
-            str_type: "ivar",
-            filename: "ivar",
+            camelcase_name: "Ivar",
+            wqp_name: "ivar",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the instance variable, `String(\"@foo\")` in `@foo`"
@@ -4109,14 +4048,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Ivasgn",
-            str_type: "ivasgn",
-            filename: "ivasgn",
+            camelcase_name: "Ivasgn",
+            wqp_name: "ivasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the instance variable, `String(\"@foo\")` in `@foo = 42`"
@@ -4125,7 +4063,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned to instance variable.",
@@ -4188,14 +4126,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwarg",
-            str_type: "kwarg",
-            filename: "kwarg",
+            camelcase_name: "Kwarg",
+            wqp_name: "kwarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the keyword argument"
@@ -4238,9 +4175,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "KwBegin",
-            str_type: "kwbegin",
-            filename: "kwbegin",
+            camelcase_name: "KwBegin",
+            wqp_name: "kwbegin",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4308,9 +4244,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwnilarg",
-            str_type: "kwnilarg",
-            filename: "kwnilarg",
+            camelcase_name: "Kwnilarg",
+            wqp_name: "kwnilarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4349,14 +4284,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwoptarg",
-            str_type: "kwoptarg",
-            filename: "kwoptarg",
+            camelcase_name: "Kwoptarg",
+            wqp_name: "kwoptarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the optional keyword argument"
@@ -4408,14 +4342,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwrestarg",
-            str_type: "kwrestarg",
-            filename: "kwrestarg",
+            camelcase_name: "Kwrestarg",
+            wqp_name: "kwrestarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::MaybeStr,
+                        field_type: NodeFieldType::MaybeStr { chars: false },
                         always_print: false,
                         comment: &[
                             "Name of the keyword rest argument, `String(\"foo\")` in `def m(**foo); end`.",
@@ -4476,9 +4409,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Kwsplat",
-            str_type: "kwsplat",
-            filename: "kwsplat",
+            camelcase_name: "Kwsplat",
+            wqp_name: "kwsplat",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4526,9 +4458,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Lambda",
-            str_type: "lambda",
-            filename: "lambda",
+            camelcase_name: "Lambda",
+            wqp_name: "lambda",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4555,9 +4486,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Line",
-            str_type: "__LINE__",
-            filename: "line",
+            camelcase_name: "Line",
+            wqp_name: "__LINE__",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4582,14 +4512,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Lvar",
-            str_type: "lvar",
-            filename: "lvar",
+            camelcase_name: "Lvar",
+            wqp_name: "lvar",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the local variable"
@@ -4625,14 +4554,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Lvasgn",
-            str_type: "lvasgn",
-            filename: "lvasgn",
+            camelcase_name: "Lvasgn",
+            wqp_name: "lvasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the local variable"
@@ -4641,7 +4569,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is assigned to a local variable"
@@ -4701,9 +4629,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Masgn",
-            str_type: "masgn",
-            filename: "masgn",
+            camelcase_name: "Masgn",
+            wqp_name: "masgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4760,9 +4687,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchAlt",
-            str_type: "match_alt",
-            filename: "match_alt",
+            camelcase_name: "MatchAlt",
+            wqp_name: "match_alt",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4819,9 +4745,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchAs",
-            str_type: "match_as",
-            filename: "match_as",
+            camelcase_name: "MatchAs",
+            wqp_name: "match_as",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4878,9 +4803,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchCurrentLine",
-            str_type: "match_current_line",
-            filename: "match_current_line",
+            camelcase_name: "MatchCurrentLine",
+            wqp_name: "match_current_line",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4937,9 +4861,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchNilPattern",
-            str_type: "match_nil_pattern",
-            filename: "match_nil_pattern",
+            camelcase_name: "MatchNilPattern",
+            wqp_name: "match_nil_pattern",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -4992,14 +4915,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchRest",
-            str_type: "match_rest",
-            filename: "match_rest",
+            camelcase_name: "MatchRest",
+            wqp_name: "match_rest",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Name of the variable name",
@@ -5044,14 +4966,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchVar",
-            str_type: "match_var",
-            filename: "match_var",
+            camelcase_name: "MatchVar",
+            wqp_name: "match_var",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the variable that is assigned if matching succeeds"
@@ -5108,9 +5029,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "MatchWithLvasgn",
-            str_type: "match_with_lvasgn",
-            filename: "match_with_lvasgn",
+            camelcase_name: "MatchWithLvasgn",
+            wqp_name: "match_with_lvasgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5169,9 +5089,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Mlhs",
-            str_type: "mlhs",
-            filename: "mlhs",
+            camelcase_name: "Mlhs",
+            wqp_name: "mlhs",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5237,9 +5156,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Module",
-            str_type: "module",
-            filename: "module",
+            camelcase_name: "Module",
+            wqp_name: "module",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5253,7 +5171,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the module",
@@ -5312,9 +5230,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Next",
-            str_type: "next",
-            filename: "next",
+            camelcase_name: "Next",
+            wqp_name: "next",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5361,9 +5278,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Nil",
-            str_type: "nil",
-            filename: "nil",
+            camelcase_name: "Nil",
+            wqp_name: "nil",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5388,14 +5304,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "NthRef",
-            str_type: "nth_ref",
-            filename: "nth_ref",
+            camelcase_name: "NthRef",
+            wqp_name: "nth_ref",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::RawString,
+                        field_type: NodeFieldType::Str { raw: true },
                         always_print: false,
                         comment: &[
                             "Name of the variable, `String(\"1\")` for `$1`"
@@ -5424,9 +5339,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Numblock",
-            str_type: "numblock",
-            filename: "numblock",
+            camelcase_name: "Numblock",
+            wqp_name: "numblock",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5506,9 +5420,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "OpAsgn",
-            str_type: "op_asgn",
-            filename: "op_asgn",
+            camelcase_name: "OpAsgn",
+            wqp_name: "op_asgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5522,7 +5435,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "operator",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Operator, can be one of:",
@@ -5585,14 +5498,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Optarg",
-            str_type: "optarg",
-            filename: "optarg",
+            camelcase_name: "Optarg",
+            wqp_name: "optarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the argument"
@@ -5658,9 +5570,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Or",
-            str_type: "or",
-            filename: "or",
+            camelcase_name: "Or",
+            wqp_name: "or",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5717,9 +5628,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "OrAsgn",
-            str_type: "or_asgn",
-            filename: "or_asgn",
+            camelcase_name: "OrAsgn",
+            wqp_name: "or_asgn",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5776,9 +5686,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Pair",
-            str_type: "pair",
-            filename: "pair",
+            camelcase_name: "Pair",
+            wqp_name: "pair",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5841,9 +5750,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Pin",
-            str_type: "pin",
-            filename: "pin",
+            camelcase_name: "Pin",
+            wqp_name: "pin",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -5891,14 +5799,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Postexe",
-            str_type: "postexe",
-            filename: "postexe",
+            camelcase_name: "Postexe",
+            wqp_name: "postexe",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Body of the block"
@@ -5969,14 +5876,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Preexe",
-            str_type: "preexe",
-            filename: "preexe",
+            camelcase_name: "Preexe",
+            wqp_name: "preexe",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Body of the block"
@@ -6047,9 +5953,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Procarg0",
-            str_type: "procarg0",
-            filename: "procarg0",
+            camelcase_name: "Procarg0",
+            wqp_name: "procarg0",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6122,14 +6027,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Rational",
-            str_type: "rational",
-            filename: "rational",
+            camelcase_name: "Rational",
+            wqp_name: "rational",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "String value of the literal, `String(\"1r\")` for `1r`"
@@ -6172,9 +6076,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Redo",
-            str_type: "redo",
-            filename: "redo",
+            camelcase_name: "Redo",
+            wqp_name: "redo",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6199,14 +6102,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "RegOpt",
-            str_type: "regopt",
-            filename: "reg_opt",
+            camelcase_name: "RegOpt",
+            wqp_name: "regopt",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "options",
-                        field_type: NodeFieldType::Chars,
+                        field_type: NodeFieldType::MaybeStr { chars: true },
                         always_print: false,
                         comment: &[
                             "A list of flags"
@@ -6235,9 +6137,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Regexp",
-            str_type: "regexp",
-            filename: "regexp",
+            camelcase_name: "Regexp",
+            wqp_name: "regexp",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6251,7 +6152,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "options",
-                        field_type: NodeFieldType::RegexOptions,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: true },
                         always_print: false,
                         comment: &[
                             "Regex options.",
@@ -6316,14 +6217,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Rescue",
-            str_type: "rescue",
-            filename: "rescue",
+            camelcase_name: "Rescue",
+            wqp_name: "rescue",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the block that is wrapped into `rescue` (i.e. the part that may throw an error)"
@@ -6341,7 +6241,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "else_",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Else branch.",
@@ -6390,14 +6290,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "RescueBody",
-            str_type: "resbody",
-            filename: "rescue_body",
+            camelcase_name: "RescueBody",
+            wqp_name: "resbody",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "exc_list",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "A list of exception classes",
@@ -6408,7 +6307,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "exc_var",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Variable that captures exception",
@@ -6419,7 +6318,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the handler"
@@ -6494,14 +6393,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Restarg",
-            str_type: "restarg",
-            filename: "restarg",
+            camelcase_name: "Restarg",
+            wqp_name: "restarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::MaybeStr,
+                        field_type: NodeFieldType::MaybeStr { chars: false },
                         always_print: false,
                         comment: &[
                             "Name of the argument.",
@@ -6560,9 +6458,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Retry",
-            str_type: "retry",
-            filename: "retry",
+            camelcase_name: "Retry",
+            wqp_name: "retry",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6587,9 +6484,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Return",
-            str_type: "return",
-            filename: "return_",
+            camelcase_name: "Return",
+            wqp_name: "return",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6637,9 +6533,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "SClass",
-            str_type: "sclass",
-            filename: "sclass",
+            camelcase_name: "SClass",
+            wqp_name: "sclass",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6655,7 +6550,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the block"
@@ -6726,9 +6621,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Self_",
-            str_type: "self",
-            filename: "self_",
+            camelcase_name: "Self_",
+            wqp_name: "self",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -6753,14 +6647,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Send",
-            str_type: "send",
-            filename: "send",
+            camelcase_name: "Send",
+            wqp_name: "send",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "recv",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Receiver of the method call",
@@ -6771,7 +6664,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "method_name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the method that is called"
@@ -6889,14 +6782,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Shadowarg",
-            str_type: "shadowarg",
-            filename: "shadowarg",
+            camelcase_name: "Shadowarg",
+            wqp_name: "shadowarg",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "name",
-                        field_type: NodeFieldType::Str,
+                        field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
                             "Name of the argument"
@@ -6925,14 +6817,13 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Splat",
-            str_type: "splat",
-            filename: "splat",
+            camelcase_name: "Splat",
+            wqp_name: "splat",
             fields: NodeFieldList(
                 &[
                     NodeField {
                         field_name: "value",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
                             "Value that is converted to array"
@@ -6975,9 +6866,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Str",
-            str_type: "str",
-            filename: "str_",
+            camelcase_name: "Str",
+            wqp_name: "str",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7052,9 +6942,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Super",
-            str_type: "super",
-            filename: "super_",
+            camelcase_name: "Super",
+            wqp_name: "super",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7134,9 +7023,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Sym",
-            str_type: "sym",
-            filename: "sym",
+            camelcase_name: "Sym",
+            wqp_name: "sym",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7219,9 +7107,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "True",
-            str_type: "true",
-            filename: "true_",
+            camelcase_name: "True",
+            wqp_name: "true",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7246,9 +7133,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Undef",
-            str_type: "undef",
-            filename: "undef",
+            camelcase_name: "Undef",
+            wqp_name: "undef",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7296,9 +7182,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "UnlessGuard",
-            str_type: "unless_guard",
-            filename: "unless_guard",
+            camelcase_name: "UnlessGuard",
+            wqp_name: "unless_guard",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7346,9 +7231,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Until",
-            str_type: "until",
-            filename: "until",
+            camelcase_name: "Until",
+            wqp_name: "until",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7362,7 +7246,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the loop.",
@@ -7442,9 +7326,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "UntilPost",
-            str_type: "until_post",
-            filename: "until_post",
+            camelcase_name: "UntilPost",
+            wqp_name: "until_post",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7507,9 +7390,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "When",
-            str_type: "when",
-            filename: "when",
+            camelcase_name: "When",
+            wqp_name: "when",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7523,7 +7405,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the `when` branch"
@@ -7582,9 +7464,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "While",
-            str_type: "while",
-            filename: "while_",
+            camelcase_name: "While",
+            wqp_name: "while",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7598,7 +7479,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
 
                     NodeField {
                         field_name: "body",
-                        field_type: NodeFieldType::MaybeNode,
+                        field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
                             "Body of the loop.",
@@ -7678,9 +7559,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "WhilePost",
-            str_type: "while_post",
-            filename: "while_post",
+            camelcase_name: "WhilePost",
+            wqp_name: "while_post",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7743,9 +7623,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "XHeredoc",
-            str_type: "xstr",
-            filename: "x_heredoc",
+            camelcase_name: "XHeredoc",
+            wqp_name: "xstr",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7818,9 +7697,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Xstr",
-            str_type: "xstr",
-            filename: "xstr",
+            camelcase_name: "Xstr",
+            wqp_name: "xstr",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7891,9 +7769,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "Yield",
-            str_type: "yield",
-            filename: "yield_",
+            camelcase_name: "Yield",
+            wqp_name: "yield",
             fields: NodeFieldList(
                 &[
                     NodeField {
@@ -7973,9 +7850,8 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
         },
 
         Node {
-            struct_name: "ZSuper",
-            str_type: "zsuper",
-            filename: "zsuper",
+            camelcase_name: "ZSuper",
+            wqp_name: "zsuper",
             fields: NodeFieldList(
                 &[
                     NodeField {
