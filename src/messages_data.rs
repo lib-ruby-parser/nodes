@@ -10,7 +10,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
             messages: BuiltinMessageList(
                 &[
                     Message {
-                        name: "FractionAfterNumeric",
+                        camelcase_name: "FractionAfterNumeric",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -22,7 +22,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "NoDigitsAfterDot",
+                        camelcase_name: "NoDigitsAfterDot",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -34,7 +34,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnknownTypeOfPercentString",
+                        camelcase_name: "UnknownTypeOfPercentString",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -46,7 +46,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "NumericLiteralWithoutDigits",
+                        camelcase_name: "NumericLiteralWithoutDigits",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -58,7 +58,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedList",
+                        camelcase_name: "UnterminatedList",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -70,7 +70,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedRegexp",
+                        camelcase_name: "UnterminatedRegexp",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -82,7 +82,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedString",
+                        camelcase_name: "UnterminatedString",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -94,7 +94,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedQuotedString",
+                        camelcase_name: "UnterminatedQuotedString",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -108,7 +108,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidUnicodeEscape",
+                        camelcase_name: "InvalidUnicodeEscape",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -120,7 +120,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "TooLargeUnicodeCodepoint",
+                        camelcase_name: "TooLargeUnicodeCodepoint",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -132,7 +132,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidUnicodeCodepoint",
+                        camelcase_name: "InvalidUnicodeCodepoint",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -144,7 +144,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "MultipleCodepointAtSingleChar",
+                        camelcase_name: "MultipleCodepointAtSingleChar",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -156,7 +156,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidEscapeCharacter",
+                        camelcase_name: "InvalidEscapeCharacter",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -168,7 +168,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidHexEscape",
+                        camelcase_name: "InvalidHexEscape",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -180,7 +180,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedHeredoc",
+                        camelcase_name: "UnterminatedHeredoc",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -200,7 +200,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedHeredocId",
+                        camelcase_name: "UnterminatedHeredocId",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -212,7 +212,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "SlashRAtMiddleOfLine",
+                        camelcase_name: "SlashRAtMiddleOfLine",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -224,7 +224,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "DStarInterpretedAsArgPrefix",
+                        camelcase_name: "DStarInterpretedAsArgPrefix",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -236,7 +236,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "StarInterpretedAsArgPrefix",
+                        camelcase_name: "StarInterpretedAsArgPrefix",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -248,7 +248,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "AmpersandInterpretedAsArgPrefix",
+                        camelcase_name: "AmpersandInterpretedAsArgPrefix",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -260,7 +260,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "TripleDotAtEol",
+                        camelcase_name: "TripleDotAtEol",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -272,7 +272,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ParenthesesIterpretedAsArglist",
+                        camelcase_name: "ParenthesesIterpretedAsArglist",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -284,7 +284,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "AmbiguousFirstArgument",
+                        camelcase_name: "AmbiguousFirstArgument",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -304,7 +304,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "AmbiguousOperator",
+                        camelcase_name: "AmbiguousOperator",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -331,7 +331,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidCharacterSyntax",
+                        camelcase_name: "InvalidCharacterSyntax",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -351,7 +351,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidOctalDigit",
+                        camelcase_name: "InvalidOctalDigit",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -363,7 +363,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "TrailingCharInNumber",
+                        camelcase_name: "TrailingCharInNumber",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -383,7 +383,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "EmbeddedDocumentMeetsEof",
+                        camelcase_name: "EmbeddedDocumentMeetsEof",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -395,7 +395,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidChar",
+                        camelcase_name: "InvalidChar",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -415,7 +415,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "IncompleteCharacterSyntax",
+                        camelcase_name: "IncompleteCharacterSyntax",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -425,7 +425,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "GvarWithoutId",
+                        camelcase_name: "GvarWithoutId",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -437,7 +437,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidGvarName",
+                        camelcase_name: "InvalidGvarName",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -457,7 +457,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "IvarWithoutId",
+                        camelcase_name: "IvarWithoutId",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -469,7 +469,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidIvarName",
+                        camelcase_name: "InvalidIvarName",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -489,7 +489,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CvarWithoutId",
+                        camelcase_name: "CvarWithoutId",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -501,7 +501,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidCvarName",
+                        camelcase_name: "InvalidCvarName",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -521,7 +521,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnknownRegexOptions",
+                        camelcase_name: "UnknownRegexOptions",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -541,7 +541,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnterminatedUnicodeEscape",
+                        camelcase_name: "UnterminatedUnicodeEscape",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -553,7 +553,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "EncodingError",
+                        camelcase_name: "EncodingError",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -573,7 +573,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidMultibyteChar",
+                        camelcase_name: "InvalidMultibyteChar",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -592,7 +592,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
             messages: BuiltinMessageList(
                 &[
                     Message {
-                        name: "AmbiguousTernaryOperator",
+                        camelcase_name: "AmbiguousTernaryOperator",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -612,7 +612,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "AmbiguousRegexp",
+                        camelcase_name: "AmbiguousRegexp",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -631,7 +631,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
             messages: BuiltinMessageList(
                 &[
                     Message {
-                        name: "ElseWithoutRescue",
+                        camelcase_name: "ElseWithoutRescue",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -643,7 +643,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "BeginNotAtTopLevel",
+                        camelcase_name: "BeginNotAtTopLevel",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -655,7 +655,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "AliasNthRef",
+                        camelcase_name: "AliasNthRef",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -667,7 +667,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CsendInsideMasgn",
+                        camelcase_name: "CsendInsideMasgn",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -679,7 +679,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ClassOrModuleNameMustBeConstant",
+                        camelcase_name: "ClassOrModuleNameMustBeConstant",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -691,7 +691,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "EndlessSetterDefinition",
+                        camelcase_name: "EndlessSetterDefinition",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -703,7 +703,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "UnexpectedToken",
+                        camelcase_name: "UnexpectedToken",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -720,7 +720,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ClassDefinitionInMethodBody",
+                        camelcase_name: "ClassDefinitionInMethodBody",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -732,7 +732,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ModuleDefinitionInMethodBody",
+                        camelcase_name: "ModuleDefinitionInMethodBody",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -744,7 +744,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidReturnInClassOrModuleBody",
+                        camelcase_name: "InvalidReturnInClassOrModuleBody",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -756,7 +756,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ConstArgument",
+                        camelcase_name: "ConstArgument",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -768,7 +768,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "IvarArgument",
+                        camelcase_name: "IvarArgument",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -780,7 +780,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "GvarArgument",
+                        camelcase_name: "GvarArgument",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -792,7 +792,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CvarArgument",
+                        camelcase_name: "CvarArgument",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -804,7 +804,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "NoSuchLocalVariable",
+                        camelcase_name: "NoSuchLocalVariable",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -824,7 +824,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "OrdinaryParamDefined",
+                        camelcase_name: "OrdinaryParamDefined",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -836,7 +836,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "NumparamUsed",
+                        camelcase_name: "NumparamUsed",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -848,7 +848,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "TokAtEolWithoutExpression",
+                        camelcase_name: "TokAtEolWithoutExpression",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -877,7 +877,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
             messages: BuiltinMessageList(
                 &[
                     Message {
-                        name: "EndInMethod",
+                        camelcase_name: "EndInMethod",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -889,7 +889,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ComparisonAfterComparison",
+                        camelcase_name: "ComparisonAfterComparison",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -916,7 +916,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
             messages: BuiltinMessageList(
                 &[
                     Message {
-                        name: "CircularArgumentReference",
+                        camelcase_name: "CircularArgumentReference",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -936,7 +936,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "DynamicConstantAssignment",
+                        camelcase_name: "DynamicConstantAssignment",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -948,7 +948,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToSelf",
+                        camelcase_name: "CantAssignToSelf",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -960,7 +960,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToNil",
+                        camelcase_name: "CantAssignToNil",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -972,7 +972,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToTrue",
+                        camelcase_name: "CantAssignToTrue",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -984,7 +984,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToFalse",
+                        camelcase_name: "CantAssignToFalse",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -996,7 +996,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToFile",
+                        camelcase_name: "CantAssignToFile",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1008,7 +1008,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToLine",
+                        camelcase_name: "CantAssignToLine",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1020,7 +1020,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToEncoding",
+                        camelcase_name: "CantAssignToEncoding",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1032,7 +1032,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantAssignToNumparam",
+                        camelcase_name: "CantAssignToNumparam",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1052,7 +1052,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "CantSetVariable",
+                        camelcase_name: "CantSetVariable",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1072,7 +1072,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "BlockGivenToYield",
+                        camelcase_name: "BlockGivenToYield",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1084,7 +1084,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "BlockAndBlockArgGiven",
+                        camelcase_name: "BlockAndBlockArgGiven",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1096,7 +1096,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "SymbolLiteralWithInterpolation",
+                        camelcase_name: "SymbolLiteralWithInterpolation",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1108,7 +1108,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "ReservedForNumparam",
+                        camelcase_name: "ReservedForNumparam",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1128,7 +1128,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "KeyMustBeValidAsLocalVariable",
+                        camelcase_name: "KeyMustBeValidAsLocalVariable",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1140,7 +1140,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "DuplicateVariableName",
+                        camelcase_name: "DuplicateVariableName",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1152,7 +1152,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "DuplicateKeyName",
+                        camelcase_name: "DuplicateKeyName",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1164,7 +1164,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "SingletonLiteral",
+                        camelcase_name: "SingletonLiteral",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1176,7 +1176,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "NthRefIsTooBig",
+                        camelcase_name: "NthRefIsTooBig",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1196,7 +1196,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "DuplicatedArgumentName",
+                        camelcase_name: "DuplicatedArgumentName",
                         fields: MessageFieldList(
                             &[],
                         ),
@@ -1208,7 +1208,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "RegexError",
+                        camelcase_name: "RegexError",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1228,7 +1228,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "InvalidSymbol",
+                        camelcase_name: "InvalidSymbol",
                         fields: MessageFieldList(
                             &[
                                 MessageField {
@@ -1248,7 +1248,7 @@ pub const ALL_SECTIONS: SectionList = SectionList(
                         ],
                     },
                     Message {
-                        name: "VoidValueExpression",
+                        camelcase_name: "VoidValueExpression",
                         fields: MessageFieldList(
                             &[],
                         ),

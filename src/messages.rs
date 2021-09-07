@@ -50,7 +50,7 @@ impl DynamicMessageList {
 
 #[derive(Debug, Clone)]
 pub struct Message {
-    pub name: &'static str,
+    pub camelcase_name: &'static str,
     pub fields: MessageFieldList,
     pub comment: &'static [&'static str],
 }
@@ -60,16 +60,12 @@ impl Message {
         crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
     }
 
-    pub fn camelcase_name(&self) -> String {
-        self.name.to_string()
-    }
-
     pub fn upper_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_uppercase()
+        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_uppercase()
     }
 
     pub fn lower_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(&self.camelcase_name()).to_lowercase()
+        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_lowercase()
     }
 }
 
