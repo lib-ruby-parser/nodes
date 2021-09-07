@@ -2,17 +2,23 @@
 pub struct SectionList(pub &'static [Section]);
 
 impl SectionList {
-    pub fn map(&self, f: &dyn Fn(&Section) -> String) -> Vec<String> {
-        self.0.iter().map(f).collect()
-    }
-
-    pub fn flat_map(&self, f: &dyn Fn(&Section) -> Vec<String>) -> Vec<String> {
-        self.0.iter().flat_map(f).collect()
-    }
-
     pub fn messages(&self) -> DynamicMessageList {
         let messages: Vec<Message> = self.0.iter().flat_map(|s| s.messages.0.to_vec()).collect();
         DynamicMessageList(messages)
+    }
+
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Section) -> String,
+    {
+        self.0.iter().map(f).collect()
+    }
+
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Section) -> Vec<String>,
+    {
+        self.0.iter().flat_map(f).collect()
     }
 }
 
@@ -26,11 +32,17 @@ pub struct Section {
 pub struct BuiltinMessageList(pub &'static [Message]);
 
 impl BuiltinMessageList {
-    pub fn map(&self, f: &dyn Fn(&Message) -> String) -> Vec<String> {
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Message) -> String,
+    {
         self.0.iter().map(f).collect()
     }
 
-    pub fn flat_map(&self, f: &dyn Fn(&Message) -> Vec<String>) -> Vec<String> {
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Message) -> Vec<String>,
+    {
         self.0.iter().flat_map(f).collect()
     }
 }
@@ -39,11 +51,17 @@ impl BuiltinMessageList {
 pub struct DynamicMessageList(pub Vec<Message>);
 
 impl DynamicMessageList {
-    pub fn map(&self, f: &dyn Fn(&Message) -> String) -> Vec<String> {
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Message) -> String,
+    {
         self.0.iter().map(f).collect()
     }
 
-    pub fn flat_map(&self, f: &dyn Fn(&Message) -> Vec<String>) -> Vec<String> {
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Message) -> Vec<String>,
+    {
         self.0.iter().flat_map(f).collect()
     }
 }
@@ -73,11 +91,17 @@ impl Message {
 pub struct MessageFieldList(pub &'static [MessageField]);
 
 impl MessageFieldList {
-    pub fn map(&self, f: &dyn Fn(&MessageField) -> String) -> Vec<String> {
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&MessageField) -> String,
+    {
         self.0.iter().map(f).collect()
     }
 
-    pub fn flat_map(&self, f: &dyn Fn(&MessageField) -> Vec<String>) -> Vec<String> {
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&MessageField) -> Vec<String>,
+    {
         self.0.iter().flat_map(f).collect()
     }
 }

@@ -2,11 +2,17 @@
 pub struct NodeList(pub &'static [Node]);
 
 impl NodeList {
-    pub fn map(&self, f: &dyn Fn(&Node) -> String) -> Vec<String> {
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Node) -> String,
+    {
         self.0.iter().map(f).collect()
     }
 
-    pub fn flat_map(&self, f: &dyn Fn(&Node) -> Vec<String>) -> Vec<String> {
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&Node) -> Vec<String>,
+    {
         self.0.iter().flat_map(f).collect()
     }
 }
@@ -41,11 +47,17 @@ impl NodeFieldList {
         self.0.iter().any(|f| f.field_type == field_type)
     }
 
-    pub fn map(&self, f: &dyn Fn(&NodeField) -> String) -> Vec<String> {
+    pub fn map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&NodeField) -> String,
+    {
         self.0.iter().map(f).collect()
     }
 
-    pub fn flat_map(&self, f: &dyn Fn(&NodeField) -> Vec<String>) -> Vec<String> {
+    pub fn flat_map<F>(&self, f: F) -> Vec<String>
+    where
+        F: Fn(&NodeField) -> Vec<String>,
+    {
         self.0.iter().flat_map(f).collect()
     }
 }
