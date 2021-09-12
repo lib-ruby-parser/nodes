@@ -100,7 +100,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "a &&= 1",
-                            "~~~",
+                            "  ~~~",
                             "```"
                         ],
                     },
@@ -162,7 +162,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "a && b",
-                            "~~",
+                            "  ~~",
                             "```"
                         ],
                     },
@@ -211,7 +211,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(argument); end",
-                            "~~~~~~~~",
+                            "      ~~~~~~~~",
                             "```"
                         ],
                     },
@@ -248,7 +248,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(a, b = 1, c:, &blk); end",
-                            "~~~~~~~~~~~~~~~~~~~~",
+                            "     ~~~~~~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -262,7 +262,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(a, b = 1, c:, &blk); end",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` for code like `def m; end` or `def m arg; end`"
@@ -278,7 +278,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(a, b = 1, c:, &blk); end",
-                            "~",
+                            "                        ~",
                             "```",
                             "",
                             "`None` for code like `def m; end` or `def m arg; end`"
@@ -331,7 +331,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "[1, 2, 3]",
-                            "~",
+                            "        ~",
                             "```"
                         ],
                     },
@@ -396,7 +396,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "[1, ^a, 3 => foo]",
-                            "~",
+                            "                ~",
                             "```",
                             "",
                             "`None` for pattern like `1, 2` without brackets"
@@ -463,7 +463,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "[1, ^a, 3 => foo,]",
-                            "~",
+                            "                 ~",
                             "```",
                             "",
                             "`None` for pattern like `1, 2,` without brackets"
@@ -575,7 +575,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "(1; 2)",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if the block of code is \"implicit\", like",
@@ -656,7 +656,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { }",
-                            "~",
+                            "     ~",
                             "```"
                         ],
                     },
@@ -670,7 +670,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { }",
-                            "~",
+                            "       ~",
                             "```"
                         ],
                     },
@@ -721,7 +721,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(&blk)",
-                            "~",
+                            "    ~",
                             "```"
                         ],
                     },
@@ -735,7 +735,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(&bar)",
-                            "~~~~",
+                            "    ~~~~",
                             "```"
                         ],
                     },
@@ -770,7 +770,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(&foo); end",
-                            "~",
+                            "      ~",
                             "```"
                         ],
                     },
@@ -784,7 +784,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(&foo); end",
-                            "~~~",
+                            "       ~~~",
                             "```"
                         ],
                     },
@@ -798,7 +798,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(&foo); end",
-                            "~~~~",
+                            "      ~~~~",
                             "```"
                         ],
                     },
@@ -921,7 +921,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; else; end",
-                            "~~~~",
+                            "        ~~~~",
                             "```",
                             "",
                             "`None` if there's no `else` branch"
@@ -937,7 +937,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; end",
-                            "~~~",
+                            "        ~~~",
                             "```"
                         ],
                     },
@@ -1025,7 +1025,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in 2; else; end",
-                            "~~~~",
+                            "              ~~~~",
                             "```",
                             "",
                             "`None` if there's no `else` branch"
@@ -1041,7 +1041,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in 2; end",
-                            "~~~",
+                            "              ~~~",
                             "```"
                         ],
                     },
@@ -1114,7 +1114,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "A::B = 1",
-                            "~~",
+                            " ~~",
                             "",
                             "::A = 1",
                             "~~",
@@ -1133,7 +1133,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "A::CONST = 1",
-                            "~~~~~",
+                            "   ~~~~~",
                             "```"
                         ],
                     },
@@ -1147,7 +1147,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "A = 1",
-                            "~",
+                            "  ~",
                             "```",
                             "",
                             "`None` if constant assignment is a part of the multi-assignment.",
@@ -1259,7 +1259,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "class A < B; end",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` if there's no explicit superclass given."
@@ -1275,7 +1275,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "class Foo; end",
-                            "~~~",
+                            "           ~~~",
                             "```"
                         ],
                     },
@@ -1387,7 +1387,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "A::B",
-                            "~~",
+                            " ~~",
                             "```"
                         ],
                     },
@@ -1401,7 +1401,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "Foo::Bar",
-                            "~~~",
+                            "     ~~~",
                             "```"
                         ],
                     },
@@ -1461,7 +1461,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in Foo(42); end",
-                            "~",
+                            "              ~",
                             "```"
                         ],
                     },
@@ -1475,7 +1475,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in Foo(42); end",
-                            "~",
+                            "                 ~",
                             "```"
                         ],
                     },
@@ -1489,7 +1489,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in Foo(42); end",
-                            "~~~~~~~",
+                            "           ~~~~~~~",
                             "```"
                         ],
                     },
@@ -1548,7 +1548,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo&.bar",
-                            "~~",
+                            "   ~~",
                             "```"
                         ],
                     },
@@ -1562,7 +1562,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo&.bar(42)",
-                            "~~~",
+                            "     ~~~",
                             "```",
                             "",
                             "`None` in a very special case when method call is implicit (i.e. `foo&.()`)"
@@ -1578,7 +1578,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo&.bar(42)",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -1594,7 +1594,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo&.bar(42)",
-                            "~",
+                            "           ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -1610,7 +1610,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo&.bar = 1",
-                            "~",
+                            "         ~",
                             "```",
                             "",
                             "`None` for a regular call."
@@ -1719,7 +1719,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "@@foo = 1",
-                            "~",
+                            "      ~",
                             "```"
                         ],
                     },
@@ -1802,7 +1802,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def foo; end",
-                            "~~~",
+                            "    ~~~",
                             "```"
                         ],
                     },
@@ -1816,7 +1816,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def foo; end",
-                            "~~~",
+                            "         ~~~",
                             "```",
                             "",
                             "`None` for endless method definition"
@@ -1832,7 +1832,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m() = 1",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` for regular method definition"
@@ -1897,7 +1897,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "defined?(foo)",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -1913,7 +1913,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "defined?(foo)",
-                            "~",
+                            "            ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -2007,7 +2007,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def self.foo; end",
-                            "~",
+                            "        ~",
                             "```"
                         ],
                     },
@@ -2021,7 +2021,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def self.foo; end",
-                            "~~~",
+                            "         ~~~",
                             "```"
                         ],
                     },
@@ -2035,7 +2035,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def self.foo() = 42",
-                            "~",
+                            "               ~",
                             "```",
                             "",
                             "`None` for regular method definition"
@@ -2051,7 +2051,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def self.foo; end",
-                            "~~~",
+                            "              ~~~",
                             "```",
                             "",
                             "`None` for endless method definition"
@@ -2119,10 +2119,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "\"#{foo}\"",
-                            "~",
+                            "       ~",
                             "",
                             "%Q{#{foo}}",
-                            "~",
+                            "         ~",
                             "```"
                         ],
                     },
@@ -2194,7 +2194,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             ":\"#{foo}\"",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` if `Dsym` is a part of the interpolated symbol array:",
@@ -2258,7 +2258,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo...bar; end",
-                            "~~~",
+                            "      ~~~",
                             "```"
                         ],
                     },
@@ -2272,7 +2272,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo...bar; end",
-                            "~~~~~~~~~",
+                            "   ~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -2298,7 +2298,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in 1; else; end",
-                            "~~~~",
+                            "                ~~~~",
                             "```"
                         ],
                     },
@@ -2378,7 +2378,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; ensure; end",
-                            "~~~~~~",
+                            "       ~~~~~~",
                             "```"
                         ],
                     },
@@ -2392,7 +2392,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue; 2; else; 3; ensure; 4; end",
-                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+                            "       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                             "```",
                             "",
                             "**Note**: begin/end belong to `KwBegin` node."
@@ -2438,7 +2438,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "1...3",
-                            "~~~",
+                            " ~~~",
                             "```"
                         ],
                     },
@@ -2539,7 +2539,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in [*x, 1 => a, *y]; end",
-                            "~",
+                            "             ~",
                             "```",
                             "",
                             "`None` if there are no brackets/parentheses"
@@ -2555,7 +2555,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in [*x, 1 => a, *y]; end",
-                            "~",
+                            "                            ~",
                             "```",
                             "",
                             "`None` if there are no brackets/parentheses"
@@ -2571,7 +2571,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in [*x, 1 => a, *y]; end",
-                            "~~~~~~~~~~~~~~~~",
+                            "             ~~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -2689,7 +2689,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "for a in b; end",
-                            "~~",
+                            "      ~~",
                             "```"
                         ],
                     },
@@ -2703,7 +2703,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "for a in b do; end",
-                            "~~",
+                            "           ~~",
                             "```",
                             "",
                             "**Note**: this `do` is optional, and so `begin_l` can be `None`."
@@ -2719,7 +2719,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "for a in b; end",
-                            "~~~",
+                            "            ~~~",
                             "```"
                         ],
                     },
@@ -2759,7 +2759,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(...); end",
-                            "~~~",
+                            "      ~~~",
                             "```"
                         ],
                     },
@@ -2785,7 +2785,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(...); foo(...); end",
-                            "~~~",
+                            "                ~~~",
                             "```"
                         ],
                     },
@@ -2881,7 +2881,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "$foo = 42",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if global variable assignment is a part of the multi-assignment.",
@@ -2949,7 +2949,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "{ a: 1 }",
-                            "~",
+                            "       ~",
                             "```",
                             "",
                             "`None` if hash literal is implicit, e.g. `foo(key: \"value\")`"
@@ -3000,7 +3000,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(bar: 1)",
-                            "~~~~~~",
+                            "    ~~~~~~",
                             "```"
                         ],
                     },
@@ -3035,7 +3035,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in { a: 1 }; end",
-                            "~",
+                            "             ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -3051,7 +3051,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in { a: 1 }; end",
-                            "~",
+                            "                    ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -3067,7 +3067,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in { a: 1 }; end",
-                            "~~~~~~~~",
+                            "             ~~~~~~~~",
                             "```"
                         ],
                     },
@@ -3116,7 +3116,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "<<-HERE\\n  a\\n   #{42}\\nHERE",
-                            "~~~~",
+                            "                        ~~~~",
                             "```"
                         ],
                     },
@@ -3208,7 +3208,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo then; end",
-                            "~~~~",
+                            "       ~~~~",
                             "```",
                             "",
                             "`None` if `then` keyword is omitted"
@@ -3224,7 +3224,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo; else; end",
-                            "~~~~",
+                            "        ~~~~",
                             "```",
                             "",
                             "`None` if there's no `else` branch"
@@ -3240,7 +3240,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo; end",
-                            "~~~",
+                            "        ~~~",
                             "```"
                         ],
                     },
@@ -3289,7 +3289,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern if cond; end",
-                            "~~",
+                            "                     ~~",
                             "```"
                         ],
                     },
@@ -3303,7 +3303,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern if cond; end",
-                            "~~~~~~~",
+                            "                     ~~~~~~~",
                             "```"
                         ],
                     },
@@ -3362,10 +3362,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "stmt if cond",
-                            "~~",
+                            "     ~~",
                             "",
                             "stmt unless cond",
-                            "~~~~~~",
+                            "     ~~~~~~",
                             "```"
                         ],
                     },
@@ -3435,7 +3435,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "cond ? if_true : if_false",
-                            "~",
+                            "     ~",
                             "```"
                         ],
                     },
@@ -3449,7 +3449,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "cond ? if_true : if_false",
-                            "~",
+                            "               ~",
                             "```"
                         ],
                     },
@@ -3507,7 +3507,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo..bar; end",
-                            "~~",
+                            "      ~~",
                             "```"
                         ],
                     },
@@ -3521,7 +3521,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if foo..bar; end",
-                            "~~~~~~~~",
+                            "   ~~~~~~~~",
                             "```"
                         ],
                     },
@@ -3565,7 +3565,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo => pattern",
-                            "~~",
+                            "    ~~",
                             "```"
                         ],
                     },
@@ -3623,7 +3623,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo in pattern",
-                            "~~",
+                            "    ~~",
                             "```"
                         ],
                     },
@@ -3692,7 +3692,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case value; in pattern; end",
-                            "~~",
+                            "            ~~",
                             "```"
                         ],
                     },
@@ -3706,7 +3706,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case value; in pattern then; end",
-                            "~~~~",
+                            "                       ~~~~",
                             "```"
                         ],
                     },
@@ -3720,7 +3720,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case value; in pattern then; 42; end",
-                            "~~~~~~~~~~~~~~~~~~~",
+                            "            ~~~~~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -3764,7 +3764,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo[1, 2, 3]",
-                            "~",
+                            "   ~",
                             "```"
                         ],
                     },
@@ -3778,7 +3778,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo[1, 2, 3]",
-                            "~",
+                            "           ~",
                             "```"
                         ],
                     },
@@ -3848,7 +3848,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo[1, 2, 3] = bar",
-                            "~",
+                            "   ~",
                             "```"
                         ],
                     },
@@ -3862,7 +3862,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo[1, 2, 3] = bar",
-                            "~",
+                            "           ~",
                             "```"
                         ],
                     },
@@ -3876,7 +3876,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo[1, 2, 3] = bar",
-                            "~",
+                            "             ~",
                             "```",
                             "",
                             "`None` if assignment is a part of the multi-assignment.",
@@ -3986,7 +3986,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "2..4",
-                            "~~",
+                            " ~~",
                             "```"
                         ],
                     },
@@ -4096,7 +4096,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "@foo = 1",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if instance variable assignment is a part of the multi-assignment.",
@@ -4148,7 +4148,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def foo(bar:); end",
-                            "~~~",
+                            "        ~~~",
                             "```"
                         ],
                     },
@@ -4162,7 +4162,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def foo(bar:); end",
-                            "~~~~",
+                            "        ~~~~",
                             "```"
                         ],
                     },
@@ -4207,11 +4207,11 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
-                            "Location of the `begin` keyword",
+                            "Location of the `end` keyword",
                             "",
                             "```text",
                             "begin; foo; end",
-                            "~~~",
+                            "            ~~~",
                             "```"
                         ],
                     },
@@ -4235,7 +4235,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             comment: &[
                 "Represents an explicit `begin; end` block.",
                 "",
-                "The reason why it's different is that only",
+                "The reason why it's different is that",
                 "```text",
                 "begin; foo; end while cond",
                 "```",
@@ -4257,7 +4257,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(**nil); end",
-                            "~~~",
+                            "        ~~~",
                             "```"
                         ],
                     },
@@ -4271,7 +4271,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(**nil); end",
-                            "~~~~~",
+                            "      ~~~~~",
                             "```"
                         ],
                     },
@@ -4315,7 +4315,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(foo: 1); end",
-                            "~~~",
+                            "      ~~~",
                             "```"
                         ],
                     },
@@ -4329,7 +4329,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(foo: 1); end",
-                            "~~~~~~",
+                            "      ~~~~~~",
                             "```"
                         ],
                     },
@@ -4366,7 +4366,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(**foo); end",
-                            "~~",
+                            "      ~~",
                             "```"
                         ],
                     },
@@ -4380,7 +4380,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(**foo); end",
-                            "~~~",
+                            "        ~~~",
                             "```",
                             "",
                             "`None` if argument has no name (`def m(**); end`)"
@@ -4396,7 +4396,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(**foo); end",
-                            "~~~~~",
+                            "      ~~~~~",
                             "```"
                         ],
                     },
@@ -4431,7 +4431,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(**bar)",
-                            "~~",
+                            "    ~~",
                             "```"
                         ],
                     },
@@ -4445,7 +4445,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(**bar)",
-                            "~~~~~",
+                            "    ~~~~~",
                             "```"
                         ],
                     },
@@ -4599,7 +4599,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo = 42",
-                            "~",
+                            "    ~",
                             "```",
                             "",
                             "`None` if local variable assignment is a part of the multi-assignment.",
@@ -4660,7 +4660,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo, bar = 1, 2",
-                            "~",
+                            "         ~",
                             "```"
                         ],
                     },
@@ -4718,7 +4718,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo in 1 | 2",
-                            "~",
+                            "         ~",
                             "```"
                         ],
                     },
@@ -4732,7 +4732,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo in 1 | 2",
-                            "~~~~~",
+                            "       ~~~~~",
                             "```"
                         ],
                     },
@@ -4776,7 +4776,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case 1; in Integer => a; end",
-                            "~~",
+                            "                   ~~",
                             "```"
                         ],
                     },
@@ -4786,11 +4786,11 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
-                            "Location of the `=>` operator",
+                            "Location of the full expression",
                             "",
                             "```text",
                             "case 1; in Integer => a; end",
-                            "~~~~~~~~~~~~",
+                            "           ~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -4825,7 +4825,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "if /re/; end",
-                            "~~~~",
+                            "   ~~~~",
                             "```",
                             "",
                             "Technically this location is redundant, but keeping it is the only way to",
@@ -4874,7 +4874,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "in **nil",
-                            "~~",
+                            "   ~~",
                             "```"
                         ],
                     },
@@ -4888,7 +4888,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "in **nil",
-                            "~~~",
+                            "     ~~~",
                             "```"
                         ],
                     },
@@ -4902,7 +4902,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "in **nil",
-                            "~~~~~",
+                            "   ~~~~~",
                             "```"
                         ],
                     },
@@ -4939,7 +4939,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in *bar; end",
-                            "~",
+                            "             ~",
                             "```"
                         ],
                     },
@@ -4953,7 +4953,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in *bar; end",
-                            "~~~~",
+                            "             ~~~~",
                             "```"
                         ],
                     },
@@ -4988,14 +4988,14 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern => bar; end",
-                            "~~~",
+                            "                        ~~~",
                             "```",
                             "",
                             "**Note** it can also be produced by a hash pattern",
                             "",
                             "```text",
                             "case foo; in { a: }; end",
-                            "~",
+                            "               ~",
                             "```"
                         ],
                     },
@@ -5009,14 +5009,14 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern => bar; end",
-                            "~~~",
+                            "                        ~~~",
                             "```",
                             "",
                             "**Note** it can also be produced by a hash pattern",
                             "",
                             "```text",
                             "case foo; in { a: }; end",
-                            "~~",
+                            "               ~~",
                             "```"
                         ],
                     },
@@ -5060,7 +5060,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "/(?<match>bar)/ =~ 'bar'",
-                            "~~",
+                            "                ~~",
                             "```"
                         ],
                     },
@@ -5127,7 +5127,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "(a, b) = 1, 2",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -5203,7 +5203,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "module M; end",
-                            "~~~",
+                            "          ~~~",
                             "```"
                         ],
                     },
@@ -5252,6 +5252,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "next 42",
+                            "~~~~",
                             "```"
                         ],
                     },
@@ -5379,7 +5380,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { _1 }",
-                            "~",
+                            "     ~",
                             "```"
                         ],
                     },
@@ -5393,7 +5394,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { _1 }",
-                            "~",
+                            "          ~",
                             "```"
                         ],
                     },
@@ -5471,7 +5472,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "a.b <<= c",
-                            "~~~",
+                            "    ~~~",
                             "```"
                         ],
                     },
@@ -5529,7 +5530,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(foo = 1); end",
-                            "~~~",
+                            "      ~~~",
                             "```"
                         ],
                     },
@@ -5543,7 +5544,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(foo = 1); end",
-                            "~",
+                            "          ~",
                             "```"
                         ],
                     },
@@ -5557,7 +5558,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(foo = 1); end",
-                            "~~~~~~~",
+                            "      ~~~~~~~",
                             "```"
                         ],
                     },
@@ -5601,7 +5602,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo || bar",
-                            "~~",
+                            "    ~~",
                             "```"
                         ],
                     },
@@ -5659,7 +5660,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo ||= bar",
-                            "~~~",
+                            "    ~~~",
                             "```"
                         ],
                     },
@@ -5717,10 +5718,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "{ foo: bar }",
-                            "~",
+                            "     ~",
                             "",
                             "{ :foo => bar }",
-                            "~~",
+                            "       ~~",
                             "```"
                         ],
                     },
@@ -5734,10 +5735,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "{ foo: bar }",
-                            "~~~~~~~~",
+                            "  ~~~~~~~~",
                             "",
                             "{ :foo => bar }",
-                            "~~~~~~~~~~~",
+                            "  ~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -5772,7 +5773,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in ^bar; end",
-                            "~",
+                            "             ~",
                             "```"
                         ],
                     },
@@ -5786,7 +5787,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in ^bar; end",
-                            "~~~~",
+                            "             ~~~~",
                             "```"
                         ],
                     },
@@ -5835,7 +5836,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "END { 42 }",
-                            "~",
+                            "    ~",
                             "```"
                         ],
                     },
@@ -5849,7 +5850,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "END { 42 }",
-                            "~",
+                            "         ~",
                             "```"
                         ],
                     },
@@ -5912,7 +5913,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "BEGIN { 42 }",
-                            "~",
+                            "      ~",
                             "```"
                         ],
                     },
@@ -5926,7 +5927,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "BEGIN { 42 }",
-                            "~",
+                            "           ~",
                             "```"
                         ],
                     },
@@ -5979,7 +5980,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { |(foo, bar)| }",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` if there's only one argument"
@@ -5995,7 +5996,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { |(foo, bar)| }",
-                            "~",
+                            "                 ~",
                             "```",
                             "",
                             "`None` if there's only one argument"
@@ -6011,7 +6012,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { |(foo, bar)| }",
-                            "~~~~~~~~~~",
+                            "        ~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -6124,7 +6125,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "/foo/mix",
-                            "~~~",
+                            "     ~~~",
                             "```"
                         ],
                     },
@@ -6187,10 +6188,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "/foo/",
-                            "~",
+                            "    ~",
                             "",
                             "%r{foo}",
-                            "~",
+                            "      ~",
                             "```"
                         ],
                     },
@@ -6259,7 +6260,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue StandardError => e; 2; else; 3; end",
-                            "~~~~",
+                            "                                        ~~~~",
                             "```",
                             "",
                             "`None` if there's no `else` branch"
@@ -6275,7 +6276,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue StandardError => e; 2; else; 3; end",
-                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+                            "       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                             "```",
                             "",
                             "**Note**: `begin/end` keywords belong to `KwBegin` node"
@@ -6334,7 +6335,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue E => e; 2; end",
-                            "~~~~~~",
+                            "          ~~~~~~",
                             "```"
                         ],
                     },
@@ -6348,7 +6349,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue E => e; 2; end",
-                            "~~",
+                            "                   ~~",
                             "```",
                             "",
                             "`None` if exception is not captured."
@@ -6364,7 +6365,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue E => e then; 2; end",
-                            "~~~~",
+                            "                        ~~~~",
                             "```",
                             "",
                             "`then` is optional, so `begin_l` can be `None`"
@@ -6380,7 +6381,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; 1; rescue E => e then; 2; end",
-                            "~~~~~~~~~~~~~~~~~~~~~",
+                            "          ~~~~~~~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -6417,7 +6418,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(*foo); end",
-                            "~",
+                            "      ~",
                             "```"
                         ],
                     },
@@ -6431,7 +6432,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(*foo); end",
-                            "~~~",
+                            "       ~~~",
                             "```"
                         ],
                     },
@@ -6445,7 +6446,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "def m(*foo); end",
-                            "~~~~",
+                            "      ~~~~",
                             "```"
                         ],
                     },
@@ -6580,7 +6581,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "class << foo; end",
-                            "~~",
+                            "      ~~",
                             "```"
                         ],
                     },
@@ -6594,7 +6595,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "class << foo; end",
-                            "~~~",
+                            "              ~~~",
                             "```"
                         ],
                     },
@@ -6689,7 +6690,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo.bar(42)",
-                            "~",
+                            "   ~",
                             "```",
                             "",
                             "`None` for implicit method call (e.g. `foo(42)`)"
@@ -6705,7 +6706,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo.bar(42)",
-                            "~~~",
+                            "    ~~~",
                             "```",
                             "",
                             "`None` in a very special case when method call is implicit (i.e. `foo.(42)`)"
@@ -6721,10 +6722,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(42)",
-                            "~",
+                            "   ~",
                             "```",
                             "",
-                            "`None` if there are parentheses"
+                            "`None` if there are no parentheses"
                         ],
                     },
 
@@ -6737,10 +6738,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(42)",
-                            "~",
+                            "      ~",
                             "```",
                             "",
-                            "`None` if there are parentheses"
+                            "`None` if there are no parentheses"
                         ],
                     },
 
@@ -6753,7 +6754,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo.bar = 42",
-                            "~",
+                            "        ~",
                             "```",
                             "",
                             "`None` otherwise"
@@ -6804,7 +6805,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "proc { |;foo|}",
-                            "~~~",
+                            "         ~~~",
                             "```"
                         ],
                     },
@@ -6839,7 +6840,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(*bar)",
-                            "~",
+                            "    ~",
                             "```"
                         ],
                     },
@@ -6853,7 +6854,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "foo(*bar)",
-                            "~~~~",
+                            "    ~~~~",
                             "```"
                         ],
                     },
@@ -6913,7 +6914,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "\"foo\"",
-                            "~",
+                            "    ~",
                             "```",
                             "",
                             "`None` if string literal is a part of the words array (like `%w[foo bar baz]`)"
@@ -6978,7 +6979,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "super(1, 2)",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -6994,7 +6995,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "super(1, 2)",
-                            "~",
+                            "          ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -7070,7 +7071,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "{ 'foo': 1 }",
-                            "~",
+                            "       ~",
                             "```",
                             "",
                             "`None` if symbol is **not** a string label (`:foo`) or a part of the symbols array (`%i[foo bar baz]`)"
@@ -7089,10 +7090,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "~~~~",
                             "",
                             "{ foo: 1 }",
-                            "~~~~",
+                            "  ~~~~",
                             "",
                             "%i[foo]",
-                            "~~~",
+                            "   ~~~",
                             "```"
                         ],
                     },
@@ -7169,7 +7170,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "undef :foo, bar",
-                            "~~~~~~~~~~~~~~",
+                            "~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -7204,7 +7205,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern unless cond; end",
-                            "~~~~~~",
+                            "                     ~~~~~~",
                             "```"
                         ],
                     },
@@ -7218,7 +7219,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; in pattern unless cond; end",
-                            "~~~~~~~~~~~",
+                            "                     ~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -7278,7 +7279,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "until cond do; foo; end",
-                            "~~",
+                            "           ~~",
                             "```",
                             "",
                             "`do` is optional, and so `begin_l` can be `None`"
@@ -7294,7 +7295,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "until cond do; foo; end",
-                            "~~~",
+                            "                    ~~~",
                             "```",
                             "",
                             "`None` if loop is a modifier (i.e. `foo until bar`)"
@@ -7357,7 +7358,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; foo; end until bar",
-                            "~~~~~",
+                            "                ~~~~~",
                             "```"
                         ],
                     },
@@ -7421,7 +7422,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; when bar; end",
-                            "~~~~",
+                            "          ~~~~",
                             "```"
                         ],
                     },
@@ -7435,7 +7436,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; when bar then baz; end",
-                            "~~~~",
+                            "                   ~~~~",
                             "```",
                             "",
                             "`then` is optional, and so `begin_l` can be `None`"
@@ -7451,7 +7452,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "case foo; when bar then baz; end",
-                            "~~~~~~~~~~~~~~~~~",
+                            "          ~~~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -7511,7 +7512,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "while cond do; foo; end",
-                            "~~",
+                            "           ~~",
                             "```",
                             "",
                             "`do` is optional, and so `begin_l` can be `None`"
@@ -7527,7 +7528,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "while cond do; foo; end",
-                            "~~~",
+                            "                    ~~~",
                             "```",
                             "",
                             "`None` if loop is a modifier (i.e. `foo while bar`)"
@@ -7590,7 +7591,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "begin; foo; end while bar",
-                            "~~~~~",
+                            "                ~~~~~",
                             "```"
                         ],
                     },
@@ -7645,7 +7646,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "<<-`HERE`\\n  a\\n   #{42}\\nHERE",
-                            "~~~~~~~~~~~~~~~",
+                            "         ~~~~~~~~~~~~~~~",
                             "```"
                         ],
                     },
@@ -7659,7 +7660,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "<<-`HERE`\\n  a\\n   #{42}\\nHERE",
-                            "~~~~",
+                            "                          ~~~~",
                             "```"
                         ],
                     },
@@ -7736,10 +7737,10 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "`#{foo}`",
-                            "~",
+                            "       ~",
                             "",
                             "%X{#{foo}}",
-                            "~",
+                            "         ~",
                             "```"
                         ],
                     },
@@ -7805,7 +7806,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "yield(1, 2)",
-                            "~",
+                            "     ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
@@ -7821,7 +7822,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                             "",
                             "```text",
                             "yield(1, 2)",
-                            "~",
+                            "          ~",
                             "```",
                             "",
                             "`None` if there are no parentheses"
