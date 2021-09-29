@@ -1,37 +1,7 @@
 #[derive(Debug, Clone)]
-pub struct SectionList(pub &'static [Section]);
+pub struct MessagesList(pub &'static [Message]);
 
-impl SectionList {
-    pub fn messages(&self) -> DynamicMessageList {
-        let messages: Vec<Message> = self.0.iter().flat_map(|s| s.messages.0.to_vec()).collect();
-        DynamicMessageList(messages)
-    }
-
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Section) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
-
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Section) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct Section {
-    pub name: &'static str,
-    pub messages: BuiltinMessageList,
-}
-
-#[derive(Debug, Clone)]
-pub struct BuiltinMessageList(pub &'static [Message]);
-
-impl BuiltinMessageList {
+impl MessagesList {
     pub fn map<F>(&self, f: F) -> Vec<String>
     where
         F: Fn(&Message) -> String,
@@ -47,26 +17,7 @@ impl BuiltinMessageList {
     }
 }
 
-#[derive(Debug, Clone)]
-pub struct DynamicMessageList(pub Vec<Message>);
-
-impl DynamicMessageList {
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Message) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
-
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Message) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
-
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Message {
     pub camelcase_name: &'static str,
     pub fields: MessageFieldList,
@@ -87,7 +38,7 @@ impl Message {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct MessageFieldList(pub &'static [MessageField]);
 
 impl MessageFieldList {
@@ -106,7 +57,7 @@ impl MessageFieldList {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct MessageField {
     pub name: &'static str,
     pub field_type: MessageFieldType,
@@ -119,7 +70,7 @@ impl MessageField {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum MessageFieldType {
     Str,
     Byte,

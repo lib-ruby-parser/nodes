@@ -17,7 +17,7 @@ impl NodeList {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Node {
     pub camelcase_name: &'static str,
     pub wqp_name: &'static str,
@@ -39,7 +39,7 @@ impl Node {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct NodeFieldList(pub &'static [NodeField]);
 
 impl NodeFieldList {
@@ -62,7 +62,7 @@ impl NodeFieldList {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct NodeField {
     pub field_name: &'static str,
     pub field_type: NodeFieldType,
