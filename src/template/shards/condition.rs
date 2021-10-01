@@ -1,34 +1,11 @@
 use crate::template::fns::{Bucket, FnSubject, GetRegistrySlice};
 use crate::template::{render::Render, Buffer, Parse, ParseError, ParseErrorKind, TemplateFns};
 
+#[derive(Debug, PartialEq)]
 pub(crate) struct Condition<Branch> {
     predicate_name: String,
     if_true: Branch,
     if_false: Branch,
-}
-
-impl<Branch> std::fmt::Debug for Condition<Branch>
-where
-    Branch: std::fmt::Debug,
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("Condition")
-            .field("predicate_name", &self.predicate_name)
-            .field("if_true", &self.if_true)
-            .field("if_false", &self.if_false)
-            .finish()
-    }
-}
-
-impl<Branch> PartialEq for Condition<Branch>
-where
-    Branch: PartialEq,
-{
-    fn eq(&self, other: &Self) -> bool {
-        self.predicate_name == other.predicate_name
-            && self.if_true == other.if_true
-            && self.if_false == other.if_false
-    }
 }
 
 impl<Branch> Condition<Branch> {

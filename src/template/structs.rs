@@ -50,9 +50,13 @@ pub(crate) enum MessageFieldTemplatePart {
 }
 
 pub(crate) mod loops_bounds {
+    #[derive(Debug, PartialEq)]
     pub(crate) struct NodesLoopBounds;
+    #[derive(Debug, PartialEq)]
     pub(crate) struct NodeFieldsLoopBounds;
+    #[derive(Debug, PartialEq)]
     pub(crate) struct MessagesLoopBounds;
+    #[derive(Debug, PartialEq)]
     pub(crate) struct MessageFieldsLoopBounds;
 }
 

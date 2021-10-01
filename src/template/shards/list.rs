@@ -1,5 +1,6 @@
 use crate::template::{render::Render, Buffer, Parse, ParseError, TemplateFns};
 
+#[derive(Debug, PartialEq)]
 pub struct List<Item> {
     parts: Vec<Item>,
 }
@@ -12,24 +13,6 @@ impl<Item> List<Item> {
         Self {
             parts: parts.into(),
         }
-    }
-}
-
-impl<Item> std::fmt::Debug for List<Item>
-where
-    Item: std::fmt::Debug,
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("List").field("parts", &self.parts).finish()
-    }
-}
-
-impl<Item> PartialEq for List<Item>
-where
-    Item: PartialEq,
-{
-    fn eq(&self, other: &Self) -> bool {
-        self.parts == other.parts
     }
 }
 

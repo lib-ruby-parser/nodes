@@ -5,6 +5,7 @@ pub(crate) trait LoopBounds {
     const END: &'static str;
 }
 
+#[derive(Debug, PartialEq)]
 pub(crate) struct Loop<Body, Bounds> {
     body: Body,
     phantom: std::marker::PhantomData<Bounds>,
@@ -16,24 +17,6 @@ impl<Body, Bounds> Loop<Body, Bounds> {
             body,
             phantom: std::marker::PhantomData,
         }
-    }
-}
-
-impl<Body, Bounds> std::fmt::Debug for Loop<Body, Bounds>
-where
-    Body: std::fmt::Debug,
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("Loop").field("body", &self.body).finish()
-    }
-}
-
-impl<Body, Bounds> PartialEq for Loop<Body, Bounds>
-where
-    Body: PartialEq,
-{
-    fn eq(&self, other: &Self) -> bool {
-        self.body == other.body
     }
 }
 
@@ -97,6 +80,7 @@ mod tests {
         TemplateFns,
     };
 
+    #[derive(Debug, PartialEq)]
     struct DummyLoopBounds;
     impl LoopBounds for DummyLoopBounds {
         const START: &'static str = "<dummy-loop-start>";
