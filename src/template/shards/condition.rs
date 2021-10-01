@@ -143,3 +143,56 @@ where
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::template::{
+        shards::StringPart,
+        structs::{Template, TemplatePart},
+        GlobalContext,
+    };
+
+    use super::*;
+
+    #[test]
+    fn test_parse() {
+        let mut buffer = Buffer::new("<if foo>1<else>2</if>".as_bytes().to_vec());
+        let parsed = Condition::<Template>::parse(&mut buffer).unwrap();
+
+        assert_eq!(
+            parsed,
+            Condition::new(
+                "foo",
+                Template::new([TemplatePart::StringPart(StringPart::new("1")),]),
+                Template::new([TemplatePart::StringPart(StringPart::new("2")),])
+            )
+        )
+    }
+
+    #[test]
+    fn test_render() {
+        let condition = Condition::new(
+            "foo",
+            Template::new([TemplatePart::StringPart(StringPart::new("1"))]),
+            Template::new([TemplatePart::StringPart(StringPart::new("2"))]),
+        );
+        let ctx = &GlobalContext {
+            nodes: &[],
+            messages: &[],
+        };
+
+        let mut fns = TemplateFns::new();
+        fn always_true(_: &GlobalContext) -> bool {
+            true
+        }
+        fns.register_predicate("foo", always_true);
+        assert_eq!("1", condition.render(ctx, &fns));
+
+        let mut fns = TemplateFns::new();
+        fn always_false(_: &GlobalContext) -> bool {
+            false
+        }
+        fns.register_predicate("foo", always_false);
+        assert_eq!("2", condition.render(ctx, &fns));
+    }
+}
