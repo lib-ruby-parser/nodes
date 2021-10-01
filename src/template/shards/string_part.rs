@@ -72,3 +72,29 @@ impl<T> Render<()> for StringPart<T> {
         self.string.clone()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[derive(Debug, PartialEq)]
+    struct Breakers;
+    impl StringPartBreakers for Breakers {
+        const BREAKERS: &'static [&'static str] = &["STOP HERE"];
+    }
+
+    #[test]
+    fn test_parse() {
+        let mut buffer = Buffer::new("a string STOP HERE".as_bytes().to_vec());
+        let parsed = StringPart::<Breakers>::parse(&mut buffer).unwrap();
+
+        assert_eq!(parsed, StringPart::new("a string "))
+    }
+
+    #[test]
+    fn test_render() {
+        let string = StringPart::<Breakers>::new("a string");
+        let fns = TemplateFns::new();
+        assert_eq!("a string", string.render(&(), &fns))
+    }
+}

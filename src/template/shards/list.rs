@@ -82,6 +82,9 @@ mod tests {
     fn test_render() {
         let list = CharList::new([Char { c: 'a' }, Char { c: 'b' }, Char { c: 'c' }]);
         let fns = TemplateFns::new();
-        assert_eq!("char a\nchar b\nchar c\n", list.render(NO_DATA, &fns))
+        assert_eq!(
+            "stored char a\nstored char b\nstored char c\n",
+            list.render(NO_DATA, &fns)
+        )
     }
 }
