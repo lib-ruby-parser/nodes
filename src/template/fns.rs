@@ -127,3 +127,69 @@ where
         T::get_mut(self)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::{MessageFieldList, NodeFieldList};
+
+    use super::*;
+
+    #[test]
+    fn test_helper() {
+        let mut fns = Fns::new();
+        fn node_helper(node: &Node) -> String {
+            format!("from node_helper {}", node.camelcase_name)
+        }
+        let node = Node {
+            camelcase_name: "Foo",
+            wqp_name: "foo",
+            fields: NodeFieldList(&[]),
+            comment: &[],
+        };
+        fns.register_helper("node-helper", node_helper);
+        let bucket: &Bucket<Node> = fns.get_slice();
+        let helper = bucket.get_helper("node-helper");
+        assert_eq!(helper(&node), node_helper(&node));
+    }
+
+    #[test]
+    fn test_predicate() {
+        let mut fns = Fns::new();
+        fn message_predicate(message: &Message) -> bool {
+            message.camelcase_name == "Bar"
+        }
+        let message_t = Message {
+            camelcase_name: "Bar",
+            fields: MessageFieldList(&[]),
+            comment: &[],
+        };
+        let message_f = Message {
+            camelcase_name: "NotBar",
+            fields: MessageFieldList(&[]),
+            comment: &[],
+        };
+        fns.register_predicate("message-predicate", message_predicate);
+        let bucket: &Bucket<Message> = fns.get_slice();
+        let predicate = bucket.get_predicate("message-predicate");
+        assert_eq!(predicate(&message_t), message_predicate(&message_t));
+        assert_eq!(predicate(&message_f), message_predicate(&message_f));
+    }
+
+    #[test]
+    fn test_unknkown() {
+        let fns = Fns::new();
+        let bucket: &Bucket<MessageField> = fns.get_slice();
+
+        let output = std::panic::catch_unwind(|| {
+            bucket.get_helper("unknown-helper");
+            ()
+        });
+        assert!(output.is_err());
+
+        let output = std::panic::catch_unwind(|| {
+            bucket.get_predicate("unknown-helper");
+            ()
+        });
+        assert!(output.is_err());
+    }
+}
