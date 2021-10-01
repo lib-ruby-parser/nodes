@@ -59,3 +59,49 @@ where
             .join("")
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::template::{global_context::NO_DATA, GlobalContext};
+
+    use super::*;
+
+    // Dummy strategy for parsing
+    #[derive(Debug, PartialEq)]
+    struct Char {
+        c: char,
+    }
+
+    impl crate::template::Render<GlobalContext> for Char {
+        fn render(&self, _ctx: &GlobalContext, _fns: &TemplateFns) -> String {
+            format!("char {}\n", self.c)
+        }
+    }
+
+    impl crate::template::Parse for Char {
+        fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
+            let c = buffer.take(1).unwrap().chars().next().unwrap();
+            Ok(Self { c })
+        }
+    }
+
+    type CharList = List<Char>;
+
+    #[test]
+    fn test_parse() {
+        let mut buffer = Buffer::new("abc".as_bytes().to_vec());
+        let parsed = CharList::parse(&mut buffer).unwrap();
+
+        assert_eq!(
+            parsed,
+            CharList::new([Char { c: 'a' }, Char { c: 'b' }, Char { c: 'c' }])
+        )
+    }
+
+    #[test]
+    fn test_render() {
+        let list = CharList::new([Char { c: 'a' }, Char { c: 'b' }, Char { c: 'c' }]);
+        let fns = TemplateFns::new();
+        assert_eq!("char a\nchar b\nchar c\n", list.render(NO_DATA, &fns))
+    }
+}
