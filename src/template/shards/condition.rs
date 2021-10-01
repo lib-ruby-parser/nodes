@@ -147,6 +147,7 @@ where
 #[cfg(test)]
 mod tests {
     use crate::template::{
+        global_context::NO_DATA,
         shards::StringPart,
         structs::{Template, TemplatePart},
         GlobalContext,
@@ -176,23 +177,19 @@ mod tests {
             Template::new([TemplatePart::StringPart(StringPart::new("1"))]),
             Template::new([TemplatePart::StringPart(StringPart::new("2"))]),
         );
-        let ctx = &GlobalContext {
-            nodes: &[],
-            messages: &[],
-        };
 
         let mut fns = TemplateFns::new();
         fn always_true(_: &GlobalContext) -> bool {
             true
         }
         fns.register_predicate("foo", always_true);
-        assert_eq!("1", condition.render(ctx, &fns));
+        assert_eq!("1", condition.render(NO_DATA, &fns));
 
         let mut fns = TemplateFns::new();
         fn always_false(_: &GlobalContext) -> bool {
             false
         }
         fns.register_predicate("foo", always_false);
-        assert_eq!("2", condition.render(ctx, &fns));
+        assert_eq!("2", condition.render(NO_DATA, &fns));
     }
 }

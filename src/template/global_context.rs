@@ -10,3 +10,9 @@ pub const ALL_DATA: &GlobalContext = &GlobalContext {
     nodes: crate::nodes_data::ALL_NODES.0,
     messages: crate::messages_data::ALL_MESSAGES.0,
 };
+
+#[cfg(test)]
+pub(crate) const NO_DATA: &GlobalContext = &GlobalContext {
+    nodes: &[],
+    messages: &[],
+};

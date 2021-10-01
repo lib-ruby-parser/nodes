@@ -72,3 +72,28 @@ where
         helper(ctx)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::template::global_context::{GlobalContext, NO_DATA};
+
+    #[test]
+    fn test_parse() {
+        let mut buffer = Buffer::new("<helper foo>".as_bytes().to_vec());
+        let parsed = Helper::parse(&mut buffer).unwrap();
+
+        assert_eq!(parsed, Helper::new("foo"))
+    }
+
+    #[test]
+    fn test_render() {
+        let helper = Helper::new("foo");
+        let mut fns = TemplateFns::new();
+        fn foo(_: &GlobalContext) -> String {
+            "bar".to_string()
+        }
+        fns.register_helper("foo", foo);
+        assert_eq!("bar", helper.render(NO_DATA, &fns))
+    }
+}
