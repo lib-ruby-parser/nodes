@@ -86,3 +86,45 @@ where
             .join("")
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::template::{
+        shards::Char,
+        shards::StringPart,
+        structs::{Template, TemplatePart},
+        TemplateFns,
+    };
+
+    struct DummyLoopBounds;
+    impl LoopBounds for DummyLoopBounds {
+        const START: &'static str = "<dummy-loop-start>";
+        const END: &'static str = "<dummy-loop-end>";
+    }
+
+    #[test]
+    fn test_parse() {
+        let template = "<dummy-loop-start>BODY<dummy-loop-end>";
+        let mut buffer = Buffer::new(template.as_bytes().to_vec());
+        let parsed = Loop::<Template, DummyLoopBounds>::parse(&mut buffer).unwrap();
+
+        assert_eq!(
+            parsed,
+            Loop::new(Template::new([TemplatePart::StringPart(StringPart::new(
+                "BODY"
+            ))]))
+        )
+    }
+
+    #[test]
+    fn test_render() {
+        let loop_ = Loop::<Char, DummyLoopBounds>::new(Char { c: 'a' });
+        let ctx = vec!['a', 'b', 'c'];
+        let fns = TemplateFns::new();
+        assert_eq!(
+            "provided char a\nprovided char b\nprovided char c\n",
+            loop_.render(&ctx, &fns)
+        )
+    }
+}

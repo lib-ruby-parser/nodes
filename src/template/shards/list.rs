@@ -62,28 +62,8 @@ where
 
 #[cfg(test)]
 mod tests {
-    use crate::template::{global_context::NO_DATA, GlobalContext};
-
     use super::*;
-
-    // Dummy strategy for parsing
-    #[derive(Debug, PartialEq)]
-    struct Char {
-        c: char,
-    }
-
-    impl crate::template::Render<GlobalContext> for Char {
-        fn render(&self, _ctx: &GlobalContext, _fns: &TemplateFns) -> String {
-            format!("char {}\n", self.c)
-        }
-    }
-
-    impl crate::template::Parse for Char {
-        fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
-            let c = buffer.take(1).unwrap().chars().next().unwrap();
-            Ok(Self { c })
-        }
-    }
+    use crate::template::{global_context::NO_DATA, shards::Char};
 
     type CharList = List<Char>;
 
