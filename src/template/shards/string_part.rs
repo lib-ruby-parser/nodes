@@ -44,6 +44,8 @@ where
             }
         }
 
+        let string = string.replace("<dnl>\n", "");
+
         Ok(Self::new(string))
     }
 }

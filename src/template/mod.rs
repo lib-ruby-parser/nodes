@@ -67,48 +67,36 @@ mod tests {
 
     const TEMPLATE: &str = "<helper file-header>
 
-<each-node>
+<each-node><dnl>
 There is a node <helper node-name>
-It has fields:
-    <each-node-field>
+    It has fields:
+<each-node-field><dnl>
         + <helper node-field-name> (printable: <if is-node-field-always-printable>YES<else>NO</if>)
-    </each-node-field>
-</each-node>
+</each-node-field><dnl>
+</each-node><dnl>
 
-<each-message>
+<each-message><dnl>
 There is a message <helper message-name>
-    <each-message-field>
+<each-message-field><dnl>
         + <helper message-field-name> (is u8: <if is-message-field-u8>Y<else>N</if>)
-    </each-message-field>
-</each-message>
+</each-message-field><dnl>
+</each-message><dnl>
 ";
 
     const EXPECTED: &[&str] = &[
         "HEADER\n",
         "\n",
-        "\n",
         "There is a node NodeOne\n",
-        "It has fields:\n",
-        "\n",
+        "    It has fields:\n",
         "        + field1 (printable: YES)\n",
-        "\n",
         "        + field2 (printable: YES)\n",
-        "\n",
-        "\n",
         "There is a node NodeTwo\n",
-        "It has fields:\n",
-        "\n",
+        "    It has fields:\n",
         "        + field3 (printable: NO)\n",
         "\n",
-        "\n",
-        "\n",
-        "\n",
         "There is a message Message1\n",
-        "\n",
         "        + field1 (is u8: Y)\n",
-        "\n",
         "        + field2 (is u8: N)\n",
-        "\n",
     ];
 
     const NODES: &[Node] = &[
