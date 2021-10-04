@@ -61,8 +61,8 @@ impl TemplateRoot {
 mod tests {
     use super::*;
     use crate::{
-        Message, MessageField, MessageFieldList, MessageFieldType, Node, NodeField, NodeFieldList,
-        NodeFieldType,
+        Message, MessageField, MessageFieldList, MessageFieldType, MessageWithField, Node,
+        NodeField, NodeFieldList, NodeFieldType, NodeWithField,
     };
 
     const TEMPLATE: &str = "<helper file-header>
@@ -162,24 +162,24 @@ There is a message <helper message-name>
         node.camelcase_name.to_string()
     }
 
-    fn node_field_name(field: &NodeField) -> String {
-        field.snakecase_name.to_string()
+    fn node_field_name(node: &NodeWithField) -> String {
+        node.field.snakecase_name.to_string()
     }
 
-    fn is_node_field_always_printable(field: &NodeField) -> bool {
-        field.always_print
+    fn is_node_field_always_printable(node: &NodeWithField) -> bool {
+        node.field.always_print
     }
 
     fn message_name(message: &Message) -> String {
         message.camelcase_name.to_string()
     }
 
-    fn message_field_name(message_field: &MessageField) -> String {
-        message_field.snakecase_name.to_string()
+    fn message_field_name(message: &MessageWithField) -> String {
+        message.field.snakecase_name.to_string()
     }
 
-    fn is_message_field_u8(message_field: &MessageField) -> bool {
-        message_field.field_type == MessageFieldType::Byte
+    fn is_message_field_u8(message: &MessageWithField) -> bool {
+        message.field.field_type == MessageFieldType::Byte
     }
 
     #[test]

@@ -1,5 +1,5 @@
 use crate::template::GlobalContext;
-use crate::{Message, MessageField, Node, NodeField};
+use crate::{Message, MessageWithField, Node, NodeWithField};
 use std::collections::HashMap;
 
 pub trait PerTypeFnRegistry {
@@ -54,9 +54,9 @@ impl<T> Bucket<T> {
 pub struct Fns {
     global: Bucket<GlobalContext>,
     node: Bucket<Node>,
-    node_field: Bucket<NodeField>,
+    node_field: Bucket<NodeWithField>,
     message: Bucket<Message>,
-    message_field: Bucket<MessageField>,
+    message_field: Bucket<MessageWithField>,
 }
 
 impl Fns {
@@ -103,9 +103,9 @@ macro_rules! def_impl {
 }
 def_impl!(GlobalContext, global);
 def_impl!(Node, node);
-def_impl!(NodeField, node_field);
+def_impl!(NodeWithField, node_field);
 def_impl!(Message, message);
-def_impl!(MessageField, message_field);
+def_impl!(MessageWithField, message_field);
 
 pub(crate) trait GetRegistrySlice<T> {
     fn get_slice(&self) -> &Bucket<T>;
@@ -175,7 +175,7 @@ mod tests {
     #[test]
     fn test_unknkown() {
         let fns = Fns::new();
-        let bucket: &Bucket<MessageField> = fns.get_slice();
+        let bucket: &Bucket<MessageWithField> = fns.get_slice();
 
         let output = std::panic::catch_unwind(|| {
             bucket.get_helper("unknown-helper");

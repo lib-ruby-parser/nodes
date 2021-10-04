@@ -75,3 +75,9 @@ pub enum MessageFieldType {
     Str,
     Byte,
 }
+
+#[derive(Debug, PartialEq, Clone)]
+pub struct MessageWithField {
+    pub message: Message,
+    pub field: MessageField,
+}

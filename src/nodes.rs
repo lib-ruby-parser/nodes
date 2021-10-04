@@ -90,3 +90,9 @@ pub enum NodeFieldType {
 }
 
 impl NodeFieldType {}
+
+#[derive(Debug, PartialEq, Clone)]
+pub struct NodeWithField {
+    pub node: Node,
+    pub field: NodeField,
+}
