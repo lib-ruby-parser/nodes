@@ -80,13 +80,13 @@ mod tests {
             wqp_name: "",
             fields: NodeFieldList(&[
                 NodeField {
-                    camelcase_name: "field1",
+                    snakecase_name: "field1",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &[],
                 },
                 NodeField {
-                    camelcase_name: "field2",
+                    snakecase_name: "field2",
                     field_type: NodeFieldType::Node,
                     always_print: true,
                     comment: &[],
@@ -99,13 +99,13 @@ mod tests {
             wqp_name: "two",
             fields: NodeFieldList(&[
                 NodeField {
-                    camelcase_name: "field3",
+                    snakecase_name: "field3",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &[],
                 },
                 NodeField {
-                    camelcase_name: "field4",
+                    snakecase_name: "field4",
                     field_type: NodeFieldType::Node,
                     always_print: false,
                     comment: &[],
@@ -118,7 +118,7 @@ mod tests {
     const MESSAGES: &[Message] = &[Message {
         camelcase_name: "MessageOne",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "field3",
+            snakecase_name: "field3",
             field_type: MessageFieldType::Byte,
             comment: &[],
         }]),
@@ -135,7 +135,7 @@ mod tests {
     }
 
     fn node_field_name(field: &NodeField) -> String {
-        format!("{}", field.camelcase_name)
+        format!("{}", field.snakecase_name)
     }
 
     fn message_name(message: &Message) -> String {
@@ -143,7 +143,7 @@ mod tests {
     }
 
     fn message_field_name(message_field: &MessageField) -> String {
-        message_field.camelcase_name.to_owned()
+        message_field.snakecase_name.to_owned()
     }
 
     fn is_node_field_is_printable(field: &NodeField) -> bool {

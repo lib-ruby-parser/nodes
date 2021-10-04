@@ -59,7 +59,7 @@ impl MessageFieldList {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct MessageField {
-    pub camelcase_name: &'static str,
+    pub snakecase_name: &'static str,
     pub field_type: MessageFieldType,
     pub comment: &'static [&'static str],
 }

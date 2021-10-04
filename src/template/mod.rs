@@ -105,13 +105,13 @@ There is a message <helper message-name>
             wqp_name: "node_one",
             fields: NodeFieldList(&[
                 NodeField {
-                    camelcase_name: "field1",
+                    snakecase_name: "field1",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &["field 1 does this"],
                 },
                 NodeField {
-                    camelcase_name: "field2",
+                    snakecase_name: "field2",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &["field 2 does this"],
@@ -123,7 +123,7 @@ There is a message <helper message-name>
             camelcase_name: "NodeTwo",
             wqp_name: "node_two",
             fields: NodeFieldList(&[NodeField {
-                camelcase_name: "field3",
+                snakecase_name: "field3",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
                 comment: &["field 3 does this"],
@@ -136,12 +136,12 @@ There is a message <helper message-name>
         camelcase_name: "Message1",
         fields: MessageFieldList(&[
             MessageField {
-                camelcase_name: "field1",
+                snakecase_name: "field1",
                 field_type: MessageFieldType::Byte,
                 comment: &[],
             },
             MessageField {
-                camelcase_name: "field2",
+                snakecase_name: "field2",
                 field_type: MessageFieldType::Str,
                 comment: &[],
             },
@@ -163,7 +163,7 @@ There is a message <helper message-name>
     }
 
     fn node_field_name(field: &NodeField) -> String {
-        field.camelcase_name.to_string()
+        field.snakecase_name.to_string()
     }
 
     fn is_node_field_always_printable(field: &NodeField) -> bool {
@@ -175,7 +175,7 @@ There is a message <helper message-name>
     }
 
     fn message_field_name(message_field: &MessageField) -> String {
-        message_field.camelcase_name.to_string()
+        message_field.snakecase_name.to_string()
     }
 
     fn is_message_field_u8(message_field: &MessageField) -> bool {

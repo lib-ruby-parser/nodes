@@ -8,7 +8,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "to",
+                        snakecase_name: "to",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -19,7 +19,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "from",
+                        snakecase_name: "from",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -30,7 +30,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -44,7 +44,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -70,7 +70,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -81,7 +81,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -92,7 +92,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -106,7 +106,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -132,7 +132,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "lhs",
+                        snakecase_name: "lhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -143,7 +143,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "rhs",
+                        snakecase_name: "rhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -154,7 +154,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -168,7 +168,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -194,7 +194,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -203,7 +203,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -231,7 +231,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -240,7 +240,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -254,7 +254,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -270,7 +270,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -300,7 +300,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "elements",
+                        snakecase_name: "elements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -309,7 +309,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -323,7 +323,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -337,7 +337,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -363,7 +363,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "elements",
+                        snakecase_name: "elements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -372,7 +372,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -388,7 +388,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -404,7 +404,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -430,7 +430,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "elements",
+                        snakecase_name: "elements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -439,7 +439,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -455,7 +455,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -471,7 +471,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -499,7 +499,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -508,7 +508,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -538,7 +538,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "statements",
+                        snakecase_name: "statements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -547,7 +547,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -567,7 +567,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -587,7 +587,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -615,7 +615,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "call",
+                        snakecase_name: "call",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -626,7 +626,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -639,7 +639,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -648,7 +648,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -662,7 +662,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -676,7 +676,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -702,7 +702,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -713,7 +713,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -727,7 +727,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -753,7 +753,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -762,7 +762,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -776,7 +776,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -790,7 +790,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -816,7 +816,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -825,7 +825,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -839,7 +839,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -865,7 +865,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expr",
+                        snakecase_name: "expr",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -881,7 +881,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "when_bodies",
+                        snakecase_name: "when_bodies",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -890,7 +890,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_body",
+                        snakecase_name: "else_body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -899,7 +899,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -913,7 +913,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_l",
+                        snakecase_name: "else_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -929,7 +929,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -943,7 +943,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -969,7 +969,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expr",
+                        snakecase_name: "expr",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -985,7 +985,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "in_bodies",
+                        snakecase_name: "in_bodies",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -994,7 +994,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_body",
+                        snakecase_name: "else_body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1003,7 +1003,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1017,7 +1017,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_l",
+                        snakecase_name: "else_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1033,7 +1033,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1047,7 +1047,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1073,7 +1073,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "scope",
+                        snakecase_name: "scope",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1085,7 +1085,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1094,7 +1094,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -1106,7 +1106,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "double_colon_l",
+                        snakecase_name: "double_colon_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1125,7 +1125,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1139,7 +1139,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1156,7 +1156,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1182,7 +1182,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1208,7 +1208,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1217,7 +1217,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "superclass",
+                        snakecase_name: "superclass",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1228,7 +1228,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1237,7 +1237,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1251,7 +1251,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1267,7 +1267,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1281,7 +1281,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1307,7 +1307,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1316,7 +1316,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1332,7 +1332,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1358,7 +1358,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "scope",
+                        snakecase_name: "scope",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1370,7 +1370,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1379,7 +1379,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "double_colon_l",
+                        snakecase_name: "double_colon_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1393,7 +1393,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1407,7 +1407,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1433,7 +1433,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "const",
+                        snakecase_name: "const",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1442,7 +1442,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "pattern",
+                        snakecase_name: "pattern",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1453,7 +1453,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1467,7 +1467,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1481,7 +1481,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1507,7 +1507,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1516,7 +1516,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "method_name",
+                        snakecase_name: "method_name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1525,7 +1525,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -1540,7 +1540,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "dot_l",
+                        snakecase_name: "dot_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1554,7 +1554,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "selector_l",
+                        snakecase_name: "selector_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1570,7 +1570,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1586,7 +1586,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1602,7 +1602,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1618,7 +1618,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1644,7 +1644,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1653,7 +1653,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1679,7 +1679,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1688,7 +1688,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -1697,7 +1697,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1711,7 +1711,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1725,7 +1725,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1751,7 +1751,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1760,7 +1760,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1771,7 +1771,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1780,7 +1780,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1794,7 +1794,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1808,7 +1808,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1824,7 +1824,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "assignment_l",
+                        snakecase_name: "assignment_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1840,7 +1840,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1866,7 +1866,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1875,7 +1875,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1889,7 +1889,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1905,7 +1905,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -1921,7 +1921,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1947,7 +1947,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "definee",
+                        snakecase_name: "definee",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -1956,7 +1956,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -1965,7 +1965,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1976,7 +1976,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -1985,7 +1985,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -1999,7 +1999,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2013,7 +2013,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2027,7 +2027,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "assignment_l",
+                        snakecase_name: "assignment_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2043,7 +2043,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2059,7 +2059,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2085,7 +2085,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -2094,7 +2094,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2111,7 +2111,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2128,7 +2128,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2157,7 +2157,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -2166,7 +2166,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2186,7 +2186,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2206,7 +2206,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2232,7 +2232,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "left",
+                        snakecase_name: "left",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2241,7 +2241,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "right",
+                        snakecase_name: "right",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2250,7 +2250,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2264,7 +2264,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2290,7 +2290,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2321,7 +2321,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2347,7 +2347,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2359,7 +2359,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "ensure",
+                        snakecase_name: "ensure",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2370,7 +2370,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2384,7 +2384,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2412,7 +2412,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "left",
+                        snakecase_name: "left",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2421,7 +2421,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "right",
+                        snakecase_name: "right",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2430,7 +2430,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2444,7 +2444,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2470,7 +2470,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2496,7 +2496,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2522,7 +2522,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "elements",
+                        snakecase_name: "elements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -2531,7 +2531,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2547,7 +2547,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2563,7 +2563,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2591,7 +2591,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -2600,7 +2600,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2614,7 +2614,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2640,7 +2640,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "iterator",
+                        snakecase_name: "iterator",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -2649,7 +2649,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "iteratee",
+                        snakecase_name: "iteratee",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -2658,7 +2658,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -2667,7 +2667,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2681,7 +2681,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2695,7 +2695,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2711,7 +2711,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2725,7 +2725,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2751,7 +2751,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2777,7 +2777,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2803,7 +2803,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -2812,7 +2812,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2838,7 +2838,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -2847,7 +2847,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -2859,7 +2859,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2873,7 +2873,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2890,7 +2890,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2916,7 +2916,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "pairs",
+                        snakecase_name: "pairs",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -2925,7 +2925,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2941,7 +2941,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -2957,7 +2957,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -2983,7 +2983,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "pairs",
+                        snakecase_name: "pairs",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -2992,7 +2992,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3018,7 +3018,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "elements",
+                        snakecase_name: "elements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -3027,7 +3027,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3043,7 +3043,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3059,7 +3059,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3085,7 +3085,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -3094,7 +3094,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "heredoc_body_l",
+                        snakecase_name: "heredoc_body_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3108,7 +3108,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "heredoc_end_l",
+                        snakecase_name: "heredoc_end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3122,7 +3122,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3159,7 +3159,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3168,7 +3168,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_true",
+                        snakecase_name: "if_true",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3177,7 +3177,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_false",
+                        snakecase_name: "if_false",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3186,7 +3186,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3200,7 +3200,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3216,7 +3216,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_l",
+                        snakecase_name: "else_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3232,7 +3232,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3246,7 +3246,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3272,7 +3272,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3281,7 +3281,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3295,7 +3295,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3321,7 +3321,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3330,7 +3330,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_true",
+                        snakecase_name: "if_true",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3342,7 +3342,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_false",
+                        snakecase_name: "if_false",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3354,7 +3354,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3371,7 +3371,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3400,7 +3400,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3409,7 +3409,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_true",
+                        snakecase_name: "if_true",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3418,7 +3418,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "if_false",
+                        snakecase_name: "if_false",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3427,7 +3427,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "question_l",
+                        snakecase_name: "question_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3441,7 +3441,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "colon_l",
+                        snakecase_name: "colon_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3455,7 +3455,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3481,7 +3481,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "left",
+                        snakecase_name: "left",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3490,7 +3490,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "right",
+                        snakecase_name: "right",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3499,7 +3499,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3513,7 +3513,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3539,7 +3539,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3548,7 +3548,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "pattern",
+                        snakecase_name: "pattern",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3557,7 +3557,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3571,7 +3571,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3597,7 +3597,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3606,7 +3606,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "pattern",
+                        snakecase_name: "pattern",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3615,7 +3615,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3629,7 +3629,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3655,7 +3655,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "pattern",
+                        snakecase_name: "pattern",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3664,7 +3664,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "guard",
+                        snakecase_name: "guard",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3675,7 +3675,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3684,7 +3684,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3698,7 +3698,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3712,7 +3712,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3738,7 +3738,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3747,7 +3747,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "indexes",
+                        snakecase_name: "indexes",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -3756,7 +3756,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3770,7 +3770,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3784,7 +3784,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3810,7 +3810,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -3819,7 +3819,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "indexes",
+                        snakecase_name: "indexes",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -3828,7 +3828,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -3840,7 +3840,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3854,7 +3854,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3868,7 +3868,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3885,7 +3885,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3911,7 +3911,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -3920,7 +3920,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -3934,7 +3934,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3960,7 +3960,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "left",
+                        snakecase_name: "left",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3969,7 +3969,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "right",
+                        snakecase_name: "right",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -3978,7 +3978,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -3992,7 +3992,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4018,7 +4018,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4027,7 +4027,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4053,7 +4053,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4062,7 +4062,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -4074,7 +4074,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4088,7 +4088,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -4105,7 +4105,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4131,7 +4131,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4140,7 +4140,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4154,7 +4154,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4180,7 +4180,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "statements",
+                        snakecase_name: "statements",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -4189,7 +4189,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -4203,7 +4203,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -4217,7 +4217,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4249,7 +4249,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4263,7 +4263,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4289,7 +4289,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4298,7 +4298,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "default",
+                        snakecase_name: "default",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4307,7 +4307,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4321,7 +4321,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4347,7 +4347,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::MaybeStr { chars: false },
                         always_print: false,
                         comment: &[
@@ -4358,7 +4358,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4372,7 +4372,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -4388,7 +4388,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4414,7 +4414,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4423,7 +4423,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4437,7 +4437,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4463,7 +4463,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4491,7 +4491,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4517,7 +4517,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4526,7 +4526,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4559,7 +4559,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4568,7 +4568,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -4577,7 +4577,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4591,7 +4591,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -4608,7 +4608,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4634,7 +4634,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "lhs",
+                        snakecase_name: "lhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4643,7 +4643,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "rhs",
+                        snakecase_name: "rhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4652,7 +4652,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4666,7 +4666,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4692,7 +4692,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "lhs",
+                        snakecase_name: "lhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4701,7 +4701,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "rhs",
+                        snakecase_name: "rhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4710,7 +4710,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4724,7 +4724,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4750,7 +4750,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4759,7 +4759,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "as",
+                        snakecase_name: "as",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4768,7 +4768,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4782,7 +4782,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4808,7 +4808,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "re",
+                        snakecase_name: "re",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -4817,7 +4817,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4866,7 +4866,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4880,7 +4880,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4894,7 +4894,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4920,7 +4920,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -4931,7 +4931,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4945,7 +4945,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -4971,7 +4971,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -4980,7 +4980,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5001,7 +5001,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5034,7 +5034,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "re",
+                        snakecase_name: "re",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5043,7 +5043,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5052,7 +5052,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5066,7 +5066,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5094,7 +5094,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "items",
+                        snakecase_name: "items",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -5103,7 +5103,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -5119,7 +5119,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -5135,7 +5135,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5161,7 +5161,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5170,7 +5170,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -5181,7 +5181,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5195,7 +5195,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5209,7 +5209,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5235,7 +5235,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -5244,7 +5244,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5258,7 +5258,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5284,7 +5284,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5310,7 +5310,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: true },
                         always_print: false,
                         comment: &[
@@ -5319,7 +5319,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5345,7 +5345,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "call",
+                        snakecase_name: "call",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5354,7 +5354,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "numargs",
+                        snakecase_name: "numargs",
                         field_type: NodeFieldType::U8,
                         always_print: false,
                         comment: &[
@@ -5363,7 +5363,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5372,7 +5372,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5386,7 +5386,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5400,7 +5400,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5426,7 +5426,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5435,7 +5435,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator",
+                        snakecase_name: "operator",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -5455,7 +5455,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5464,7 +5464,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5478,7 +5478,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5504,7 +5504,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -5513,7 +5513,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "default",
+                        snakecase_name: "default",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5522,7 +5522,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5536,7 +5536,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5550,7 +5550,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5576,7 +5576,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "lhs",
+                        snakecase_name: "lhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5585,7 +5585,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "rhs",
+                        snakecase_name: "rhs",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5594,7 +5594,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5608,7 +5608,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5634,7 +5634,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5643,7 +5643,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5652,7 +5652,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5666,7 +5666,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5692,7 +5692,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "key",
+                        snakecase_name: "key",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5701,7 +5701,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5710,7 +5710,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5727,7 +5727,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5756,7 +5756,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "var",
+                        snakecase_name: "var",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -5765,7 +5765,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "selector_l",
+                        snakecase_name: "selector_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5779,7 +5779,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5805,7 +5805,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -5814,7 +5814,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5828,7 +5828,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5842,7 +5842,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5856,7 +5856,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5882,7 +5882,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -5891,7 +5891,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5905,7 +5905,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5919,7 +5919,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5933,7 +5933,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -5959,7 +5959,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -5972,7 +5972,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -5988,7 +5988,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6004,7 +6004,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6033,7 +6033,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -6042,7 +6042,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6056,7 +6056,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6082,7 +6082,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6108,7 +6108,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "options",
+                        snakecase_name: "options",
                         field_type: NodeFieldType::MaybeStr { chars: true },
                         always_print: false,
                         comment: &[
@@ -6117,7 +6117,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6143,7 +6143,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -6152,7 +6152,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "options",
+                        snakecase_name: "options",
                         field_type: NodeFieldType::MaybeNode { regexp_options: true },
                         always_print: false,
                         comment: &[
@@ -6163,7 +6163,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6180,7 +6180,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6197,7 +6197,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6223,7 +6223,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6232,7 +6232,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "rescue_bodies",
+                        snakecase_name: "rescue_bodies",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -6241,7 +6241,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else",
+                        snakecase_name: "else",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6252,7 +6252,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "else_l",
+                        snakecase_name: "else_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6268,7 +6268,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6296,7 +6296,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "exc_list",
+                        snakecase_name: "exc_list",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6307,7 +6307,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "exc_var",
+                        snakecase_name: "exc_var",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6318,7 +6318,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6327,7 +6327,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6341,7 +6341,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "assoc_l",
+                        snakecase_name: "assoc_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6357,7 +6357,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6373,7 +6373,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6399,7 +6399,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::MaybeStr { chars: false },
                         always_print: false,
                         comment: &[
@@ -6410,7 +6410,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6424,7 +6424,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "name_l",
+                        snakecase_name: "name_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6438,7 +6438,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6464,7 +6464,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6490,7 +6490,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -6499,7 +6499,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6513,7 +6513,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6539,7 +6539,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expr",
+                        snakecase_name: "expr",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -6550,7 +6550,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6559,7 +6559,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6573,7 +6573,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6587,7 +6587,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6601,7 +6601,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6627,7 +6627,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6653,7 +6653,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "recv",
+                        snakecase_name: "recv",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -6664,7 +6664,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "method_name",
+                        snakecase_name: "method_name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -6673,7 +6673,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -6682,7 +6682,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "dot_l",
+                        snakecase_name: "dot_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6698,7 +6698,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "selector_l",
+                        snakecase_name: "selector_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6714,7 +6714,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6730,7 +6730,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6746,7 +6746,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6762,7 +6762,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6788,7 +6788,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::Str { raw: false },
                         always_print: false,
                         comment: &[
@@ -6797,7 +6797,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6823,7 +6823,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: false,
                         comment: &[
@@ -6832,7 +6832,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "operator_l",
+                        snakecase_name: "operator_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6846,7 +6846,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6872,7 +6872,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "value",
+                        snakecase_name: "value",
                         field_type: NodeFieldType::StringValue,
                         always_print: false,
                         comment: &[
@@ -6890,7 +6890,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6906,7 +6906,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6922,7 +6922,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6948,7 +6948,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -6957,7 +6957,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -6971,7 +6971,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -6987,7 +6987,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7003,7 +7003,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7029,7 +7029,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "name",
+                        snakecase_name: "name",
                         field_type: NodeFieldType::StringValue,
                         always_print: false,
                         comment: &[
@@ -7047,7 +7047,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7063,7 +7063,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7079,7 +7079,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7113,7 +7113,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7139,7 +7139,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "names",
+                        snakecase_name: "names",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -7148,7 +7148,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7162,7 +7162,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7188,7 +7188,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7197,7 +7197,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7211,7 +7211,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7237,7 +7237,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7246,7 +7246,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -7257,7 +7257,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7271,7 +7271,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7287,7 +7287,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7303,7 +7303,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7332,7 +7332,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7341,7 +7341,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7350,7 +7350,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7364,7 +7364,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7396,7 +7396,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "patterns",
+                        snakecase_name: "patterns",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -7405,7 +7405,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -7414,7 +7414,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7428,7 +7428,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7444,7 +7444,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7470,7 +7470,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7479,7 +7479,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::MaybeNode { regexp_options: false },
                         always_print: true,
                         comment: &[
@@ -7490,7 +7490,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7504,7 +7504,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7520,7 +7520,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7536,7 +7536,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7565,7 +7565,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "cond",
+                        snakecase_name: "cond",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7574,7 +7574,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "body",
+                        snakecase_name: "body",
                         field_type: NodeFieldType::Node,
                         always_print: false,
                         comment: &[
@@ -7583,7 +7583,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7597,7 +7597,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7629,7 +7629,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -7638,7 +7638,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "heredoc_body_l",
+                        snakecase_name: "heredoc_body_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7652,7 +7652,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "heredoc_end_l",
+                        snakecase_name: "heredoc_end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7666,7 +7666,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7703,7 +7703,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "parts",
+                        snakecase_name: "parts",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -7712,7 +7712,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7729,7 +7729,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7746,7 +7746,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7775,7 +7775,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "args",
+                        snakecase_name: "args",
                         field_type: NodeFieldType::Nodes,
                         always_print: false,
                         comment: &[
@@ -7784,7 +7784,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "keyword_l",
+                        snakecase_name: "keyword_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7798,7 +7798,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "begin_l",
+                        snakecase_name: "begin_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7814,7 +7814,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "end_l",
+                        snakecase_name: "end_l",
                         field_type: NodeFieldType::MaybeLoc,
                         always_print: false,
                         comment: &[
@@ -7830,7 +7830,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
                     },
 
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[
@@ -7856,7 +7856,7 @@ pub(crate) const ALL_NODES: NodeList = NodeList(
             fields: NodeFieldList(
                 &[
                     NodeField {
-                        camelcase_name: "expression_l",
+                        snakecase_name: "expression_l",
                         field_type: NodeFieldType::Loc,
                         always_print: false,
                         comment: &[

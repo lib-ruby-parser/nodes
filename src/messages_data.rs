@@ -84,7 +84,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "UnterminatedHeredoc",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "heredoc_id",
+            snakecase_name: "heredoc_id",
             field_type: MessageFieldType::Str,
             comment: &["Heredoc identifier"],
         }]),
@@ -153,7 +153,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "AmbiguousFirstArgument",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "operator",
+            snakecase_name: "operator",
             field_type: MessageFieldType::Byte,
             comment: &["Operator that is ambiguous"],
         }]),
@@ -168,12 +168,12 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
         camelcase_name: "AmbiguousOperator",
         fields: MessageFieldList(&[
             MessageField {
-                camelcase_name: "operator",
+                snakecase_name: "operator",
                 field_type: MessageFieldType::Str,
                 comment: &["Operator that is ambiguous"],
             },
             MessageField {
-                camelcase_name: "interpreted_as",
+                snakecase_name: "interpreted_as",
                 field_type: MessageFieldType::Str,
                 comment: &["Interpretation of this operator"],
             },
@@ -188,7 +188,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidCharacterSyntax",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "suggestion",
+            snakecase_name: "suggestion",
             field_type: MessageFieldType::Str,
             comment: &["Valid syntax sugestions"],
         }]),
@@ -202,7 +202,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "TrailingCharInNumber",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "c",
+            snakecase_name: "c",
             field_type: MessageFieldType::Byte,
             comment: &["Invalid trailing char"],
         }]),
@@ -216,7 +216,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidChar",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "c",
+            snakecase_name: "c",
             field_type: MessageFieldType::Byte,
             comment: &["char"],
         }]),
@@ -243,7 +243,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidGvarName",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "c",
+            snakecase_name: "c",
             field_type: MessageFieldType::Byte,
             comment: &["char after `$`"],
         }]),
@@ -257,7 +257,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidIvarName",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "c",
+            snakecase_name: "c",
             field_type: MessageFieldType::Byte,
             comment: &["char after `@`"],
         }]),
@@ -271,7 +271,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidCvarName",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "c",
+            snakecase_name: "c",
             field_type: MessageFieldType::Byte,
             comment: &["char after `@@`"],
         }]),
@@ -280,7 +280,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "UnknownRegexOptions",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "options",
+            snakecase_name: "options",
             field_type: MessageFieldType::Str,
             comment: &["Concatenated unknown options"],
         }]),
@@ -294,7 +294,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "EncodingError",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "error",
+            snakecase_name: "error",
             field_type: MessageFieldType::Str,
             comment: &["Error from decoder"],
         }]),
@@ -316,7 +316,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "AmbiguousTernaryOperator",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "condition",
+            snakecase_name: "condition",
             field_type: MessageFieldType::Str,
             comment: &["Source of the condition expression"],
         }]),
@@ -373,7 +373,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "UnexpectedToken",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "token_name",
+            snakecase_name: "token_name",
             field_type: MessageFieldType::Str,
             comment: &["Name of the token"],
         }]),
@@ -452,7 +452,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "NoSuchLocalVariable",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "var_name",
+            snakecase_name: "var_name",
             field_type: MessageFieldType::Str,
             comment: &["Variable name"],
         }]),
@@ -481,7 +481,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "TokAtEolWithoutExpression",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "token_name",
+            snakecase_name: "token_name",
             field_type: MessageFieldType::Str,
             comment: &["Name of the token"],
         }]),
@@ -510,7 +510,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "ComparisonAfterComparison",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "comparison",
+            snakecase_name: "comparison",
             field_type: MessageFieldType::Str,
             comment: &["Source of the first comparison"],
         }]),
@@ -527,7 +527,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "CircularArgumentReference",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "arg_name",
+            snakecase_name: "arg_name",
             field_type: MessageFieldType::Str,
             comment: &["Name of the argument"],
         }]),
@@ -591,7 +591,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "CantAssignToNumparam",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "numparam",
+            snakecase_name: "numparam",
             field_type: MessageFieldType::Str,
             comment: &["Source of the numbered parameter"],
         }]),
@@ -605,7 +605,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "CantSetVariable",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "var_name",
+            snakecase_name: "var_name",
             field_type: MessageFieldType::Str,
             comment: &["Source of the read-only variable that is assigned"],
         }]),
@@ -639,7 +639,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "ReservedForNumparam",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "numparam",
+            snakecase_name: "numparam",
             field_type: MessageFieldType::Str,
             comment: &["Numbered parameter that is treated as a local variable"],
         }]),
@@ -688,7 +688,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "NthRefIsTooBig",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "nth_ref",
+            snakecase_name: "nth_ref",
             field_type: MessageFieldType::Str,
             comment: &["Source of the nth_ref that is techincally a regular global variable"],
         }]),
@@ -712,7 +712,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "RegexError",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "error",
+            snakecase_name: "error",
             field_type: MessageFieldType::Str,
             comment: &["Error from Onigurama engine"],
         }]),
@@ -721,7 +721,7 @@ pub const ALL_MESSAGES: MessagesList = MessagesList(&[
     Message {
         camelcase_name: "InvalidSymbol",
         fields: MessageFieldList(&[MessageField {
-            camelcase_name: "symbol",
+            snakecase_name: "symbol",
             field_type: MessageFieldType::Str,
             comment: &["Source of the symbol"],
         }]),

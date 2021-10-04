@@ -64,7 +64,7 @@ impl NodeFieldList {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct NodeField {
-    pub camelcase_name: &'static str,
+    pub snakecase_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
     pub comment: &'static [&'static str],
