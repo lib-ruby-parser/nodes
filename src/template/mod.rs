@@ -19,7 +19,7 @@ mod structs;
 use structs::Template;
 
 mod global_context;
-use global_context::GlobalContext;
+pub use global_context::GlobalContext;
 pub use global_context::ALL_DATA;
 
 #[derive(Debug, PartialEq)]
