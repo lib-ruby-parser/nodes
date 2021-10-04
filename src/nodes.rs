@@ -27,7 +27,7 @@ pub struct Node {
 
 impl Node {
     pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
+        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
     }
 
     pub fn upper_name(&self) -> String {
@@ -64,7 +64,7 @@ impl NodeFieldList {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct NodeField {
-    pub field_name: &'static str,
+    pub camelcase_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
     pub comment: &'static [&'static str],
@@ -72,7 +72,7 @@ pub struct NodeField {
 
 impl NodeField {
     pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
+        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
     }
 }
 

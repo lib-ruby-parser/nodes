@@ -17,14 +17,16 @@ pub struct Bucket<T> {
     predicates: HashMap<String, fn(&T) -> bool>,
 }
 
-impl<T> Bucket<T> {
-    fn new() -> Self {
+impl<T> Default for Bucket<T> {
+    fn default() -> Self {
         Self {
-            helpers: HashMap::new(),
-            predicates: HashMap::new(),
+            helpers: HashMap::default(),
+            predicates: HashMap::default(),
         }
     }
+}
 
+impl<T> Bucket<T> {
     pub(crate) fn register_helper(&mut self, helper: &str, f: fn(&T) -> String) {
         self.helpers.insert(helper.to_string(), f);
     }
@@ -32,7 +34,7 @@ impl<T> Bucket<T> {
     pub(crate) fn get_helper(&self, helper: &str) -> fn(&T) -> String {
         self.helpers
             .get(helper)
-            .map(|v| *v)
+            .copied()
             .unwrap_or_else(|| panic!("Can't find helper {}", helper))
     }
 
@@ -43,11 +45,12 @@ impl<T> Bucket<T> {
     pub(crate) fn get_predicate(&self, predicate: &str) -> fn(&T) -> bool {
         self.predicates
             .get(predicate)
-            .map(|v| *v)
+            .copied()
             .unwrap_or_else(|| panic!("Can't find predicate {}", predicate))
     }
 }
 
+#[derive(Default)]
 pub struct Fns {
     global: Bucket<GlobalContext>,
     node: Bucket<Node>,
@@ -58,13 +61,7 @@ pub struct Fns {
 
 impl Fns {
     pub fn new() -> Self {
-        Self {
-            global: Bucket::new(),
-            node: Bucket::new(),
-            node_field: Bucket::new(),
-            message: Bucket::new(),
-            message_field: Bucket::new(),
-        }
+        Self::default()
     }
 
     pub fn register_helper<T>(&mut self, helper: &str, f: fn(&T) -> String)

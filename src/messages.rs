@@ -26,7 +26,7 @@ pub struct Message {
 
 impl Message {
     pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
+        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
     }
 
     pub fn upper_name(&self) -> String {
@@ -59,14 +59,14 @@ impl MessageFieldList {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct MessageField {
-    pub name: &'static str,
+    pub camelcase_name: &'static str,
     pub field_type: MessageFieldType,
     pub comment: &'static [&'static str],
 }
 
 impl MessageField {
     pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(&self.comment, prefix).to_string(offset)
+        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
     }
 }
 

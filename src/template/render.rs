@@ -80,13 +80,13 @@ mod tests {
             wqp_name: "",
             fields: NodeFieldList(&[
                 NodeField {
-                    field_name: "field1",
+                    camelcase_name: "field1",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &[],
                 },
                 NodeField {
-                    field_name: "field2",
+                    camelcase_name: "field2",
                     field_type: NodeFieldType::Node,
                     always_print: true,
                     comment: &[],
@@ -99,13 +99,13 @@ mod tests {
             wqp_name: "two",
             fields: NodeFieldList(&[
                 NodeField {
-                    field_name: "field3",
+                    camelcase_name: "field3",
                     field_type: NodeFieldType::Loc,
                     always_print: true,
                     comment: &[],
                 },
                 NodeField {
-                    field_name: "field4",
+                    camelcase_name: "field4",
                     field_type: NodeFieldType::Node,
                     always_print: false,
                     comment: &[],
@@ -118,7 +118,7 @@ mod tests {
     const MESSAGES: &[Message] = &[Message {
         camelcase_name: "MessageOne",
         fields: MessageFieldList(&[MessageField {
-            name: "field3",
+            camelcase_name: "field3",
             field_type: MessageFieldType::Byte,
             comment: &[],
         }]),
@@ -135,7 +135,7 @@ mod tests {
     }
 
     fn node_field_name(field: &NodeField) -> String {
-        format!("{}", field.field_name)
+        format!("{}", field.camelcase_name)
     }
 
     fn message_name(message: &Message) -> String {
@@ -143,7 +143,7 @@ mod tests {
     }
 
     fn message_field_name(message_field: &MessageField) -> String {
-        message_field.name.to_owned()
+        message_field.camelcase_name.to_owned()
     }
 
     fn is_node_field_is_printable(field: &NodeField) -> bool {
