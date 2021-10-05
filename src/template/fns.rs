@@ -48,9 +48,9 @@ impl<T> Bucket<T> {
 pub struct Fns {
     global: Bucket<GlobalContext>,
     node: Bucket<Node>,
-    node_field: Bucket<NodeWithField>,
+    node_with_field: Bucket<NodeWithField>,
     message: Bucket<Message>,
-    message_field: Bucket<MessageWithField>,
+    message_with_field: Bucket<MessageWithField>,
 }
 
 impl Fns {
@@ -80,26 +80,125 @@ pub trait FnSubject {
     fn get_mut(fns: &mut Fns) -> &mut Bucket<Self>
     where
         Self: Sized;
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String>;
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool>;
 }
 
-macro_rules! def_impl {
-    ($t:ty, $bucket_name:ident) => {
-        impl FnSubject for $t {
-            fn get(fns: &Fns) -> &Bucket<Self> {
-                &fns.$bucket_name
-            }
+impl FnSubject for GlobalContext {
+    fn get(fns: &Fns) -> &Bucket<Self> {
+        &fns.global
+    }
 
-            fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
-                &mut fns.$bucket_name
-            }
+    fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
+        &mut fns.global
+    }
+
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
+        let helper = Self::get(fns).get_helper(helper)?;
+        Some(helper(self))
+    }
+
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
+        let predicate = Self::get(fns).get_predicate(predicate)?;
+        Some(predicate(self))
+    }
+}
+impl FnSubject for Node {
+    fn get(fns: &Fns) -> &Bucket<Self> {
+        &fns.node
+    }
+
+    fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
+        &mut fns.node
+    }
+
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
+        let helper = Self::get(fns).get_helper(helper)?;
+        Some(helper(self))
+    }
+
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
+        let predicate = Self::get(fns).get_predicate(predicate)?;
+        Some(predicate(self))
+    }
+}
+impl FnSubject for NodeWithField {
+    fn get(fns: &Fns) -> &Bucket<Self> {
+        &fns.node_with_field
+    }
+
+    fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
+        &mut fns.node_with_field
+    }
+
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
+        if let Some(helper) = Self::get(fns).get_helper(helper) {
+            Some(helper(self))
+        } else if let Some(helper) = Node::get(fns).get_helper(helper) {
+            Some(helper(&self.node))
+        } else {
+            None
         }
-    };
+    }
+
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
+        if let Some(predicate) = Self::get(fns).get_predicate(predicate) {
+            Some(predicate(self))
+        } else if let Some(predicate) = Node::get(fns).get_predicate(predicate) {
+            Some(predicate(&self.node))
+        } else {
+            None
+        }
+    }
 }
-def_impl!(GlobalContext, global);
-def_impl!(Node, node);
-def_impl!(NodeWithField, node_field);
-def_impl!(Message, message);
-def_impl!(MessageWithField, message_field);
+impl FnSubject for Message {
+    fn get(fns: &Fns) -> &Bucket<Self> {
+        &fns.message
+    }
+
+    fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
+        &mut fns.message
+    }
+
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
+        let helper = Self::get(fns).get_helper(helper)?;
+        Some(helper(self))
+    }
+
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
+        let predicate = Self::get(fns).get_predicate(predicate)?;
+        Some(predicate(self))
+    }
+}
+impl FnSubject for MessageWithField {
+    fn get(fns: &Fns) -> &Bucket<Self> {
+        &fns.message_with_field
+    }
+
+    fn get_mut(fns: &mut Fns) -> &mut Bucket<Self> {
+        &mut fns.message_with_field
+    }
+
+    fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
+        if let Some(helper) = Self::get(fns).get_helper(helper) {
+            Some(helper(self))
+        } else if let Some(helper) = Message::get(fns).get_helper(helper) {
+            Some(helper(&self.message))
+        } else {
+            None
+        }
+    }
+
+    fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
+        if let Some(predicate) = Self::get(fns).get_predicate(predicate) {
+            Some(predicate(self))
+        } else if let Some(predicate) = Message::get(fns).get_predicate(predicate) {
+            Some(predicate(&self.message))
+        } else {
+            None
+        }
+    }
+}
 
 pub(crate) trait GetRegistrySlice<T> {
     fn get_slice(&self) -> &Bucket<T>;

@@ -1,7 +1,5 @@
-use crate::template::fns::{Bucket, GetRegistrySlice};
-use crate::template::GlobalContext;
+use crate::template::fns::FnSubject;
 use crate::template::{render::Render, Buffer, Parse, ParseError, ParseErrorKind, TemplateFns};
-use crate::{Message, MessageWithField, Node, NodeWithField};
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Condition<Branch> {
@@ -107,114 +105,19 @@ where
     }
 }
 
-impl<Branch> Render<Node> for Condition<Branch>
+impl<Context, Branch> Render<Context> for Condition<Branch>
 where
-    Branch: Render<Node>,
+    Branch: Render<Context>,
+    Context: FnSubject,
 {
-    fn render(&self, node: &Node, fns: &TemplateFns) -> String {
-        let bucket: &Bucket<Node> = fns.get_slice();
-        if let Some(predicate) = bucket.get_predicate(&self.predicate_name) {
-            if predicate(node) {
-                self.if_true.render(node, fns)
-            } else {
-                self.if_false.render(node, fns)
-            }
+    fn render(&self, ctx: &Context, fns: &TemplateFns) -> String {
+        let predicate_value = ctx
+            .dispatch_predicate(fns, &self.predicate_name)
+            .unwrap_or_else(|| panic!("Can't find node predicate {}", self.predicate_name));
+        if predicate_value {
+            self.if_true.render(ctx, fns)
         } else {
-            panic!("Can't find node predicate {}", self.predicate_name)
-        }
-    }
-}
-
-impl<Branch> Render<NodeWithField> for Condition<Branch>
-where
-    Branch: Render<NodeWithField>,
-{
-    fn render(&self, node_with_field: &NodeWithField, fns: &TemplateFns) -> String {
-        let node_with_field_bucket: &Bucket<NodeWithField> = fns.get_slice();
-        let node_bucket: &Bucket<Node> = fns.get_slice();
-
-        if let Some(predicate) = node_with_field_bucket.get_predicate(&self.predicate_name) {
-            if predicate(node_with_field) {
-                self.if_true.render(node_with_field, fns)
-            } else {
-                self.if_false.render(node_with_field, fns)
-            }
-        } else if let Some(predicate) = node_bucket.get_predicate(&self.predicate_name) {
-            if predicate(&node_with_field.node) {
-                self.if_true.render(node_with_field, fns)
-            } else {
-                self.if_false.render(node_with_field, fns)
-            }
-        } else {
-            panic!(
-                "Can't find node_field/node predicate {}",
-                self.predicate_name
-            )
-        }
-    }
-}
-
-impl<Branch> Render<Message> for Condition<Branch>
-where
-    Branch: Render<Message>,
-{
-    fn render(&self, message: &Message, fns: &TemplateFns) -> String {
-        let bucket: &Bucket<Message> = fns.get_slice();
-        if let Some(predicate) = bucket.get_predicate(&self.predicate_name) {
-            if predicate(message) {
-                self.if_true.render(message, fns)
-            } else {
-                self.if_false.render(message, fns)
-            }
-        } else {
-            panic!("Can't find message predicate {}", self.predicate_name)
-        }
-    }
-}
-
-impl<Branch> Render<MessageWithField> for Condition<Branch>
-where
-    Branch: Render<MessageWithField>,
-{
-    fn render(&self, message_with_field: &MessageWithField, fns: &TemplateFns) -> String {
-        let message_with_field_bucket: &Bucket<MessageWithField> = fns.get_slice();
-        let message_bucket: &Bucket<Message> = fns.get_slice();
-
-        if let Some(predicate) = message_with_field_bucket.get_predicate(&self.predicate_name) {
-            if predicate(message_with_field) {
-                self.if_true.render(message_with_field, fns)
-            } else {
-                self.if_false.render(message_with_field, fns)
-            }
-        } else if let Some(predicate) = message_bucket.get_predicate(&self.predicate_name) {
-            if predicate(&message_with_field.message) {
-                self.if_true.render(message_with_field, fns)
-            } else {
-                self.if_false.render(message_with_field, fns)
-            }
-        } else {
-            panic!(
-                "Can't find message_field/message predicate {}",
-                self.predicate_name
-            )
-        }
-    }
-}
-
-impl<Branch> Render<GlobalContext> for Condition<Branch>
-where
-    Branch: Render<GlobalContext>,
-{
-    fn render(&self, ctx: &GlobalContext, fns: &TemplateFns) -> String {
-        let bucket: &Bucket<GlobalContext> = fns.get_slice();
-        if let Some(predicate) = bucket.get_predicate(&self.predicate_name) {
-            if predicate(ctx) {
-                self.if_true.render(ctx, fns)
-            } else {
-                self.if_false.render(ctx, fns)
-            }
-        } else {
-            panic!("Can't find global predicate {}", self.predicate_name)
+            self.if_false.render(ctx, fns)
         }
     }
 }

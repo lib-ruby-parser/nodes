@@ -1,7 +1,5 @@
-use crate::template::fns::{Bucket, GetRegistrySlice};
-use crate::template::GlobalContext;
+use crate::template::fns::FnSubject;
 use crate::template::{render::Render, Buffer, Parse, ParseError, ParseErrorKind, TemplateFns};
-use crate::{Message, MessageWithField, Node, NodeWithField};
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Helper {
@@ -64,66 +62,13 @@ impl Parse for Helper {
     }
 }
 
-impl Render<Node> for Helper {
-    fn render(&self, node: &Node, fns: &TemplateFns) -> String {
-        if let Some(f) = fns.get_slice().get_helper(&self.helper_name) {
-            f(node)
-        } else {
-            panic!("Can't find node helper {}", self.helper_name)
-        }
-    }
-}
-
-impl Render<NodeWithField> for Helper {
-    fn render(&self, node_with_field: &NodeWithField, fns: &TemplateFns) -> String {
-        let node_with_field_bucket: &Bucket<NodeWithField> = fns.get_slice();
-        let node_bucket: &Bucket<Node> = fns.get_slice();
-
-        if let Some(f) = node_with_field_bucket.get_helper(&self.helper_name) {
-            f(node_with_field)
-        } else if let Some(f) = node_bucket.get_helper(&self.helper_name) {
-            f(&node_with_field.node)
-        } else {
-            panic!("Can't find node/node_field helper {}", self.helper_name)
-        }
-    }
-}
-
-impl Render<Message> for Helper {
-    fn render(&self, message: &Message, fns: &TemplateFns) -> String {
-        if let Some(f) = fns.get_slice().get_helper(&self.helper_name) {
-            f(message)
-        } else {
-            panic!("Can't find message helper {}", self.helper_name)
-        }
-    }
-}
-
-impl Render<MessageWithField> for Helper {
-    fn render(&self, message_with_field: &MessageWithField, fns: &TemplateFns) -> String {
-        let message_with_field_bucket: &Bucket<MessageWithField> = fns.get_slice();
-        let message_bucket: &Bucket<Message> = fns.get_slice();
-
-        if let Some(f) = message_with_field_bucket.get_helper(&self.helper_name) {
-            f(message_with_field)
-        } else if let Some(f) = message_bucket.get_helper(&self.helper_name) {
-            f(&message_with_field.message)
-        } else {
-            panic!(
-                "Can't find message/message_field helper {}",
-                self.helper_name
-            )
-        }
-    }
-}
-
-impl Render<GlobalContext> for Helper {
-    fn render(&self, ctx: &GlobalContext, fns: &TemplateFns) -> String {
-        if let Some(f) = fns.get_slice().get_helper(&self.helper_name) {
-            f(ctx)
-        } else {
-            panic!("Can't find global helper {}", self.helper_name)
-        }
+impl<Context> Render<Context> for Helper
+where
+    Context: FnSubject,
+{
+    fn render(&self, ctx: &Context, fns: &TemplateFns) -> String {
+        ctx.dispatch_helper(fns, &self.helper_name)
+            .unwrap_or_else(|| panic!("Can't find helper {}", self.helper_name))
     }
 }
 
