@@ -113,13 +113,11 @@ impl FnSubject for Node {
     }
 
     fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
-        let helper = Self::get(fns).get_helper(helper)?;
-        Some(helper(self))
+        Self::get(fns).get_helper(helper).map(|f| f(self))
     }
 
     fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
-        let predicate = Self::get(fns).get_predicate(predicate)?;
-        Some(predicate(self))
+        Self::get(fns).get_predicate(predicate).map(|f| f(self))
     }
 }
 impl FnSubject for NodeWithField {
@@ -132,23 +130,27 @@ impl FnSubject for NodeWithField {
     }
 
     fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
-        if let Some(helper) = Self::get(fns).get_helper(helper) {
-            Some(helper(self))
-        } else if let Some(helper) = Node::get(fns).get_helper(helper) {
-            Some(helper(&self.node))
-        } else {
-            None
-        }
+        // get NodeWithField own helper
+        Self::get(fns)
+            .get_helper(helper)
+            .map(|f| f(self))
+            .or_else(|| {
+                // or get Node helper
+                Node::get(fns).get_helper(helper).map(|f| f(&self.node))
+            })
     }
 
     fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
-        if let Some(predicate) = Self::get(fns).get_predicate(predicate) {
-            Some(predicate(self))
-        } else if let Some(predicate) = Node::get(fns).get_predicate(predicate) {
-            Some(predicate(&self.node))
-        } else {
-            None
-        }
+        // get NodeWithField own predicate
+        Self::get(fns)
+            .get_predicate(predicate)
+            .map(|f| f(self))
+            .or_else(|| {
+                // or get Node predicate
+                Node::get(fns)
+                    .get_predicate(predicate)
+                    .map(|f| f(&self.node))
+            })
     }
 }
 impl FnSubject for Message {
@@ -161,13 +163,11 @@ impl FnSubject for Message {
     }
 
     fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
-        let helper = Self::get(fns).get_helper(helper)?;
-        Some(helper(self))
+        Self::get(fns).get_helper(helper).map(|f| f(self))
     }
 
     fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
-        let predicate = Self::get(fns).get_predicate(predicate)?;
-        Some(predicate(self))
+        Self::get(fns).get_predicate(predicate).map(|f| f(self))
     }
 }
 impl FnSubject for MessageWithField {
@@ -180,41 +180,29 @@ impl FnSubject for MessageWithField {
     }
 
     fn dispatch_helper(&self, fns: &Fns, helper: &str) -> Option<String> {
-        if let Some(helper) = Self::get(fns).get_helper(helper) {
-            Some(helper(self))
-        } else if let Some(helper) = Message::get(fns).get_helper(helper) {
-            Some(helper(&self.message))
-        } else {
-            None
-        }
+        // get MessageWithField own helper
+        Self::get(fns)
+            .get_helper(helper)
+            .map(|f| f(self))
+            .or_else(|| {
+                // or get Message helper
+                Message::get(fns)
+                    .get_helper(helper)
+                    .map(|f| f(&self.message))
+            })
     }
 
     fn dispatch_predicate(&self, fns: &Fns, predicate: &str) -> Option<bool> {
-        if let Some(predicate) = Self::get(fns).get_predicate(predicate) {
-            Some(predicate(self))
-        } else if let Some(predicate) = Message::get(fns).get_predicate(predicate) {
-            Some(predicate(&self.message))
-        } else {
-            None
-        }
-    }
-}
-
-pub(crate) trait GetRegistrySlice<T> {
-    fn get_slice(&self) -> &Bucket<T>;
-    fn get_slice_mut(&mut self) -> &mut Bucket<T>;
-}
-
-impl<T> GetRegistrySlice<T> for Fns
-where
-    T: FnSubject,
-{
-    fn get_slice(&self) -> &Bucket<T> {
-        T::get(self)
-    }
-
-    fn get_slice_mut(&mut self) -> &mut Bucket<T> {
-        T::get_mut(self)
+        // get MessageWithField own predicate
+        Self::get(fns)
+            .get_predicate(predicate)
+            .map(|f| f(self))
+            .or_else(|| {
+                // or get Message predicate
+                Message::get(fns)
+                    .get_predicate(predicate)
+                    .map(|f| f(&self.message))
+            })
     }
 }
 
@@ -237,9 +225,11 @@ mod tests {
             comment: &[],
         };
         fns.register_helper("node-helper", node_helper);
-        let bucket: &Bucket<Node> = fns.get_slice();
-        let helper = bucket.get_helper("node-helper").unwrap();
-        assert_eq!(helper(&node), node_helper(&node));
+
+        assert_eq!(
+            node.dispatch_helper(&fns, "node-helper").unwrap(),
+            node_helper(&node)
+        );
     }
 
     #[test]
@@ -259,18 +249,33 @@ mod tests {
             comment: &[],
         };
         fns.register_predicate("message-predicate", message_predicate);
-        let bucket: &Bucket<Message> = fns.get_slice();
-        let predicate = bucket.get_predicate("message-predicate").unwrap();
-        assert_eq!(predicate(&message_t), message_predicate(&message_t));
-        assert_eq!(predicate(&message_f), message_predicate(&message_f));
+
+        assert_eq!(
+            message_t
+                .dispatch_predicate(&fns, "message-predicate")
+                .unwrap(),
+            message_predicate(&message_t)
+        );
+        assert_eq!(
+            message_f
+                .dispatch_predicate(&fns, "message-predicate")
+                .unwrap(),
+            message_predicate(&message_f)
+        );
     }
 
     #[test]
     fn test_unknkown() {
         let fns = Fns::new();
-        let bucket: &Bucket<MessageWithField> = fns.get_slice();
+        let message = Message {
+            camelcase_name: "Bar",
+            fields: MessageFieldList(&[]),
+            comment: &[],
+        };
 
-        assert!(bucket.get_helper("unknown-helper").is_none());
-        assert!(bucket.get_predicate("unknown-predicate").is_none());
+        assert!(message.dispatch_helper(&fns, "unknown-helper").is_none());
+        assert!(message
+            .dispatch_predicate(&fns, "unknown-predicate")
+            .is_none());
     }
 }
