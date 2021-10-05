@@ -31,22 +31,16 @@ impl<T> Bucket<T> {
         self.helpers.insert(helper.to_string(), f);
     }
 
-    pub(crate) fn get_helper(&self, helper: &str) -> fn(&T) -> String {
-        self.helpers
-            .get(helper)
-            .copied()
-            .unwrap_or_else(|| panic!("Can't find helper {}", helper))
+    pub(crate) fn get_helper(&self, helper: &str) -> Option<fn(&T) -> String> {
+        self.helpers.get(helper).copied()
     }
 
     pub(crate) fn register_predicate(&mut self, predicate: &str, f: fn(&T) -> bool) {
         self.predicates.insert(predicate.to_string(), f);
     }
 
-    pub(crate) fn get_predicate(&self, predicate: &str) -> fn(&T) -> bool {
-        self.predicates
-            .get(predicate)
-            .copied()
-            .unwrap_or_else(|| panic!("Can't find predicate {}", predicate))
+    pub(crate) fn get_predicate(&self, predicate: &str) -> Option<fn(&T) -> bool> {
+        self.predicates.get(predicate).copied()
     }
 }
 
@@ -145,7 +139,7 @@ mod tests {
         };
         fns.register_helper("node-helper", node_helper);
         let bucket: &Bucket<Node> = fns.get_slice();
-        let helper = bucket.get_helper("node-helper");
+        let helper = bucket.get_helper("node-helper").unwrap();
         assert_eq!(helper(&node), node_helper(&node));
     }
 
@@ -167,7 +161,7 @@ mod tests {
         };
         fns.register_predicate("message-predicate", message_predicate);
         let bucket: &Bucket<Message> = fns.get_slice();
-        let predicate = bucket.get_predicate("message-predicate");
+        let predicate = bucket.get_predicate("message-predicate").unwrap();
         assert_eq!(predicate(&message_t), message_predicate(&message_t));
         assert_eq!(predicate(&message_f), message_predicate(&message_f));
     }
@@ -177,16 +171,7 @@ mod tests {
         let fns = Fns::new();
         let bucket: &Bucket<MessageWithField> = fns.get_slice();
 
-        let output = std::panic::catch_unwind(|| {
-            bucket.get_helper("unknown-helper");
-            ()
-        });
-        assert!(output.is_err());
-
-        let output = std::panic::catch_unwind(|| {
-            bucket.get_predicate("unknown-helper");
-            ()
-        });
-        assert!(output.is_err());
+        assert!(bucket.get_helper("unknown-helper").is_none());
+        assert!(bucket.get_predicate("unknown-predicate").is_none());
     }
 }

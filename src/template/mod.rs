@@ -71,14 +71,14 @@ mod tests {
 There is a node <helper node-name>
     It has fields:
 <each-node-field><dnl>
-        + <helper node-field-name> (printable: <if is-node-field-always-printable>YES<else>NO</if>)
+        + <helper node-field-name> (printable: <if is-node-field-always-printable>YES<else>NO</if>, node name is still <helper node-name>)
 </each-node-field><dnl>
 </each-node><dnl>
 
 <each-message><dnl>
 There is a message <helper message-name>
 <each-message-field><dnl>
-        + <helper message-field-name> (is u8: <if is-message-field-u8>Y<else>N</if>)
+        + <helper message-field-name> (is u8: <if is-message-field-u8>Y<else>N</if>, message name is still <helper message-name>)
 </each-message-field><dnl>
 </each-message><dnl>
 ";
@@ -88,15 +88,15 @@ There is a message <helper message-name>
         "\n",
         "There is a node NodeOne\n",
         "    It has fields:\n",
-        "        + field1 (printable: YES)\n",
-        "        + field2 (printable: YES)\n",
+        "        + field1 (printable: YES, node name is still NodeOne)\n",
+        "        + field2 (printable: YES, node name is still NodeOne)\n",
         "There is a node NodeTwo\n",
         "    It has fields:\n",
-        "        + field3 (printable: NO)\n",
+        "        + field3 (printable: NO, node name is still NodeTwo)\n",
         "\n",
         "There is a message Message1\n",
-        "        + field1 (is u8: Y)\n",
-        "        + field2 (is u8: N)\n",
+        "        + field1 (is u8: Y, message name is still Message1)\n",
+        "        + field2 (is u8: N, message name is still Message1)\n",
     ];
 
     const NODES: &[Node] = &[
