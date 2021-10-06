@@ -1,19 +1,19 @@
 use crate::template::fns::FnSubject;
-use crate::template::{render::Render, Buffer, Parse, ParseError, ParseErrorKind, TemplateFns};
+use crate::template::{render::Render, shards::FnName, Buffer, Parse, TemplateFns};
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Condition<Branch> {
     predicate_name: String,
-    if_true: Branch,
-    if_false: Branch,
+    if_true: Option<Branch>,
+    if_false: Option<Branch>,
 }
 
 impl<Branch> Condition<Branch> {
-    pub(crate) const START: &'static str = "<if ";
-    const END: &'static str = "</if>";
-    const ELSE: &'static str = "<else>";
-
-    pub(crate) fn new<S>(predicate_name: S, if_true: Branch, if_false: Branch) -> Self
+    pub(crate) fn new<S>(
+        predicate_name: S,
+        if_true: Option<Branch>,
+        if_false: Option<Branch>,
+    ) -> Self
     where
         S: Into<String>,
     {
@@ -29,79 +29,44 @@ impl<Branch> Parse for Condition<Branch>
 where
     Branch: Parse,
 {
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
-        // skip "<if "
-        buffer
-            .take(Self::START.len())
-            .expect("bug: Condition::START is not in the buffer");
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
+        // consume "{{ if "
+        if !buffer.is("{{ if ") {
+            return None;
+        }
+        buffer.consume("{{ if ");
 
         // capture predicate
-        let predicate_name = buffer.take_until_pattern(">").ok_or_else(|| ParseError {
-            kind: ParseErrorKind::MissingPredicateInCondition,
-            pos: buffer.pos(),
-        })?;
+        let start = buffer.pos();
+        let predicate_name = FnName::parse(buffer)
+            .unwrap_or_else(|| panic!("predicate name is empty at pos {}", start))
+            .unwrap();
 
-        // skip ">"
-        if buffer.is(">") {
-            buffer.take(1).expect("bug: '>' is not in the buffer");
-        } else {
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingIfClosingTag,
-                pos: buffer.pos(),
-            });
+        // consume " }}"
+        if !buffer.is(" }}") {
+            panic!("{{ if }} is not closed at {}", buffer.pos());
         }
+        buffer.consume(" }}");
 
         // capture if-true body
-        let if_true = {
-            let bytes = buffer
-                .take_until_pattern(Self::ELSE)
-                .ok_or_else(|| ParseError {
-                    kind: ParseErrorKind::MissingIfTrueBody,
-                    pos: buffer.pos(),
-                })?
-                .into_bytes();
-            let mut buffer = Buffer::new(bytes);
-            Branch::parse(&mut buffer)?
-        };
+        let if_true = Branch::parse(buffer);
 
-        // skip "<else>"
-        if buffer.is(Self::ELSE) {
-            buffer
-                .take(Self::ELSE.len())
-                .expect("bug: Condition::ELSE is not in the buffer");
-        } else {
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingElse,
-                pos: buffer.pos(),
-            });
+        // consume "{{ else }}"
+        if !buffer.is("{{ else }}") {
+            panic!("expected to get {{ else }} at {}", buffer.pos())
         }
+        buffer.consume("{{ else }}");
 
-        // capture if-false body
-        let if_false = {
-            let bytes = buffer
-                .take_until_pattern(Self::END)
-                .ok_or_else(|| ParseError {
-                    kind: ParseErrorKind::MissingIfFalseBody,
-                    pos: buffer.pos(),
-                })?
-                .into_bytes();
-            let mut buffer = Buffer::new(bytes);
-            Branch::parse(&mut buffer)?
-        };
+        // capture if-true body
+        let if_false = Branch::parse(buffer);
 
-        // skip "</if>"
-        if buffer.is(Self::END) {
-            buffer
-                .take(Self::END.len())
-                .expect("bug: Condition::END is not in the buffer");
-        } else {
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingIfClosingTag,
-                pos: buffer.pos(),
-            });
+        // consume "{{ end }}"
+        if !buffer.is("{{ end }}") {
+            panic!("expected to get {{ end }} at {}", buffer.pos())
         }
+        buffer.consume("{{ end }}");
 
-        Ok(Self::new(predicate_name, if_true, if_false))
+        Some(Self::new(predicate_name, if_true, if_false))
     }
 }
 
@@ -115,10 +80,15 @@ where
             .dispatch_predicate(fns, &self.predicate_name)
             .unwrap_or_else(|| panic!("Can't find node predicate {}", self.predicate_name));
         if predicate_value {
-            self.if_true.render(ctx, fns)
+            if let Some(if_true) = &self.if_true {
+                return if_true.render(ctx, fns);
+            }
         } else {
-            self.if_false.render(ctx, fns)
+            if let Some(if_false) = &self.if_false {
+                return if_false.render(ctx, fns);
+            }
         }
+        String::from("")
     }
 }
 
@@ -135,15 +105,19 @@ mod tests {
 
     #[test]
     fn test_parse() {
-        let mut buffer = Buffer::new("<if foo>1<else>2</if>".as_bytes().to_vec());
+        let mut buffer = Buffer::new("{{ if foo }}1{{ else }}2{{ end }}".as_bytes().to_vec());
         let parsed = Condition::<Template>::parse(&mut buffer).unwrap();
 
         assert_eq!(
             parsed,
             Condition::new(
                 "foo",
-                Template::new([TemplatePart::StringPart(StringPart::new("1")),]),
-                Template::new([TemplatePart::StringPart(StringPart::new("2")),])
+                Some(Template::new([TemplatePart::StringPart(StringPart::new(
+                    "1"
+                ))])),
+                Some(Template::new([TemplatePart::StringPart(StringPart::new(
+                    "2"
+                ))]))
             )
         )
     }
@@ -152,8 +126,12 @@ mod tests {
     fn test_render() {
         let condition = Condition::new(
             "foo",
-            Template::new([TemplatePart::StringPart(StringPart::new("1"))]),
-            Template::new([TemplatePart::StringPart(StringPart::new("2"))]),
+            Some(Template::new([TemplatePart::StringPart(StringPart::new(
+                "1",
+            ))])),
+            Some(Template::new([TemplatePart::StringPart(StringPart::new(
+                "2",
+            ))])),
         );
 
         let mut fns = TemplateFns::new();

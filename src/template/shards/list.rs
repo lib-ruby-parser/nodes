@@ -1,4 +1,4 @@
-use crate::template::{render::Render, Buffer, Parse, ParseError, TemplateFns};
+use crate::template::{render::Render, Buffer, Parse, TemplateFns};
 
 #[derive(Debug, PartialEq)]
 pub struct List<Item> {
@@ -18,15 +18,22 @@ impl<Item> List<Item> {
 
 impl<Item> Parse for List<Item>
 where
-    Item: Parse,
+    Item: Parse + std::fmt::Debug,
 {
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
         let mut parts = vec![];
         while !buffer.is_eof() {
-            let part = Item::parse(buffer)?;
-            parts.push(part)
+            if let Some(part) = Item::parse(buffer) {
+                parts.push(part)
+            } else {
+                break;
+            }
         }
-        Ok(Self::new(parts))
+        if parts.is_empty() {
+            None
+        } else {
+            Some(Self::new(parts))
+        }
     }
 }
 

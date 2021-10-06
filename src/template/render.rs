@@ -185,31 +185,35 @@ mod tests {
 
         let template = Template::new([
             TemplatePart::StringPart(StringPart::new("\nheader\n")),
-            TemplatePart::NodesLoop(Loop::new(List::new([
+            TemplatePart::NodesLoop(Loop::new(Some(List::new([
                 NodeTemplatePart::StringPart(StringPart::new("this is node ")),
                 NodeTemplatePart::Helper(Helper::new("node_name")),
                 NodeTemplatePart::StringPart(StringPart::new("\n    it has fields:\n")),
-                NodeTemplatePart::FieldsLoop(Loop::new(List::new([
+                NodeTemplatePart::FieldsLoop(Loop::new(Some(List::new([
                     NodeFieldTemplatePart::StringPart(StringPart::new("        + ")),
                     NodeFieldTemplatePart::Helper(Helper::new("node_field_name")),
                     NodeFieldTemplatePart::StringPart(StringPart::new(" (printable = ")),
                     NodeFieldTemplatePart::Condition(Condition::new(
                         String::from("is_node_field_is_printable"),
-                        List::new([NodeFieldTemplatePart::StringPart(StringPart::new("YES"))]),
-                        List::new([NodeFieldTemplatePart::StringPart(StringPart::new("NO"))]),
+                        Some(List::new([NodeFieldTemplatePart::StringPart(
+                            StringPart::new("YES"),
+                        )])),
+                        Some(List::new([NodeFieldTemplatePart::StringPart(
+                            StringPart::new("NO"),
+                        )])),
                     )),
                     NodeFieldTemplatePart::StringPart(StringPart::new(")\n")),
-                ]))),
-            ]))),
-            TemplatePart::MessagesLoop(Loop::new(List::new([
+                ])))),
+            ])))),
+            TemplatePart::MessagesLoop(Loop::new(Some(List::new([
                 MessageTemplatePart::StringPart(StringPart::new("message ")),
                 MessageTemplatePart::Helper(Helper::new("message_name")),
                 MessageTemplatePart::StringPart(StringPart::new("\n    with fields:\n")),
-                MessageTemplatePart::FieldsLoop(Loop::new(List::new([
+                MessageTemplatePart::FieldsLoop(Loop::new(Some(List::new([
                     MessageFieldTemplatePart::StringPart(StringPart::new("        - ")),
                     MessageFieldTemplatePart::Helper(Helper::new("message_field_name")),
-                ]))),
-            ]))),
+                ])))),
+            ])))),
         ]);
 
         let rendered = template.render(CONTEXT, &fns);

@@ -1,5 +1,5 @@
 use crate::template::fns::FnSubject;
-use crate::template::{render::Render, Buffer, Parse, ParseError, ParseErrorKind, TemplateFns};
+use crate::template::{render::Render, shards::FnName, Buffer, Parse, TemplateFns};
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Helper {
@@ -7,8 +7,6 @@ pub(crate) struct Helper {
 }
 
 impl Helper {
-    pub(crate) const START: &'static str = "<helper ";
-
     pub(crate) fn new<S>(s: S) -> Self
     where
         S: Into<String>,
@@ -17,48 +15,28 @@ impl Helper {
             helper_name: s.into(),
         }
     }
-
-    fn validate_name(name: &str, buffer: &mut Buffer) -> Result<(), ParseError> {
-        if name.is_empty()
-            || name
-                .chars()
-                .any(|c| !c.is_alphanumeric() && c != '_' && c != '-')
-        {
-            // helper name must be [a-zA-Z9-0_]+
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingHelperName,
-                pos: buffer.pos(),
-            });
-        }
-
-        Ok(())
-    }
 }
 
 impl Parse for Helper {
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
-        // skip "<helper "
-        buffer
-            .take(Self::START.len())
-            .expect("bug: Helper::START is not in the buffer");
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
+        // consume "{{ helper "
+        if !buffer.is("{{ helper ") {
+            return None;
+        }
+        buffer.consume("{{ helper ");
 
         // capture helper name
-        let helper_name = buffer.take_until_pattern(">").ok_or_else(|| ParseError {
-            kind: ParseErrorKind::MissingHelperName,
-            pos: buffer.pos(),
-        })?;
-        Self::validate_name(&helper_name, buffer)?;
+        let start = buffer.pos();
+        let helper_name = FnName::parse(buffer)
+            .unwrap_or_else(|| panic!("helper name is empty at pos {}", start))
+            .unwrap();
 
-        // skip ">"
-        if buffer.is(">") {
-            buffer.take(1).expect("bug: '>' is not in the buffer");
-        } else {
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingHelperClose,
-                pos: buffer.pos(),
-            });
+        // consume " }}"
+        if !buffer.is(" }}") {
+            panic!("{{ helper }} is not closed at {}", buffer.pos());
         }
-        Ok(Self::new(helper_name))
+        buffer.consume(" }}");
+        Some(Self::new(helper_name))
     }
 }
 
@@ -79,7 +57,7 @@ mod tests {
 
     #[test]
     fn test_parse() {
-        let mut buffer = Buffer::new("<helper foo>".as_bytes().to_vec());
+        let mut buffer = Buffer::new("{{ helper foo }}".as_bytes().to_vec());
         let parsed = Helper::parse(&mut buffer).unwrap();
 
         assert_eq!(parsed, Helper::new("foo"))

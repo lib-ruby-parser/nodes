@@ -1,72 +1,58 @@
-use crate::template::{Buffer, Parse, ParseError, ParseErrorKind, Render};
+use crate::template::{Buffer, Parse, Render, TemplateFns};
 
-pub(crate) trait LoopBounds {
-    const START: &'static str;
-    const END: &'static str;
+pub(crate) trait LoopBody {
+    const KIND: &'static str;
 }
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct Loop<Body, Bounds> {
-    body: Body,
-    phantom: std::marker::PhantomData<Bounds>,
+pub(crate) struct Loop<Body> {
+    body: Option<Body>,
 }
 
-impl<Body, Bounds> Loop<Body, Bounds> {
-    pub(crate) fn new(body: Body) -> Self {
-        Self {
-            body,
-            phantom: std::marker::PhantomData,
-        }
+impl<Body> Loop<Body> {
+    pub(crate) fn new(body: Option<Body>) -> Self {
+        Self { body }
     }
 }
 
-impl<Body, Bounds> Parse for Loop<Body, Bounds>
+impl<Body> Parse for Loop<Body>
 where
-    Bounds: LoopBounds,
-    Body: Parse,
+    Body: Parse + LoopBody,
 {
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
-        // skip "<each-?>", it's there
-        buffer
-            .take(Bounds::START.len())
-            .expect("bug: Loop::START is not in the buffer");
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
+        // consume "{{ each KIND }}"
+        let loop_start = format!("{{{{ each {} }}}}", Body::KIND);
+        if !buffer.is(&loop_start) {
+            return None;
+        }
+        buffer.consume(&loop_start);
 
         // capture loop body
-        let body = buffer
-            .take_until_pattern(Bounds::END)
-            .ok_or_else(|| ParseError {
-                kind: ParseErrorKind::MissingLoopBody,
-                pos: buffer.pos(),
-            })?;
+        let body = Body::parse(buffer);
 
-        // skip "</each-?>"
-        if buffer.is(Bounds::END) {
-            buffer
-                .take(Bounds::END.len())
-                .expect("bug: Loop::END is not in the buffer");
-        } else {
-            return Err(ParseError {
-                kind: ParseErrorKind::MissingLoopClosingTag,
-                pos: buffer.pos(),
-            });
+        // consume "{{ end }}"
+        if !buffer.is("{{ end }}") {
+            panic!("{} is not closed at {}", loop_start, buffer.pos());
         }
+        buffer.consume("{{ end }}");
 
-        let mut buffer = Buffer::new(body.into_bytes());
-        let body = Body::parse(&mut buffer)?;
-
-        Ok(Self::new(body))
+        Some(Self::new(body))
     }
 }
 
-impl<Body, Bounds, Context> Render<[Context]> for Loop<Body, Bounds>
+impl<Body, Context> Render<[Context]> for Loop<Body>
 where
     Body: Render<Context>,
 {
-    fn render(&self, ctxs: &[Context], fns: &crate::template::TemplateFns) -> String {
-        ctxs.iter()
-            .map(|ctx| self.body.render(ctx, fns))
-            .collect::<Vec<_>>()
-            .join("")
+    fn render(&self, ctxs: &[Context], fns: &TemplateFns) -> String {
+        if let Some(body) = &self.body {
+            ctxs.iter()
+                .map(|ctx| body.render(ctx, fns))
+                .collect::<Vec<_>>()
+                .join("")
+        } else {
+            String::from("")
+        }
     }
 }
 
@@ -76,34 +62,27 @@ mod tests {
     use crate::template::{
         shards::Char,
         shards::StringPart,
-        structs::{Template, TemplatePart},
+        structs::{NodeTemplate, NodeTemplatePart},
         TemplateFns,
     };
 
-    #[derive(Debug, PartialEq)]
-    struct DummyLoopBounds;
-    impl LoopBounds for DummyLoopBounds {
-        const START: &'static str = "<dummy-loop-start>";
-        const END: &'static str = "<dummy-loop-end>";
-    }
-
     #[test]
     fn test_parse() {
-        let template = "<dummy-loop-start>BODY<dummy-loop-end>";
+        let template = "{{ each node }}BODY{{ end }}";
         let mut buffer = Buffer::new(template.as_bytes().to_vec());
-        let parsed = Loop::<Template, DummyLoopBounds>::parse(&mut buffer).unwrap();
+        let parsed = Loop::<NodeTemplate>::parse(&mut buffer).unwrap();
 
         assert_eq!(
             parsed,
-            Loop::new(Template::new([TemplatePart::StringPart(StringPart::new(
-                "BODY"
-            ))]))
+            Loop::new(Some(NodeTemplate::new([NodeTemplatePart::StringPart(
+                StringPart::new("BODY")
+            )])))
         )
     }
 
     #[test]
     fn test_render() {
-        let loop_ = Loop::<Char, DummyLoopBounds>::new(Char { c: 'a' });
+        let loop_ = Loop::<Char>::new(Some(Char { c: 'a' }));
         let ctx = vec!['a', 'b', 'c'];
         let fns = TemplateFns::new();
         assert_eq!(

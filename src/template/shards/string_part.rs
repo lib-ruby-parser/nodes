@@ -1,56 +1,44 @@
-use crate::template::{Buffer, Parse, ParseError, Render, TemplateFns};
-
-pub(crate) trait StringPartBreakers {
-    const BREAKERS: &'static [&'static str];
-}
+use crate::template::{Buffer, Parse, Render, TemplateFns};
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct StringPart<T> {
+pub(crate) struct StringPart {
     pub(crate) string: String,
-    phantom: std::marker::PhantomData<T>,
 }
 
-impl<T> StringPart<T> {
+impl StringPart {
     pub(crate) fn new<S>(string: S) -> Self
     where
         S: Into<String>,
     {
         Self {
             string: string.into(),
-            phantom: std::marker::PhantomData,
         }
     }
 }
 
-impl<Breakers> Parse for StringPart<Breakers>
-where
-    Breakers: StringPartBreakers,
-{
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
+impl Parse for StringPart {
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
         let mut string = String::from("");
 
         while !buffer.is_eof() {
-            let chunk = buffer.take(1).expect("bug: can't be EOF");
-            string += &chunk;
-            let mut abort = false;
-            for breaker in Breakers::BREAKERS {
-                if buffer.is(*breaker) {
-                    abort = true;
-                    break;
-                }
-            }
-            if abort {
+            // start of directive
+            if buffer.is("{{") {
                 break;
             }
+
+            string += &buffer.take(1).expect("bug: expected no EOF");
         }
 
         let string = string.replace("<dnl>\n", "");
-
-        Ok(Self::new(string))
+        if string.is_empty() {
+            None
+        } else {
+            Some(Self::new(string))
+        }
     }
 }
 
-impl<T> Render<()> for StringPart<T> {
+impl Render<()> for StringPart {
     fn render(&self, _ctx: &(), _fns: &TemplateFns) -> String {
         self.string.clone()
     }
@@ -60,23 +48,17 @@ impl<T> Render<()> for StringPart<T> {
 mod tests {
     use super::*;
 
-    #[derive(Debug, PartialEq)]
-    struct Breakers;
-    impl StringPartBreakers for Breakers {
-        const BREAKERS: &'static [&'static str] = &["STOP HERE"];
-    }
-
     #[test]
     fn test_parse() {
-        let mut buffer = Buffer::new("a string STOP HERE".as_bytes().to_vec());
-        let parsed = StringPart::<Breakers>::parse(&mut buffer).unwrap();
+        let mut buffer = Buffer::new("a string {{".as_bytes().to_vec());
+        let parsed = StringPart::parse(&mut buffer).unwrap();
 
         assert_eq!(parsed, StringPart::new("a string "))
     }
 
     #[test]
     fn test_render() {
-        let string = StringPart::<Breakers>::new("a string");
+        let string = StringPart::new("a string");
         let fns = TemplateFns::new();
         assert_eq!("a string", string.render(&(), &fns))
     }

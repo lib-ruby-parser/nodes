@@ -1,9 +1,6 @@
 mod buffer;
 pub(crate) use buffer::Buffer;
 
-mod parse_error;
-pub use parse_error::{ParseError, ParseErrorKind};
-
 mod render;
 use render::Render;
 
@@ -28,14 +25,14 @@ pub struct TemplateRoot {
 }
 
 impl TemplateRoot {
-    pub fn new<T>(s: T) -> Result<Self, ParseError>
+    pub fn new<T>(s: T) -> Option<Self>
     where
         T: Into<String>,
     {
         let s: String = s.into();
         let mut buffer = Buffer::new(s.into_bytes());
         let template = Template::parse(&mut buffer)?;
-        Ok(Self { template })
+        Some(Self { template })
     }
 
     pub fn render(&self, ctx: &GlobalContext, fns: &TemplateFns) -> String {
@@ -65,22 +62,22 @@ mod tests {
         NodeField, NodeFieldList, NodeFieldType, NodeWithField,
     };
 
-    const TEMPLATE: &str = "<helper file-header>
+    const TEMPLATE: &str = "{{ helper file-header }}
 
-<each-node><dnl>
-There is a node <helper node-name>
+{{ each node }}<dnl>
+There is a node {{ helper node-name }}
     It has fields:
-<each-node-field><dnl>
-        + <helper node-field-name> (printable: <if is-node-field-always-printable>YES<else>NO</if>, node name is still <helper node-name>)
-</each-node-field><dnl>
-</each-node><dnl>
+{{ each node-field }}<dnl>
+        + {{ helper node-field-name }} (printable: {{ if is-node-field-always-printable }}YES{{ else }}NO{{ end }}, node name is still {{ helper node-name }})
+{{ end }}<dnl>
+{{ end }}<dnl>
 
-<each-message><dnl>
-There is a message <helper message-name>
-<each-message-field><dnl>
-        + <helper message-field-name> (is u8: <if is-message-field-u8>Y<else>N</if>, message name is still <helper message-name>)
-</each-message-field><dnl>
-</each-message><dnl>
+{{ each message }}<dnl>
+There is a message {{ helper message-name }}
+{{ each message-field }}<dnl>
+        + {{ helper message-field-name }} (is u8: {{ if is-message-field-u8 }}Y{{ else }}N{{ end }}, message name is still {{ helper message-name }})
+{{ end }}<dnl>
+{{ end }}<dnl>
 ";
 
     const EXPECTED: &[&str] = &[

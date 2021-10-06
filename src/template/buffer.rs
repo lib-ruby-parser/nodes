@@ -24,12 +24,24 @@ impl Buffer {
         self.pos
     }
 
+    pub(crate) fn set_pos(&mut self, pos: usize) {
+        self.pos = pos;
+    }
+
     pub(crate) fn is_eof(&self) -> bool {
         self.bytes[self.pos..].is_empty()
     }
 
     pub(crate) fn is(&self, pattern: &str) -> bool {
         self.bytes[self.pos..].starts_with(pattern.as_bytes())
+    }
+
+    pub(crate) fn consume(&mut self, pattern: &str) {
+        if self.is(pattern) {
+            self.take(pattern.len());
+        } else {
+            panic!("expected to get {:?} at {}", pattern, self.pos)
+        }
     }
 
     pub(crate) fn take(&mut self, n: usize) -> Option<String> {
@@ -41,16 +53,6 @@ impl Buffer {
         } else {
             None
         }
-    }
-
-    pub(crate) fn take_until_pattern(&mut self, pattern: &str) -> Option<String> {
-        for i in self.pos..self.bytes.len() {
-            if self.bytes[i..].starts_with(pattern.as_bytes()) {
-                return self.take(i - self.pos);
-            }
-        }
-        // take all
-        self.take(self.bytes.len())
     }
 }
 
@@ -83,14 +85,5 @@ mod tests {
         assert_eq!(buffer.take(10), None);
         assert_eq!(buffer.take(4).unwrap(), "\nbar");
         assert!(buffer.is_eof());
-    }
-
-    #[test]
-    fn test_take_until_pattern() {
-        let mut buffer = new_buffer();
-        assert_eq!(buffer.take_until_pattern("bar").unwrap(), "foo\n");
-
-        let mut buffer = new_buffer();
-        assert_eq!(buffer.take_until_pattern("unknown").unwrap(), "foo\nbar");
     }
 }

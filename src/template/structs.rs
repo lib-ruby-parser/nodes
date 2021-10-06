@@ -4,28 +4,28 @@ pub(crate) type Template = List<TemplatePart>;
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum TemplatePart {
-    StringPart(StringPart<string_breakers::TemplateStringBreakers>),
+    StringPart(StringPart),
     GlobalHelper(Helper),
     GlobalCondition(Condition<Template>),
-    NodesLoop(Loop<NodeTemplate, loops_bounds::NodesLoopBounds>),
-    MessagesLoop(Loop<MessageTemplate, loops_bounds::MessagesLoopBounds>),
+    NodesLoop(Loop<NodeTemplate>),
+    MessagesLoop(Loop<MessageTemplate>),
 }
 
 pub(crate) type NodeTemplate = List<NodeTemplatePart>;
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum NodeTemplatePart {
-    StringPart(StringPart<string_breakers::NodeTemplateStringBreakers>),
+    StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<NodeTemplate>),
-    FieldsLoop(Loop<NodeFieldTemplate, loops_bounds::NodeFieldsLoopBounds>),
+    FieldsLoop(Loop<NodeFieldTemplate>),
 }
 
 pub(crate) type NodeFieldTemplate = List<NodeFieldTemplatePart>;
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum NodeFieldTemplatePart {
-    StringPart(StringPart<string_breakers::NodeFieldTemplateStringBreakers>),
+    StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<NodeFieldTemplate>),
 }
@@ -34,41 +34,17 @@ pub(crate) type MessageTemplate = List<MessageTemplatePart>;
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum MessageTemplatePart {
-    StringPart(StringPart<string_breakers::MessageTemplateStringBreakers>),
+    StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<MessageTemplate>),
-    FieldsLoop(Loop<MessageFieldTemplate, loops_bounds::MessageFieldsLoopBounds>),
+    FieldsLoop(Loop<MessageFieldTemplate>),
 }
 
 pub(crate) type MessageFieldTemplate = List<MessageFieldTemplatePart>;
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum MessageFieldTemplatePart {
-    StringPart(StringPart<string_breakers::MessageFieldTemplateStringBreakers>),
+    StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<MessageFieldTemplate>),
-}
-
-pub(crate) mod loops_bounds {
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct NodesLoopBounds;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct NodeFieldsLoopBounds;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct MessagesLoopBounds;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct MessageFieldsLoopBounds;
-}
-
-pub(crate) mod string_breakers {
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct TemplateStringBreakers;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct NodeTemplateStringBreakers;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct NodeFieldTemplateStringBreakers;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct MessageTemplateStringBreakers;
-    #[derive(Debug, PartialEq)]
-    pub(crate) struct MessageFieldTemplateStringBreakers;
 }

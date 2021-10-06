@@ -1,4 +1,4 @@
-use crate::template::{Buffer, GlobalContext, Parse, ParseError, Render, TemplateFns};
+use crate::template::{Buffer, GlobalContext, Parse, Render, TemplateFns};
 
 // Dummy strategy for parsing,
 // Hidden behind `#[cfg(test)]`
@@ -20,8 +20,12 @@ impl Render<char> for Char {
 }
 
 impl Parse for Char {
-    fn parse(buffer: &mut Buffer) -> Result<Self, ParseError> {
-        let c = buffer.take(1).unwrap().chars().next().unwrap();
-        Ok(Self { c })
+    fn parse(buffer: &mut Buffer) -> Option<Self> {
+        if buffer.is_eof() {
+            None
+        } else {
+            let c = buffer.take(1).unwrap().chars().next().unwrap();
+            Some(Self { c })
+        }
     }
 }

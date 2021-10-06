@@ -1,5 +1,5 @@
 mod loop_;
-pub(crate) use loop_::{Loop, LoopBounds};
+pub(crate) use loop_::{Loop, LoopBody};
 
 mod helper;
 pub(crate) use helper::Helper;
@@ -11,7 +11,10 @@ mod list;
 pub(crate) use list::List;
 
 mod string_part;
-pub(crate) use string_part::{StringPart, StringPartBreakers};
+pub(crate) use string_part::StringPart;
+
+mod fn_name;
+pub(crate) use fn_name::FnName;
 
 #[cfg(test)]
 mod char_;
