@@ -57,7 +57,7 @@ where
         }
         buffer.consume("{{ else }}");
 
-        // capture if-true body
+        // capture if-false body
         let if_false = Branch::parse(buffer);
 
         // consume "{{ end }}"
@@ -79,16 +79,18 @@ where
         let predicate_value = ctx
             .dispatch_predicate(fns, &self.predicate_name)
             .unwrap_or_else(|| panic!("Can't find node predicate {}", self.predicate_name));
-        if predicate_value {
-            if let Some(if_true) = &self.if_true {
-                return if_true.render(ctx, fns);
-            }
+
+        let branch = if predicate_value {
+            &self.if_true
         } else {
-            if let Some(if_false) = &self.if_false {
-                return if_false.render(ctx, fns);
-            }
+            &self.if_false
+        };
+
+        if let Some(branch) = branch.as_ref() {
+            branch.render(ctx, fns)
+        } else {
+            String::from("")
         }
-        String::from("")
     }
 }
 

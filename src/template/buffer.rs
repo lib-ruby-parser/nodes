@@ -54,6 +54,10 @@ impl Buffer {
             None
         }
     }
+
+    pub(crate) fn take_char(&mut self) -> Option<char> {
+        self.take(1).map(|s| s.chars().next().unwrap())
+    }
 }
 
 #[cfg(test)]

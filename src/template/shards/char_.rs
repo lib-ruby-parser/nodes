@@ -24,7 +24,7 @@ impl Parse for Char {
         if buffer.is_eof() {
             None
         } else {
-            let c = buffer.take(1).unwrap().chars().next().unwrap();
+            let c = buffer.take_char().expect("bug: unexpected EOF");
             Some(Self { c })
         }
     }

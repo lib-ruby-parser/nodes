@@ -16,27 +16,11 @@ pub(crate) trait Parse {
 
 impl Parse for TemplatePart {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
-        if let Some(helper) = Helper::parse(buffer) {
-            return Some(Self::GlobalHelper(helper));
-        }
-
-        if let Some(loop_) = Loop::parse(buffer) {
-            return Some(Self::NodesLoop(loop_));
-        }
-
-        if let Some(loop_) = Loop::parse(buffer) {
-            return Some(Self::MessagesLoop(loop_));
-        }
-
-        if let Some(condition) = Condition::<Template>::parse(buffer) {
-            return Some(Self::GlobalCondition(condition));
-        }
-
-        if let Some(string) = StringPart::parse(buffer) {
-            return Some(Self::StringPart(string));
-        }
-
-        None
+        None.or_else(|| Helper::parse(buffer).map(Self::GlobalHelper))
+            .or_else(|| Loop::parse(buffer).map(Self::NodesLoop))
+            .or_else(|| Loop::parse(buffer).map(Self::MessagesLoop))
+            .or_else(|| Condition::<Template>::parse(buffer).map(Self::GlobalCondition))
+            .or_else(|| StringPart::parse(buffer).map(Self::StringPart))
     }
 }
 
@@ -46,23 +30,10 @@ impl LoopBody for NodeTemplate {
 
 impl Parse for NodeTemplatePart {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
-        if let Some(helper) = Helper::parse(buffer) {
-            return Some(Self::Helper(helper));
-        }
-
-        if let Some(loop_) = Loop::parse(buffer) {
-            return Some(Self::FieldsLoop(loop_));
-        }
-
-        if let Some(condition) = Condition::<NodeTemplate>::parse(buffer) {
-            return Some(Self::Condition(condition));
-        }
-
-        if let Some(string) = StringPart::parse(buffer) {
-            return Some(Self::StringPart(string));
-        }
-
-        None
+        None.or_else(|| Helper::parse(buffer).map(Self::Helper))
+            .or_else(|| Loop::parse(buffer).map(Self::FieldsLoop))
+            .or_else(|| Condition::<NodeTemplate>::parse(buffer).map(Self::Condition))
+            .or_else(|| StringPart::parse(buffer).map(Self::StringPart))
     }
 }
 
@@ -72,19 +43,9 @@ impl LoopBody for NodeFieldTemplate {
 
 impl Parse for NodeFieldTemplatePart {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
-        if let Some(helper) = Helper::parse(buffer) {
-            return Some(Self::Helper(helper));
-        }
-
-        if let Some(condition) = Condition::<NodeFieldTemplate>::parse(buffer) {
-            return Some(Self::Condition(condition));
-        }
-
-        if let Some(string) = StringPart::parse(buffer) {
-            return Some(Self::StringPart(string));
-        }
-
-        None
+        None.or_else(|| Helper::parse(buffer).map(Self::Helper))
+            .or_else(|| Condition::<NodeFieldTemplate>::parse(buffer).map(Self::Condition))
+            .or_else(|| StringPart::parse(buffer).map(Self::StringPart))
     }
 }
 
@@ -94,23 +55,10 @@ impl LoopBody for MessageTemplate {
 
 impl Parse for MessageTemplatePart {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
-        if let Some(helper) = Helper::parse(buffer) {
-            return Some(Self::Helper(helper));
-        }
-
-        if let Some(condition) = Condition::<MessageTemplate>::parse(buffer) {
-            return Some(Self::Condition(condition));
-        }
-
-        if let Some(loop_) = Loop::parse(buffer) {
-            return Some(Self::FieldsLoop(loop_));
-        }
-
-        if let Some(string) = StringPart::parse(buffer) {
-            return Some(Self::StringPart(string));
-        }
-
-        None
+        None.or_else(|| Helper::parse(buffer).map(Self::Helper))
+            .or_else(|| Condition::<MessageTemplate>::parse(buffer).map(Self::Condition))
+            .or_else(|| Loop::parse(buffer).map(Self::FieldsLoop))
+            .or_else(|| StringPart::parse(buffer).map(Self::StringPart))
     }
 }
 
@@ -120,19 +68,9 @@ impl LoopBody for MessageFieldTemplate {
 
 impl Parse for MessageFieldTemplatePart {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
-        if let Some(helper) = Helper::parse(buffer) {
-            return Some(Self::Helper(helper));
-        }
-
-        if let Some(condition) = Condition::<MessageFieldTemplate>::parse(buffer) {
-            return Some(Self::Condition(condition));
-        }
-
-        if let Some(string) = StringPart::parse(buffer) {
-            return Some(Self::StringPart(string));
-        }
-
-        None
+        None.or_else(|| Helper::parse(buffer).map(Self::Helper))
+            .or_else(|| Condition::<MessageFieldTemplate>::parse(buffer).map(Self::Condition))
+            .or_else(|| StringPart::parse(buffer).map(Self::StringPart))
     }
 }
 

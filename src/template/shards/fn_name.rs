@@ -14,12 +14,7 @@ impl Parse for FnName {
     fn parse(buffer: &mut Buffer) -> Option<Self> {
         let mut name = String::from("");
         while !buffer.is_eof() {
-            let c = buffer
-                .take(1)
-                .expect("bug: unexpected EOF")
-                .chars()
-                .next()
-                .unwrap();
+            let c = buffer.take_char().expect("bug: unexpected EOF");
 
             if c.is_alphanumeric() || c == '_' || c == '-' {
                 name.push(c)
