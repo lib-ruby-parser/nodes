@@ -29,11 +29,10 @@ impl Parse for StringPart {
             string += &buffer.take(1).expect("bug: expected no EOF");
         }
 
-        let string = string.replace("<dnl>\n", "");
         if string.is_empty() {
             None
         } else {
-            Some(Self::new(string))
+            Some(Self::new(string.replace("<dnl>\n", "")))
         }
     }
 }
