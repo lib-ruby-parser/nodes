@@ -1,11 +1,11 @@
 use crate::template::{Buffer, Parse, Render, TemplateFns};
 
-pub(crate) trait LoopBody {
+pub trait LoopBody {
     const KIND: &'static str;
 }
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct Loop<Body> {
+pub struct Loop<Body> {
     body: Option<Body>,
 }
 

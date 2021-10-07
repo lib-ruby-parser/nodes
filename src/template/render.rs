@@ -6,7 +6,7 @@ use crate::template::structs::{
 use crate::template::GlobalContext;
 use crate::{Message, MessageWithField, Node, NodeWithField};
 
-pub(crate) trait Render<Context>
+pub trait Render<Context>
 where
     Context: ?Sized,
 {

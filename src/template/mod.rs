@@ -10,33 +10,38 @@ pub(crate) use parse::Parse;
 mod shards;
 
 mod fns;
+use fns::FnSubject;
 pub use fns::Fns as TemplateFns;
 
 mod structs;
-use structs::Template;
+use structs::{NodeTemplate, Template};
 
 mod global_context;
 pub use global_context::GlobalContext;
 pub use global_context::ALL_DATA;
 
-#[derive(Debug, PartialEq)]
-pub struct TemplateRoot {
-    template: Template,
-}
+pub trait PublicTemplate {
+    type Context: FnSubject;
+    type InnerTemplate: Render<Self::Context> + Parse;
 
-impl TemplateRoot {
-    pub fn new<T>(s: T) -> Option<Self>
+    fn inner(&self) -> &Self::InnerTemplate;
+    fn build(inner: Self::InnerTemplate) -> Self
+    where
+        Self: Sized;
+
+    fn new<T>(s: T) -> Option<Self>
     where
         T: Into<String>,
+        Self: Sized,
     {
         let s: String = s.into();
         let mut buffer = Buffer::new(s.into_bytes());
-        let template = Template::parse(&mut buffer)?;
-        Some(Self { template })
+        let inner = Self::InnerTemplate::parse(&mut buffer)?;
+        Some(Self::build(inner))
     }
 
-    pub fn render(&self, ctx: &GlobalContext, fns: &TemplateFns) -> String {
-        let rendered = self.template.render(ctx, fns);
+    fn render(&self, ctx: &Self::Context, fns: &TemplateFns) -> String {
+        let rendered = self.inner().render(ctx, fns);
 
         // trim trailing spaces
         let mut rendered = rendered
@@ -51,6 +56,42 @@ impl TemplateRoot {
         }
 
         rendered
+    }
+}
+
+#[derive(Debug, PartialEq)]
+pub struct TemplateRoot {
+    inner: Template,
+}
+
+impl PublicTemplate for TemplateRoot {
+    type Context = GlobalContext;
+    type InnerTemplate = Template;
+
+    fn inner(&self) -> &Self::InnerTemplate {
+        &self.inner
+    }
+
+    fn build(inner: Self::InnerTemplate) -> Self {
+        Self { inner }
+    }
+}
+
+#[derive(Debug, PartialEq)]
+pub struct NodeTemplateRoot {
+    inner: NodeTemplate,
+}
+
+impl PublicTemplate for NodeTemplateRoot {
+    type Context = crate::Node;
+    type InnerTemplate = NodeTemplate;
+
+    fn inner(&self) -> &Self::InnerTemplate {
+        &self.inner
+    }
+
+    fn build(inner: Self::InnerTemplate) -> Self {
+        Self { inner }
     }
 }
 

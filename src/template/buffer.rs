@@ -1,4 +1,4 @@
-pub(crate) struct Buffer {
+pub struct Buffer {
     bytes: Vec<u8>,
     pos: usize,
 }

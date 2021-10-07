@@ -8,7 +8,7 @@ use crate::template::{
     Buffer,
 };
 
-pub(crate) trait Parse {
+pub trait Parse {
     fn parse(buffer: &mut Buffer) -> Option<Self>
     where
         Self: Sized;

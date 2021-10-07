@@ -1,9 +1,9 @@
 use crate::template::shards::{Condition, Helper, List, Loop, StringPart};
 
-pub(crate) type Template = List<TemplatePart>;
+pub type Template = List<TemplatePart>;
 
 #[derive(Debug, PartialEq)]
-pub(crate) enum TemplatePart {
+pub enum TemplatePart {
     StringPart(StringPart),
     GlobalHelper(Helper),
     GlobalCondition(Condition<Template>),
@@ -11,39 +11,39 @@ pub(crate) enum TemplatePart {
     MessagesLoop(Loop<MessageTemplate>),
 }
 
-pub(crate) type NodeTemplate = List<NodeTemplatePart>;
+pub type NodeTemplate = List<NodeTemplatePart>;
 
 #[derive(Debug, PartialEq)]
-pub(crate) enum NodeTemplatePart {
+pub enum NodeTemplatePart {
     StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<NodeTemplate>),
     FieldsLoop(Loop<NodeFieldTemplate>),
 }
 
-pub(crate) type NodeFieldTemplate = List<NodeFieldTemplatePart>;
+pub type NodeFieldTemplate = List<NodeFieldTemplatePart>;
 
 #[derive(Debug, PartialEq)]
-pub(crate) enum NodeFieldTemplatePart {
+pub enum NodeFieldTemplatePart {
     StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<NodeFieldTemplate>),
 }
 
-pub(crate) type MessageTemplate = List<MessageTemplatePart>;
+pub type MessageTemplate = List<MessageTemplatePart>;
 
 #[derive(Debug, PartialEq)]
-pub(crate) enum MessageTemplatePart {
+pub enum MessageTemplatePart {
     StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<MessageTemplate>),
     FieldsLoop(Loop<MessageFieldTemplate>),
 }
 
-pub(crate) type MessageFieldTemplate = List<MessageFieldTemplatePart>;
+pub type MessageFieldTemplate = List<MessageFieldTemplatePart>;
 
 #[derive(Debug, PartialEq)]
-pub(crate) enum MessageFieldTemplatePart {
+pub enum MessageFieldTemplatePart {
     StringPart(StringPart),
     Helper(Helper),
     Condition(Condition<MessageFieldTemplate>),

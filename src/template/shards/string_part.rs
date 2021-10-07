@@ -1,7 +1,7 @@
 use crate::template::{Buffer, Parse, Render, TemplateFns};
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct StringPart {
+pub struct StringPart {
     pub(crate) string: String,
 }
 

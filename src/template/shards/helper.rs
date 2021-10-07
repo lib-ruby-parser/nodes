@@ -2,7 +2,7 @@ use crate::template::fns::FnSubject;
 use crate::template::{render::Render, shards::FnName, Buffer, Parse, TemplateFns};
 
 #[derive(Debug, PartialEq)]
-pub(crate) struct Helper {
+pub struct Helper {
     helper_name: String,
 }
 
