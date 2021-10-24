@@ -35,12 +35,30 @@ impl<T> Bucket<T> {
         self.helpers.get(helper).copied()
     }
 
+    pub(crate) fn known_helpers(&self) -> Vec<String> {
+        self.helpers.keys().cloned().collect()
+    }
+
     pub(crate) fn register_predicate(&mut self, predicate: &str, f: fn(&T) -> bool) {
         self.predicates.insert(predicate.to_string(), f);
     }
 
     pub(crate) fn get_predicate(&self, predicate: &str) -> Option<fn(&T) -> bool> {
         self.predicates.get(predicate).copied()
+    }
+
+    pub(crate) fn known_predicates(&self) -> Vec<String> {
+        self.predicates.keys().cloned().collect()
+    }
+
+    fn append_to(self, out: &mut Self) {
+        for helper in self.known_helpers() {
+            out.register_helper(&helper, self.get_helper(&helper).unwrap());
+        }
+
+        for predicate in self.known_predicates() {
+            out.register_predicate(&predicate, self.get_predicate(&predicate).unwrap());
+        }
     }
 }
 
@@ -70,6 +88,40 @@ impl Fns {
         T: FnSubject,
     {
         T::get_mut(self).register_predicate(predicate, f);
+    }
+
+    pub fn known_helpers<T>(&self) -> Vec<String>
+    where
+        T: FnSubject,
+    {
+        T::get(self).known_helpers()
+    }
+
+    pub fn known_predicates<T>(&self) -> Vec<String>
+    where
+        T: FnSubject,
+    {
+        T::get(self).known_predicates()
+    }
+
+    fn append_to(self, out: &mut Self) {
+        self.global.append_to(&mut out.global);
+        self.node.append_to(&mut out.node);
+        self.node_with_field.append_to(&mut out.node_with_field);
+        self.message.append_to(&mut out.message);
+        self.message_with_field
+            .append_to(&mut out.message_with_field);
+    }
+}
+
+impl std::ops::Add for Fns {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        let mut out = Self::new();
+        self.append_to(&mut out);
+        rhs.append_to(&mut out);
+        out
     }
 }
 
@@ -277,5 +329,41 @@ mod tests {
         assert!(message
             .dispatch_predicate(&fns, "unknown-predicate")
             .is_none());
+    }
+
+    #[test]
+    fn test_add() {
+        let mut fns1 = Fns::new();
+        let mut fns2 = Fns::new();
+
+        fn test_helper1(message: &Message) -> String {
+            format!("test1 {}", message.camelcase_name)
+        }
+
+        fn test_helper2(message: &Message) -> String {
+            format!("test2 {}", message.camelcase_name)
+        }
+
+        fns1.register_helper("helper1", test_helper1);
+        assert_eq!(
+            fns1.known_helpers::<Message>(),
+            vec![String::from("helper1")]
+        );
+
+        fns2.register_helper("helper2", test_helper2);
+        assert_eq!(
+            fns2.known_helpers::<Message>(),
+            vec![String::from("helper2")]
+        );
+
+        let fns = fns1 + fns2;
+        assert_eq!(
+            {
+                let mut known = fns.known_helpers::<Message>();
+                known.sort();
+                known
+            },
+            vec![String::from("helper1"), String::from("helper2")]
+        );
     }
 }
