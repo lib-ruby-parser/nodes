@@ -24,13 +24,22 @@ impl Node {
 
 pub type NodeFieldList = &'static [&'static NodeField];
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone)]
 pub struct NodeField {
     pub node: &'static Node,
     pub snakecase_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
     pub comment: &'static [&'static str],
+}
+
+impl PartialEq for NodeField {
+    fn eq(&self, other: &Self) -> bool {
+        self.snakecase_name == other.snakecase_name
+            && self.field_type == other.field_type
+            && self.always_print == other.always_print
+            && self.comment == other.comment
+    }
 }
 
 impl NodeField {

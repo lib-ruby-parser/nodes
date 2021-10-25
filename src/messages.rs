@@ -23,12 +23,20 @@ impl Message {
 
 pub type MessageFieldList = &'static [&'static MessageField];
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone)]
 pub struct MessageField {
     pub message: &'static Message,
     pub snakecase_name: &'static str,
     pub field_type: MessageFieldType,
     pub comment: &'static [&'static str],
+}
+
+impl PartialEq for MessageField {
+    fn eq(&self, other: &Self) -> bool {
+        self.snakecase_name == other.snakecase_name
+            && self.field_type == other.field_type
+            && self.comment == other.comment
+    }
 }
 
 impl MessageField {

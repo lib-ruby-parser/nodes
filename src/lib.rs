@@ -33,7 +33,7 @@ mod tests {
         for node in nodes {
             for node_field in node.fields {
                 assert_eq!(
-                    node_field.node.camelcase_name, node.camelcase_name,
+                    &node_field.node, node,
                     "field {} of node {} refers to a different node ({})",
                     node_field.snakecase_name, node.camelcase_name, node_field.node.camelcase_name
                 );
@@ -125,8 +125,8 @@ mod tests {
         for message in messages {
             for message_field in message.fields {
                 assert_eq!(
-                    message_field.message.camelcase_name,
-                    message.camelcase_name,
+                    &message_field.message,
+                    message,
                     "field {} of message {} refers to a different message ({})",
                     message_field.snakecase_name,
                     message.camelcase_name,
