@@ -1,4 +1,4 @@
-### Alias
+## Alias
 
     Represents `alias to from` statement.
 
@@ -35,7 +35,7 @@ Fields:
     ```
 
 
-### And
+## And
 
     Represents `foo && bar` (or `foo and bar`) statement.
 
@@ -72,7 +72,7 @@ Fields:
     ```
 
 
-### AndAsgn
+## AndAsgn
 
     Represents `a &&= 1` statement.
 
@@ -109,7 +109,7 @@ Fields:
     ```
 
 
-### Arg
+## Arg
 
     Represents a positional required block/method argument.
    
@@ -131,7 +131,7 @@ Fields:
     ```
 
 
-### Args
+## Args
 
     Represents an arguments list
    
@@ -175,7 +175,7 @@ Fields:
     `None` for code like `def m; end` or `def m arg; end`
 
 
-### Array
+## Array
 
     Represents an array literal
 
@@ -213,7 +213,7 @@ Fields:
     ```
 
 
-### ArrayPattern
+## ArrayPattern
 
     Represents an array pattern used in pattern matching
 
@@ -255,7 +255,7 @@ Fields:
     ```
 
 
-### ArrayPatternWithTail
+## ArrayPatternWithTail
 
     Represents an array pattern *with trailing comma* used in pattern matching
    
@@ -299,7 +299,7 @@ Fields:
     ```
 
 
-### BackRef
+## BackRef
 
     Represents special global variables:
     1. `` $` ``
@@ -323,7 +323,7 @@ Fields:
     ```
 
 
-### Begin
+## Begin
 
     Represents compound statement (i.e. a multi-statement)
    
@@ -375,7 +375,7 @@ Fields:
     ```
 
 
-### Block
+## Block
 
     Represents a Ruby block that is passed to a method (`proc { |foo| bar }`)
 
@@ -427,7 +427,7 @@ Fields:
     ```
 
 
-### Blockarg
+## Blockarg
 
     Represents a `&blk` argument in the method definition (but not in the method call, see `BlockPass`)
 
@@ -465,7 +465,7 @@ Fields:
     ```
 
 
-### BlockPass
+## BlockPass
 
     Represents a `&blk` argument of the method call (but not of the method definition, see `BlockArg`)
 
@@ -496,7 +496,7 @@ Fields:
     ```
 
 
-### Break
+## Break
 
     Represents a `break` keyword (with optional argument)
 
@@ -525,7 +525,7 @@ Fields:
     ```
 
 
-### Case
+## Case
 
     Represents a `case` statement (for pattern matching see `CaseMatch` node)
 
@@ -589,7 +589,7 @@ Fields:
     ```
 
 
-### CaseMatch
+## CaseMatch
 
     Represents a `case` statement used for pattern matching (for regular `case` see `Case` node)
 
@@ -653,7 +653,7 @@ Fields:
     ```
 
 
-### Casgn
+## Casgn
 
     Represents a constant assignment (i.e. `A = 1`)
 
@@ -722,7 +722,7 @@ Fields:
     ```
 
 
-### Cbase
+## Cbase
 
     Represents leading `::` part of the constant access/assignment that is used to get/set on a global namespace.
 
@@ -738,7 +738,7 @@ Fields:
     ```
 
 
-### Class
+## Class
 
     Represents a class definition (using a `class` keyword, `Class.new` is just a method call)
 
@@ -797,7 +797,7 @@ Fields:
     ```
 
 
-### Complex
+## Complex
 
     Represents a `Complex` literal (that returns an `Complex` number)
 
@@ -828,7 +828,7 @@ Fields:
     ```
 
 
-### Const
+## Const
 
     Represents constant access (i.e. `Foo::Bar`)
 
@@ -873,7 +873,7 @@ Fields:
     ```
 
 
-### ConstPattern
+## ConstPattern
 
     Const pattern used in pattern matching (e.g. `in A(1, 2)`)
 
@@ -917,7 +917,7 @@ Fields:
     ```
 
 
-### CSend
+## CSend
 
     Represents conditional method call using `&.` operator
 
@@ -1004,7 +1004,7 @@ Fields:
     ```
 
 
-### Cvar
+## Cvar
 
     Represents access to class variable (i.e. `@@var`)
 
@@ -1024,7 +1024,7 @@ Fields:
     ```
 
 
-### Cvasgn
+## Cvasgn
 
     Represents class variable assignment (i.e. `@@var = 42`)
 
@@ -1066,7 +1066,7 @@ Fields:
     ```
 
 
-### Def
+## Def
 
     Represents method definition using `def` keyword (not on a singleton, see `Defs` node).
 
@@ -1136,7 +1136,7 @@ Fields:
     ```
 
 
-### Defined
+## Defined
 
     Represents a `defined?(foo)` expression
 
@@ -1187,7 +1187,7 @@ Fields:
     ```
 
 
-### Defs
+## Defs
 
     Represents a singleton method definition (i.e. `def self.foo; end`)
 
@@ -1270,7 +1270,7 @@ Fields:
     ```
 
 
-### Dstr
+## Dstr
 
     Represents a string with interpolation (i.e. `"#{foo}"`)
 
@@ -1317,7 +1317,7 @@ Fields:
     ```
 
 
-### Dsym
+## Dsym
 
     Represents a symbol with interpolation (i.e. `:"#{foo}"`)
 
@@ -1367,7 +1367,7 @@ Fields:
     ```
 
 
-### EFlipFlop
+## EFlipFlop
 
     Represents exclusive flip-flop (i.e. in `if foo...bar; end`)
 
@@ -1400,7 +1400,7 @@ Fields:
     ```
 
 
-### EmptyElse
+## EmptyElse
 
     Represents a special empty else that is a part of the pattern matching.
    
@@ -1421,7 +1421,7 @@ Fields:
     ```
 
 
-### Encoding
+## Encoding
 
     Represents a special `__ENCODING__` keyword
 
@@ -1437,7 +1437,7 @@ Fields:
     ```
 
 
-### Ensure
+## Ensure
 
     Represents a block of code with `ensure` (i.e. `begin; ensure; end`)
 
@@ -1477,7 +1477,7 @@ Fields:
     **Note**: begin/end belong to `KwBegin` node.
 
 
-### Erange
+## Erange
 
     Represents range literal with excluded `end` (i.e. `1...3`)
 
@@ -1510,7 +1510,7 @@ Fields:
     ```
 
 
-### False
+## False
 
     Represents a `false` literal
 
@@ -1526,7 +1526,7 @@ Fields:
     ```
 
 
-### File
+## File
 
     Represents a special `__FILE__` literal
 
@@ -1542,7 +1542,7 @@ Fields:
     ```
 
 
-### FindPattern
+## FindPattern
 
     Represents a find pattern using in pattern matching (i.e. `in [*x, 1 => a, *y]`)
    
@@ -1586,7 +1586,7 @@ Fields:
     ```
 
 
-### Float
+## Float
 
     Represents a float literal (i.e. `42.5`)
 
@@ -1615,7 +1615,7 @@ Fields:
     ```
 
 
-### For
+## For
 
     Represents a `for` loop
 
@@ -1681,7 +1681,7 @@ Fields:
     ```
 
 
-### ForwardArg
+## ForwardArg
 
     Represents a special `...` argument that forwards positional/keyword/block arguments.
 
@@ -1697,7 +1697,7 @@ Fields:
     ```
 
 
-### ForwardedArgs
+## ForwardedArgs
 
     Represents a `...` operator that contains forwarded argument (see `ForwardArg`)
 
@@ -1713,7 +1713,7 @@ Fields:
     ```
 
 
-### Gvar
+## Gvar
 
     Represents access to global variable (i.e. `$foo`)
 
@@ -1733,7 +1733,7 @@ Fields:
     ```
 
 
-### Gvasgn
+## Gvasgn
 
     Represents global variable assignment (i.e. `$foo = 42`)
 
@@ -1781,7 +1781,7 @@ Fields:
     ```
 
 
-### Hash
+## Hash
 
     Represents a hash literal (i.e. `{ foo: 42 }`)
 
@@ -1823,7 +1823,7 @@ Fields:
     ```
 
 
-### HashPattern
+## HashPattern
 
     Represents a hash pattern used in pattern matching (i.e. `in { a: 1 }`)
 
@@ -1865,7 +1865,7 @@ Fields:
     ```
 
 
-### Heredoc
+## Heredoc
 
     Represents a here-document literal (both with and without interpolation)
    
@@ -1914,7 +1914,7 @@ Fields:
     ```
 
 
-### If
+## If
 
     Represents an `if` statement (i.e. `if foo; bar; else; baz; end`)
 
@@ -1982,7 +1982,7 @@ Fields:
     ```
 
 
-### IfGuard
+## IfGuard
 
     Represents an `if` guard used in pattern matching (i.e. `case foo; in pattern if guard; end`)
 
@@ -2011,7 +2011,7 @@ Fields:
     ```
 
 
-### IFlipFlop
+## IFlipFlop
 
     Represents inclusive flip-flop (i.e. in `if foo..bar; end`)
 
@@ -2044,7 +2044,7 @@ Fields:
     ```
 
 
-### IfMod
+## IfMod
 
     Represents an `if`/`unless` modifier (i.e. `stmt if cond`)
 
@@ -2093,7 +2093,7 @@ Fields:
     ```
 
 
-### IfTernary
+## IfTernary
 
     Represents ternary `if` statement (i.e. `cond ? if_true : if_false`)
 
@@ -2139,7 +2139,7 @@ Fields:
     ```
 
 
-### Index
+## Index
 
     Represents indexing operation (i.e. `foo[1,2,3]`)
 
@@ -2181,7 +2181,7 @@ Fields:
     ```
 
 
-### IndexAsgn
+## IndexAsgn
 
     Represents assignment using indexing operation (i.e. `foo[1, 2, 3] = bar`)
 
@@ -2242,7 +2242,7 @@ Fields:
     ```
 
 
-### InPattern
+## InPattern
 
     Represents an `in pattern` branch of the pattern matching
 
@@ -2290,7 +2290,7 @@ Fields:
     ```
 
 
-### Int
+## Int
 
     Represents an integer literal (i.e. `42`)
 
@@ -2319,7 +2319,7 @@ Fields:
     ```
 
 
-### Irange
+## Irange
 
     Represents inclusive range (i.e. `2..4`)
 
@@ -2352,7 +2352,7 @@ Fields:
     ```
 
 
-### Ivar
+## Ivar
 
     Represents access to instance variable (i.e. `@foo`)
 
@@ -2372,7 +2372,7 @@ Fields:
     ```
 
 
-### Ivasgn
+## Ivasgn
 
     Represents instance variable assignment (i.e `@foo = 42`)
 
@@ -2420,7 +2420,7 @@ Fields:
     ```
 
 
-### Kwarg
+## Kwarg
 
     Represents required keyword argument (i.e. `foo` in `def m(foo:); end`)
 
@@ -2449,7 +2449,7 @@ Fields:
     ```
 
 
-### Kwargs
+## Kwargs
 
     Represents kwargs that are given to a method call, super or yield (i.e. `foo(bar: 1)`)
 
@@ -2469,7 +2469,7 @@ Fields:
     ```
 
 
-### KwBegin
+## KwBegin
 
     Represents an explicit `begin; end` block.
    
@@ -2513,7 +2513,7 @@ Fields:
     ```
 
 
-### Kwnilarg
+## Kwnilarg
 
     Represents an special argument that rejects all keyword arguments (i.e. `def m(**nil); end`)
 
@@ -2538,7 +2538,7 @@ Fields:
     ```
 
 
-### Kwoptarg
+## Kwoptarg
 
     Represents an optional keyword argument (i.e. `foo` in `def m(foo: 42); end`)
 
@@ -2571,7 +2571,7 @@ Fields:
     ```
 
 
-### Kwrestarg
+## Kwrestarg
 
     Represents a keyword rest argument (i.e. `foo` in `def m(**foo); end`)
 
@@ -2613,7 +2613,7 @@ Fields:
     ```
 
 
-### Kwsplat
+## Kwsplat
 
     Represents a keyword arguments splat (i.e. `**bar` in a call like `foo(**bar)`)
 
@@ -2642,7 +2642,7 @@ Fields:
     ```
 
 
-### Lambda
+## Lambda
 
     Represents a lambda call using `->` (i.e. `-> {}`)
    
@@ -2660,7 +2660,7 @@ Fields:
     ```
 
 
-### Line
+## Line
 
     Represents a special `__LINE__` literal
 
@@ -2676,7 +2676,7 @@ Fields:
     ```
 
 
-### Lvar
+## Lvar
 
     Represents access to a local variable (i.e. `foo`)
    
@@ -2703,7 +2703,7 @@ Fields:
     ```
 
 
-### Lvasgn
+## Lvasgn
 
     Represents local variable assignment (i.e. `foo = 42`)
 
@@ -2748,7 +2748,7 @@ Fields:
     ```
 
 
-### Masgn
+## Masgn
 
     Represents mass-assignment (i.e. `foo, bar = 1, 2`)
 
@@ -2781,7 +2781,7 @@ Fields:
     ```
 
 
-### MatchAlt
+## MatchAlt
 
     Represents pattern matching using one of the given patterns (i.e. `foo in 1 | 2`)
 
@@ -2814,7 +2814,7 @@ Fields:
     ```
 
 
-### MatchAs
+## MatchAs
 
     Represents matching with renaming into specified local variable (i.e. `case 1; in Integer => a; end`)
 
@@ -2847,7 +2847,7 @@ Fields:
     ```
 
 
-### MatchCurrentLine
+## MatchCurrentLine
 
     Represents implicit matching using `if /regex/`
    
@@ -2890,7 +2890,7 @@ Fields:
     have the same interface for all nodes.
 
 
-### MatchNilPattern
+## MatchNilPattern
 
     Represents empty hash pattern that is used in pattern matching (i.e. `in **nil`)
 
@@ -2924,7 +2924,7 @@ Fields:
     ```
 
 
-### MatchPattern
+## MatchPattern
 
     Represents a one-line pattern matching that can throw an error (i.e. `foo => pattern`)
 
@@ -2957,7 +2957,7 @@ Fields:
     ```
 
 
-### MatchPatternP
+## MatchPatternP
 
     Represents a one-line pattern matching that never throws but returns true/false (i.e. `foo in pattern`)
 
@@ -2990,7 +2990,7 @@ Fields:
     ```
 
 
-### MatchRest
+## MatchRest
 
     Represents a wildcard pattern used in pattern matching (i.e. `in *foo`)
 
@@ -3021,7 +3021,7 @@ Fields:
     ```
 
 
-### MatchVar
+## MatchVar
 
     Represents matching with assignment into a local variable (i.e. `pattern => var`)
 
@@ -3064,7 +3064,7 @@ Fields:
     ```
 
 
-### MatchWithLvasgn
+## MatchWithLvasgn
 
     Represents matching a regex that produces local variables (i.e. `/(?<match>bar)/ =~ 'bar'`)
    
@@ -3099,7 +3099,7 @@ Fields:
     ```
 
 
-### Mlhs
+## Mlhs
 
     Represents left hand statement of the mass-assignment (i.e. `foo, bar` in `foo, bar = 1, 2`)
 
@@ -3141,7 +3141,7 @@ Fields:
     ```
 
 
-### Module
+## Module
 
     Represents module declaration using `module` keyword
 
@@ -3185,7 +3185,7 @@ Fields:
     ```
 
 
-### Next
+## Next
 
     Represents `next` keyword
 
@@ -3214,7 +3214,7 @@ Fields:
     ```
 
 
-### Nil
+## Nil
 
     Represents `nil` literal
 
@@ -3230,7 +3230,7 @@ Fields:
     ```
 
 
-### NthRef
+## NthRef
 
     Represents numeric global variable (e.g. `$1`)
 
@@ -3250,7 +3250,7 @@ Fields:
     ```
 
 
-### Numblock
+## Numblock
 
     Represents a block that takes numbered parameters (i.e. `proc { _1 }`)
 
@@ -3296,7 +3296,7 @@ Fields:
     ```
 
 
-### OpAsgn
+## OpAsgn
 
     Represents an operation with assignment (e.g. `a += 1`)
 
@@ -3344,7 +3344,7 @@ Fields:
     ```
 
 
-### Optarg
+## Optarg
 
     Represents optional positional argument (i.e. `foo` in `m(foo = 1)`)
 
@@ -3386,7 +3386,7 @@ Fields:
     ```
 
 
-### Or
+## Or
 
     Represents `foo || bar` (or `foo or bar`) statement.
 
@@ -3419,7 +3419,7 @@ Fields:
     ```
 
 
-### OrAsgn
+## OrAsgn
 
     Represents `lhs ||= rhs` assignment
 
@@ -3452,7 +3452,7 @@ Fields:
     ```
 
 
-### Pair
+## Pair
 
     Represents a key/value pair (e.g. a part of the `Hash` node)
 
@@ -3491,7 +3491,7 @@ Fields:
     ```
 
 
-### Pin
+## Pin
 
     Represents a pattern based on a "pinned" variable (e.g. `^foo`)
 
@@ -3520,7 +3520,7 @@ Fields:
     ```
 
 
-### Postexe
+## Postexe
 
     Represents `END { .. }` statement
 
@@ -3567,7 +3567,7 @@ Fields:
     ```
 
 
-### Preexe
+## Preexe
 
     Represents `BEGIN { ... }` statement
 
@@ -3614,7 +3614,7 @@ Fields:
     ```
 
 
-### Procarg0
+## Procarg0
 
     Represents a sole block argument (e.g. `|foo|`)
    
@@ -3663,7 +3663,7 @@ Fields:
     ```
 
 
-### Rational
+## Rational
 
     Represents rational literal (e.g. `1r`)
 
@@ -3692,7 +3692,7 @@ Fields:
     ```
 
 
-### Redo
+## Redo
 
     Represents `redo` keyword
 
@@ -3708,7 +3708,7 @@ Fields:
     ```
 
 
-### Regexp
+## Regexp
 
     Represents regex literal (e.g. `/foo/`)
 
@@ -3758,7 +3758,7 @@ Fields:
     ```
 
 
-### RegOpt
+## RegOpt
 
     Represents flags of the regex literal (i.e. `mix` for `/foo/mix`)
 
@@ -3778,7 +3778,7 @@ Fields:
     ```
 
 
-### Rescue
+## Rescue
 
     Represents a `rescue` block
 
@@ -3821,7 +3821,7 @@ Fields:
     **Note**: `begin/end` keywords belong to `KwBegin` node
 
 
-### RescueBody
+## RescueBody
 
     Represents a single `rescue` handler (i.e. `rescue E => e ...`)
 
@@ -3884,7 +3884,7 @@ Fields:
     ```
 
 
-### Restarg
+## Restarg
 
     Represents positional rest argument (i.e. `*foo` in `def m(*foo); end`)
 
@@ -3924,7 +3924,7 @@ Fields:
     ```
 
 
-### Retry
+## Retry
 
     Represents `retry` keyword
 
@@ -3940,7 +3940,7 @@ Fields:
     ```
 
 
-### Return
+## Return
 
     Represents `return` keyword
 
@@ -3969,7 +3969,7 @@ Fields:
     ```
 
 
-### SClass
+## SClass
 
     Represents opening a singleton class (i.e. `class << foo; ... end;`)
 
@@ -4022,7 +4022,7 @@ Fields:
     ```
 
 
-### Self_
+## Self_
 
     Represents `self` keyword
 
@@ -4038,7 +4038,7 @@ Fields:
     ```
 
 
-### Send
+## Send
 
     Represents a method call (e.g. `foo.bar(42)`)
 
@@ -4123,7 +4123,7 @@ Fields:
     ```
 
 
-### Shadowarg
+## Shadowarg
 
     Represents a special block argument that "shadows" outer variable (i.e. `|;foo|`)
 
@@ -4143,7 +4143,7 @@ Fields:
     ```
 
 
-### Splat
+## Splat
 
     Represents an arguments splat (i.e. `*bar` in a call like `foo(*bar)`)
 
@@ -4172,7 +4172,7 @@ Fields:
     ```
 
 
-### Str
+## Str
 
     Represents a plain non-interpolated string literal (e.g. `"foo"`)
 
@@ -4223,7 +4223,7 @@ Fields:
     ```
 
 
-### Super
+## Super
 
     Represents a `super` keyword
 
@@ -4274,7 +4274,7 @@ Fields:
     ```
 
 
-### Sym
+## Sym
 
     Represents a plain symbol literal (i.e. `:foo`)
    
@@ -4333,7 +4333,7 @@ Fields:
     ```
 
 
-### True
+## True
 
     Represents a `true` literal
 
@@ -4349,7 +4349,7 @@ Fields:
     ```
 
 
-### Undef
+## Undef
 
     Represents an `undef` keyword (e.g. `undef foo, :bar`)
 
@@ -4378,7 +4378,7 @@ Fields:
     ```
 
 
-### UnlessGuard
+## UnlessGuard
 
     Represents an `unless` guard used in pattern matching (i.e. `in pattern unless guard`)
 
@@ -4407,7 +4407,7 @@ Fields:
     ```
 
 
-### Until
+## Until
 
     Represents `until` loop
 
@@ -4467,7 +4467,7 @@ Fields:
     ```
 
 
-### UntilPost
+## UntilPost
 
     Represents a post-until loop
    
@@ -4506,7 +4506,7 @@ Fields:
     ```
 
 
-### When
+## When
 
     Represents a branch of the `case` statement (i.e. `when foo`)
 
@@ -4550,7 +4550,7 @@ Fields:
     ```
 
 
-### While
+## While
 
     Represents `while` loop
 
@@ -4610,7 +4610,7 @@ Fields:
     ```
 
 
-### WhilePost
+## WhilePost
 
     Represents a post-while loop
    
@@ -4649,7 +4649,7 @@ Fields:
     ```
 
 
-### XHeredoc
+## XHeredoc
 
     Represents a executable here-document literal (both with and without interpolation)
    
@@ -4698,7 +4698,7 @@ Fields:
     ```
 
 
-### Xstr
+## Xstr
 
     Represents an executable string (i.e. `` `sh #{script_name}` ``)
 
@@ -4745,7 +4745,7 @@ Fields:
     ```
 
 
-### Yield
+## Yield
 
     Represents an `yield` keyword
 
@@ -4796,7 +4796,7 @@ Fields:
     ```
 
 
-### ZSuper
+## ZSuper
 
     Represents a `super` call without arguments and parentheses
    

@@ -17,7 +17,7 @@ fn render_nodes() {
 
 fn render_node(node: &Node) -> String {
     format!(
-        "### {node_name}
+        "## {node_name}
 
 {comment}
 
@@ -62,7 +62,7 @@ fn render_messages() {
 
 fn render_message(message: &Message) -> String {
     format!(
-        "### {message_name}
+        "## {message_name}
 
 {comment}
 

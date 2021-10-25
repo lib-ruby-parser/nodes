@@ -1,4 +1,4 @@
-### FractionAfterNumeric
+## FractionAfterNumeric
 
     Emitted for code
     ```text
@@ -9,7 +9,7 @@ Fields:
 
 
 
-### NoDigitsAfterDot
+## NoDigitsAfterDot
 
     Emitted for code like
     ```text
@@ -20,7 +20,7 @@ Fields:
 
 
 
-### UnknownTypeOfPercentString
+## UnknownTypeOfPercentString
 
     Emitted for code like
     ```text
@@ -31,7 +31,7 @@ Fields:
 
 
 
-### NumericLiteralWithoutDigits
+## NumericLiteralWithoutDigits
 
     Emitted for code like
     ```text
@@ -42,7 +42,7 @@ Fields:
 
 
 
-### UnterminatedList
+## UnterminatedList
 
     Emitted for code like
     ```text
@@ -53,7 +53,7 @@ Fields:
 
 
 
-### UnterminatedRegexp
+## UnterminatedRegexp
 
     Emitted for code like
     ```text
@@ -64,7 +64,7 @@ Fields:
 
 
 
-### UnterminatedString
+## UnterminatedString
 
     Emitted for code like
     ```text
@@ -75,7 +75,7 @@ Fields:
 
 
 
-### UnterminatedQuotedString
+## UnterminatedQuotedString
 
     Emitted for code like
     ```text
@@ -88,7 +88,7 @@ Fields:
 
 
 
-### InvalidUnicodeEscape
+## InvalidUnicodeEscape
 
     Emitted for code like
     ```text
@@ -99,7 +99,7 @@ Fields:
 
 
 
-### TooLargeUnicodeCodepoint
+## TooLargeUnicodeCodepoint
 
     Emitted for code like
     ```text
@@ -110,7 +110,7 @@ Fields:
 
 
 
-### InvalidUnicodeCodepoint
+## InvalidUnicodeCodepoint
 
     Emitted for code like
     ```text
@@ -121,7 +121,7 @@ Fields:
 
 
 
-### MultipleCodepointAtSingleChar
+## MultipleCodepointAtSingleChar
 
     Emitted for code like
     ```text
@@ -132,7 +132,7 @@ Fields:
 
 
 
-### InvalidEscapeCharacter
+## InvalidEscapeCharacter
 
     Emitted for code like
     ```text
@@ -143,7 +143,7 @@ Fields:
 
 
 
-### InvalidHexEscape
+## InvalidHexEscape
 
     Emitted for code like
     ```text
@@ -154,7 +154,7 @@ Fields:
 
 
 
-### UnterminatedHeredoc
+## UnterminatedHeredoc
 
     Emitted for code like
     ```text
@@ -168,7 +168,7 @@ Fields:
     Heredoc identifier
 
 
-### UnterminatedHeredocId
+## UnterminatedHeredocId
 
     Emitted for code like
     ```text
@@ -179,7 +179,7 @@ Fields:
 
 
 
-### SlashRAtMiddleOfLine
+## SlashRAtMiddleOfLine
 
     Emitted for code like
     ```text
@@ -190,7 +190,7 @@ Fields:
 
 
 
-### DStarInterpretedAsArgPrefix
+## DStarInterpretedAsArgPrefix
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -201,7 +201,7 @@ Fields:
 
 
 
-### StarInterpretedAsArgPrefix
+## StarInterpretedAsArgPrefix
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -212,7 +212,7 @@ Fields:
 
 
 
-### AmpersandInterpretedAsArgPrefix
+## AmpersandInterpretedAsArgPrefix
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -223,7 +223,7 @@ Fields:
 
 
 
-### TripleDotAtEol
+## TripleDotAtEol
 
     Emitted for code like
     ```text
@@ -234,7 +234,7 @@ Fields:
 
 
 
-### ParenthesesIterpretedAsArglist
+## ParenthesesIterpretedAsArglist
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -245,7 +245,7 @@ Fields:
 
 
 
-### AmbiguousFirstArgument
+## AmbiguousFirstArgument
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -259,7 +259,7 @@ Fields:
     Operator that is ambiguous
 
 
-### AmbiguousOperator
+## AmbiguousOperator
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -277,7 +277,7 @@ Fields:
     Interpretation of this operator
 
 
-### InvalidCharacterSyntax
+## InvalidCharacterSyntax
 
     Emitted for code like
     ```text
@@ -291,7 +291,7 @@ Fields:
     Valid syntax sugestions
 
 
-### InvalidOctalDigit
+## InvalidOctalDigit
 
     Emitted for code like
     ```text
@@ -302,7 +302,7 @@ Fields:
 
 
 
-### TrailingCharInNumber
+## TrailingCharInNumber
 
     Emitted for code like
     ```text
@@ -316,7 +316,7 @@ Fields:
     Invalid trailing char
 
 
-### EmbeddedDocumentMeetsEof
+## EmbeddedDocumentMeetsEof
 
     Emitted for code like
     ```text
@@ -327,7 +327,7 @@ Fields:
 
 
 
-### InvalidChar
+## InvalidChar
 
     Emitted for code like
     ```text
@@ -341,7 +341,7 @@ Fields:
     char
 
 
-### IncompleteCharacterSyntax
+## IncompleteCharacterSyntax
 
     It is unknown how to trigger this error.
     Code that triggers it in MRI can be dead.
@@ -350,7 +350,7 @@ Fields:
 
 
 
-### GvarWithoutId
+## GvarWithoutId
 
     Emitted for code like
     ```text
@@ -361,7 +361,7 @@ Fields:
 
 
 
-### InvalidGvarName
+## InvalidGvarName
 
     Emitted for code like
     ```text
@@ -375,7 +375,7 @@ Fields:
     char after `$`
 
 
-### IvarWithoutId
+## IvarWithoutId
 
     Emitted for code like
     ```text
@@ -386,7 +386,7 @@ Fields:
 
 
 
-### InvalidIvarName
+## InvalidIvarName
 
     Emitted for code like
     ```text
@@ -400,7 +400,7 @@ Fields:
     char after `@`
 
 
-### CvarWithoutId
+## CvarWithoutId
 
     Emitted for code like
     ```text
@@ -411,7 +411,7 @@ Fields:
 
 
 
-### InvalidCvarName
+## InvalidCvarName
 
     Emitted for code like
     ```text
@@ -425,7 +425,7 @@ Fields:
     char after `@@`
 
 
-### UnknownRegexOptions
+## UnknownRegexOptions
 
     Emitted for code like
     ```text
@@ -439,7 +439,7 @@ Fields:
     Concatenated unknown options
 
 
-### UnterminatedUnicodeEscape
+## UnterminatedUnicodeEscape
 
     Emitted for code like
     ```text
@@ -450,7 +450,7 @@ Fields:
 
 
 
-### EncodingError
+## EncodingError
 
     Emitted for code like
     ```text
@@ -464,7 +464,7 @@ Fields:
     Error from decoder
 
 
-### InvalidMultibyteChar
+## InvalidMultibyteChar
 
     Emitter for code like
     ```text
@@ -475,7 +475,7 @@ Fields:
 
 
 
-### AmbiguousTernaryOperator
+## AmbiguousTernaryOperator
 
     Emitted for code like
     ```text
@@ -489,7 +489,7 @@ Fields:
     Source of the condition expression
 
 
-### AmbiguousRegexp
+## AmbiguousRegexp
 
     Emitted for code like
     ```text
@@ -500,7 +500,7 @@ Fields:
 
 
 
-### ElseWithoutRescue
+## ElseWithoutRescue
 
     Emitted for code like
     ```text
@@ -511,7 +511,7 @@ Fields:
 
 
 
-### BeginNotAtTopLevel
+## BeginNotAtTopLevel
 
     Emitted for code like
     ```text
@@ -522,7 +522,7 @@ Fields:
 
 
 
-### AliasNthRef
+## AliasNthRef
 
     Emitted for code like
     ```text
@@ -533,7 +533,7 @@ Fields:
 
 
 
-### CsendInsideMasgn
+## CsendInsideMasgn
 
     Emitted for code like
     ```text
@@ -544,7 +544,7 @@ Fields:
 
 
 
-### ClassOrModuleNameMustBeConstant
+## ClassOrModuleNameMustBeConstant
 
     Emitted for code like
     ```text
@@ -555,7 +555,7 @@ Fields:
 
 
 
-### EndlessSetterDefinition
+## EndlessSetterDefinition
 
     Emitted for code like
     ```text
@@ -566,7 +566,7 @@ Fields:
 
 
 
-### UnexpectedToken
+## UnexpectedToken
 
     Emitted for any code that produces invalid sequence of tokens
 
@@ -577,7 +577,7 @@ Fields:
     Name of the token
 
 
-### ClassDefinitionInMethodBody
+## ClassDefinitionInMethodBody
 
     Emitted for code like
     ```text
@@ -588,7 +588,7 @@ Fields:
 
 
 
-### ModuleDefinitionInMethodBody
+## ModuleDefinitionInMethodBody
 
     Emitted for code like
     ```text
@@ -599,7 +599,7 @@ Fields:
 
 
 
-### InvalidReturnInClassOrModuleBody
+## InvalidReturnInClassOrModuleBody
 
     Emitted for code like
     ```text
@@ -610,7 +610,7 @@ Fields:
 
 
 
-### ConstArgument
+## ConstArgument
 
     Emitted for code like
     ```text
@@ -621,7 +621,7 @@ Fields:
 
 
 
-### IvarArgument
+## IvarArgument
 
     Emitted for code like
     ```text
@@ -632,7 +632,7 @@ Fields:
 
 
 
-### GvarArgument
+## GvarArgument
 
     Emitted for code like
     ```text
@@ -643,7 +643,7 @@ Fields:
 
 
 
-### CvarArgument
+## CvarArgument
 
     Emitted for code like
     ```text
@@ -654,7 +654,7 @@ Fields:
 
 
 
-### NoSuchLocalVariable
+## NoSuchLocalVariable
 
     Emitted for code like
     ```text
@@ -668,7 +668,7 @@ Fields:
     Variable name
 
 
-### OrdinaryParamDefined
+## OrdinaryParamDefined
 
     Emitted for code like
     ```text
@@ -679,7 +679,7 @@ Fields:
 
 
 
-### NumparamUsed
+## NumparamUsed
 
     Emitted for code like
     ```text
@@ -690,7 +690,7 @@ Fields:
 
 
 
-### TokAtEolWithoutExpression
+## TokAtEolWithoutExpression
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -706,7 +706,7 @@ Fields:
     Name of the token
 
 
-### EndInMethod
+## EndInMethod
 
     Emitted for code like
     ```text
@@ -717,7 +717,7 @@ Fields:
 
 
 
-### ComparisonAfterComparison
+## ComparisonAfterComparison
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -731,7 +731,7 @@ Fields:
     Source of the first comparison
 
 
-### CircularArgumentReference
+## CircularArgumentReference
 
     Emitted for code like
     ```text
@@ -745,7 +745,7 @@ Fields:
     Name of the argument
 
 
-### DynamicConstantAssignment
+## DynamicConstantAssignment
 
     Emitted for code like
     ```text
@@ -756,7 +756,7 @@ Fields:
 
 
 
-### CantAssignToSelf
+## CantAssignToSelf
 
     Emitted for code like
     ```text
@@ -767,7 +767,7 @@ Fields:
 
 
 
-### CantAssignToNil
+## CantAssignToNil
 
     Emitted for code like
     ```text
@@ -778,7 +778,7 @@ Fields:
 
 
 
-### CantAssignToTrue
+## CantAssignToTrue
 
     Emitted for code like
     ```text
@@ -789,7 +789,7 @@ Fields:
 
 
 
-### CantAssignToFalse
+## CantAssignToFalse
 
     Emitted for code like
     ```text
@@ -800,7 +800,7 @@ Fields:
 
 
 
-### CantAssignToFile
+## CantAssignToFile
 
     Emitted for code like
     ```text
@@ -811,7 +811,7 @@ Fields:
 
 
 
-### CantAssignToLine
+## CantAssignToLine
 
     Emitted for code like
     ```text
@@ -822,7 +822,7 @@ Fields:
 
 
 
-### CantAssignToEncoding
+## CantAssignToEncoding
 
     Emitted for code like
     ```text
@@ -833,7 +833,7 @@ Fields:
 
 
 
-### CantAssignToNumparam
+## CantAssignToNumparam
 
     Emitted for code like
     ```text
@@ -847,7 +847,7 @@ Fields:
     Source of the numbered parameter
 
 
-### CantSetVariable
+## CantSetVariable
 
     Emitted for code like
     ```text
@@ -861,7 +861,7 @@ Fields:
     Source of the read-only variable that is assigned
 
 
-### BlockGivenToYield
+## BlockGivenToYield
 
     Emitted for code like
     ```text
@@ -872,7 +872,7 @@ Fields:
 
 
 
-### BlockAndBlockArgGiven
+## BlockAndBlockArgGiven
 
     Emitted for code like
     ```text
@@ -883,7 +883,7 @@ Fields:
 
 
 
-### SymbolLiteralWithInterpolation
+## SymbolLiteralWithInterpolation
 
     Emitted for code like
     ```text
@@ -894,7 +894,7 @@ Fields:
 
 
 
-### ReservedForNumparam
+## ReservedForNumparam
 
     Emitted for code like
     ```text
@@ -908,7 +908,7 @@ Fields:
     Numbered parameter that is treated as a local variable
 
 
-### KeyMustBeValidAsLocalVariable
+## KeyMustBeValidAsLocalVariable
 
     Emitted for code like
     ```text
@@ -919,7 +919,7 @@ Fields:
 
 
 
-### DuplicateVariableName
+## DuplicateVariableName
 
     Emitted for code like
     ```text
@@ -930,7 +930,7 @@ Fields:
 
 
 
-### DuplicateKeyName
+## DuplicateKeyName
 
     Emitted for code like
     ```text
@@ -941,7 +941,7 @@ Fields:
 
 
 
-### SingletonLiteral
+## SingletonLiteral
 
     Emitted for code like
     ```text
@@ -952,7 +952,7 @@ Fields:
 
 
 
-### NthRefIsTooBig
+## NthRefIsTooBig
 
     Emitted for code like (only in $VERBOSE mode)
     ```text
@@ -966,7 +966,7 @@ Fields:
     Source of the nth_ref that is techincally a regular global variable
 
 
-### DuplicatedArgumentName
+## DuplicatedArgumentName
 
     Emitted for code like
     ```text
@@ -977,7 +977,7 @@ Fields:
 
 
 
-### RegexError
+## RegexError
 
     Emitted for code like
     ```text
@@ -991,7 +991,7 @@ Fields:
     Error from Onigurama engine
 
 
-### InvalidSymbol
+## InvalidSymbol
 
     Emitted for code like
     ```text
@@ -1005,7 +1005,7 @@ Fields:
     Source of the symbol
 
 
-### VoidValueExpression
+## VoidValueExpression
 
     Emitted for code like
     ```text
