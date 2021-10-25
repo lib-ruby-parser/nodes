@@ -1,4 +1,4 @@
-name: test
+name: codegen
 
 on:
   push:
@@ -10,8 +10,8 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test:
-    name: run tests
+  codegen:
+    name: assert codegened
     runs-on: ubuntu-latest
 
     steps:
@@ -25,5 +25,8 @@ jobs:
           toolchain: stable
           override: true
 
-      - name: test
-        run: cargo test
+      - name: codegen
+        run: cargo run --example render
+
+      - name: assert no diff
+        run: git diff --exit-code
