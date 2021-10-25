@@ -1,21 +1,5 @@
 pub type MessagesList = &'static [&'static Message];
 
-// impl MessagesList {
-//     pub fn map<F>(&self, f: F) -> Vec<String>
-//     where
-//         F: Fn(&Message) -> String,
-//     {
-//         self.0.iter().map(f).collect()
-//     }
-
-//     pub fn flat_map<F>(&self, f: F) -> Vec<String>
-//     where
-//         F: Fn(&Message) -> Vec<String>,
-//     {
-//         self.0.iter().flat_map(f).collect()
-//     }
-// }
-
 #[derive(Debug, Clone, PartialEq)]
 pub struct Message {
     pub camelcase_name: &'static str,
@@ -39,22 +23,6 @@ impl Message {
 
 pub type MessageFieldList = &'static [&'static MessageField];
 
-// impl MessageFieldList {
-//     pub fn map<F>(&self, f: F) -> Vec<String>
-//     where
-//         F: Fn(&MessageField) -> String,
-//     {
-//         self.0.iter().map(f).collect()
-//     }
-
-//     pub fn flat_map<F>(&self, f: F) -> Vec<String>
-//     where
-//         F: Fn(&MessageField) -> Vec<String>,
-//     {
-//         self.0.iter().flat_map(f).collect()
-//     }
-// }
-
 #[derive(Debug, Clone, PartialEq)]
 pub struct MessageField {
     pub message: &'static Message,
@@ -73,4 +41,35 @@ impl MessageField {
 pub enum MessageFieldType {
     Str,
     Byte,
+}
+
+#[macro_export]
+macro_rules! message_has_field {
+    ($message:ident, $( $pattern:pat_param )|+) => {
+        $message.fields.iter().any(|f| matches!(f.field_type, $( $pattern )|+))
+    };
+}
+
+pub use message_has_field;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    static TEST_MESSAGE: Message = Message {
+        camelcase_name: "",
+        fields: &[&MessageField {
+            message: &TEST_MESSAGE,
+            snakecase_name: "",
+            field_type: MessageFieldType::Byte,
+            comment: &[],
+        }],
+        comment: &[],
+    };
+
+    #[test]
+    fn test_message_has_field() {
+        assert!(message_has_field!(TEST_MESSAGE, MessageFieldType::Byte));
+        assert!(!message_has_field!(TEST_MESSAGE, MessageFieldType::Str))
+    }
 }

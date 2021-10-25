@@ -53,3 +53,36 @@ pub enum NodeFieldType {
 }
 
 impl NodeFieldType {}
+
+#[macro_export]
+macro_rules! node_has_field {
+    ($node:ident, $( $pattern:pat_param )|+) => {
+        $node.fields.iter().any(|f| matches!(f.field_type, $( $pattern )|+))
+    };
+}
+
+pub use node_has_field;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    static TEST_NODE: Node = Node {
+        camelcase_name: "",
+        wqp_name: "",
+        fields: &[&NodeField {
+            node: &TEST_NODE,
+            snakecase_name: "",
+            field_type: NodeFieldType::Loc,
+            always_print: true,
+            comment: &[],
+        }],
+        comment: &[],
+    };
+
+    #[test]
+    fn test_node_has_field() {
+        assert!(node_has_field!(TEST_NODE, NodeFieldType::Loc));
+        assert!(!node_has_field!(TEST_NODE, NodeFieldType::MaybeNode { .. }))
+    }
+}

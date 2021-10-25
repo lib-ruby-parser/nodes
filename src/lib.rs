@@ -89,7 +89,7 @@ mod tests {
     }
 
     #[test]
-    fn test_node_fields_order() {
+    fn test_node_fields() {
         let nodes = nodes();
 
         for node in nodes {
@@ -119,6 +119,20 @@ mod tests {
 
     #[test]
     fn test_messages() {
-        assert!(messages().len() > 0)
+        let messages = messages();
+        assert!(messages.len() > 0);
+
+        for message in messages {
+            for message_field in message.fields {
+                assert_eq!(
+                    message_field.message.camelcase_name,
+                    message.camelcase_name,
+                    "field {} of message {} refers to a different message ({})",
+                    message_field.snakecase_name,
+                    message.camelcase_name,
+                    message_field.message.camelcase_name
+                );
+            }
+        }
     }
 }
