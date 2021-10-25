@@ -1,8 +1,10 @@
 pub mod comment;
 pub mod helpers;
 mod messages;
+#[allow(non_upper_case_globals)]
 mod messages_data;
 mod nodes;
+#[allow(non_upper_case_globals)]
 mod nodes_data;
 pub mod template;
 
@@ -23,11 +25,18 @@ mod tests {
 
     #[test]
     fn test_nodes() {
-        assert!(nodes().0.len() > 0);
+        assert!(nodes().len() > 0);
+        for node in nodes() {
+            for node_field in node.fields {
+                let lhs = node_field.node;
+                let rhs = *node;
+                assert_eq!(lhs.camelcase_name, rhs.camelcase_name);
+            }
+        }
     }
 
     #[test]
     fn test_messages() {
-        assert!(messages().0.len() > 0)
+        assert!(messages().len() > 0)
     }
 }

@@ -4,7 +4,7 @@ use crate::template::structs::{
     TemplatePart,
 };
 use crate::template::GlobalContext;
-use crate::{Message, MessageWithField, Node, NodeWithField};
+use crate::{Message, MessageField, Node, NodeField};
 
 pub trait Render<Context>
 where
@@ -31,28 +31,17 @@ impl Render<Node> for NodeTemplatePart {
             Self::StringPart(string) => string.render(&(), fns),
             Self::Helper(helper) => helper.render(node, fns),
             Self::Condition(condition) => condition.render(node, fns),
-            Self::FieldsLoop(loop_) => {
-                let nodes_with_field = node
-                    .fields
-                    .0
-                    .iter()
-                    .map(|field| NodeWithField {
-                        node: node.clone(),
-                        field: field.clone(),
-                    })
-                    .collect::<Vec<_>>();
-                loop_.render(&nodes_with_field, fns)
-            }
+            Self::FieldsLoop(loop_) => loop_.render(node.fields, fns),
         }
     }
 }
 
-impl Render<NodeWithField> for NodeFieldTemplatePart {
-    fn render(&self, node: &NodeWithField, fns: &Fns) -> String {
+impl Render<NodeField> for NodeFieldTemplatePart {
+    fn render(&self, node_field: &NodeField, fns: &Fns) -> String {
         match self {
             Self::StringPart(string) => string.render(&(), fns),
-            Self::Helper(helper) => helper.render(node, fns),
-            Self::Condition(condition) => condition.render(node, fns),
+            Self::Helper(helper) => helper.render(node_field, fns),
+            Self::Condition(condition) => condition.render(node_field, fns),
         }
     }
 }
@@ -63,28 +52,17 @@ impl Render<Message> for MessageTemplatePart {
             Self::StringPart(string) => string.render(&(), fns),
             Self::Helper(helper) => helper.render(message, fns),
             Self::Condition(condition) => condition.render(message, fns),
-            Self::FieldsLoop(loop_) => {
-                let messages_with_fields = message
-                    .fields
-                    .0
-                    .iter()
-                    .map(|field| MessageWithField {
-                        message: message.clone(),
-                        field: field.clone(),
-                    })
-                    .collect::<Vec<_>>();
-                loop_.render(&messages_with_fields, fns)
-            }
+            Self::FieldsLoop(loop_) => loop_.render(message.fields, fns),
         }
     }
 }
 
-impl Render<MessageWithField> for MessageFieldTemplatePart {
-    fn render(&self, message: &MessageWithField, fns: &Fns) -> String {
+impl Render<MessageField> for MessageFieldTemplatePart {
+    fn render(&self, message_field: &MessageField, fns: &Fns) -> String {
         match self {
             Self::StringPart(string) => string.render(&(), fns),
-            Self::Helper(helper) => helper.render(message, fns),
-            Self::Condition(condition) => condition.render(message, fns),
+            Self::Helper(helper) => helper.render(message_field, fns),
+            Self::Condition(condition) => condition.render(message_field, fns),
         }
     }
 }
@@ -94,62 +72,69 @@ mod tests {
     use super::*;
     use crate::template::shards::{Condition, Helper, List, Loop, StringPart};
     use crate::template::Template;
-    use crate::{
-        MessageField, MessageFieldList, MessageFieldType, NodeField, NodeFieldList, NodeFieldType,
+    use crate::template::F;
+    use crate::{MessageField, MessageFieldType, NodeField, NodeFieldType};
+
+    static NODE1: Node = Node {
+        camelcase_name: "One",
+        wqp_name: "",
+        fields: &[
+            &NodeField {
+                node: &NODE1,
+                snakecase_name: "field1",
+                field_type: NodeFieldType::Loc,
+                always_print: true,
+                comment: &[],
+            },
+            &NodeField {
+                node: &NODE1,
+                snakecase_name: "field2",
+                field_type: NodeFieldType::Node,
+                always_print: true,
+                comment: &[],
+            },
+        ],
+        comment: &[],
     };
 
-    const NODES: &[Node] = &[
-        Node {
-            camelcase_name: "One",
-            wqp_name: "",
-            fields: NodeFieldList(&[
-                NodeField {
-                    snakecase_name: "field1",
-                    field_type: NodeFieldType::Loc,
-                    always_print: true,
-                    comment: &[],
-                },
-                NodeField {
-                    snakecase_name: "field2",
-                    field_type: NodeFieldType::Node,
-                    always_print: true,
-                    comment: &[],
-                },
-            ]),
-            comment: &[],
-        },
-        Node {
-            camelcase_name: "Two",
-            wqp_name: "two",
-            fields: NodeFieldList(&[
-                NodeField {
-                    snakecase_name: "field3",
-                    field_type: NodeFieldType::Loc,
-                    always_print: true,
-                    comment: &[],
-                },
-                NodeField {
-                    snakecase_name: "field4",
-                    field_type: NodeFieldType::Node,
-                    always_print: false,
-                    comment: &[],
-                },
-            ]),
-            comment: &[],
-        },
-    ];
+    static NODE2: Node = Node {
+        camelcase_name: "Two",
+        wqp_name: "two",
+        fields: &[
+            &NodeField {
+                node: &NODE2,
+                snakecase_name: "field3",
+                field_type: NodeFieldType::Loc,
+                always_print: true,
+                comment: &[],
+            },
+            &NodeField {
+                node: &NODE2,
+                snakecase_name: "field4",
+                field_type: NodeFieldType::Node,
+                always_print: false,
+                comment: &[],
+            },
+        ],
+        comment: &[],
+    };
 
-    const MESSAGES: &[Message] = &[Message {
+    static NODES: &[&Node] = &[&NODE1, &NODE2];
+
+    static MESSAGE1: Message = Message {
         camelcase_name: "MessageOne",
-        fields: MessageFieldList(&[MessageField {
+        fields: &[&MessageField {
+            message: &MESSAGE1,
             snakecase_name: "field3",
             field_type: MessageFieldType::Byte,
             comment: &[],
-        }]),
+        }],
         comment: &[],
-    }];
+    };
 
-    const CONTEXT: &GlobalContext = &GlobalContext {
+    static MESSAGES: &[&Message] = &[&MESSAGE1];
+
+    static CONTEXT: &GlobalContext = &GlobalContext {
         nodes: NODES,
         messages: MESSAGES,
     };
@@ -158,30 +143,33 @@ mod tests {
         format!("{}", node.camelcase_name)
     }
 
-    fn node_field_name(node: &NodeWithField) -> String {
-        format!("{}", node.field.snakecase_name)
+    fn node_field_name(node_field: &NodeField) -> String {
+        format!("{}", node_field.snakecase_name)
     }
 
     fn message_name(message: &Message) -> String {
         message.camelcase_name.to_owned()
     }
 
-    fn message_field_name(message: &MessageWithField) -> String {
-        message.field.snakecase_name.to_owned()
+    fn message_field_name(message_field: &MessageField) -> String {
+        message_field.snakecase_name.to_owned()
     }
 
-    fn is_node_field_is_printable(node: &NodeWithField) -> bool {
-        node.field.always_print
+    fn is_node_field_is_printable(node: &NodeField) -> bool {
+        node.always_print
     }
 
     #[test]
     fn test_render() {
         let mut fns = Fns::new();
-        fns.register_helper("node_name", node_name);
-        fns.register_helper("node_field_name", node_field_name);
-        fns.register_predicate("is_node_field_is_printable", is_node_field_is_printable);
-        fns.register_helper("message_name", message_name);
-        fns.register_helper("message_field_name", message_field_name);
+        fns.register::<Node, F::Helper>("node_name", node_name);
+        fns.register::<NodeField, F::Helper>("node_field_name", node_field_name);
+        fns.register::<NodeField, F::Predicate>(
+            "is_node_field_is_printable",
+            is_node_field_is_printable,
+        );
+        fns.register::<Message, F::Helper>("message_name", message_name);
+        fns.register::<MessageField, F::Helper>("message_field_name", message_field_name);
 
         let template = Template::new([
             TemplatePart::StringPart(StringPart::new("\nheader\n")),

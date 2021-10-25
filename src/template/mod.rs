@@ -10,8 +10,9 @@ pub(crate) use parse::Parse;
 mod shards;
 
 mod fns;
-use fns::FnSubject;
+pub(crate) use fns::Dispatch;
 pub use fns::Fns as TemplateFns;
+pub use fns::F;
 
 mod structs;
 use structs::{NodeTemplate, Template};
@@ -21,7 +22,7 @@ pub use global_context::GlobalContext;
 pub use global_context::ALL_DATA;
 
 pub trait PublicTemplate {
-    type Context: FnSubject;
+    type Context;
     type InnerTemplate: Render<Self::Context> + Parse;
 
     fn inner(&self) -> &Self::InnerTemplate;
@@ -99,8 +100,7 @@ impl PublicTemplate for NodeTemplateRoot {
 mod tests {
     use super::*;
     use crate::{
-        Message, MessageField, MessageFieldList, MessageFieldType, MessageWithField, Node,
-        NodeField, NodeFieldList, NodeFieldType, NodeWithField,
+        template::fns::F, Message, MessageField, MessageFieldType, Node, NodeField, NodeFieldType,
     };
 
     const TEMPLATE: &str = "{{ helper file-header }}
@@ -137,57 +137,64 @@ There is a message {{ helper message-name }}
         "        + field2 (is u8: N, message name is still Message1)\n",
     ];
 
-    const NODES: &[Node] = &[
-        Node {
-            camelcase_name: "NodeOne",
-            wqp_name: "node_one",
-            fields: NodeFieldList(&[
-                NodeField {
-                    snakecase_name: "field1",
-                    field_type: NodeFieldType::Loc,
-                    always_print: true,
-                    comment: &["field 1 does this"],
-                },
-                NodeField {
-                    snakecase_name: "field2",
-                    field_type: NodeFieldType::Loc,
-                    always_print: true,
-                    comment: &["field 2 does this"],
-                },
-            ]),
-            comment: &["node one does this"],
-        },
-        Node {
-            camelcase_name: "NodeTwo",
-            wqp_name: "node_two",
-            fields: NodeFieldList(&[NodeField {
-                snakecase_name: "field3",
+    static NODE_ONE: Node = Node {
+        camelcase_name: "NodeOne",
+        wqp_name: "node_one",
+        fields: &[
+            &NodeField {
+                node: &NODE_ONE,
+                snakecase_name: "field1",
                 field_type: NodeFieldType::Loc,
-                always_print: false,
-                comment: &["field 3 does this"],
-            }]),
-            comment: &["node two does this"],
-        },
-    ];
+                always_print: true,
+                comment: &["field 1 does this"],
+            },
+            &NodeField {
+                node: &NODE_ONE,
+                snakecase_name: "field2",
+                field_type: NodeFieldType::Loc,
+                always_print: true,
+                comment: &["field 2 does this"],
+            },
+        ],
+        comment: &["node one does this"],
+    };
 
-    const MESSAGES: &[Message] = &[Message {
+    static NODE_TWO: Node = Node {
+        camelcase_name: "NodeTwo",
+        wqp_name: "node_two",
+        fields: &[&NodeField {
+            node: &NODE_TWO,
+            snakecase_name: "field3",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &["field 3 does this"],
+        }],
+        comment: &["node two does this"],
+    };
+
+    static NODES: &[&Node] = &[&NODE_ONE, &NODE_TWO];
+
+    static MESSAGE_ONE: Message = Message {
         camelcase_name: "Message1",
-        fields: MessageFieldList(&[
-            MessageField {
+        fields: &[
+            &MessageField {
+                message: &MESSAGE_ONE,
                 snakecase_name: "field1",
                 field_type: MessageFieldType::Byte,
                 comment: &[],
             },
-            MessageField {
+            &MessageField {
+                message: &MESSAGE_ONE,
                 snakecase_name: "field2",
                 field_type: MessageFieldType::Str,
                 comment: &[],
             },
-        ]),
+        ],
         comment: &[],
-    }];
+    };
+    static MESSAGES: &[&Message] = &[&MESSAGE_ONE];
 
-    const CONTEXT: &GlobalContext = &GlobalContext {
+    static CONTEXT: &GlobalContext = &GlobalContext {
         nodes: NODES,
         messages: MESSAGES,
     };
@@ -200,39 +207,39 @@ There is a message {{ helper message-name }}
         node.camelcase_name.to_string()
     }
 
-    fn node_field_name(node: &NodeWithField) -> String {
-        node.field.snakecase_name.to_string()
+    fn node_field_name(node_field: &NodeField) -> String {
+        node_field.snakecase_name.to_string()
     }
 
-    fn is_node_field_always_printable(node: &NodeWithField) -> bool {
-        node.field.always_print
+    fn is_node_field_always_printable(node_field: &NodeField) -> bool {
+        node_field.always_print
     }
 
     fn message_name(message: &Message) -> String {
         message.camelcase_name.to_string()
     }
 
-    fn message_field_name(message: &MessageWithField) -> String {
-        message.field.snakecase_name.to_string()
+    fn message_field_name(message_field: &MessageField) -> String {
+        message_field.snakecase_name.to_string()
     }
 
-    fn is_message_field_u8(message: &MessageWithField) -> bool {
-        message.field.field_type == MessageFieldType::Byte
+    fn is_message_field_u8(message_field: &MessageField) -> bool {
+        message_field.field_type == MessageFieldType::Byte
     }
 
     #[test]
     fn test_render() {
         let mut fns = TemplateFns::new();
-        fns.register_helper("file-header", file_header);
-        fns.register_helper("node-name", node_name);
-        fns.register_helper("node-field-name", node_field_name);
-        fns.register_predicate(
+        fns.register::<GlobalContext, F::Helper>("file-header", file_header);
+        fns.register::<Node, F::Helper>("node-name", node_name);
+        fns.register::<NodeField, F::Helper>("node-field-name", node_field_name);
+        fns.register::<NodeField, F::Predicate>(
             "is-node-field-always-printable",
             is_node_field_always_printable,
         );
-        fns.register_helper("message-name", message_name);
-        fns.register_helper("message-field-name", message_field_name);
-        fns.register_predicate("is-message-field-u8", is_message_field_u8);
+        fns.register::<Message, F::Helper>("message-name", message_name);
+        fns.register::<MessageField, F::Helper>("message-field-name", message_field_name);
+        fns.register::<MessageField, F::Predicate>("is-message-field-u8", is_message_field_u8);
 
         let template = TemplateRoot::new(TEMPLATE).unwrap();
 

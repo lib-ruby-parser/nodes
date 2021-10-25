@@ -1,5 +1,5 @@
-use crate::template::fns::FnSubject;
-use crate::template::{render::Render, shards::FnName, Buffer, Parse, TemplateFns};
+use crate::template::fns::BucketKey;
+use crate::template::{render::Render, shards::FnName, Buffer, Dispatch, Parse, TemplateFns, F};
 
 #[derive(Debug, PartialEq)]
 pub struct Helper {
@@ -42,10 +42,11 @@ impl Parse for Helper {
 
 impl<Context> Render<Context> for Helper
 where
-    Context: FnSubject,
+    Context: BucketKey,
+    TemplateFns: Dispatch<Context, F::Helper>,
 {
     fn render(&self, ctx: &Context, fns: &TemplateFns) -> String {
-        ctx.dispatch_helper(fns, &self.helper_name)
+        fns.dispatch(&self.helper_name, ctx)
             .unwrap_or_else(|| panic!("Can't find helper {}", self.helper_name))
     }
 }
@@ -53,7 +54,10 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::template::global_context::{GlobalContext, NO_DATA};
+    use crate::template::{
+        global_context::{GlobalContext, NO_DATA},
+        F,
+    };
 
     #[test]
     fn test_parse() {
@@ -70,7 +74,7 @@ mod tests {
         fn foo(_: &GlobalContext) -> String {
             "bar".to_string()
         }
-        fns.register_helper("foo", foo);
+        fns.register::<GlobalContext, F::Helper>("foo", foo);
         assert_eq!("bar", helper.render(NO_DATA, &fns))
     }
 }

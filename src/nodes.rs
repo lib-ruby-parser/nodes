@@ -1,21 +1,4 @@
-#[derive(Debug, Clone)]
-pub struct NodeList(pub &'static [Node]);
-
-impl NodeList {
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Node) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
-
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Node) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
+pub type NodeList = &'static [&'static Node];
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Node {
@@ -39,31 +22,11 @@ impl Node {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
-pub struct NodeFieldList(pub &'static [NodeField]);
-
-impl NodeFieldList {
-    pub fn any_field_has_type(&self, field_type: NodeFieldType) -> bool {
-        self.0.iter().any(|f| f.field_type == field_type)
-    }
-
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&NodeField) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
-
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&NodeField) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
+pub type NodeFieldList = &'static [&'static NodeField];
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct NodeField {
+    pub node: &'static Node,
     pub snakecase_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
@@ -90,9 +53,3 @@ pub enum NodeFieldType {
 }
 
 impl NodeFieldType {}
-
-#[derive(Debug, PartialEq, Clone)]
-pub struct NodeWithField {
-    pub node: Node,
-    pub field: NodeField,
-}

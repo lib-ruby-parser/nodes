@@ -1,21 +1,20 @@
-#[derive(Debug, Clone)]
-pub struct MessagesList(pub &'static [Message]);
+pub type MessagesList = &'static [&'static Message];
 
-impl MessagesList {
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Message) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
+// impl MessagesList {
+//     pub fn map<F>(&self, f: F) -> Vec<String>
+//     where
+//         F: Fn(&Message) -> String,
+//     {
+//         self.0.iter().map(f).collect()
+//     }
 
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&Message) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
+//     pub fn flat_map<F>(&self, f: F) -> Vec<String>
+//     where
+//         F: Fn(&Message) -> Vec<String>,
+//     {
+//         self.0.iter().flat_map(f).collect()
+//     }
+// }
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Message {
@@ -38,27 +37,27 @@ impl Message {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
-pub struct MessageFieldList(pub &'static [MessageField]);
+pub type MessageFieldList = &'static [&'static MessageField];
 
-impl MessageFieldList {
-    pub fn map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&MessageField) -> String,
-    {
-        self.0.iter().map(f).collect()
-    }
+// impl MessageFieldList {
+//     pub fn map<F>(&self, f: F) -> Vec<String>
+//     where
+//         F: Fn(&MessageField) -> String,
+//     {
+//         self.0.iter().map(f).collect()
+//     }
 
-    pub fn flat_map<F>(&self, f: F) -> Vec<String>
-    where
-        F: Fn(&MessageField) -> Vec<String>,
-    {
-        self.0.iter().flat_map(f).collect()
-    }
-}
+//     pub fn flat_map<F>(&self, f: F) -> Vec<String>
+//     where
+//         F: Fn(&MessageField) -> Vec<String>,
+//     {
+//         self.0.iter().flat_map(f).collect()
+//     }
+// }
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct MessageField {
+    pub message: &'static Message,
     pub snakecase_name: &'static str,
     pub field_type: MessageFieldType,
     pub comment: &'static [&'static str],
@@ -74,10 +73,4 @@ impl MessageField {
 pub enum MessageFieldType {
     Str,
     Byte,
-}
-
-#[derive(Debug, PartialEq, Clone)]
-pub struct MessageWithField {
-    pub message: Message,
-    pub field: MessageField,
 }

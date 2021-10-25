@@ -40,11 +40,11 @@ where
     }
 }
 
-impl<Body, Context> Render<[Context]> for Loop<Body>
+impl<Body, Context> Render<[&Context]> for Loop<Body>
 where
     Body: Render<Context>,
 {
-    fn render(&self, ctxs: &[Context], fns: &TemplateFns) -> String {
+    fn render(&self, ctxs: &[&Context], fns: &TemplateFns) -> String {
         if let Some(body) = &self.body {
             ctxs.iter()
                 .map(|ctx| body.render(ctx, fns))
@@ -83,7 +83,7 @@ mod tests {
     #[test]
     fn test_render() {
         let loop_ = Loop::<Char>::new(Some(Char { c: 'a' }));
-        let ctx = vec!['a', 'b', 'c'];
+        let ctx = vec![&'a', &'b', &'c'];
         let fns = TemplateFns::new();
         assert_eq!(
             "provided char a\nprovided char b\nprovided char c\n",

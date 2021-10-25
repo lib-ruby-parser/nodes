@@ -1,5 +1,5 @@
-use crate::template::fns::FnSubject;
-use crate::template::{render::Render, shards::FnName, Buffer, Parse, TemplateFns};
+use crate::template::fns::BucketKey;
+use crate::template::{render::Render, shards::FnName, Buffer, Dispatch, Parse, TemplateFns, F};
 
 #[derive(Debug, PartialEq)]
 pub struct Condition<Branch> {
@@ -73,11 +73,12 @@ where
 impl<Context, Branch> Render<Context> for Condition<Branch>
 where
     Branch: Render<Context>,
-    Context: FnSubject,
+    Context: BucketKey,
+    TemplateFns: Dispatch<Context, F::Predicate>,
 {
     fn render(&self, ctx: &Context, fns: &TemplateFns) -> String {
-        let predicate_value = ctx
-            .dispatch_predicate(fns, &self.predicate_name)
+        let predicate_value = fns
+            .dispatch(&self.predicate_name, ctx)
             .unwrap_or_else(|| panic!("Can't find node predicate {}", self.predicate_name));
 
         let branch = if predicate_value {
@@ -100,7 +101,7 @@ mod tests {
         global_context::NO_DATA,
         shards::StringPart,
         structs::{Template, TemplatePart},
-        GlobalContext,
+        GlobalContext, F,
     };
 
     use super::*;
@@ -140,14 +141,14 @@ mod tests {
         fn always_true(_: &GlobalContext) -> bool {
             true
         }
-        fns.register_predicate("foo", always_true);
+        fns.register::<GlobalContext, F::Predicate>("foo", always_true);
         assert_eq!("1", condition.render(NO_DATA, &fns));
 
         let mut fns = TemplateFns::new();
         fn always_false(_: &GlobalContext) -> bool {
             false
         }
-        fns.register_predicate("foo", always_false);
+        fns.register::<GlobalContext, F::Predicate>("foo", always_false);
         assert_eq!("2", condition.render(NO_DATA, &fns));
     }
 }
