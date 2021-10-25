@@ -58,64 +58,6 @@ static Alias: Node = Node {
     comment: &["Represents `alias to from` statement."],
 };
 
-static AndAsgn: Node = Node {
-    camelcase_name: "AndAsgn",
-    wqp_name: "and_asgn",
-    fields: &[
-        &NodeField {
-            node: &AndAsgn,
-            snakecase_name: "recv",
-            field_type: NodeFieldType::Node,
-            always_print: false,
-            comment: &[
-                "Receiver of the `&&=` operation.",
-                "",
-                "`Lvasgn(\"a\")` node for `a &&= 1`",
-            ],
-        },
-        &NodeField {
-            node: &AndAsgn,
-            snakecase_name: "value",
-            field_type: NodeFieldType::Node,
-            always_print: false,
-            comment: &[
-                "Right hand statement of assignment",
-                "",
-                "`Int(\"1\")` node for `a &&= 1`",
-            ],
-        },
-        &NodeField {
-            node: &AndAsgn,
-            snakecase_name: "operator_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the `&&=` operator",
-                "",
-                "```text",
-                "a &&= 1",
-                "  ~~~",
-                "```",
-            ],
-        },
-        &NodeField {
-            node: &AndAsgn,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "a &&= 1",
-                "~~~~~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &["Represents `a &&= 1` statement."],
-};
-
 static And: Node = Node {
     camelcase_name: "And",
     wqp_name: "and",
@@ -172,6 +114,64 @@ static And: Node = Node {
         },
     ],
     comment: &["Represents `foo && bar` (or `foo and bar`) statement."],
+};
+
+static AndAsgn: Node = Node {
+    camelcase_name: "AndAsgn",
+    wqp_name: "and_asgn",
+    fields: &[
+        &NodeField {
+            node: &AndAsgn,
+            snakecase_name: "recv",
+            field_type: NodeFieldType::Node,
+            always_print: false,
+            comment: &[
+                "Receiver of the `&&=` operation.",
+                "",
+                "`Lvasgn(\"a\")` node for `a &&= 1`",
+            ],
+        },
+        &NodeField {
+            node: &AndAsgn,
+            snakecase_name: "value",
+            field_type: NodeFieldType::Node,
+            always_print: false,
+            comment: &[
+                "Right hand statement of assignment",
+                "",
+                "`Int(\"1\")` node for `a &&= 1`",
+            ],
+        },
+        &NodeField {
+            node: &AndAsgn,
+            snakecase_name: "operator_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the `&&=` operator",
+                "",
+                "```text",
+                "a &&= 1",
+                "  ~~~",
+                "```",
+            ],
+        },
+        &NodeField {
+            node: &AndAsgn,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "a &&= 1",
+                "~~~~~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &["Represents `a &&= 1` statement."],
 };
 
 static Arg: Node = Node {
@@ -655,59 +655,6 @@ static Block: Node = Node {
     comment: &["Represents a Ruby block that is passed to a method (`proc { |foo| bar }`)"],
 };
 
-static BlockPass: Node = Node {
-    camelcase_name: "BlockPass",
-    wqp_name: "block_pass",
-    fields:
-        &[
-            &NodeField {
-                node: &BlockPass,
-                snakecase_name: "value",
-                field_type: NodeFieldType::Node,
-                always_print: false,
-                comment: &[
-                    "Value that is converted to a block",
-                    "",
-                    "`Int(\"1\")` in `foo(&1)` (yes, it's possible)"
-                ],
-            },
-
-            &NodeField {
-                node: &BlockPass,
-                snakecase_name: "operator_l",
-                field_type: NodeFieldType::Loc,
-                always_print: false,
-                comment: &[
-                    "Location of the `&` operator",
-                    "",
-                    "```text",
-                    "foo(&blk)",
-                    "    ~",
-                    "```"
-                ],
-            },
-
-            &NodeField {
-                node: &BlockPass,
-                snakecase_name: "expression_l",
-                field_type: NodeFieldType::Loc,
-                always_print: false,
-                comment: &[
-                    "Location of the full expression",
-                    "",
-                    "```text",
-                    "foo(&bar)",
-                    "    ~~~~",
-                    "```"
-                ],
-            },
-
-        ],
-    comment: &[
-        "Represents a `&blk` argument of the method call (but not of the method definition, see `BlockArg`)"
-    ],
-};
-
 static Blockarg: Node = Node {
     camelcase_name: "Blockarg",
     wqp_name: "blockarg",
@@ -772,6 +719,59 @@ static Blockarg: Node = Node {
     ,
     comment: &[
         "Represents a `&blk` argument in the method definition (but not in the method call, see `BlockPass`)"
+    ],
+};
+
+static BlockPass: Node = Node {
+    camelcase_name: "BlockPass",
+    wqp_name: "block_pass",
+    fields:
+        &[
+            &NodeField {
+                node: &BlockPass,
+                snakecase_name: "value",
+                field_type: NodeFieldType::Node,
+                always_print: false,
+                comment: &[
+                    "Value that is converted to a block",
+                    "",
+                    "`Int(\"1\")` in `foo(&1)` (yes, it's possible)"
+                ],
+            },
+
+            &NodeField {
+                node: &BlockPass,
+                snakecase_name: "operator_l",
+                field_type: NodeFieldType::Loc,
+                always_print: false,
+                comment: &[
+                    "Location of the `&` operator",
+                    "",
+                    "```text",
+                    "foo(&blk)",
+                    "    ~",
+                    "```"
+                ],
+            },
+
+            &NodeField {
+                node: &BlockPass,
+                snakecase_name: "expression_l",
+                field_type: NodeFieldType::Loc,
+                always_print: false,
+                comment: &[
+                    "Location of the full expression",
+                    "",
+                    "```text",
+                    "foo(&bar)",
+                    "    ~~~~",
+                    "```"
+                ],
+            },
+
+        ],
+    comment: &[
+        "Represents a `&blk` argument of the method call (but not of the method definition, see `BlockArg`)"
     ],
 };
 
@@ -2827,37 +2827,6 @@ static Hash: Node = Node {
     comment: &["Represents a hash literal (i.e. `{ foo: 42 }`)"],
 };
 
-static Kwargs: Node = Node {
-    camelcase_name: "Kwargs",
-    wqp_name: "kwargs",
-    fields: &[
-        &NodeField {
-            node: &Kwargs,
-            snakecase_name: "pairs",
-            field_type: NodeFieldType::Nodes,
-            always_print: false,
-            comment: &["A list of key-value pairs"],
-        },
-        &NodeField {
-            node: &Kwargs,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "foo(bar: 1)",
-                "    ~~~~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &[
-        "Represents kwargs that are given to a method call, super or yield (i.e. `foo(bar: 1)`)",
-    ],
-};
-
 static HashPattern: Node = Node {
     camelcase_name: "HashPattern",
     wqp_name: "hash_pattern",
@@ -3162,6 +3131,64 @@ static IfGuard: Node = Node {
     ],
 };
 
+static IFlipFlop: Node = Node {
+    camelcase_name: "IFlipFlop",
+    wqp_name: "iflipflop",
+    fields: &[
+        &NodeField {
+            node: &IFlipFlop,
+            snakecase_name: "left",
+            field_type: NodeFieldType::MaybeNode {
+                regexp_options: false,
+            },
+            always_print: true,
+            comment: &[
+                "Left part of the flip-flop. `None` if based on a range without begin (`..bar`)",
+            ],
+        },
+        &NodeField {
+            node: &IFlipFlop,
+            snakecase_name: "right",
+            field_type: NodeFieldType::MaybeNode {
+                regexp_options: false,
+            },
+            always_print: true,
+            comment: &[
+                "Right part of the flip-flop. `None` if based on a range without end (`foo..`)",
+            ],
+        },
+        &NodeField {
+            node: &IFlipFlop,
+            snakecase_name: "operator_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the `..` operator",
+                "",
+                "```text",
+                "if foo..bar; end",
+                "      ~~",
+                "```",
+            ],
+        },
+        &NodeField {
+            node: &IFlipFlop,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "if foo..bar; end",
+                "   ~~~~~~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &["Represents inclusive flip-flop (i.e. in `if foo..bar; end`)"],
+};
+
 static IfMod: Node = Node {
     camelcase_name: "IfMod",
     wqp_name: "if",
@@ -3308,257 +3335,6 @@ static IfTernary: Node = Node {
         },
     ],
     comment: &["Represents ternary `if` statement (i.e. `cond ? if_true : if_false`)"],
-};
-
-static IFlipFlop: Node = Node {
-    camelcase_name: "IFlipFlop",
-    wqp_name: "iflipflop",
-    fields: &[
-        &NodeField {
-            node: &IFlipFlop,
-            snakecase_name: "left",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
-            always_print: true,
-            comment: &[
-                "Left part of the flip-flop. `None` if based on a range without begin (`..bar`)",
-            ],
-        },
-        &NodeField {
-            node: &IFlipFlop,
-            snakecase_name: "right",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
-            always_print: true,
-            comment: &[
-                "Right part of the flip-flop. `None` if based on a range without end (`foo..`)",
-            ],
-        },
-        &NodeField {
-            node: &IFlipFlop,
-            snakecase_name: "operator_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the `..` operator",
-                "",
-                "```text",
-                "if foo..bar; end",
-                "      ~~",
-                "```",
-            ],
-        },
-        &NodeField {
-            node: &IFlipFlop,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "if foo..bar; end",
-                "   ~~~~~~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &["Represents inclusive flip-flop (i.e. in `if foo..bar; end`)"],
-};
-
-static MatchPattern: Node = Node {
-    camelcase_name: "MatchPattern",
-    wqp_name: "match_pattern",
-    fields: &[
-        &NodeField {
-            node: &MatchPattern,
-            snakecase_name: "value",
-            field_type: NodeFieldType::Node,
-            always_print: false,
-            comment: &["Value that is used for matching"],
-        },
-        &NodeField {
-            node: &MatchPattern,
-            snakecase_name: "pattern",
-            field_type: NodeFieldType::Node,
-            always_print: false,
-            comment: &["Pattern that is used for matching"],
-        },
-        &NodeField {
-            node: &MatchPattern,
-            snakecase_name: "operator_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the `=>` operator",
-                "",
-                "```text",
-                "foo => pattern",
-                "    ~~",
-                "```",
-            ],
-        },
-        &NodeField {
-            node: &MatchPattern,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "foo => pattern",
-                "~~~~~~~~~~~~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &[
-        "Represents a one-line pattern matching that can throw an error (i.e. `foo => pattern`)",
-    ],
-};
-
-static MatchPatternP: Node = Node {
-    camelcase_name: "MatchPatternP",
-    wqp_name: "match_pattern_p",
-    fields:
-        &[
-            &NodeField {
-                node: &MatchPatternP,
-                snakecase_name: "value",
-                field_type: NodeFieldType::Node,
-                always_print: false,
-                comment: &[
-                    "Value that is used for matching"
-                ],
-            },
-
-            &NodeField {
-                node: &MatchPatternP,
-                snakecase_name: "pattern",
-                field_type: NodeFieldType::Node,
-                always_print: false,
-                comment: &[
-                    "Pattern that is used for matching"
-                ],
-            },
-
-            &NodeField {
-                node: &MatchPatternP,
-                snakecase_name: "operator_l",
-                field_type: NodeFieldType::Loc,
-                always_print: false,
-                comment: &[
-                    "Location of the `in` operator",
-                    "",
-                    "```text",
-                    "foo in pattern",
-                    "    ~~",
-                    "```"
-                ],
-            },
-
-            &NodeField {
-                node: &MatchPatternP,
-                snakecase_name: "expression_l",
-                field_type: NodeFieldType::Loc,
-                always_print: false,
-                comment: &[
-                    "Location of the full expression",
-                    "",
-                    "```text",
-                    "foo in pattern",
-                    "~~~~~~~~~~~~~~",
-                    "```"
-                ],
-            },
-
-        ]
-    ,
-    comment: &[
-        "Represents a one-line pattern matching that never throws but returns true/false (i.e. `foo in pattern`)"
-    ],
-};
-
-static InPattern: Node = Node {
-    camelcase_name: "InPattern",
-    wqp_name: "in_pattern",
-    fields: &[
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "pattern",
-            field_type: NodeFieldType::Node,
-            always_print: false,
-            comment: &["Value that is used for matching"],
-        },
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "guard",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
-            always_print: true,
-            comment: &[
-                "Guard that is used for matching",
-                "",
-                "Optional, so can be `None`",
-            ],
-        },
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
-            always_print: true,
-            comment: &["Body of the branch that is invoked if value matches pattern"],
-        },
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "keyword_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the `in` keyword",
-                "",
-                "```text",
-                "case value; in pattern; end",
-                "            ~~",
-                "```",
-            ],
-        },
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "begin_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the `then` keyword",
-                "",
-                "```text",
-                "case value; in pattern then; end",
-                "                       ~~~~",
-                "```",
-            ],
-        },
-        &NodeField {
-            node: &InPattern,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "case value; in pattern then; 42; end",
-                "            ~~~~~~~~~~~~~~~~~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &["Represents an `in pattern` branch of the pattern matching"],
 };
 
 static Index: Node = Node {
@@ -3718,6 +3494,85 @@ static IndexAsgn: Node = Node {
         },
     ],
     comment: &["Represents assignment using indexing operation (i.e. `foo[1, 2, 3] = bar`)"],
+};
+
+static InPattern: Node = Node {
+    camelcase_name: "InPattern",
+    wqp_name: "in_pattern",
+    fields: &[
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "pattern",
+            field_type: NodeFieldType::Node,
+            always_print: false,
+            comment: &["Value that is used for matching"],
+        },
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "guard",
+            field_type: NodeFieldType::MaybeNode {
+                regexp_options: false,
+            },
+            always_print: true,
+            comment: &[
+                "Guard that is used for matching",
+                "",
+                "Optional, so can be `None`",
+            ],
+        },
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "body",
+            field_type: NodeFieldType::MaybeNode {
+                regexp_options: false,
+            },
+            always_print: true,
+            comment: &["Body of the branch that is invoked if value matches pattern"],
+        },
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "keyword_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the `in` keyword",
+                "",
+                "```text",
+                "case value; in pattern; end",
+                "            ~~",
+                "```",
+            ],
+        },
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "begin_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the `then` keyword",
+                "",
+                "```text",
+                "case value; in pattern then; end",
+                "                       ~~~~",
+                "```",
+            ],
+        },
+        &NodeField {
+            node: &InPattern,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "case value; in pattern then; 42; end",
+                "            ~~~~~~~~~~~~~~~~~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &["Represents an `in pattern` branch of the pattern matching"],
 };
 
 static Int: Node = Node {
@@ -3961,6 +3816,37 @@ static Kwarg: Node = Node {
         },
     ],
     comment: &["Represents required keyword argument (i.e. `foo` in `def m(foo:); end`)"],
+};
+
+static Kwargs: Node = Node {
+    camelcase_name: "Kwargs",
+    wqp_name: "kwargs",
+    fields: &[
+        &NodeField {
+            node: &Kwargs,
+            snakecase_name: "pairs",
+            field_type: NodeFieldType::Nodes,
+            always_print: false,
+            comment: &["A list of key-value pairs"],
+        },
+        &NodeField {
+            node: &Kwargs,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "foo(bar: 1)",
+                "    ~~~~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &[
+        "Represents kwargs that are given to a method call, super or yield (i.e. `foo(bar: 1)`)",
+    ],
 };
 
 static KwBegin: Node = Node {
@@ -4634,6 +4520,120 @@ static MatchNilPattern: Node = Node {
         },
     ],
     comment: &["Represents empty hash pattern that is used in pattern matching (i.e. `in **nil`)"],
+};
+
+static MatchPattern: Node = Node {
+    camelcase_name: "MatchPattern",
+    wqp_name: "match_pattern",
+    fields: &[
+        &NodeField {
+            node: &MatchPattern,
+            snakecase_name: "value",
+            field_type: NodeFieldType::Node,
+            always_print: false,
+            comment: &["Value that is used for matching"],
+        },
+        &NodeField {
+            node: &MatchPattern,
+            snakecase_name: "pattern",
+            field_type: NodeFieldType::Node,
+            always_print: false,
+            comment: &["Pattern that is used for matching"],
+        },
+        &NodeField {
+            node: &MatchPattern,
+            snakecase_name: "operator_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the `=>` operator",
+                "",
+                "```text",
+                "foo => pattern",
+                "    ~~",
+                "```",
+            ],
+        },
+        &NodeField {
+            node: &MatchPattern,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "foo => pattern",
+                "~~~~~~~~~~~~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &[
+        "Represents a one-line pattern matching that can throw an error (i.e. `foo => pattern`)",
+    ],
+};
+
+static MatchPatternP: Node = Node {
+    camelcase_name: "MatchPatternP",
+    wqp_name: "match_pattern_p",
+    fields:
+        &[
+            &NodeField {
+                node: &MatchPatternP,
+                snakecase_name: "value",
+                field_type: NodeFieldType::Node,
+                always_print: false,
+                comment: &[
+                    "Value that is used for matching"
+                ],
+            },
+
+            &NodeField {
+                node: &MatchPatternP,
+                snakecase_name: "pattern",
+                field_type: NodeFieldType::Node,
+                always_print: false,
+                comment: &[
+                    "Pattern that is used for matching"
+                ],
+            },
+
+            &NodeField {
+                node: &MatchPatternP,
+                snakecase_name: "operator_l",
+                field_type: NodeFieldType::Loc,
+                always_print: false,
+                comment: &[
+                    "Location of the `in` operator",
+                    "",
+                    "```text",
+                    "foo in pattern",
+                    "    ~~",
+                    "```"
+                ],
+            },
+
+            &NodeField {
+                node: &MatchPatternP,
+                snakecase_name: "expression_l",
+                field_type: NodeFieldType::Loc,
+                always_print: false,
+                comment: &[
+                    "Location of the full expression",
+                    "",
+                    "```text",
+                    "foo in pattern",
+                    "~~~~~~~~~~~~~~",
+                    "```"
+                ],
+            },
+
+        ]
+    ,
+    comment: &[
+        "Represents a one-line pattern matching that never throws but returns true/false (i.e. `foo in pattern`)"
+    ],
 };
 
 static MatchRest: Node = Node {
@@ -5726,35 +5726,6 @@ static Redo: Node = Node {
     comment: &["Represents `redo` keyword"],
 };
 
-static RegOpt: Node = Node {
-    camelcase_name: "RegOpt",
-    wqp_name: "regopt",
-    fields: &[
-        &NodeField {
-            node: &RegOpt,
-            snakecase_name: "options",
-            field_type: NodeFieldType::MaybeStr { chars: true },
-            always_print: false,
-            comment: &["A list of flags"],
-        },
-        &NodeField {
-            node: &RegOpt,
-            snakecase_name: "expression_l",
-            field_type: NodeFieldType::Loc,
-            always_print: false,
-            comment: &[
-                "Location of the full expression",
-                "",
-                "```text",
-                "/foo/mix",
-                "     ~~~",
-                "```",
-            ],
-        },
-    ],
-    comment: &["Represents flags of the regex literal (i.e. `mix` for `/foo/mix`)"],
-};
-
 static Regexp: Node = Node {
     camelcase_name: "Regexp",
     wqp_name: "regexp",
@@ -5829,6 +5800,35 @@ static Regexp: Node = Node {
         },
     ],
     comment: &["Represents regex literal (e.g. `/foo/`)"],
+};
+
+static RegOpt: Node = Node {
+    camelcase_name: "RegOpt",
+    wqp_name: "regopt",
+    fields: &[
+        &NodeField {
+            node: &RegOpt,
+            snakecase_name: "options",
+            field_type: NodeFieldType::MaybeStr { chars: true },
+            always_print: false,
+            comment: &["A list of flags"],
+        },
+        &NodeField {
+            node: &RegOpt,
+            snakecase_name: "expression_l",
+            field_type: NodeFieldType::Loc,
+            always_print: false,
+            comment: &[
+                "Location of the full expression",
+                "",
+                "```text",
+                "/foo/mix",
+                "     ~~~",
+                "```",
+            ],
+        },
+    ],
+    comment: &["Represents flags of the regex literal (i.e. `mix` for `/foo/mix`)"],
 };
 
 static Rescue: Node = Node {
@@ -6221,7 +6221,7 @@ static SClass: Node = Node {
 };
 
 static Self_: Node = Node {
-    camelcase_name: "Self",
+    camelcase_name: "Self_",
     wqp_name: "self",
     fields: &[&NodeField {
         node: &Self_,
@@ -7391,8 +7391,8 @@ static ZSuper: Node = Node {
 
 pub(crate) static ALL_NODES: NodeList = &[
     &Alias,
-    &AndAsgn,
     &And,
+    &AndAsgn,
     &Arg,
     &Args,
     &Array,
@@ -7401,8 +7401,8 @@ pub(crate) static ALL_NODES: NodeList = &[
     &BackRef,
     &Begin,
     &Block,
-    &BlockPass,
     &Blockarg,
+    &BlockPass,
     &Break,
     &Case,
     &CaseMatch,
@@ -7435,24 +7435,22 @@ pub(crate) static ALL_NODES: NodeList = &[
     &Gvar,
     &Gvasgn,
     &Hash,
-    &Kwargs,
     &HashPattern,
     &Heredoc,
     &If,
     &IfGuard,
+    &IFlipFlop,
     &IfMod,
     &IfTernary,
-    &IFlipFlop,
-    &MatchPattern,
-    &MatchPatternP,
-    &InPattern,
     &Index,
     &IndexAsgn,
+    &InPattern,
     &Int,
     &Irange,
     &Ivar,
     &Ivasgn,
     &Kwarg,
+    &Kwargs,
     &KwBegin,
     &Kwnilarg,
     &Kwoptarg,
@@ -7467,6 +7465,8 @@ pub(crate) static ALL_NODES: NodeList = &[
     &MatchAs,
     &MatchCurrentLine,
     &MatchNilPattern,
+    &MatchPattern,
+    &MatchPatternP,
     &MatchRest,
     &MatchVar,
     &MatchWithLvasgn,
@@ -7487,8 +7487,8 @@ pub(crate) static ALL_NODES: NodeList = &[
     &Procarg0,
     &Rational,
     &Redo,
-    &RegOpt,
     &Regexp,
+    &RegOpt,
     &Rescue,
     &RescueBody,
     &Restarg,
