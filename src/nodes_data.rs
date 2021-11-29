@@ -1881,7 +1881,7 @@ static Defs: Node = Node {
             snakecase_name: "definee",
             field_type: NodeFieldType::Node,
             always_print: false,
-            comment: &["Definee of a method definition, `Lvar(\"x\")` for `def x.foo; end"],
+            comment: &["Definee of a method definition, `Lvar(\"x\")` for `def x.foo; end`"],
         },
         &NodeField {
             node: &Defs,

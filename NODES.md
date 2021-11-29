@@ -1195,7 +1195,7 @@ Fields:
 
 1. **definee** (`Node`)
 
-    Definee of a method definition, `Lvar("x")` for `def x.foo; end
+    Definee of a method definition, `Lvar("x")` for `def x.foo; end`
 
 2. **name** (`Str { raw: false }`)
 
