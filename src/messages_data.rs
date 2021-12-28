@@ -510,6 +510,23 @@ static TokAtEolWithoutExpression: Message = Message {
         "```",
     ],
 };
+static InvalidIdToGet: Message = Message {
+    camelcase_name: "InvalidIdToGet",
+    fields: &[&MessageField {
+        message: &InvalidIdToGet,
+        snakecase_name: "identifier",
+        field_type: MessageFieldType::Str,
+        comment: &["Identifier"],
+    }],
+    comment: &[
+        "Emitted for code like",
+        "```text",
+        "{ foo?: }",
+        "# or",
+        "{ foo!: }",
+        "```",
+    ],
+};
 
 //
 // Parser warnings
@@ -820,6 +837,7 @@ pub static ALL_MESSAGES: MessagesList = &[
     &OrdinaryParamDefined,
     &NumparamUsed,
     &TokAtEolWithoutExpression,
+    &InvalidIdToGet,
     &EndInMethod,
     &ComparisonAfterComparison,
     &CircularArgumentReference,

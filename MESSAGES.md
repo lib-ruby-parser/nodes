@@ -706,6 +706,22 @@ Fields:
     Name of the token
 
 
+## InvalidIdToGet
+
+    Emitted for code like
+    ```text
+    { foo?: }
+    # or
+    { foo!: }
+    ```
+
+Fields:
+
+1. **identifier** (`Str`)
+
+    Identifier
+
+
 ## EndInMethod
 
     Emitted for code like
