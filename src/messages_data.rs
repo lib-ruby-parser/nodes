@@ -556,6 +556,16 @@ static ComparisonAfterComparison: Message = Message {
         "```",
     ],
 };
+static DuplicateHashKey: Message = Message {
+    camelcase_name: "DuplicateHashKey",
+    fields: &[],
+    comment: &[
+        "Emitted for code like",
+        "```text",
+        "{ 42 => value, 42 => another_value }",
+        "```",
+    ],
+};
 
 //
 // Builder errors
@@ -840,6 +850,7 @@ pub static ALL_MESSAGES: MessagesList = &[
     &InvalidIdToGet,
     &EndInMethod,
     &ComparisonAfterComparison,
+    &DuplicateHashKey,
     &CircularArgumentReference,
     &DynamicConstantAssignment,
     &CantAssignToSelf,

@@ -747,6 +747,17 @@ Fields:
     Source of the first comparison
 
 
+## DuplicateHashKey
+
+    Emitted for code like
+    ```text
+    { 42 => value, 42 => another_value }
+    ```
+
+Fields:
+
+
+
 ## CircularArgumentReference
 
     Emitted for code like
