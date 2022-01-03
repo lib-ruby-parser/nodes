@@ -730,7 +730,7 @@ static BlockPass: Node = Node {
             &NodeField {
                 node: &BlockPass,
                 snakecase_name: "value",
-                field_type: NodeFieldType::Node,
+                field_type: NodeFieldType::MaybeNode { regexp_options: false },
                 always_print: false,
                 comment: &[
                     "Value that is converted to a block",

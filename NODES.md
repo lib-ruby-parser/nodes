@@ -471,7 +471,7 @@ Fields:
 
 Fields:
 
-1. **value** (`Node`)
+1. **value** (`MaybeNode { regexp_options: false }`)
 
     Value that is converted to a block
    
