@@ -722,6 +722,29 @@ Fields:
     Identifier
 
 
+## ForwardArgAfterRestarg
+
+    Emitted for code like
+    ```text
+    def foo *rest, ...
+    end
+    ```
+
+Fields:
+
+
+
+## NoAnonymousBlockarg
+
+    Emitted for code like
+    ```text
+    def foo(); bar(&); end
+    ```
+
+Fields:
+
+
+
 ## EndInMethod
 
     Emitted for code like

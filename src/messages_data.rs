@@ -527,6 +527,27 @@ static InvalidIdToGet: Message = Message {
         "```",
     ],
 };
+static ForwardArgAfterRestarg: Message = Message {
+    camelcase_name: "ForwardArgAfterRestarg",
+    fields: &[],
+    comment: &[
+        "Emitted for code like",
+        "```text",
+        "def foo *rest, ...",
+        "end",
+        "```",
+    ],
+};
+static NoAnonymousBlockarg: Message = Message {
+    camelcase_name: "NoAnonymousBlockarg",
+    fields: &[],
+    comment: &[
+        "Emitted for code like",
+        "```text",
+        "def foo(); bar(&); end",
+        "```",
+    ],
+};
 
 //
 // Parser warnings
@@ -848,6 +869,8 @@ pub static ALL_MESSAGES: MessagesList = &[
     &NumparamUsed,
     &TokAtEolWithoutExpression,
     &InvalidIdToGet,
+    &ForwardArgAfterRestarg,
+    &NoAnonymousBlockarg,
     &EndInMethod,
     &ComparisonAfterComparison,
     &DuplicateHashKey,
