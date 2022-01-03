@@ -433,7 +433,7 @@ Fields:
 
 Fields:
 
-1. **name** (`Str { raw: false }`)
+1. **name** (`MaybeStr { chars: false }`)
 
     Name of the argument, `String("foo")` for `def m(&foo)`
 
