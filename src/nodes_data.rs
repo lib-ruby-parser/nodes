@@ -664,7 +664,7 @@ static Blockarg: Node = Node {
                 node: &Blockarg,
                 snakecase_name: "name",
                 field_type: NodeFieldType::MaybeStr { chars: false },
-                always_print: false,
+                always_print: true,
                 comment: &[
                     "Name of the argument, `String(\"foo\")` for `def m(&foo)`"
                 ],
