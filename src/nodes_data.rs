@@ -731,7 +731,7 @@ static BlockPass: Node = Node {
                 node: &BlockPass,
                 snakecase_name: "value",
                 field_type: NodeFieldType::MaybeNode { regexp_options: false },
-                always_print: false,
+                always_print: true,
                 comment: &[
                     "Value that is converted to a block",
                     "",
