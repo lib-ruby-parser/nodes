@@ -688,7 +688,7 @@ static Blockarg: Node = Node {
             &NodeField {
                 node: &Blockarg,
                 snakecase_name: "name_l",
-                field_type: NodeFieldType::Loc,
+                field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
                 comment: &[
                     "Location of the name",

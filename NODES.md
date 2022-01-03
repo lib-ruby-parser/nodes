@@ -446,7 +446,7 @@ Fields:
           ~
     ```
 
-3. **name_l** (`Loc`)
+3. **name_l** (`MaybeLoc`)
 
     Location of the name
    
