@@ -1,4 +1,4 @@
-use crate::{Node, NodeField, NodeFieldType, NodeList};
+use crate::{Node, NodeField, NodeFieldType};
 
 static Alias: Node = Node {
     camelcase_name: "Alias",
@@ -6809,7 +6809,7 @@ static ZSuper: Node = Node {
     ],
 };
 
-pub(crate) static ALL_NODES: NodeList = &[
+pub(crate) static ALL_NODES: &[&Node] = &[
     &Alias,
     &And,
     &AndAsgn,

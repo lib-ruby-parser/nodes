@@ -1,4 +1,4 @@
-use crate::{Message, MessageField, MessageFieldType, MessagesList};
+use crate::{Message, MessageField, MessageFieldType};
 
 //
 // Lexer errors
@@ -782,7 +782,7 @@ static VoidValueExpression: Message = Message {
     comment: &["Emitted for code like", "```text", "a = return", "```"],
 };
 
-pub static ALL_MESSAGES: MessagesList = &[
+pub static ALL_MESSAGES: &[&Message] = &[
     &FractionAfterNumeric,
     &NoDigitsAfterDot,
     &UnknownTypeOfPercentString,

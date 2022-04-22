@@ -13,11 +13,11 @@ mod nodes_data;
 pub use messages::*;
 pub use nodes::*;
 
-pub fn nodes() -> NodeList {
+pub fn nodes() -> &'static [&'static Node] {
     nodes_data::ALL_NODES
 }
 
-pub fn messages() -> MessagesList {
+pub fn messages() -> &'static [&'static Message] {
     messages_data::ALL_MESSAGES
 }
 
