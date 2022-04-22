@@ -4,13 +4,13 @@
 {% for node in nodes -%}
 ## {{ node.camelcase_name }}
 
-    {{ node.comment | render_comment: "", 3 }}
+   {{ node.comment | render_comment: "", 3 }}
 
 Fields:
 {% for field in node.fields %}
 {{ forloop.index }}. **{{ field.snakecase_name }}** (`{{ field.field_type }}`)
 
-    {{ field.comment | render_comment: "", 3 }}
+   {{ field.comment | render_comment: "", 3 }}
 {% endfor %}
 
 {% endfor %}

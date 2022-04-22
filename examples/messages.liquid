@@ -3,14 +3,14 @@
 {% for message in messages -%}
 ## {{ message.camelcase_name }}
 
-    {{ message.comment | render_comment: "", 3 }}
+   {{ message.comment | render_comment: "", 3 }}
 
 Fields:
 
 {% for field in message.fields -%}
 {{ forloop.index }}. **{{ field.snakecase_name }}** (`{{ field.field_type }}`)
 
-    {{ field.comment | render_comment: "", 3 }}
+   {{ field.comment | render_comment: "", 3 }}
 {% else %}
 {% endfor %}
 {% endfor %}
