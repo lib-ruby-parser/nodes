@@ -1,7 +1,6 @@
 extern crate liquid;
 extern crate serde;
 
-pub mod comment;
 pub mod filters;
 pub mod helpers;
 mod messages;
@@ -10,7 +9,6 @@ mod messages_data;
 mod nodes;
 #[allow(non_upper_case_globals)]
 mod nodes_data;
-pub mod template;
 
 pub use messages::*;
 pub use nodes::*;

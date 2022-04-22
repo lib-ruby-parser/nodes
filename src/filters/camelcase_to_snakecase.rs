@@ -18,28 +18,7 @@ struct CamelcaseToSnakecaseFilter;
 impl Filter for CamelcaseToSnakecaseFilter {
     fn evaluate(&self, input: &dyn ValueView, _runtime: &dyn Runtime) -> Result<Value> {
         let input = input.to_kstr();
-
-        let mut words = vec![];
-        let mut word = String::from("");
-
-        for c in input.chars() {
-            if c.is_uppercase() {
-                // flush
-                words.push(word);
-                word = String::from("");
-            }
-            word.push(c);
-        }
-
-        words.push(word);
-
-        let result = words
-            .into_iter()
-            .filter(|w| !w.is_empty())
-            .collect::<Vec<_>>()
-            .join("_")
-            .to_lowercase();
-
-        Ok(Value::scalar(result))
+        let output = crate::helpers::camelcase_to_snakecase(&input);
+        Ok(Value::scalar(output))
     }
 }

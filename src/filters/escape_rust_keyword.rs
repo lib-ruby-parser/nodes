@@ -18,12 +18,7 @@ struct EscapeRustKeywordFilter;
 impl Filter for EscapeRustKeywordFilter {
     fn evaluate(&self, input: &dyn ValueView, _runtime: &dyn Runtime) -> Result<Value> {
         let name = input.to_kstr();
-        let escaped = match &name[..] {
-            "const" | "as" | "else" | "self" | "break" | "false" | "for" | "if" | "return"
-            | "str" | "super" | "true" | "while" | "yield" => format!("{}_", name),
-            other => other.to_string(),
-        };
-
-        Ok(Value::scalar(escaped))
+        let output = crate::helpers::escape_rust_keyword(&name);
+        Ok(Value::scalar(output))
     }
 }

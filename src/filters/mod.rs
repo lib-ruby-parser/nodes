@@ -16,3 +16,12 @@ where
 {
     liquid_core::Error::with_msg("Invalid input").context("cause", cause)
 }
+
+pub(crate) fn all() -> Vec<Box<dyn liquid_core::parser::ParseFilter>> {
+    vec![
+        crate::filters::RenderComment.into(),
+        crate::filters::CamelcaseToSnakecase.into(),
+        crate::filters::SnakecaseToCamelcase.into(),
+        crate::filters::EscapeRustKeyword.into(),
+    ]
+}

@@ -10,16 +10,12 @@ pub struct Message {
 }
 
 impl Message {
-    pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
-    }
-
     pub fn upper_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_uppercase()
+        crate::helpers::camelcase_to_snakecase(self.camelcase_name).to_uppercase()
     }
 
     pub fn lower_name(&self) -> String {
-        crate::helpers::camel_case_to_underscored(self.camelcase_name).to_lowercase()
+        crate::helpers::camelcase_to_snakecase(self.camelcase_name).to_lowercase()
     }
 }
 
@@ -37,12 +33,6 @@ impl PartialEq for MessageField {
         self.snakecase_name == other.snakecase_name
             && self.field_type == other.field_type
             && self.comment == other.comment
-    }
-}
-
-impl MessageField {
-    pub fn render_comment(&self, prefix: &str, offset: usize) -> String {
-        crate::comment::Comment::new(self.comment, prefix).to_string(offset)
     }
 }
 

@@ -12,12 +12,7 @@ impl LiquidTemplate {
         let path = path.as_ref().to_string();
         Self {
             path: path.clone(),
-            filters: vec![
-                crate::filters::RenderComment.into(),
-                crate::filters::CamelcaseToSnakecase.into(),
-                crate::filters::SnakecaseToCamelcase.into(),
-                crate::filters::EscapeRustKeyword.into(),
-            ],
+            filters: crate::filters::all(),
             globals: liquid::object!({
                 "nodes": nodes_data::ALL_NODES,
                 "messages": messages_data::ALL_MESSAGES,
