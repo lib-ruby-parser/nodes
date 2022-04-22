@@ -83,7 +83,6 @@ static InvalidHexEscape: Message = Message {
 static UnterminatedHeredoc: Message = Message {
     camelcase_name: "UnterminatedHeredoc",
     fields: &[&MessageField {
-        message: &UnterminatedHeredoc,
         snakecase_name: "heredoc_id",
         field_type: MessageFieldType::Str,
         comment: &["Heredoc identifier"],
@@ -153,7 +152,6 @@ static ParenthesesIterpretedAsArglist: Message = Message {
 static AmbiguousFirstArgument: Message = Message {
     camelcase_name: "AmbiguousFirstArgument",
     fields: &[&MessageField {
-        message: &AmbiguousFirstArgument,
         snakecase_name: "operator",
         field_type: MessageFieldType::Byte,
         comment: &["Operator that is ambiguous"],
@@ -169,13 +167,11 @@ static AmbiguousOperator: Message = Message {
     camelcase_name: "AmbiguousOperator",
     fields: &[
         &MessageField {
-            message: &AmbiguousOperator,
             snakecase_name: "operator",
             field_type: MessageFieldType::Str,
             comment: &["Operator that is ambiguous"],
         },
         &MessageField {
-            message: &AmbiguousOperator,
             snakecase_name: "interpreted_as",
             field_type: MessageFieldType::Str,
             comment: &["Interpretation of this operator"],
@@ -191,7 +187,6 @@ static AmbiguousOperator: Message = Message {
 static InvalidCharacterSyntax: Message = Message {
     camelcase_name: "InvalidCharacterSyntax",
     fields: &[&MessageField {
-        message: &InvalidCharacterSyntax,
         snakecase_name: "suggestion",
         field_type: MessageFieldType::Str,
         comment: &["Valid syntax sugestions"],
@@ -206,7 +201,6 @@ static InvalidOctalDigit: Message = Message {
 static TrailingCharInNumber: Message = Message {
     camelcase_name: "TrailingCharInNumber",
     fields: &[&MessageField {
-        message: &TrailingCharInNumber,
         snakecase_name: "c",
         field_type: MessageFieldType::Byte,
         comment: &["Invalid trailing char"],
@@ -221,7 +215,6 @@ static EmbeddedDocumentMeetsEof: Message = Message {
 static InvalidChar: Message = Message {
     camelcase_name: "InvalidChar",
     fields: &[&MessageField {
-        message: &InvalidChar,
         snakecase_name: "c",
         field_type: MessageFieldType::Byte,
         comment: &["char"],
@@ -249,7 +242,6 @@ static GvarWithoutId: Message = Message {
 static InvalidGvarName: Message = Message {
     camelcase_name: "InvalidGvarName",
     fields: &[&MessageField {
-        message: &InvalidGvarName,
         snakecase_name: "c",
         field_type: MessageFieldType::Byte,
         comment: &["char after `$`"],
@@ -264,7 +256,6 @@ static IvarWithoutId: Message = Message {
 static InvalidIvarName: Message = Message {
     camelcase_name: "InvalidIvarName",
     fields: &[&MessageField {
-        message: &InvalidIvarName,
         snakecase_name: "c",
         field_type: MessageFieldType::Byte,
         comment: &["char after `@`"],
@@ -279,7 +270,6 @@ static CvarWithoutId: Message = Message {
 static InvalidCvarName: Message = Message {
     camelcase_name: "InvalidCvarName",
     fields: &[&MessageField {
-        message: &InvalidCvarName,
         snakecase_name: "c",
         field_type: MessageFieldType::Byte,
         comment: &["char after `@@`"],
@@ -289,7 +279,6 @@ static InvalidCvarName: Message = Message {
 static UnknownRegexOptions: Message = Message {
     camelcase_name: "UnknownRegexOptions",
     fields: &[&MessageField {
-        message: &UnknownRegexOptions,
         snakecase_name: "options",
         field_type: MessageFieldType::Str,
         comment: &["Concatenated unknown options"],
@@ -304,7 +293,6 @@ static UnterminatedUnicodeEscape: Message = Message {
 static EncodingError: Message = Message {
     camelcase_name: "EncodingError",
     fields: &[&MessageField {
-        message: &EncodingError,
         snakecase_name: "error",
         field_type: MessageFieldType::Str,
         comment: &["Error from decoder"],
@@ -328,7 +316,6 @@ static InvalidMultibyteChar: Message = Message {
 static AmbiguousTernaryOperator: Message = Message {
     camelcase_name: "AmbiguousTernaryOperator",
     fields: &[&MessageField {
-        message: &AmbiguousTernaryOperator,
         snakecase_name: "condition",
         field_type: MessageFieldType::Str,
         comment: &["Source of the condition expression"],
@@ -386,7 +373,6 @@ static EndlessSetterDefinition: Message = Message {
 static UnexpectedToken: Message = Message {
     camelcase_name: "UnexpectedToken",
     fields: &[&MessageField {
-        message: &UnexpectedToken,
         snakecase_name: "token_name",
         field_type: MessageFieldType::Str,
         comment: &["Name of the token"],
@@ -466,7 +452,6 @@ static CvarArgument: Message = Message {
 static NoSuchLocalVariable: Message = Message {
     camelcase_name: "NoSuchLocalVariable",
     fields: &[&MessageField {
-        message: &NoSuchLocalVariable,
         snakecase_name: "var_name",
         field_type: MessageFieldType::Str,
         comment: &["Variable name"],
@@ -496,7 +481,6 @@ static NumparamUsed: Message = Message {
 static TokAtEolWithoutExpression: Message = Message {
     camelcase_name: "TokAtEolWithoutExpression",
     fields: &[&MessageField {
-        message: &TokAtEolWithoutExpression,
         snakecase_name: "token_name",
         field_type: MessageFieldType::Str,
         comment: &["Name of the token"],
@@ -513,7 +497,6 @@ static TokAtEolWithoutExpression: Message = Message {
 static InvalidIdToGet: Message = Message {
     camelcase_name: "InvalidIdToGet",
     fields: &[&MessageField {
-        message: &InvalidIdToGet,
         snakecase_name: "identifier",
         field_type: MessageFieldType::Str,
         comment: &["Identifier"],
@@ -565,7 +548,6 @@ static EndInMethod: Message = Message {
 static ComparisonAfterComparison: Message = Message {
     camelcase_name: "ComparisonAfterComparison",
     fields: &[&MessageField {
-        message: &ComparisonAfterComparison,
         snakecase_name: "comparison",
         field_type: MessageFieldType::Str,
         comment: &["Source of the first comparison"],
@@ -594,7 +576,6 @@ static DuplicateHashKey: Message = Message {
 static CircularArgumentReference: Message = Message {
     camelcase_name: "CircularArgumentReference",
     fields: &[&MessageField {
-        message: &CircularArgumentReference,
         snakecase_name: "arg_name",
         field_type: MessageFieldType::Str,
         comment: &["Name of the argument"],
@@ -659,7 +640,6 @@ static CantAssignToEncoding: Message = Message {
 static CantAssignToNumparam: Message = Message {
     camelcase_name: "CantAssignToNumparam",
     fields: &[&MessageField {
-        message: &CantAssignToNumparam,
         snakecase_name: "numparam",
         field_type: MessageFieldType::Str,
         comment: &["Source of the numbered parameter"],
@@ -674,7 +654,6 @@ static CantAssignToNumparam: Message = Message {
 static CantSetVariable: Message = Message {
     camelcase_name: "CantSetVariable",
     fields: &[&MessageField {
-        message: &CantSetVariable,
         snakecase_name: "var_name",
         field_type: MessageFieldType::Str,
         comment: &["Source of the read-only variable that is assigned"],
@@ -709,7 +688,6 @@ static SymbolLiteralWithInterpolation: Message = Message {
 static ReservedForNumparam: Message = Message {
     camelcase_name: "ReservedForNumparam",
     fields: &[&MessageField {
-        message: &ReservedForNumparam,
         snakecase_name: "numparam",
         field_type: MessageFieldType::Str,
         comment: &["Numbered parameter that is treated as a local variable"],
@@ -759,7 +737,6 @@ static SingletonLiteral: Message = Message {
 static NthRefIsTooBig: Message = Message {
     camelcase_name: "NthRefIsTooBig",
     fields: &[&MessageField {
-        message: &NthRefIsTooBig,
         snakecase_name: "nth_ref",
         field_type: MessageFieldType::Str,
         comment: &["Source of the nth_ref that is techincally a regular global variable"],
@@ -784,7 +761,6 @@ static DuplicatedArgumentName: Message = Message {
 static RegexError: Message = Message {
     camelcase_name: "RegexError",
     fields: &[&MessageField {
-        message: &RegexError,
         snakecase_name: "error",
         field_type: MessageFieldType::Str,
         comment: &["Error from Onigurama engine"],
@@ -794,7 +770,6 @@ static RegexError: Message = Message {
 static InvalidSymbol: Message = Message {
     camelcase_name: "InvalidSymbol",
     fields: &[&MessageField {
-        message: &InvalidSymbol,
         snakecase_name: "symbol",
         field_type: MessageFieldType::Str,
         comment: &["Source of the symbol"],

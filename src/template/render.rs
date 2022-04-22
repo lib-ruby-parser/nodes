@@ -80,14 +80,12 @@ mod tests {
         wqp_name: "",
         fields: &[
             &NodeField {
-                node: &NODE1,
                 snakecase_name: "field1",
                 field_type: NodeFieldType::Loc,
                 always_print: true,
                 comment: &[],
             },
             &NodeField {
-                node: &NODE1,
                 snakecase_name: "field2",
                 field_type: NodeFieldType::Node,
                 always_print: true,
@@ -102,14 +100,12 @@ mod tests {
         wqp_name: "two",
         fields: &[
             &NodeField {
-                node: &NODE2,
                 snakecase_name: "field3",
                 field_type: NodeFieldType::Loc,
                 always_print: true,
                 comment: &[],
             },
             &NodeField {
-                node: &NODE2,
                 snakecase_name: "field4",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -124,7 +120,6 @@ mod tests {
     static MESSAGE1: Message = Message {
         camelcase_name: "MessageOne",
         fields: &[&MessageField {
-            message: &MESSAGE1,
             snakecase_name: "field3",
             field_type: MessageFieldType::Byte,
             comment: &[],

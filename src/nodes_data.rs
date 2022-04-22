@@ -5,7 +5,6 @@ static Alias: Node = Node {
     wqp_name: "alias",
     fields: &[
         &NodeField {
-            node: &Alias,
             snakecase_name: "to",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -16,7 +15,6 @@ static Alias: Node = Node {
             ],
         },
         &NodeField {
-            node: &Alias,
             snakecase_name: "from",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -27,7 +25,6 @@ static Alias: Node = Node {
             ],
         },
         &NodeField {
-            node: &Alias,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -41,7 +38,6 @@ static Alias: Node = Node {
             ],
         },
         &NodeField {
-            node: &Alias,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -63,7 +59,6 @@ static And: Node = Node {
     wqp_name: "and",
     fields: &[
         &NodeField {
-            node: &And,
             snakecase_name: "lhs",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -74,7 +69,6 @@ static And: Node = Node {
             ],
         },
         &NodeField {
-            node: &And,
             snakecase_name: "rhs",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -85,7 +79,6 @@ static And: Node = Node {
             ],
         },
         &NodeField {
-            node: &And,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -99,7 +92,6 @@ static And: Node = Node {
             ],
         },
         &NodeField {
-            node: &And,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -121,7 +113,6 @@ static AndAsgn: Node = Node {
     wqp_name: "and_asgn",
     fields: &[
         &NodeField {
-            node: &AndAsgn,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -132,7 +123,6 @@ static AndAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &AndAsgn,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -143,7 +133,6 @@ static AndAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &AndAsgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -157,7 +146,6 @@ static AndAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &AndAsgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -179,14 +167,12 @@ static Arg: Node = Node {
     wqp_name: "arg",
     fields: &[
         &NodeField {
-            node: &Arg,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the argument"],
         },
         &NodeField {
-            node: &Arg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -212,14 +198,12 @@ static Args: Node = Node {
     wqp_name: "args",
     fields: &[
         &NodeField {
-            node: &Args,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["List of arguments"],
         },
         &NodeField {
-            node: &Args,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -233,7 +217,6 @@ static Args: Node = Node {
             ],
         },
         &NodeField {
-            node: &Args,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -249,7 +232,6 @@ static Args: Node = Node {
             ],
         },
         &NodeField {
-            node: &Args,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -277,14 +259,12 @@ static Array: Node = Node {
     wqp_name: "array",
     fields: &[
         &NodeField {
-            node: &Array,
             snakecase_name: "elements",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of elements"],
         },
         &NodeField {
-            node: &Array,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -298,7 +278,6 @@ static Array: Node = Node {
             ],
         },
         &NodeField {
-            node: &Array,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -312,7 +291,6 @@ static Array: Node = Node {
             ],
         },
         &NodeField {
-            node: &Array,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -334,14 +312,12 @@ static ArrayPattern: Node = Node {
     wqp_name: "array_pattern",
     fields: &[
         &NodeField {
-            node: &ArrayPattern,
             snakecase_name: "elements",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of elements"],
         },
         &NodeField {
-            node: &ArrayPattern,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -357,7 +333,6 @@ static ArrayPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &ArrayPattern,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -373,7 +348,6 @@ static ArrayPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &ArrayPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -395,14 +369,12 @@ static ArrayPatternWithTail: Node = Node {
     wqp_name: "array_pattern_with_tail",
     fields: &[
         &NodeField {
-            node: &ArrayPatternWithTail,
             snakecase_name: "elements",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of elements"],
         },
         &NodeField {
-            node: &ArrayPatternWithTail,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -418,7 +390,6 @@ static ArrayPatternWithTail: Node = Node {
             ],
         },
         &NodeField {
-            node: &ArrayPatternWithTail,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -434,7 +405,6 @@ static ArrayPatternWithTail: Node = Node {
             ],
         },
         &NodeField {
-            node: &ArrayPatternWithTail,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -460,14 +430,12 @@ static BackRef: Node = Node {
     wqp_name: "back_ref",
     fields: &[
         &NodeField {
-            node: &BackRef,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the variable (`\"$+\"` for `$+`)"],
         },
         &NodeField {
-            node: &BackRef,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -496,7 +464,6 @@ static Begin: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Begin,
                 snakecase_name: "statements",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -506,7 +473,6 @@ static Begin: Node = Node {
             },
 
             &NodeField {
-                node: &Begin,
                 snakecase_name: "begin_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -527,7 +493,6 @@ static Begin: Node = Node {
             },
 
             &NodeField {
-                node: &Begin,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -548,7 +513,6 @@ static Begin: Node = Node {
             },
 
             &NodeField {
-                node: &Begin,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -575,7 +539,6 @@ static Block: Node = Node {
     wqp_name: "block",
     fields: &[
         &NodeField {
-            node: &Block,
             snakecase_name: "call",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -586,11 +549,8 @@ static Block: Node = Node {
             ],
         },
         &NodeField {
-            node: &Block,
             snakecase_name: "args",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "A list of argument that block takes",
@@ -601,16 +561,12 @@ static Block: Node = Node {
             ],
         },
         &NodeField {
-            node: &Block,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Block body, `None` if block has no body."],
         },
         &NodeField {
-            node: &Block,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -624,7 +580,6 @@ static Block: Node = Node {
             ],
         },
         &NodeField {
-            node: &Block,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -638,7 +593,6 @@ static Block: Node = Node {
             ],
         },
         &NodeField {
-            node: &Block,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -661,9 +615,8 @@ static Blockarg: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Blockarg,
                 snakecase_name: "name",
-                field_type: NodeFieldType::MaybeStr { chars: false },
+                field_type: NodeFieldType::MaybeStr,
                 always_print: true,
                 comment: &[
                     "Name of the argument, `String(\"foo\")` for `def m(&foo)`"
@@ -671,7 +624,6 @@ static Blockarg: Node = Node {
             },
 
             &NodeField {
-                node: &Blockarg,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -686,7 +638,6 @@ static Blockarg: Node = Node {
             },
 
             &NodeField {
-                node: &Blockarg,
                 snakecase_name: "name_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -701,7 +652,6 @@ static Blockarg: Node = Node {
             },
 
             &NodeField {
-                node: &Blockarg,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -728,9 +678,8 @@ static BlockPass: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &BlockPass,
                 snakecase_name: "value",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Value that is converted to a block",
@@ -740,7 +689,6 @@ static BlockPass: Node = Node {
             },
 
             &NodeField {
-                node: &BlockPass,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -755,7 +703,6 @@ static BlockPass: Node = Node {
             },
 
             &NodeField {
-                node: &BlockPass,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -780,14 +727,12 @@ static Break: Node = Node {
     wqp_name: "break",
     fields: &[
         &NodeField {
-            node: &Break,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of arguments"],
         },
         &NodeField {
-            node: &Break,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -801,7 +746,6 @@ static Break: Node = Node {
             ],
         },
         &NodeField {
-            node: &Break,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -823,11 +767,8 @@ static Case: Node = Node {
     wqp_name: "case",
     fields: &[
         &NodeField {
-            node: &Case,
             snakecase_name: "expr",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Expression given to `case`, `Int(\"1\")` for `case 1; end`",
@@ -841,23 +782,18 @@ static Case: Node = Node {
             ],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "when_bodies",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of `When` nodes (each has `patterns` and `body`)"],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "else_body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the `else` branch, `None` if there's no `else` branch"],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -871,7 +807,6 @@ static Case: Node = Node {
             ],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "else_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -887,7 +822,6 @@ static Case: Node = Node {
             ],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -901,7 +835,6 @@ static Case: Node = Node {
             ],
         },
         &NodeField {
-            node: &Case,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -924,7 +857,6 @@ static CaseMatch: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "expr",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -941,7 +873,6 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "in_bodies",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -951,9 +882,8 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "else_body",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Body of the `else` branch, `None` if there's no `else` branch"
@@ -961,7 +891,6 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "keyword_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -976,7 +905,6 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "else_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -993,7 +921,6 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1008,7 +935,6 @@ static CaseMatch: Node = Node {
             },
 
             &NodeField {
-                node: &CaseMatch,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1033,11 +959,8 @@ static Casgn: Node = Node {
     wqp_name: "casgn",
     fields: &[
         &NodeField {
-            node: &Casgn,
             snakecase_name: "scope",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Scope where the constant is defined:",
@@ -1047,18 +970,14 @@ static Casgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the constant, `String(\"A\")` for `A = 1`"],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &[
                 "Value that is assigned to a constant, `Int(\"1\")` for `A = 1`.",
@@ -1068,7 +987,6 @@ static Casgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "double_colon_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1087,7 +1005,6 @@ static Casgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1101,7 +1018,6 @@ static Casgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1118,7 +1034,6 @@ static Casgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Casgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1141,7 +1056,6 @@ static Cbase: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Cbase,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1167,7 +1081,6 @@ static Class: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Class,
                 snakecase_name: "name",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -1177,9 +1090,8 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "superclass",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Superclass. Can be an expression in cases like `class A < (obj.foo + 1); end`",
@@ -1189,9 +1101,8 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "body",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Body of the method, `None` if there's no body."
@@ -1199,7 +1110,6 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "keyword_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1214,7 +1124,6 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -1231,7 +1140,6 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1246,7 +1154,6 @@ static Class: Node = Node {
             },
 
             &NodeField {
-                node: &Class,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1271,16 +1178,14 @@ static Complex: Node = Node {
     wqp_name: "complex",
     fields: &[
         &NodeField {
-            node: &Complex,
             snakecase_name: "value",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &[
                 "Value of the complex literal, returned as a `String`, `String(\"1i\")` for `1i`",
             ],
         },
         &NodeField {
-            node: &Complex,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1296,7 +1201,6 @@ static Complex: Node = Node {
             ],
         },
         &NodeField {
-            node: &Complex,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1319,9 +1223,8 @@ static Const: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Const,
                 snakecase_name: "scope",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Scope where the constant is taken from:",
@@ -1332,9 +1235,8 @@ static Const: Node = Node {
             },
 
             &NodeField {
-                node: &Const,
                 snakecase_name: "name",
-                field_type: NodeFieldType::Str { raw: false },
+                field_type: NodeFieldType::Str,
                 always_print: false,
                 comment: &[
                     "Name of the constant, `String(\"Foo\")` for `Foo`"
@@ -1342,7 +1244,6 @@ static Const: Node = Node {
             },
 
             &NodeField {
-                node: &Const,
                 snakecase_name: "double_colon_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -1357,7 +1258,6 @@ static Const: Node = Node {
             },
 
             &NodeField {
-                node: &Const,
                 snakecase_name: "name_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1372,7 +1272,6 @@ static Const: Node = Node {
             },
 
             &NodeField {
-                node: &Const,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -1397,14 +1296,12 @@ static ConstPattern: Node = Node {
     wqp_name: "const_pattern",
     fields: &[
         &NodeField {
-            node: &ConstPattern,
             snakecase_name: "const",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Constant that is used, `Const(\"Foo\")` for `in For(42)`"],
         },
         &NodeField {
-            node: &ConstPattern,
             snakecase_name: "pattern",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -1415,7 +1312,6 @@ static ConstPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &ConstPattern,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1429,7 +1325,6 @@ static ConstPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &ConstPattern,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1443,7 +1338,6 @@ static ConstPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &ConstPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1465,21 +1359,18 @@ static CSend: Node = Node {
     wqp_name: "csend",
     fields: &[
         &NodeField {
-            node: &CSend,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Receiver of the method call, `Int(\"1\")` for `1&.foo`"],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "method_name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the method, `String(\"foo\")` for `1&.foo`"],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
@@ -1494,7 +1385,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "dot_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1508,7 +1398,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "selector_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1524,7 +1413,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1540,7 +1428,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1556,7 +1443,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1572,7 +1458,6 @@ static CSend: Node = Node {
             ],
         },
         &NodeField {
-            node: &CSend,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1594,14 +1479,12 @@ static Cvar: Node = Node {
     wqp_name: "cvar",
     fields: &[
         &NodeField {
-            node: &Cvar,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the class variable, `String(\"@@foo\")` for `@@foo`"],
         },
         &NodeField {
-            node: &Cvar,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1623,23 +1506,18 @@ static Cvasgn: Node = Node {
     wqp_name: "cvasgn",
     fields: &[
         &NodeField {
-            node: &Cvasgn,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the class variable, `String(\"@@foo\")` for `@@foo = 1`"],
         },
         &NodeField {
-            node: &Cvasgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &["Value that is assigned to class variable, `Int(\"1\")` for `@@foo = 1`"],
         },
         &NodeField {
-            node: &Cvasgn,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1653,7 +1531,6 @@ static Cvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Cvasgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1667,7 +1544,6 @@ static Cvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Cvasgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1689,18 +1565,14 @@ static Def: Node = Node {
     wqp_name: "def",
     fields: &[
         &NodeField {
-            node: &Def,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the method, `String(\"foo\")` for `def foo; end`"],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "args",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Arguments of a method, `None` if there's no arguments.",
@@ -1709,16 +1581,12 @@ static Def: Node = Node {
             ],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of a method, `None` if there's no body."],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1732,7 +1600,6 @@ static Def: Node = Node {
             ],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1746,7 +1613,6 @@ static Def: Node = Node {
             ],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1762,7 +1628,6 @@ static Def: Node = Node {
             ],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "assignment_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1778,7 +1643,6 @@ static Def: Node = Node {
             ],
         },
         &NodeField {
-            node: &Def,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1802,14 +1666,12 @@ static Defined: Node = Node {
     wqp_name: "defined?",
     fields: &[
         &NodeField {
-            node: &Defined,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Value given to `defined?`"],
         },
         &NodeField {
-            node: &Defined,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1823,7 +1685,6 @@ static Defined: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defined,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1839,7 +1700,6 @@ static Defined: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defined,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1855,7 +1715,6 @@ static Defined: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defined,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1877,25 +1736,20 @@ static Defs: Node = Node {
     wqp_name: "defs",
     fields: &[
         &NodeField {
-            node: &Defs,
             snakecase_name: "definee",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Definee of a method definition, `Lvar(\"x\")` for `def x.foo; end`"],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the method, `String(\"foo\")` for `def x.foo; end`"],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "args",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Arguments of a method, `None` if there's no arguments.",
@@ -1904,16 +1758,12 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the method, `None` if there's no body."],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1927,7 +1777,6 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1941,7 +1790,6 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -1955,7 +1803,6 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "assignment_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1971,7 +1818,6 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -1987,7 +1833,6 @@ static Defs: Node = Node {
             ],
         },
         &NodeField {
-            node: &Defs,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2009,14 +1854,12 @@ static Dstr: Node = Node {
     wqp_name: "dstr",
     fields: &[
         &NodeField {
-            node: &Dstr,
             snakecase_name: "parts",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of string parts (static literals and interpolated expressions)"],
         },
         &NodeField {
-            node: &Dstr,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2033,7 +1876,6 @@ static Dstr: Node = Node {
             ],
         },
         &NodeField {
-            node: &Dstr,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2050,7 +1892,6 @@ static Dstr: Node = Node {
             ],
         },
         &NodeField {
-            node: &Dstr,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2075,14 +1916,12 @@ static Dsym: Node = Node {
     wqp_name: "dsym",
     fields: &[
         &NodeField {
-            node: &Dsym,
             snakecase_name: "parts",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of symbol parts (static literals and interpolated expressions)"],
         },
         &NodeField {
-            node: &Dsym,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2102,7 +1941,6 @@ static Dsym: Node = Node {
             ],
         },
         &NodeField {
-            node: &Dsym,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2122,7 +1960,6 @@ static Dsym: Node = Node {
             ],
         },
         &NodeField {
-            node: &Dsym,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2144,29 +1981,22 @@ static EFlipFlop: Node = Node {
     wqp_name: "eflipflop",
     fields: &[
         &NodeField {
-            node: &EFlipFlop,
             snakecase_name: "left",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Left part of the flip-flop. `None` if based on a range without begin (`...bar`)",
             ],
         },
         &NodeField {
-            node: &EFlipFlop,
             snakecase_name: "right",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Right part of the flip-flop. `None` if based on a range without end (`foo...`)",
             ],
         },
         &NodeField {
-            node: &EFlipFlop,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2180,7 +2010,6 @@ static EFlipFlop: Node = Node {
             ],
         },
         &NodeField {
-            node: &EFlipFlop,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2201,7 +2030,6 @@ static EmptyElse: Node = Node {
     camelcase_name: "EmptyElse",
     wqp_name: "empty_else",
     fields: &[&NodeField {
-        node: &EmptyElse,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2228,7 +2056,6 @@ static Encoding: Node = Node {
     camelcase_name: "Encoding",
     wqp_name: "__ENCODING__",
     fields: &[&NodeField {
-        node: &Encoding,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2249,11 +2076,8 @@ static Ensure: Node = Node {
     wqp_name: "ensure",
     fields: &[
         &NodeField {
-            node: &Ensure,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Block of code that is wrapped into `ensure`",
@@ -2263,11 +2087,8 @@ static Ensure: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ensure,
             snakecase_name: "ensure",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Body of the `ensure` block",
@@ -2276,7 +2097,6 @@ static Ensure: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ensure,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2290,7 +2110,6 @@ static Ensure: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ensure,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2314,25 +2133,18 @@ static Erange: Node = Node {
     wqp_name: "erange",
     fields: &[
         &NodeField {
-            node: &Erange,
             snakecase_name: "left",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Begin of the range, `None` if range has no begin (i.e `...42`)"],
         },
         &NodeField {
-            node: &Erange,
             snakecase_name: "right",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["End of the range, `None` if range has no end (i.e `42...`)"],
         },
         &NodeField {
-            node: &Erange,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2346,7 +2158,6 @@ static Erange: Node = Node {
             ],
         },
         &NodeField {
-            node: &Erange,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2367,7 +2178,6 @@ static False: Node = Node {
     camelcase_name: "False",
     wqp_name: "false",
     fields: &[&NodeField {
-        node: &False,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2387,7 +2197,6 @@ static File: Node = Node {
     camelcase_name: "File",
     wqp_name: "__FILE__",
     fields: &[&NodeField {
-        node: &File,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2409,7 +2218,6 @@ static FindPattern: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &FindPattern,
                 snakecase_name: "elements",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -2419,7 +2227,6 @@ static FindPattern: Node = Node {
             },
 
             &NodeField {
-                node: &FindPattern,
                 snakecase_name: "begin_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -2436,7 +2243,6 @@ static FindPattern: Node = Node {
             },
 
             &NodeField {
-                node: &FindPattern,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -2453,7 +2259,6 @@ static FindPattern: Node = Node {
             },
 
             &NodeField {
-                node: &FindPattern,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -2480,14 +2285,12 @@ static Float: Node = Node {
     wqp_name: "float",
     fields: &[
         &NodeField {
-            node: &Float,
             snakecase_name: "value",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["String value of the literal, `String(\"42.5\")` for `42.5`"],
         },
         &NodeField {
-            node: &Float,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2501,7 +2304,6 @@ static Float: Node = Node {
             ],
         },
         &NodeField {
-            node: &Float,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2523,30 +2325,24 @@ static For: Node = Node {
     wqp_name: "for",
     fields: &[
         &NodeField {
-            node: &For,
             snakecase_name: "iterator",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Variable that is used in loop, `Lvasgn(\"a\")` in `for a in b; end`"],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "iteratee",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Collection that is for iteration. `Lvar(\"b\")` in `for a in b; end`"],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the loop. `None` if there's no body"],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2560,7 +2356,6 @@ static For: Node = Node {
             ],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2574,7 +2369,6 @@ static For: Node = Node {
             ],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2590,7 +2384,6 @@ static For: Node = Node {
             ],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2604,7 +2397,6 @@ static For: Node = Node {
             ],
         },
         &NodeField {
-            node: &For,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2625,7 +2417,6 @@ static ForwardArg: Node = Node {
     camelcase_name: "ForwardArg",
     wqp_name: "forward_arg",
     fields: &[&NodeField {
-        node: &ForwardArg,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2647,7 +2438,6 @@ static ForwardedArgs: Node = Node {
     camelcase_name: "ForwardedArgs",
     wqp_name: "forwarded_args",
     fields: &[&NodeField {
-        node: &ForwardedArgs,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -2668,14 +2458,12 @@ static Gvar: Node = Node {
     wqp_name: "gvar",
     fields: &[
         &NodeField {
-            node: &Gvar,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the global variable, `String(\"$foo\")` for `$foo`"],
         },
         &NodeField {
-            node: &Gvar,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2697,18 +2485,14 @@ static Gvasgn: Node = Node {
     wqp_name: "gvasgn",
     fields: &[
         &NodeField {
-            node: &Gvasgn,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the global variable, `String(\"$foo\")` for `$foo`"],
         },
         &NodeField {
-            node: &Gvasgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &[
                 "Value that is assigned to global variable, `Int(\"42\")` for `$foo = 42`",
@@ -2718,7 +2502,6 @@ static Gvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Gvasgn,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2732,7 +2515,6 @@ static Gvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Gvasgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2749,7 +2531,6 @@ static Gvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Gvasgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2771,14 +2552,12 @@ static Hash: Node = Node {
     wqp_name: "hash",
     fields: &[
         &NodeField {
-            node: &Hash,
             snakecase_name: "pairs",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of key-value pairs"],
         },
         &NodeField {
-            node: &Hash,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2794,7 +2573,6 @@ static Hash: Node = Node {
             ],
         },
         &NodeField {
-            node: &Hash,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2810,7 +2588,6 @@ static Hash: Node = Node {
             ],
         },
         &NodeField {
-            node: &Hash,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2832,14 +2609,12 @@ static HashPattern: Node = Node {
     wqp_name: "hash_pattern",
     fields: &[
         &NodeField {
-            node: &HashPattern,
             snakecase_name: "elements",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of inner patterns"],
         },
         &NodeField {
-            node: &HashPattern,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2855,7 +2630,6 @@ static HashPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &HashPattern,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -2871,7 +2645,6 @@ static HashPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &HashPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -2894,7 +2667,6 @@ static Heredoc: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Heredoc,
                 snakecase_name: "parts",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -2904,7 +2676,6 @@ static Heredoc: Node = Node {
             },
 
             &NodeField {
-                node: &Heredoc,
                 snakecase_name: "heredoc_body_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -2919,7 +2690,6 @@ static Heredoc: Node = Node {
             },
 
             &NodeField {
-                node: &Heredoc,
                 snakecase_name: "heredoc_end_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -2934,7 +2704,6 @@ static Heredoc: Node = Node {
             },
 
             &NodeField {
-                node: &Heredoc,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -2971,7 +2740,6 @@ static If: Node = Node {
     wqp_name: "if",
     fields: &[
         &NodeField {
-            node: &If,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -2980,29 +2748,22 @@ static If: Node = Node {
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "if_true",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "True-branch of the `if` statement, `Lvar(\"b\")` for `if a; b; else; c; end`",
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "if_false",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "False-branch of the `if` statement, `Lvar(\"c\")` for `if a; b; else; c; end`",
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3016,7 +2777,6 @@ static If: Node = Node {
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3032,7 +2792,6 @@ static If: Node = Node {
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "else_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3048,7 +2807,6 @@ static If: Node = Node {
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3062,7 +2820,6 @@ static If: Node = Node {
             ],
         },
         &NodeField {
-            node: &If,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3085,7 +2842,6 @@ static IfGuard: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &IfGuard,
                 snakecase_name: "cond",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -3095,7 +2851,6 @@ static IfGuard: Node = Node {
             },
 
             &NodeField {
-                node: &IfGuard,
                 snakecase_name: "keyword_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -3110,7 +2865,6 @@ static IfGuard: Node = Node {
             },
 
             &NodeField {
-                node: &IfGuard,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -3136,29 +2890,22 @@ static IFlipFlop: Node = Node {
     wqp_name: "iflipflop",
     fields: &[
         &NodeField {
-            node: &IFlipFlop,
             snakecase_name: "left",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Left part of the flip-flop. `None` if based on a range without begin (`..bar`)",
             ],
         },
         &NodeField {
-            node: &IFlipFlop,
             snakecase_name: "right",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Right part of the flip-flop. `None` if based on a range without end (`foo..`)",
             ],
         },
         &NodeField {
-            node: &IFlipFlop,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3172,7 +2919,6 @@ static IFlipFlop: Node = Node {
             ],
         },
         &NodeField {
-            node: &IFlipFlop,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3194,18 +2940,14 @@ static IfMod: Node = Node {
     wqp_name: "if",
     fields: &[
         &NodeField {
-            node: &IfMod,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the modifier"],
         },
         &NodeField {
-            node: &IfMod,
             snakecase_name: "if_true",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "True-branch of the modifier.",
@@ -3215,11 +2957,8 @@ static IfMod: Node = Node {
             ],
         },
         &NodeField {
-            node: &IfMod,
             snakecase_name: "if_false",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "False-branch of the modifier.",
@@ -3229,7 +2968,6 @@ static IfMod: Node = Node {
             ],
         },
         &NodeField {
-            node: &IfMod,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3246,7 +2984,6 @@ static IfMod: Node = Node {
             ],
         },
         &NodeField {
-            node: &IfMod,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3271,28 +3008,24 @@ static IfTernary: Node = Node {
     wqp_name: "if",
     fields: &[
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the `if` statement"],
         },
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "if_true",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["True-branch"],
         },
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "if_false",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["True-branch"],
         },
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "question_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3306,7 +3039,6 @@ static IfTernary: Node = Node {
             ],
         },
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "colon_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3320,7 +3052,6 @@ static IfTernary: Node = Node {
             ],
         },
         &NodeField {
-            node: &IfTernary,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3342,21 +3073,18 @@ static Index: Node = Node {
     wqp_name: "index",
     fields: &[
         &NodeField {
-            node: &Index,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Receiver of indexing"],
         },
         &NodeField {
-            node: &Index,
             snakecase_name: "indexes",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of indexes"],
         },
         &NodeField {
-            node: &Index,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3370,7 +3098,6 @@ static Index: Node = Node {
             ],
         },
         &NodeField {
-            node: &Index,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3384,7 +3111,6 @@ static Index: Node = Node {
             ],
         },
         &NodeField {
-            node: &Index,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3406,25 +3132,20 @@ static IndexAsgn: Node = Node {
     wqp_name: "indexasgn",
     fields: &[
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Receiver of the indexing"],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "indexes",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of indexes"],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &[
                 "Value that is assigned",
@@ -3434,7 +3155,6 @@ static IndexAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3448,7 +3168,6 @@ static IndexAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3462,7 +3181,6 @@ static IndexAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3479,7 +3197,6 @@ static IndexAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &IndexAsgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3501,18 +3218,14 @@ static InPattern: Node = Node {
     wqp_name: "in_pattern",
     fields: &[
         &NodeField {
-            node: &InPattern,
             snakecase_name: "pattern",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Value that is used for matching"],
         },
         &NodeField {
-            node: &InPattern,
             snakecase_name: "guard",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Guard that is used for matching",
@@ -3521,16 +3234,12 @@ static InPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &InPattern,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the branch that is invoked if value matches pattern"],
         },
         &NodeField {
-            node: &InPattern,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3544,7 +3253,6 @@ static InPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &InPattern,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3558,7 +3266,6 @@ static InPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &InPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3580,14 +3287,12 @@ static Int: Node = Node {
     wqp_name: "int",
     fields: &[
         &NodeField {
-            node: &Int,
             snakecase_name: "value",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["String value of the literal, `String(\"42\")` for `42`"],
         },
         &NodeField {
-            node: &Int,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3601,7 +3306,6 @@ static Int: Node = Node {
             ],
         },
         &NodeField {
-            node: &Int,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3623,25 +3327,18 @@ static Irange: Node = Node {
     wqp_name: "irange",
     fields: &[
         &NodeField {
-            node: &Irange,
             snakecase_name: "left",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Begin of the range, `None` if range has no `begin` (i.e. `..4`)"],
         },
         &NodeField {
-            node: &Irange,
             snakecase_name: "right",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["End of the range, `None` if range has no `end` (i.e. `2..`)"],
         },
         &NodeField {
-            node: &Irange,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3655,7 +3352,6 @@ static Irange: Node = Node {
             ],
         },
         &NodeField {
-            node: &Irange,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3677,14 +3373,12 @@ static Ivar: Node = Node {
     wqp_name: "ivar",
     fields: &[
         &NodeField {
-            node: &Ivar,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the instance variable, `String(\"@foo\")` in `@foo`"],
         },
         &NodeField {
-            node: &Ivar,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3706,18 +3400,14 @@ static Ivasgn: Node = Node {
     wqp_name: "ivasgn",
     fields: &[
         &NodeField {
-            node: &Ivasgn,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the instance variable, `String(\"@foo\")` in `@foo = 42`"],
         },
         &NodeField {
-            node: &Ivasgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &[
                 "Value that is assigned to instance variable.",
@@ -3727,7 +3417,6 @@ static Ivasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ivasgn,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3741,7 +3430,6 @@ static Ivasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ivasgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3758,7 +3446,6 @@ static Ivasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Ivasgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3780,14 +3467,12 @@ static Kwarg: Node = Node {
     wqp_name: "kwarg",
     fields: &[
         &NodeField {
-            node: &Kwarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the keyword argument"],
         },
         &NodeField {
-            node: &Kwarg,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3801,7 +3486,6 @@ static Kwarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3823,14 +3507,12 @@ static Kwargs: Node = Node {
     wqp_name: "kwargs",
     fields: &[
         &NodeField {
-            node: &Kwargs,
             snakecase_name: "pairs",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of key-value pairs"],
         },
         &NodeField {
-            node: &Kwargs,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3854,14 +3536,12 @@ static KwBegin: Node = Node {
     wqp_name: "kwbegin",
     fields: &[
         &NodeField {
-            node: &KwBegin,
             snakecase_name: "statements",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of statements"],
         },
         &NodeField {
-            node: &KwBegin,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3875,7 +3555,6 @@ static KwBegin: Node = Node {
             ],
         },
         &NodeField {
-            node: &KwBegin,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -3889,7 +3568,6 @@ static KwBegin: Node = Node {
             ],
         },
         &NodeField {
-            node: &KwBegin,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3920,7 +3598,6 @@ static Kwnilarg: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Kwnilarg,
                 snakecase_name: "name_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -3935,7 +3612,6 @@ static Kwnilarg: Node = Node {
             },
 
             &NodeField {
-                node: &Kwnilarg,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -3961,21 +3637,18 @@ static Kwoptarg: Node = Node {
     wqp_name: "kwoptarg",
     fields: &[
         &NodeField {
-            node: &Kwoptarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the optional keyword argument"],
         },
         &NodeField {
-            node: &Kwoptarg,
             snakecase_name: "default",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Default value of the optional keyword argument"],
         },
         &NodeField {
-            node: &Kwoptarg,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -3989,7 +3662,6 @@ static Kwoptarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwoptarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4011,9 +3683,8 @@ static Kwrestarg: Node = Node {
     wqp_name: "kwrestarg",
     fields: &[
         &NodeField {
-            node: &Kwrestarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::MaybeStr { chars: false },
+            field_type: NodeFieldType::MaybeStr,
             always_print: false,
             comment: &[
                 "Name of the keyword rest argument, `String(\"foo\")` in `def m(**foo); end`.",
@@ -4022,7 +3693,6 @@ static Kwrestarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwrestarg,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4036,7 +3706,6 @@ static Kwrestarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwrestarg,
             snakecase_name: "name_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -4052,7 +3721,6 @@ static Kwrestarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwrestarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4074,14 +3742,12 @@ static Kwsplat: Node = Node {
     wqp_name: "kwsplat",
     fields: &[
         &NodeField {
-            node: &Kwsplat,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Value that is converted into a `Hash` using `**`"],
         },
         &NodeField {
-            node: &Kwsplat,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4095,7 +3761,6 @@ static Kwsplat: Node = Node {
             ],
         },
         &NodeField {
-            node: &Kwsplat,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4116,7 +3781,6 @@ static Lambda: Node = Node {
     camelcase_name: "Lambda",
     wqp_name: "lambda",
     fields: &[&NodeField {
-        node: &Lambda,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -4133,7 +3797,6 @@ static Line: Node = Node {
     camelcase_name: "Line",
     wqp_name: "__LINE__",
     fields: &[&NodeField {
-        node: &Line,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -4154,14 +3817,12 @@ static Lvar: Node = Node {
     wqp_name: "lvar",
     fields: &[
         &NodeField {
-            node: &Lvar,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the local variable"],
         },
         &NodeField {
-            node: &Lvar,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4192,23 +3853,18 @@ static Lvasgn: Node = Node {
     wqp_name: "lvasgn",
     fields: &[
         &NodeField {
-            node: &Lvasgn,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the local variable"],
         },
         &NodeField {
-            node: &Lvasgn,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &["Value that is assigned to a local variable"],
         },
         &NodeField {
-            node: &Lvasgn,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4222,7 +3878,6 @@ static Lvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Lvasgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -4239,7 +3894,6 @@ static Lvasgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Lvasgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4261,21 +3915,18 @@ static Masgn: Node = Node {
     wqp_name: "masgn",
     fields: &[
         &NodeField {
-            node: &Masgn,
             snakecase_name: "lhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left hand statement of the assignment"],
         },
         &NodeField {
-            node: &Masgn,
             snakecase_name: "rhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left hand statement of the assignment"],
         },
         &NodeField {
-            node: &Masgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4289,7 +3940,6 @@ static Masgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &Masgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4311,21 +3961,18 @@ static MatchAlt: Node = Node {
     wqp_name: "match_alt",
     fields: &[
         &NodeField {
-            node: &MatchAlt,
             snakecase_name: "lhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left pattern"],
         },
         &NodeField {
-            node: &MatchAlt,
             snakecase_name: "rhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Right pattern"],
         },
         &NodeField {
-            node: &MatchAlt,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4339,7 +3986,6 @@ static MatchAlt: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchAlt,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4362,7 +4008,6 @@ static MatchAs: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &MatchAs,
                 snakecase_name: "value",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4372,7 +4017,6 @@ static MatchAs: Node = Node {
             },
 
             &NodeField {
-                node: &MatchAs,
                 snakecase_name: "as",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4382,7 +4026,6 @@ static MatchAs: Node = Node {
             },
 
             &NodeField {
-                node: &MatchAs,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4397,7 +4040,6 @@ static MatchAs: Node = Node {
             },
 
             &NodeField {
-                node: &MatchAs,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4423,14 +4065,12 @@ static MatchCurrentLine: Node = Node {
     wqp_name: "match_current_line",
     fields: &[
         &NodeField {
-            node: &MatchCurrentLine,
             snakecase_name: "re",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Given regex"],
         },
         &NodeField {
-            node: &MatchCurrentLine,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4477,7 +4117,6 @@ static MatchNilPattern: Node = Node {
     wqp_name: "match_nil_pattern",
     fields: &[
         &NodeField {
-            node: &MatchNilPattern,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4491,7 +4130,6 @@ static MatchNilPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchNilPattern,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4505,7 +4143,6 @@ static MatchNilPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchNilPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4527,21 +4164,18 @@ static MatchPattern: Node = Node {
     wqp_name: "match_pattern",
     fields: &[
         &NodeField {
-            node: &MatchPattern,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Value that is used for matching"],
         },
         &NodeField {
-            node: &MatchPattern,
             snakecase_name: "pattern",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Pattern that is used for matching"],
         },
         &NodeField {
-            node: &MatchPattern,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4555,7 +4189,6 @@ static MatchPattern: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchPattern,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4580,7 +4213,6 @@ static MatchPatternP: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &MatchPatternP,
                 snakecase_name: "value",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4590,7 +4222,6 @@ static MatchPatternP: Node = Node {
             },
 
             &NodeField {
-                node: &MatchPatternP,
                 snakecase_name: "pattern",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4600,7 +4231,6 @@ static MatchPatternP: Node = Node {
             },
 
             &NodeField {
-                node: &MatchPatternP,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4615,7 +4245,6 @@ static MatchPatternP: Node = Node {
             },
 
             &NodeField {
-                node: &MatchPatternP,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4641,11 +4270,8 @@ static MatchRest: Node = Node {
     wqp_name: "match_rest",
     fields: &[
         &NodeField {
-            node: &MatchRest,
             snakecase_name: "name",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &[
                 "Name of the variable name",
@@ -4654,7 +4280,6 @@ static MatchRest: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchRest,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4668,7 +4293,6 @@ static MatchRest: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchRest,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4690,14 +4314,12 @@ static MatchVar: Node = Node {
     wqp_name: "match_var",
     fields: &[
         &NodeField {
-            node: &MatchVar,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the variable that is assigned if matching succeeds"],
         },
         &NodeField {
-            node: &MatchVar,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4718,7 +4340,6 @@ static MatchVar: Node = Node {
             ],
         },
         &NodeField {
-            node: &MatchVar,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4748,7 +4369,6 @@ static MatchWithLvasgn: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &MatchWithLvasgn,
                 snakecase_name: "re",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4758,7 +4378,6 @@ static MatchWithLvasgn: Node = Node {
             },
 
             &NodeField {
-                node: &MatchWithLvasgn,
                 snakecase_name: "value",
                 field_type: NodeFieldType::Node,
                 always_print: false,
@@ -4768,7 +4387,6 @@ static MatchWithLvasgn: Node = Node {
             },
 
             &NodeField {
-                node: &MatchWithLvasgn,
                 snakecase_name: "operator_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4783,7 +4401,6 @@ static MatchWithLvasgn: Node = Node {
             },
 
             &NodeField {
-                node: &MatchWithLvasgn,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4812,7 +4429,6 @@ static Mlhs: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Mlhs,
                 snakecase_name: "items",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -4822,7 +4438,6 @@ static Mlhs: Node = Node {
             },
 
             &NodeField {
-                node: &Mlhs,
                 snakecase_name: "begin_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -4839,7 +4454,6 @@ static Mlhs: Node = Node {
             },
 
             &NodeField {
-                node: &Mlhs,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -4856,7 +4470,6 @@ static Mlhs: Node = Node {
             },
 
             &NodeField {
-                node: &Mlhs,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -4882,23 +4495,18 @@ static Module: Node = Node {
     wqp_name: "module",
     fields: &[
         &NodeField {
-            node: &Module,
             snakecase_name: "name",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Name of the module"],
         },
         &NodeField {
-            node: &Module,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the module", "", "`None` if module has no body"],
         },
         &NodeField {
-            node: &Module,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4912,7 +4520,6 @@ static Module: Node = Node {
             ],
         },
         &NodeField {
-            node: &Module,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4926,7 +4533,6 @@ static Module: Node = Node {
             ],
         },
         &NodeField {
-            node: &Module,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4948,14 +4554,12 @@ static Next: Node = Node {
     wqp_name: "next",
     fields: &[
         &NodeField {
-            node: &Next,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["Arguments given to `next`"],
         },
         &NodeField {
-            node: &Next,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4969,7 +4573,6 @@ static Next: Node = Node {
             ],
         },
         &NodeField {
-            node: &Next,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -4990,7 +4593,6 @@ static Nil: Node = Node {
     camelcase_name: "Nil",
     wqp_name: "nil",
     fields: &[&NodeField {
-        node: &Nil,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -5011,14 +4613,12 @@ static NthRef: Node = Node {
     wqp_name: "nth_ref",
     fields: &[
         &NodeField {
-            node: &NthRef,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: true },
+            field_type: NodeFieldType::RawStr,
             always_print: false,
             comment: &["Name of the variable, `String(\"1\")` for `$1`"],
         },
         &NodeField {
-            node: &NthRef,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5040,28 +4640,24 @@ static Numblock: Node = Node {
     wqp_name: "numblock",
     fields: &[
         &NodeField {
-            node: &Numblock,
             snakecase_name: "call",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Method call that takes a block"],
         },
         &NodeField {
-            node: &Numblock,
             snakecase_name: "numargs",
             field_type: NodeFieldType::U8,
             always_print: false,
             comment: &["Number of parameters that block takes"],
         },
         &NodeField {
-            node: &Numblock,
             snakecase_name: "body",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Block body"],
         },
         &NodeField {
-            node: &Numblock,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5075,7 +4671,6 @@ static Numblock: Node = Node {
             ],
         },
         &NodeField {
-            node: &Numblock,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5089,7 +4684,6 @@ static Numblock: Node = Node {
             ],
         },
         &NodeField {
-            node: &Numblock,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5111,16 +4705,14 @@ static OpAsgn: Node = Node {
     wqp_name: "op_asgn",
     fields: &[
         &NodeField {
-            node: &OpAsgn,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left hand statement of the assignment"],
         },
         &NodeField {
-            node: &OpAsgn,
             snakecase_name: "operator",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &[
                 "Operator, can be one of:",
@@ -5138,14 +4730,12 @@ static OpAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &OpAsgn,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Right hand statement of the assignment"],
         },
         &NodeField {
-            node: &OpAsgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5159,7 +4749,6 @@ static OpAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &OpAsgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5181,21 +4770,18 @@ static Optarg: Node = Node {
     wqp_name: "optarg",
     fields: &[
         &NodeField {
-            node: &Optarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the argument"],
         },
         &NodeField {
-            node: &Optarg,
             snakecase_name: "default",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Default value of the argument"],
         },
         &NodeField {
-            node: &Optarg,
             snakecase_name: "name_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5209,7 +4795,6 @@ static Optarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Optarg,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5223,7 +4808,6 @@ static Optarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Optarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5245,21 +4829,18 @@ static Or: Node = Node {
     wqp_name: "or",
     fields: &[
         &NodeField {
-            node: &Or,
             snakecase_name: "lhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left hand statement"],
         },
         &NodeField {
-            node: &Or,
             snakecase_name: "rhs",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Right hand statement"],
         },
         &NodeField {
-            node: &Or,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5273,7 +4854,6 @@ static Or: Node = Node {
             ],
         },
         &NodeField {
-            node: &Or,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5295,21 +4875,18 @@ static OrAsgn: Node = Node {
     wqp_name: "or_asgn",
     fields: &[
         &NodeField {
-            node: &OrAsgn,
             snakecase_name: "recv",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Left hand statement"],
         },
         &NodeField {
-            node: &OrAsgn,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Right hand statement"],
         },
         &NodeField {
-            node: &OrAsgn,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5323,7 +4900,6 @@ static OrAsgn: Node = Node {
             ],
         },
         &NodeField {
-            node: &OrAsgn,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5345,21 +4921,18 @@ static Pair: Node = Node {
     wqp_name: "pair",
     fields: &[
         &NodeField {
-            node: &Pair,
             snakecase_name: "key",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Key of the pair"],
         },
         &NodeField {
-            node: &Pair,
             snakecase_name: "value",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Value of the pair"],
         },
         &NodeField {
-            node: &Pair,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5376,7 +4949,6 @@ static Pair: Node = Node {
             ],
         },
         &NodeField {
-            node: &Pair,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5401,14 +4973,12 @@ static Pin: Node = Node {
     wqp_name: "pin",
     fields: &[
         &NodeField {
-            node: &Pin,
             snakecase_name: "var",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Variable that is pinned"],
         },
         &NodeField {
-            node: &Pin,
             snakecase_name: "selector_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5422,7 +4992,6 @@ static Pin: Node = Node {
             ],
         },
         &NodeField {
-            node: &Pin,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5444,16 +5013,12 @@ static Postexe: Node = Node {
     wqp_name: "postexe",
     fields: &[
         &NodeField {
-            node: &Postexe,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &["Body of the block"],
         },
         &NodeField {
-            node: &Postexe,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5467,7 +5032,6 @@ static Postexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Postexe,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5481,7 +5045,6 @@ static Postexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Postexe,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5495,7 +5058,6 @@ static Postexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Postexe,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5517,16 +5079,12 @@ static Preexe: Node = Node {
     wqp_name: "preexe",
     fields: &[
         &NodeField {
-            node: &Preexe,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &["Body of the block"],
         },
         &NodeField {
-            node: &Preexe,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5540,7 +5098,6 @@ static Preexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Preexe,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5554,7 +5111,6 @@ static Preexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Preexe,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5568,7 +5124,6 @@ static Preexe: Node = Node {
             ],
         },
         &NodeField {
-            node: &Preexe,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5591,7 +5146,6 @@ static Procarg0: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Procarg0,
                 snakecase_name: "args",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -5605,7 +5159,6 @@ static Procarg0: Node = Node {
             },
 
             &NodeField {
-                node: &Procarg0,
                 snakecase_name: "begin_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -5622,7 +5175,6 @@ static Procarg0: Node = Node {
             },
 
             &NodeField {
-                node: &Procarg0,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -5639,7 +5191,6 @@ static Procarg0: Node = Node {
             },
 
             &NodeField {
-                node: &Procarg0,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -5668,14 +5219,12 @@ static Rational: Node = Node {
     wqp_name: "rational",
     fields: &[
         &NodeField {
-            node: &Rational,
             snakecase_name: "value",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["String value of the literal, `String(\"1r\")` for `1r`"],
         },
         &NodeField {
-            node: &Rational,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -5689,7 +5238,6 @@ static Rational: Node = Node {
             ],
         },
         &NodeField {
-            node: &Rational,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5710,7 +5258,6 @@ static Redo: Node = Node {
     camelcase_name: "Redo",
     wqp_name: "redo",
     fields: &[&NodeField {
-        node: &Redo,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -5731,18 +5278,14 @@ static Regexp: Node = Node {
     wqp_name: "regexp",
     fields: &[
         &NodeField {
-            node: &Regexp,
             snakecase_name: "parts",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of static and dynamic regex parts"],
         },
         &NodeField {
-            node: &Regexp,
             snakecase_name: "options",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: true,
-            },
+            field_type: NodeFieldType::RegexpOptions,
             always_print: false,
             comment: &[
                 "Regex options.",
@@ -5751,7 +5294,6 @@ static Regexp: Node = Node {
             ],
         },
         &NodeField {
-            node: &Regexp,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5768,7 +5310,6 @@ static Regexp: Node = Node {
             ],
         },
         &NodeField {
-            node: &Regexp,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5785,7 +5326,6 @@ static Regexp: Node = Node {
             ],
         },
         &NodeField {
-            node: &Regexp,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5807,14 +5347,12 @@ static RegOpt: Node = Node {
     wqp_name: "regopt",
     fields: &[
         &NodeField {
-            node: &RegOpt,
             snakecase_name: "options",
-            field_type: NodeFieldType::MaybeStr { chars: true },
+            field_type: NodeFieldType::Chars,
             always_print: false,
             comment: &["A list of flags"],
         },
         &NodeField {
-            node: &RegOpt,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5837,9 +5375,8 @@ static Rescue: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Rescue,
                 snakecase_name: "body",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Body of the block that is wrapped into `rescue` (i.e. the part that may throw an error)"
@@ -5847,7 +5384,6 @@ static Rescue: Node = Node {
             },
 
             &NodeField {
-                node: &Rescue,
                 snakecase_name: "rescue_bodies",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -5857,9 +5393,8 @@ static Rescue: Node = Node {
             },
 
             &NodeField {
-                node: &Rescue,
                 snakecase_name: "else",
-                field_type: NodeFieldType::MaybeNode { regexp_options: false },
+                field_type: NodeFieldType::MaybeNode,
                 always_print: true,
                 comment: &[
                     "Else branch.",
@@ -5869,7 +5404,6 @@ static Rescue: Node = Node {
             },
 
             &NodeField {
-                node: &Rescue,
                 snakecase_name: "else_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -5886,7 +5420,6 @@ static Rescue: Node = Node {
             },
 
             &NodeField {
-                node: &Rescue,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -5914,11 +5447,8 @@ static RescueBody: Node = Node {
     wqp_name: "resbody",
     fields: &[
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "exc_list",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "A list of exception classes",
@@ -5927,11 +5457,8 @@ static RescueBody: Node = Node {
             ],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "exc_var",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Variable that captures exception",
@@ -5940,16 +5467,12 @@ static RescueBody: Node = Node {
             ],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the handler"],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -5963,7 +5486,6 @@ static RescueBody: Node = Node {
             ],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "assoc_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -5979,7 +5501,6 @@ static RescueBody: Node = Node {
             ],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -5995,7 +5516,6 @@ static RescueBody: Node = Node {
             ],
         },
         &NodeField {
-            node: &RescueBody,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6017,9 +5537,8 @@ static Restarg: Node = Node {
     wqp_name: "restarg",
     fields: &[
         &NodeField {
-            node: &Restarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::MaybeStr { chars: false },
+            field_type: NodeFieldType::MaybeStr,
             always_print: false,
             comment: &[
                 "Name of the argument.",
@@ -6028,7 +5547,6 @@ static Restarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Restarg,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6042,7 +5560,6 @@ static Restarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Restarg,
             snakecase_name: "name_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6056,7 +5573,6 @@ static Restarg: Node = Node {
             ],
         },
         &NodeField {
-            node: &Restarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6077,7 +5593,6 @@ static Retry: Node = Node {
     camelcase_name: "Retry",
     wqp_name: "retry",
     fields: &[&NodeField {
-        node: &Retry,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -6098,14 +5613,12 @@ static Return: Node = Node {
     wqp_name: "return",
     fields: &[
         &NodeField {
-            node: &Return,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of values that is returned"],
         },
         &NodeField {
-            node: &Return,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6119,7 +5632,6 @@ static Return: Node = Node {
             ],
         },
         &NodeField {
-            node: &Return,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6141,7 +5653,6 @@ static SClass: Node = Node {
     wqp_name: "sclass",
     fields: &[
         &NodeField {
-            node: &SClass,
             snakecase_name: "expr",
             field_type: NodeFieldType::Node,
             always_print: false,
@@ -6152,16 +5663,12 @@ static SClass: Node = Node {
             ],
         },
         &NodeField {
-            node: &SClass,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the block"],
         },
         &NodeField {
-            node: &SClass,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6175,7 +5682,6 @@ static SClass: Node = Node {
             ],
         },
         &NodeField {
-            node: &SClass,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6189,7 +5695,6 @@ static SClass: Node = Node {
             ],
         },
         &NodeField {
-            node: &SClass,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6203,7 +5708,6 @@ static SClass: Node = Node {
             ],
         },
         &NodeField {
-            node: &SClass,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6224,7 +5728,6 @@ static Self_: Node = Node {
     camelcase_name: "Self_",
     wqp_name: "self",
     fields: &[&NodeField {
-        node: &Self_,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -6245,11 +5748,8 @@ static Send: Node = Node {
     wqp_name: "send",
     fields: &[
         &NodeField {
-            node: &Send,
             snakecase_name: "recv",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &[
                 "Receiver of the method call",
@@ -6258,21 +5758,18 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "method_name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the method that is called"],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of arguments"],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "dot_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6288,7 +5785,6 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "selector_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6304,7 +5800,6 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6320,7 +5815,6 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6336,7 +5830,6 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6352,7 +5845,6 @@ static Send: Node = Node {
             ],
         },
         &NodeField {
-            node: &Send,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6374,14 +5866,12 @@ static Shadowarg: Node = Node {
     wqp_name: "shadowarg",
     fields: &[
         &NodeField {
-            node: &Shadowarg,
             snakecase_name: "name",
-            field_type: NodeFieldType::Str { raw: false },
+            field_type: NodeFieldType::Str,
             always_print: false,
             comment: &["Name of the argument"],
         },
         &NodeField {
-            node: &Shadowarg,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6405,16 +5895,12 @@ static Splat: Node = Node {
     wqp_name: "splat",
     fields: &[
         &NodeField {
-            node: &Splat,
             snakecase_name: "value",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: false,
             comment: &["Value that is converted to array"],
         },
         &NodeField {
-            node: &Splat,
             snakecase_name: "operator_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6428,7 +5914,6 @@ static Splat: Node = Node {
             ],
         },
         &NodeField {
-            node: &Splat,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6450,7 +5935,6 @@ static Str: Node = Node {
     wqp_name: "str",
     fields: &[
         &NodeField {
-            node: &Str,
             snakecase_name: "value",
             field_type: NodeFieldType::StringValue,
             always_print: false,
@@ -6468,7 +5952,6 @@ static Str: Node = Node {
             ],
         },
         &NodeField {
-            node: &Str,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6484,7 +5967,6 @@ static Str: Node = Node {
             ],
         },
         &NodeField {
-            node: &Str,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6500,7 +5982,6 @@ static Str: Node = Node {
             ],
         },
         &NodeField {
-            node: &Str,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6522,14 +6003,12 @@ static Super: Node = Node {
     wqp_name: "super",
     fields: &[
         &NodeField {
-            node: &Super,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of arguments given to `super`"],
         },
         &NodeField {
-            node: &Super,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6543,7 +6022,6 @@ static Super: Node = Node {
             ],
         },
         &NodeField {
-            node: &Super,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6559,7 +6037,6 @@ static Super: Node = Node {
             ],
         },
         &NodeField {
-            node: &Super,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6575,7 +6052,6 @@ static Super: Node = Node {
             ],
         },
         &NodeField {
-            node: &Super,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6598,7 +6074,6 @@ static Sym: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &Sym,
                 snakecase_name: "name",
                 field_type: NodeFieldType::StringValue,
                 always_print: false,
@@ -6617,7 +6092,6 @@ static Sym: Node = Node {
             },
 
             &NodeField {
-                node: &Sym,
                 snakecase_name: "begin_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -6634,7 +6108,6 @@ static Sym: Node = Node {
             },
 
             &NodeField {
-                node: &Sym,
                 snakecase_name: "end_l",
                 field_type: NodeFieldType::MaybeLoc,
                 always_print: false,
@@ -6651,7 +6124,6 @@ static Sym: Node = Node {
             },
 
             &NodeField {
-                node: &Sym,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -6684,7 +6156,6 @@ static True: Node = Node {
     camelcase_name: "True",
     wqp_name: "true",
     fields: &[&NodeField {
-        node: &True,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,
@@ -6705,14 +6176,12 @@ static Undef: Node = Node {
     wqp_name: "undef",
     fields: &[
         &NodeField {
-            node: &Undef,
             snakecase_name: "names",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of names to `undef`"],
         },
         &NodeField {
-            node: &Undef,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6726,7 +6195,6 @@ static Undef: Node = Node {
             ],
         },
         &NodeField {
-            node: &Undef,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6748,14 +6216,12 @@ static UnlessGuard: Node = Node {
     wqp_name: "unless_guard",
     fields: &[
         &NodeField {
-            node: &UnlessGuard,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the guard, `Lvar(\"foo\")` in `in pattern unless guard`"],
         },
         &NodeField {
-            node: &UnlessGuard,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6769,7 +6235,6 @@ static UnlessGuard: Node = Node {
             ],
         },
         &NodeField {
-            node: &UnlessGuard,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6793,23 +6258,18 @@ static Until: Node = Node {
     wqp_name: "until",
     fields: &[
         &NodeField {
-            node: &Until,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the loop"],
         },
         &NodeField {
-            node: &Until,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the loop.", "", "`None` if body is empty"],
         },
         &NodeField {
-            node: &Until,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6823,7 +6283,6 @@ static Until: Node = Node {
             ],
         },
         &NodeField {
-            node: &Until,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6839,7 +6298,6 @@ static Until: Node = Node {
             ],
         },
         &NodeField {
-            node: &Until,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -6855,7 +6313,6 @@ static Until: Node = Node {
             ],
         },
         &NodeField {
-            node: &Until,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6880,21 +6337,18 @@ static UntilPost: Node = Node {
     wqp_name: "until_post",
     fields: &[
         &NodeField {
-            node: &UntilPost,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the loop"],
         },
         &NodeField {
-            node: &UntilPost,
             snakecase_name: "body",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Body of the loop"],
         },
         &NodeField {
-            node: &UntilPost,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6908,7 +6362,6 @@ static UntilPost: Node = Node {
             ],
         },
         &NodeField {
-            node: &UntilPost,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6938,23 +6391,18 @@ static When: Node = Node {
     wqp_name: "when",
     fields: &[
         &NodeField {
-            node: &When,
             snakecase_name: "patterns",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of values to compare/match against"],
         },
         &NodeField {
-            node: &When,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the `when` branch"],
         },
         &NodeField {
-            node: &When,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6968,7 +6416,6 @@ static When: Node = Node {
             ],
         },
         &NodeField {
-            node: &When,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -6984,7 +6431,6 @@ static When: Node = Node {
             ],
         },
         &NodeField {
-            node: &When,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7006,23 +6452,18 @@ static While: Node = Node {
     wqp_name: "while",
     fields: &[
         &NodeField {
-            node: &While,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the loop"],
         },
         &NodeField {
-            node: &While,
             snakecase_name: "body",
-            field_type: NodeFieldType::MaybeNode {
-                regexp_options: false,
-            },
+            field_type: NodeFieldType::MaybeNode,
             always_print: true,
             comment: &["Body of the loop.", "", "`None` if body is empty"],
         },
         &NodeField {
-            node: &While,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7036,7 +6477,6 @@ static While: Node = Node {
             ],
         },
         &NodeField {
-            node: &While,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -7052,7 +6492,6 @@ static While: Node = Node {
             ],
         },
         &NodeField {
-            node: &While,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -7068,7 +6507,6 @@ static While: Node = Node {
             ],
         },
         &NodeField {
-            node: &While,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7093,21 +6531,18 @@ static WhilePost: Node = Node {
     wqp_name: "while_post",
     fields: &[
         &NodeField {
-            node: &WhilePost,
             snakecase_name: "cond",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Condition of the loop"],
         },
         &NodeField {
-            node: &WhilePost,
             snakecase_name: "body",
             field_type: NodeFieldType::Node,
             always_print: false,
             comment: &["Body of the loop"],
         },
         &NodeField {
-            node: &WhilePost,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7121,7 +6556,6 @@ static WhilePost: Node = Node {
             ],
         },
         &NodeField {
-            node: &WhilePost,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7152,7 +6586,6 @@ static XHeredoc: Node = Node {
     fields:
         &[
             &NodeField {
-                node: &XHeredoc,
                 snakecase_name: "parts",
                 field_type: NodeFieldType::Nodes,
                 always_print: false,
@@ -7162,7 +6595,6 @@ static XHeredoc: Node = Node {
             },
 
             &NodeField {
-                node: &XHeredoc,
                 snakecase_name: "heredoc_body_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -7177,7 +6609,6 @@ static XHeredoc: Node = Node {
             },
 
             &NodeField {
-                node: &XHeredoc,
                 snakecase_name: "heredoc_end_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -7192,7 +6623,6 @@ static XHeredoc: Node = Node {
             },
 
             &NodeField {
-                node: &XHeredoc,
                 snakecase_name: "expression_l",
                 field_type: NodeFieldType::Loc,
                 always_print: false,
@@ -7229,14 +6659,12 @@ static Xstr: Node = Node {
     wqp_name: "xstr",
     fields: &[
         &NodeField {
-            node: &Xstr,
             snakecase_name: "parts",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of string parts (static literals and interpolated expressions)"],
         },
         &NodeField {
-            node: &Xstr,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7253,7 +6681,6 @@ static Xstr: Node = Node {
             ],
         },
         &NodeField {
-            node: &Xstr,
             snakecase_name: "end_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7270,7 +6697,6 @@ static Xstr: Node = Node {
             ],
         },
         &NodeField {
-            node: &Xstr,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7295,14 +6721,12 @@ static Yield: Node = Node {
     wqp_name: "yield",
     fields: &[
         &NodeField {
-            node: &Yield,
             snakecase_name: "args",
             field_type: NodeFieldType::Nodes,
             always_print: false,
             comment: &["A list of arguments given to `yield`"],
         },
         &NodeField {
-            node: &Yield,
             snakecase_name: "keyword_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7316,7 +6740,6 @@ static Yield: Node = Node {
             ],
         },
         &NodeField {
-            node: &Yield,
             snakecase_name: "begin_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -7332,7 +6755,6 @@ static Yield: Node = Node {
             ],
         },
         &NodeField {
-            node: &Yield,
             snakecase_name: "end_l",
             field_type: NodeFieldType::MaybeLoc,
             always_print: false,
@@ -7348,7 +6770,6 @@ static Yield: Node = Node {
             ],
         },
         &NodeField {
-            node: &Yield,
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -7369,7 +6790,6 @@ static ZSuper: Node = Node {
     camelcase_name: "ZSuper",
     wqp_name: "zsuper",
     fields: &[&NodeField {
-        node: &ZSuper,
         snakecase_name: "expression_l",
         field_type: NodeFieldType::Loc,
         always_print: false,

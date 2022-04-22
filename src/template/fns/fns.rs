@@ -136,10 +136,7 @@ where
     Kind: F::Kind + PartitionKey,
 {
     fn dispatch(&self, name: &str, node_field: &NodeField) -> Option<<Kind as F::Kind>::Returns> {
-        // try node field helper
         dispatch0::<NodeField, Kind>(self, name, node_field)
-            // fallback to node helper
-            .or_else(|| dispatch0::<Node, Kind>(self, name, node_field.node))
     }
 }
 
@@ -161,10 +158,7 @@ where
         name: &str,
         message_field: &MessageField,
     ) -> Option<<Kind as F::Kind>::Returns> {
-        // try message field helper
         dispatch0::<MessageField, Kind>(self, name, message_field)
-            // fallback to message helper
-            .or_else(|| dispatch0::<Message, Kind>(self, name, message_field.message))
     }
 }
 

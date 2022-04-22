@@ -1,6 +1,8 @@
+use serde::Serialize;
+
 pub type MessagesList = &'static [&'static Message];
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub struct Message {
     pub camelcase_name: &'static str,
     pub fields: MessageFieldList,
@@ -23,9 +25,8 @@ impl Message {
 
 pub type MessageFieldList = &'static [&'static MessageField];
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Eq, PartialOrd, Ord, Serialize)]
 pub struct MessageField {
-    pub message: &'static Message,
     pub snakecase_name: &'static str,
     pub field_type: MessageFieldType,
     pub comment: &'static [&'static str],
@@ -45,7 +46,7 @@ impl MessageField {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub enum MessageFieldType {
     Str,
     Byte,
@@ -64,10 +65,9 @@ pub use message_has_field;
 mod tests {
     use super::*;
 
-    static TEST_MESSAGE: Message = Message {
+    const TEST_MESSAGE: Message = Message {
         camelcase_name: "",
         fields: &[&MessageField {
-            message: &TEST_MESSAGE,
             snakecase_name: "",
             field_type: MessageFieldType::Byte,
             comment: &[],

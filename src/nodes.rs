@@ -1,6 +1,8 @@
+use serde::Serialize;
+
 pub type NodeList = &'static [&'static Node];
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub struct Node {
     pub camelcase_name: &'static str,
     pub wqp_name: &'static str,
@@ -24,22 +26,12 @@ impl Node {
 
 pub type NodeFieldList = &'static [&'static NodeField];
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub struct NodeField {
-    pub node: &'static Node,
     pub snakecase_name: &'static str,
     pub field_type: NodeFieldType,
     pub always_print: bool,
     pub comment: &'static [&'static str],
-}
-
-impl PartialEq for NodeField {
-    fn eq(&self, other: &Self) -> bool {
-        self.snakecase_name == other.snakecase_name
-            && self.field_type == other.field_type
-            && self.always_print == other.always_print
-            && self.comment == other.comment
-    }
 }
 
 impl NodeField {
@@ -48,20 +40,21 @@ impl NodeField {
     }
 }
 
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub enum NodeFieldType {
     Node,
     Nodes,
-    MaybeNode { regexp_options: bool },
+    MaybeNode,
+    RegexpOptions,
     Loc,
     MaybeLoc,
-    Str { raw: bool },
-    MaybeStr { chars: bool },
+    Str,
+    RawStr,
+    MaybeStr,
+    Chars,
     StringValue,
     U8,
 }
-
-impl NodeFieldType {}
 
 #[macro_export]
 macro_rules! node_has_field {
@@ -80,7 +73,6 @@ mod tests {
         camelcase_name: "",
         wqp_name: "",
         fields: &[&NodeField {
-            node: &TEST_NODE,
             snakecase_name: "",
             field_type: NodeFieldType::Loc,
             always_print: true,

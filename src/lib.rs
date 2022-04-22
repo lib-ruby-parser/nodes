@@ -1,4 +1,8 @@
+extern crate liquid;
+extern crate serde;
+
 pub mod comment;
+pub mod filters;
 pub mod helpers;
 mod messages;
 #[allow(non_upper_case_globals)]
@@ -19,6 +23,18 @@ pub fn messages() -> MessagesList {
     messages_data::ALL_MESSAGES
 }
 
+mod liquid_template;
+pub use liquid_template::LiquidTemplate;
+
+pub mod reexports {
+    pub mod liquid {
+        pub use liquid_core::value;
+    }
+    pub mod serde {
+        pub use serde::{ser::SerializeStruct, Serialize, Serializer};
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use crate::NodeFieldType;
@@ -29,16 +45,6 @@ mod tests {
     fn test_nodes() {
         let nodes = nodes();
         assert!(nodes.len() > 0);
-
-        for node in nodes {
-            for node_field in node.fields {
-                assert_eq!(
-                    &node_field.node, node,
-                    "field {} of node {} refers to a different node ({})",
-                    node_field.snakecase_name, node.camelcase_name, node_field.node.camelcase_name
-                );
-            }
-        }
     }
 
     #[test]
@@ -121,18 +127,5 @@ mod tests {
     fn test_messages() {
         let messages = messages();
         assert!(messages.len() > 0);
-
-        for message in messages {
-            for message_field in message.fields {
-                assert_eq!(
-                    &message_field.message,
-                    message,
-                    "field {} of message {} refers to a different message ({})",
-                    message_field.snakecase_name,
-                    message.camelcase_name,
-                    message_field.message.camelcase_name
-                );
-            }
-        }
     }
 }

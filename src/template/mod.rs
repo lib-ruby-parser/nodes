@@ -142,14 +142,12 @@ There is a message {{ helper message-name }}
         wqp_name: "node_one",
         fields: &[
             &NodeField {
-                node: &NODE_ONE,
                 snakecase_name: "field1",
                 field_type: NodeFieldType::Loc,
                 always_print: true,
                 comment: &["field 1 does this"],
             },
             &NodeField {
-                node: &NODE_ONE,
                 snakecase_name: "field2",
                 field_type: NodeFieldType::Loc,
                 always_print: true,
@@ -163,7 +161,6 @@ There is a message {{ helper message-name }}
         camelcase_name: "NodeTwo",
         wqp_name: "node_two",
         fields: &[&NodeField {
-            node: &NODE_TWO,
             snakecase_name: "field3",
             field_type: NodeFieldType::Loc,
             always_print: false,
@@ -178,13 +175,11 @@ There is a message {{ helper message-name }}
         camelcase_name: "Message1",
         fields: &[
             &MessageField {
-                message: &MESSAGE_ONE,
                 snakecase_name: "field1",
                 field_type: MessageFieldType::Byte,
                 comment: &[],
             },
             &MessageField {
-                message: &MESSAGE_ONE,
                 snakecase_name: "field2",
                 field_type: MessageFieldType::Str,
                 comment: &[],
