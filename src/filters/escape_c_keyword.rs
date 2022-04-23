@@ -5,20 +5,20 @@ use liquid_core::{Value, ValueView};
 
 #[derive(Clone, ParseFilter, FilterReflection)]
 #[filter(
-    name = "snakecase_to_camelcase",
-    description = "Converts snake_case to CamelCase.",
-    parsed(SnakecaseToCamelcaseFilter)
+    name = "escape_c_keyword",
+    description = "Escape C keyword by adding trailing _",
+    parsed(EscapeCKeywordFilter)
 )]
-pub struct SnakecaseToCamelcase;
+pub struct EscapeCKeyword;
 
 #[derive(Debug, Default, Display_filter)]
-#[name = "snakecase_to_camelcase"]
-struct SnakecaseToCamelcaseFilter;
+#[name = "escape_c_keyword"]
+struct EscapeCKeywordFilter;
 
-impl Filter for SnakecaseToCamelcaseFilter {
+impl Filter for EscapeCKeywordFilter {
     fn evaluate(&self, input: &dyn ValueView, _runtime: &dyn Runtime) -> Result<Value> {
-        let input = input.to_kstr();
-        let output = crate::helpers::snakecase_to_camelcase(&input);
+        let name = input.to_kstr();
+        let output = crate::helpers::escape_c_keyword(&name);
         Ok(Value::scalar(output))
     }
 }

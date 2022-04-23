@@ -60,3 +60,19 @@ fn test_snakecase_to_camelcase() {
     assert_eq!(snakecase_to_camelcase("foo"), "Foo");
     assert_eq!(snakecase_to_camelcase("f"), "F");
 }
+
+pub fn escape_c_keyword(s: &str) -> String {
+    match s {
+        "default" | "operator" | "else" | "const" | "and" | "break" | "case" | "class"
+        | "false" | "float" | "for" | "if" | "int" | "or" | "return" | "true" | "while" => {
+            format!("{}_", s)
+        }
+        _ => s.to_string(),
+    }
+}
+
+#[test]
+fn test_escape_c_keyword() {
+    assert_eq!(escape_c_keyword("foo"), "foo");
+    assert_eq!(escape_c_keyword("default"), "default_");
+}

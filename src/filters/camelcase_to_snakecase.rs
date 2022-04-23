@@ -6,7 +6,7 @@ use liquid_core::{Value, ValueView};
 #[derive(Clone, ParseFilter, FilterReflection)]
 #[filter(
     name = "camelcase_to_snakecase",
-    description = "Renders comment with prefix/offset params.",
+    description = "Convert CamelCase to snake_case.",
     parsed(CamelcaseToSnakecaseFilter)
 )]
 pub struct CamelcaseToSnakecase;
