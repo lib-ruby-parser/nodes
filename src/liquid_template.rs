@@ -3,6 +3,7 @@ use crate::nodes_data;
 
 pub struct LiquidTemplate {
     path: String,
+    src: String,
     filters: Vec<Box<dyn liquid_core::parser::ParseFilter>>,
     globals: liquid::Object,
 }
@@ -10,13 +11,31 @@ pub struct LiquidTemplate {
 impl LiquidTemplate {
     pub fn new<P: AsRef<str>>(path: P) -> Self {
         let path = path.as_ref().to_string();
+        let src = std::fs::read_to_string(&path).unwrap_or_else(|e| {
+            eprintln!("Failed to read {}:\n{}", path, e);
+            std::process::exit(1);
+        });
         Self {
             path: path.clone(),
+            src,
             filters: crate::filters::all(),
             globals: liquid::object!({
                 "nodes": nodes_data::ALL_NODES,
                 "messages": messages_data::ALL_MESSAGES,
                 "template": path
+            }),
+        }
+    }
+
+    pub fn new_eval<S: AsRef<str>>(src: S) -> Self {
+        Self {
+            path: String::from("eval.liquid"),
+            src: src.as_ref().to_string(),
+            filters: crate::filters::all(),
+            globals: liquid::object!({
+                "nodes": nodes_data::ALL_NODES,
+                "messages": messages_data::ALL_MESSAGES,
+                "template": "eval.liquid"
             }),
         }
     }
@@ -37,16 +56,12 @@ impl LiquidTemplate {
     pub fn render(self) -> String {
         let Self {
             path,
+            src,
             filters,
             globals,
         } = self;
 
         println!("cargo:rerun-if-changed={}", path);
-
-        let src = std::fs::read_to_string(&path).unwrap_or_else(|e| {
-            eprintln!("Failed to read {}:\n{}", path, e);
-            std::process::exit(1);
-        });
 
         let mut builder = liquid::ParserBuilder::with_stdlib();
         for filter in filters {

@@ -1,3 +1,5 @@
+#![doc = include_str!("../README.md")]
+
 extern crate liquid;
 extern crate serde;
 
@@ -35,15 +37,7 @@ pub mod reexports {
 
 #[cfg(test)]
 mod tests {
-    use crate::NodeFieldType;
-
-    use super::{messages, nodes};
-
-    #[test]
-    fn test_nodes() {
-        let nodes = nodes();
-        assert!(nodes.len() > 0);
-    }
+    use crate::{nodes, NodeFieldType};
 
     #[test]
     fn test_nodes_order() {
@@ -119,11 +113,5 @@ mod tests {
                 }
             }
         }
-    }
-
-    #[test]
-    fn test_messages() {
-        let messages = messages();
-        assert!(messages.len() > 0);
     }
 }
