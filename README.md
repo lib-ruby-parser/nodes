@@ -106,7 +106,7 @@ By default the following filters are available:
 + `| escape_rust_keyword` - appends `_` to a string if it's a Rust keyword
 + `| render_comment: "//", 4` - renders array of strings (like `node.comment`) to a string where each line is prefixed with "//" and has 4 spaces padding (except for the first line, it has no padding)
 
-Custom filters can registered by calling `.with_filter` on a template:
+Custom filters can be registered by calling `.with_filter` on a template:
 
 ```rust
 use liquid_core::{

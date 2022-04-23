@@ -2,10 +2,11 @@
 
 ## FractionAfterNumeric
 
-    Emitted for code
-    ```text
-    1.2.3
-    ```
+ Emitted for code
+
+ ```text
+ 1.2.3
+ ```
 
 Fields:
 
@@ -13,10 +14,11 @@ Fields:
 
 ## NoDigitsAfterDot
 
-    Emitted for code like
-    ```text
-    foo.2
-    ```
+ Emitted for code like
+
+ ```text
+ foo.2
+ ```
 
 Fields:
 
@@ -24,10 +26,11 @@ Fields:
 
 ## UnknownTypeOfPercentString
 
-    Emitted for code like
-    ```text
-    %k[foo]
-    ```
+ Emitted for code like
+
+ ```text
+ %k[foo]
+ ```
 
 Fields:
 
@@ -35,10 +38,11 @@ Fields:
 
 ## NumericLiteralWithoutDigits
 
-    Emitted for code like
-    ```text
-    0b
-    ```
+ Emitted for code like
+
+ ```text
+ 0b
+ ```
 
 Fields:
 
@@ -46,10 +50,11 @@ Fields:
 
 ## UnterminatedList
 
-    Emitted for code like
-    ```text
-    %w[foo bar
-    ```
+ Emitted for code like
+
+ ```text
+ %w[foo bar
+ ```
 
 Fields:
 
@@ -57,10 +62,11 @@ Fields:
 
 ## UnterminatedRegexp
 
-    Emitted for code like
-    ```text
-    /foo
-    ```
+ Emitted for code like
+
+ ```text
+ /foo
+ ```
 
 Fields:
 
@@ -68,10 +74,11 @@ Fields:
 
 ## UnterminatedString
 
-    Emitted for code like
-    ```text
-    "foo
-    ```
+ Emitted for code like
+
+ ```text
+ "foo
+ ```
 
 Fields:
 
@@ -79,12 +86,13 @@ Fields:
 
 ## UnterminatedQuotedString
 
-    Emitted for code like
-    ```text
-    %s
-    //    ^ EOF, not "
-   
-    ```
+ Emitted for code like
+
+ ```text
+ %s
+ //    ^ EOF, not "
+
+ ```
 
 Fields:
 
@@ -92,10 +100,11 @@ Fields:
 
 ## InvalidUnicodeEscape
 
-    Emitted for code like
-    ```text
-    "\ufoo"
-    ```
+ Emitted for code like
+
+ ```text
+ "\ufoo"
+ ```
 
 Fields:
 
@@ -103,10 +112,11 @@ Fields:
 
 ## TooLargeUnicodeCodepoint
 
-    Emitted for code like
-    ```text
-    "\u{999999}"
-    ```
+ Emitted for code like
+
+ ```text
+ "\u{999999}"
+ ```
 
 Fields:
 
@@ -114,10 +124,11 @@ Fields:
 
 ## InvalidUnicodeCodepoint
 
-    Emitted for code like
-    ```text
-    "\u{d800}"
-    ```
+ Emitted for code like
+
+ ```text
+ "\u{d800}"
+ ```
 
 Fields:
 
@@ -125,10 +136,11 @@ Fields:
 
 ## MultipleCodepointAtSingleChar
 
-    Emitted for code like
-    ```text
-    ?\u{41 42}
-    ```
+ Emitted for code like
+
+ ```text
+ ?\u{41 42}
+ ```
 
 Fields:
 
@@ -136,10 +148,11 @@ Fields:
 
 ## InvalidEscapeCharacter
 
-    Emitted for code like
-    ```text
-    "\M-"
-    ```
+ Emitted for code like
+
+ ```text
+ "\M-"
+ ```
 
 Fields:
 
@@ -147,10 +160,11 @@ Fields:
 
 ## InvalidHexEscape
 
-    Emitted for code like
-    ```text
-    "\xZZ"
-    ```
+ Emitted for code like
+
+ ```text
+ "\xZZ"
+ ```
 
 Fields:
 
@@ -158,10 +172,11 @@ Fields:
 
 ## UnterminatedHeredoc
 
-    Emitted for code like
-    ```text
-    <<-HERE
-    ```
+ Emitted for code like
+
+ ```text
+ <<-HERE
+ ```
 
 Fields:
 
@@ -171,10 +186,11 @@ Fields:
 
 ## UnterminatedHeredocId
 
-    Emitted for code like
-    ```text
-    <<-"HERE
-    ```
+ Emitted for code like
+
+ ```text
+ <<-"HERE
+ ```
 
 Fields:
 
@@ -182,10 +198,11 @@ Fields:
 
 ## SlashRAtMiddleOfLine
 
-    Emitted for code like
-    ```text
-    eval("foo \r = 42")
-    ```
+ Emitted for code like
+
+ ```text
+ eval("foo \r = 42")
+ ```
 
 Fields:
 
@@ -193,10 +210,11 @@ Fields:
 
 ## DStarInterpretedAsArgPrefix
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    foo **arg
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ foo **arg
+ ```
 
 Fields:
 
@@ -204,10 +222,11 @@ Fields:
 
 ## StarInterpretedAsArgPrefix
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    foo *arg
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ foo *arg
+ ```
 
 Fields:
 
@@ -215,10 +234,11 @@ Fields:
 
 ## AmpersandInterpretedAsArgPrefix
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    foo &arg
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ foo &arg
+ ```
 
 Fields:
 
@@ -226,10 +246,11 @@ Fields:
 
 ## TripleDotAtEol
 
-    Emitted for code like
-    ```text
-    range = 1...
-    ```
+ Emitted for code like
+
+ ```text
+ range = 1...
+ ```
 
 Fields:
 
@@ -237,10 +258,11 @@ Fields:
 
 ## ParenthesesIterpretedAsArglist
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    def m (a, b, c); end
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ def m (a, b, c); end
+ ```
 
 Fields:
 
@@ -248,10 +270,11 @@ Fields:
 
 ## AmbiguousFirstArgument
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    m +foo
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ m +foo
+ ```
 
 Fields:
 
@@ -261,10 +284,11 @@ Fields:
 
 ## AmbiguousOperator
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    1 *2
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ 1 *2
+ ```
 
 Fields:
 
@@ -277,10 +301,11 @@ Fields:
 
 ## InvalidCharacterSyntax
 
-    Emitted for code like
-    ```text
-    "\M- "
-    ```
+ Emitted for code like
+
+ ```text
+ "\M- "
+ ```
 
 Fields:
 
@@ -290,10 +315,11 @@ Fields:
 
 ## InvalidOctalDigit
 
-    Emitted for code like
-    ```text
-    09
-    ```
+ Emitted for code like
+
+ ```text
+ 09
+ ```
 
 Fields:
 
@@ -301,10 +327,11 @@ Fields:
 
 ## TrailingCharInNumber
 
-    Emitted for code like
-    ```text
-    0_a
-    ```
+ Emitted for code like
+
+ ```text
+ 0_a
+ ```
 
 Fields:
 
@@ -314,10 +341,11 @@ Fields:
 
 ## EmbeddedDocumentMeetsEof
 
-    Emitted for code like
-    ```text
-    =begin
-    ```
+ Emitted for code like
+
+ ```text
+ =begin
+ ```
 
 Fields:
 
@@ -325,10 +353,11 @@ Fields:
 
 ## InvalidChar
 
-    Emitted for code like
-    ```text
-    eval("\x01foo")
-    ```
+ Emitted for code like
+
+ ```text
+ eval("\x01foo")
+ ```
 
 Fields:
 
@@ -338,8 +367,8 @@ Fields:
 
 ## IncompleteCharacterSyntax
 
-    It is unknown how to trigger this error.
-    Code that triggers it in MRI can be dead.
+ It is unknown how to trigger this error.
+ Code that triggers it in MRI can be dead.
 
 Fields:
 
@@ -347,10 +376,11 @@ Fields:
 
 ## GvarWithoutId
 
-    Emitted for code like
-    ```text
-    $
-    ```
+ Emitted for code like
+
+ ```text
+ $
+ ```
 
 Fields:
 
@@ -358,10 +388,11 @@ Fields:
 
 ## InvalidGvarName
 
-    Emitted for code like
-    ```text
-    $@
-    ```
+ Emitted for code like
+
+ ```text
+ $@
+ ```
 
 Fields:
 
@@ -371,10 +402,11 @@ Fields:
 
 ## IvarWithoutId
 
-    Emitted for code like
-    ```text
-    @
-    ```
+ Emitted for code like
+
+ ```text
+ @
+ ```
 
 Fields:
 
@@ -382,10 +414,11 @@ Fields:
 
 ## InvalidIvarName
 
-    Emitted for code like
-    ```text
-    @1
-    ```
+ Emitted for code like
+
+ ```text
+ @1
+ ```
 
 Fields:
 
@@ -395,10 +428,11 @@ Fields:
 
 ## CvarWithoutId
 
-    Emitted for code like
-    ```text
-    @@
-    ```
+ Emitted for code like
+
+ ```text
+ @@
+ ```
 
 Fields:
 
@@ -406,10 +440,11 @@ Fields:
 
 ## InvalidCvarName
 
-    Emitted for code like
-    ```text
-    @@1
-    ```
+ Emitted for code like
+
+ ```text
+ @@1
+ ```
 
 Fields:
 
@@ -419,10 +454,11 @@ Fields:
 
 ## UnknownRegexOptions
 
-    Emitted for code like
-    ```text
-    /re/foo
-    ```
+ Emitted for code like
+
+ ```text
+ /re/foo
+ ```
 
 Fields:
 
@@ -432,10 +468,11 @@ Fields:
 
 ## UnterminatedUnicodeEscape
 
-    Emitted for code like
-    ```text
-    "\u{1234"
-    ```
+ Emitted for code like
+
+ ```text
+ "\u{1234"
+ ```
 
 Fields:
 
@@ -443,10 +480,11 @@ Fields:
 
 ## EncodingError
 
-    Emitted for code like
-    ```text
-    # encoding: foo
-    ```
+ Emitted for code like
+
+ ```text
+ # encoding: foo
+ ```
 
 Fields:
 
@@ -456,10 +494,11 @@ Fields:
 
 ## InvalidMultibyteChar
 
-    Emitter for code like
-    ```text
-    eval("\xFF = 42")
-    ```
+ Emitter for code like
+
+ ```text
+ eval("\xFF = 42")
+ ```
 
 Fields:
 
@@ -467,10 +506,11 @@ Fields:
 
 ## AmbiguousTernaryOperator
 
-    Emitted for code like
-    ```text
-    a ?AA : 2
-    ```
+ Emitted for code like
+
+ ```text
+ a ?AA : 2
+ ```
 
 Fields:
 
@@ -480,10 +520,11 @@ Fields:
 
 ## AmbiguousRegexp
 
-    Emitted for code like
-    ```text
-    m /foo/
-    ```
+ Emitted for code like
+
+ ```text
+ m /foo/
+ ```
 
 Fields:
 
@@ -491,10 +532,11 @@ Fields:
 
 ## ElseWithoutRescue
 
-    Emitted for code like
-    ```text
-    begin; else; end
-    ```
+ Emitted for code like
+
+ ```text
+ begin; else; end
+ ```
 
 Fields:
 
@@ -502,10 +544,11 @@ Fields:
 
 ## BeginNotAtTopLevel
 
-    Emitted for code like
-    ```text
-    def f; BEGIN{}; end
-    ```
+ Emitted for code like
+
+ ```text
+ def f; BEGIN{}; end
+ ```
 
 Fields:
 
@@ -513,10 +556,11 @@ Fields:
 
 ## AliasNthRef
 
-    Emitted for code like
-    ```text
-    alias $a $1
-    ```
+ Emitted for code like
+
+ ```text
+ alias $a $1
+ ```
 
 Fields:
 
@@ -524,10 +568,11 @@ Fields:
 
 ## CsendInsideMasgn
 
-    Emitted for code like
-    ```text
-    *a&.x = 0
-    ```
+ Emitted for code like
+
+ ```text
+ *a&.x = 0
+ ```
 
 Fields:
 
@@ -535,10 +580,11 @@ Fields:
 
 ## ClassOrModuleNameMustBeConstant
 
-    Emitted for code like
-    ```text
-    module foo; end
-    ```
+ Emitted for code like
+
+ ```text
+ module foo; end
+ ```
 
 Fields:
 
@@ -546,10 +592,11 @@ Fields:
 
 ## EndlessSetterDefinition
 
-    Emitted for code like
-    ```text
-    def foo=() = 42
-    ```
+ Emitted for code like
+
+ ```text
+ def foo=() = 42
+ ```
 
 Fields:
 
@@ -557,7 +604,7 @@ Fields:
 
 ## UnexpectedToken
 
-    Emitted for any code that produces invalid sequence of tokens
+ Emitted for any code that produces invalid sequence of tokens
 
 Fields:
 
@@ -567,10 +614,11 @@ Fields:
 
 ## ClassDefinitionInMethodBody
 
-    Emitted for code like
-    ```text
-    def a; class Foo; end; end
-    ```
+ Emitted for code like
+
+ ```text
+ def a; class Foo; end; end
+ ```
 
 Fields:
 
@@ -578,10 +626,11 @@ Fields:
 
 ## ModuleDefinitionInMethodBody
 
-    Emitted for code like
-    ```text
-    def a; module Foo; end; end
-    ```
+ Emitted for code like
+
+ ```text
+ def a; module Foo; end; end
+ ```
 
 Fields:
 
@@ -589,10 +638,11 @@ Fields:
 
 ## InvalidReturnInClassOrModuleBody
 
-    Emitted for code like
-    ```text
-    class A; return; end
-    ```
+ Emitted for code like
+
+ ```text
+ class A; return; end
+ ```
 
 Fields:
 
@@ -600,10 +650,11 @@ Fields:
 
 ## ConstArgument
 
-    Emitted for code like
-    ```text
-    def foo(Abc); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo(Abc); end
+ ```
 
 Fields:
 
@@ -611,10 +662,11 @@ Fields:
 
 ## IvarArgument
 
-    Emitted for code like
-    ```text
-    def foo(@abc); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo(@abc); end
+ ```
 
 Fields:
 
@@ -622,10 +674,11 @@ Fields:
 
 ## GvarArgument
 
-    Emitted for code like
-    ```text
-    def foo($abc); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo($abc); end
+ ```
 
 Fields:
 
@@ -633,10 +686,11 @@ Fields:
 
 ## CvarArgument
 
-    Emitted for code like
-    ```text
-    def foo(@@abc); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo(@@abc); end
+ ```
 
 Fields:
 
@@ -644,10 +698,11 @@ Fields:
 
 ## NoSuchLocalVariable
 
-    Emitted for code like
-    ```text
-    case 0; in ^a; true; end
-    ```
+ Emitted for code like
+
+ ```text
+ case 0; in ^a; true; end
+ ```
 
 Fields:
 
@@ -657,10 +712,11 @@ Fields:
 
 ## OrdinaryParamDefined
 
-    Emitted for code like
-    ```text
-    m { |a| _1 }
-    ```
+ Emitted for code like
+
+ ```text
+ m { |a| _1 }
+ ```
 
 Fields:
 
@@ -668,10 +724,11 @@ Fields:
 
 ## NumparamUsed
 
-    Emitted for code like
-    ```text
-    foo { _1; bar { _2 }; }
-    ```
+ Emitted for code like
+
+ ```text
+ foo { _1; bar { _2 }; }
+ ```
 
 Fields:
 
@@ -679,12 +736,13 @@ Fields:
 
 ## TokAtEolWithoutExpression
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    if
-    42
-    end
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ if
+ 42
+ end
+ ```
 
 Fields:
 
@@ -694,12 +752,13 @@ Fields:
 
 ## InvalidIdToGet
 
-    Emitted for code like
-    ```text
-    { foo?: }
-    # or
-    { foo!: }
-    ```
+ Emitted for code like
+
+ ```text
+ { foo?: }
+ # or
+ { foo!: }
+ ```
 
 Fields:
 
@@ -709,11 +768,12 @@ Fields:
 
 ## ForwardArgAfterRestarg
 
-    Emitted for code like
-    ```text
-    def foo *rest, ...
-    end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo *rest, ...
+ end
+ ```
 
 Fields:
 
@@ -721,10 +781,11 @@ Fields:
 
 ## NoAnonymousBlockarg
 
-    Emitted for code like
-    ```text
-    def foo(); bar(&); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo(); bar(&); end
+ ```
 
 Fields:
 
@@ -732,10 +793,11 @@ Fields:
 
 ## EndInMethod
 
-    Emitted for code like
-    ```text
-    def m; END {}; end
-    ```
+ Emitted for code like
+
+ ```text
+ def m; END {}; end
+ ```
 
 Fields:
 
@@ -743,10 +805,11 @@ Fields:
 
 ## ComparisonAfterComparison
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    a < b < c
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ a < b < c
+ ```
 
 Fields:
 
@@ -756,10 +819,11 @@ Fields:
 
 ## DuplicateHashKey
 
-    Emitted for code like
-    ```text
-    { 42 => value, 42 => another_value }
-    ```
+ Emitted for code like
+
+ ```text
+ { 42 => value, 42 => another_value }
+ ```
 
 Fields:
 
@@ -767,10 +831,11 @@ Fields:
 
 ## CircularArgumentReference
 
-    Emitted for code like
-    ```text
-    def m(foo = foo) end
-    ```
+ Emitted for code like
+
+ ```text
+ def m(foo = foo) end
+ ```
 
 Fields:
 
@@ -780,10 +845,11 @@ Fields:
 
 ## DynamicConstantAssignment
 
-    Emitted for code like
-    ```text
-    def m; FOO = 1; end
-    ```
+ Emitted for code like
+
+ ```text
+ def m; FOO = 1; end
+ ```
 
 Fields:
 
@@ -791,10 +857,11 @@ Fields:
 
 ## CantAssignToSelf
 
-    Emitted for code like
-    ```text
-    self = foo
-    ```
+ Emitted for code like
+
+ ```text
+ self = foo
+ ```
 
 Fields:
 
@@ -802,10 +869,11 @@ Fields:
 
 ## CantAssignToNil
 
-    Emitted for code like
-    ```text
-    nil = foo
-    ```
+ Emitted for code like
+
+ ```text
+ nil = foo
+ ```
 
 Fields:
 
@@ -813,10 +881,11 @@ Fields:
 
 ## CantAssignToTrue
 
-    Emitted for code like
-    ```text
-    true = foo
-    ```
+ Emitted for code like
+
+ ```text
+ true = foo
+ ```
 
 Fields:
 
@@ -824,10 +893,11 @@ Fields:
 
 ## CantAssignToFalse
 
-    Emitted for code like
-    ```text
-    false = foo
-    ```
+ Emitted for code like
+
+ ```text
+ false = foo
+ ```
 
 Fields:
 
@@ -835,10 +905,11 @@ Fields:
 
 ## CantAssignToFile
 
-    Emitted for code like
-    ```text
-    __FILE__ = foo
-    ```
+ Emitted for code like
+
+ ```text
+ __FILE__ = foo
+ ```
 
 Fields:
 
@@ -846,10 +917,11 @@ Fields:
 
 ## CantAssignToLine
 
-    Emitted for code like
-    ```text
-    __LINE__ = foo
-    ```
+ Emitted for code like
+
+ ```text
+ __LINE__ = foo
+ ```
 
 Fields:
 
@@ -857,10 +929,11 @@ Fields:
 
 ## CantAssignToEncoding
 
-    Emitted for code like
-    ```text
-    __ENCODING__ = foo
-    ```
+ Emitted for code like
+
+ ```text
+ __ENCODING__ = foo
+ ```
 
 Fields:
 
@@ -868,10 +941,11 @@ Fields:
 
 ## CantAssignToNumparam
 
-    Emitted for code like
-    ```text
-    proc {_1; _1 = nil}
-    ```
+ Emitted for code like
+
+ ```text
+ proc {_1; _1 = nil}
+ ```
 
 Fields:
 
@@ -881,10 +955,11 @@ Fields:
 
 ## CantSetVariable
 
-    Emitted for code like
-    ```text
-    $1 = foo
-    ```
+ Emitted for code like
+
+ ```text
+ $1 = foo
+ ```
 
 Fields:
 
@@ -894,10 +969,11 @@ Fields:
 
 ## BlockGivenToYield
 
-    Emitted for code like
-    ```text
-    yield(&foo)
-    ```
+ Emitted for code like
+
+ ```text
+ yield(&foo)
+ ```
 
 Fields:
 
@@ -905,10 +981,11 @@ Fields:
 
 ## BlockAndBlockArgGiven
 
-    Emitted for code like
-    ```text
-    fun(&bar) do end
-    ```
+ Emitted for code like
+
+ ```text
+ fun(&bar) do end
+ ```
 
 Fields:
 
@@ -916,10 +993,11 @@ Fields:
 
 ## SymbolLiteralWithInterpolation
 
-    Emitted for code like
-    ```text
-    case a; in "#{a}": 1; end
-    ```
+ Emitted for code like
+
+ ```text
+ case a; in "#{a}": 1; end
+ ```
 
 Fields:
 
@@ -927,10 +1005,11 @@ Fields:
 
 ## ReservedForNumparam
 
-    Emitted for code like
-    ```text
-    _1 = 1
-    ```
+ Emitted for code like
+
+ ```text
+ _1 = 1
+ ```
 
 Fields:
 
@@ -940,10 +1019,11 @@ Fields:
 
 ## KeyMustBeValidAsLocalVariable
 
-    Emitted for code like
-    ```text
-    case a; in a?:; end
-    ```
+ Emitted for code like
+
+ ```text
+ case a; in a?:; end
+ ```
 
 Fields:
 
@@ -951,10 +1031,11 @@ Fields:
 
 ## DuplicateVariableName
 
-    Emitted for code like
-    ```text
-    case 0; in a, a; end
-    ```
+ Emitted for code like
+
+ ```text
+ case 0; in a, a; end
+ ```
 
 Fields:
 
@@ -962,10 +1043,11 @@ Fields:
 
 ## DuplicateKeyName
 
-    Emitted for code like
-    ```text
-    case 0; in a: 1, a: 2; end
-    ```
+ Emitted for code like
+
+ ```text
+ case 0; in a: 1, a: 2; end
+ ```
 
 Fields:
 
@@ -973,10 +1055,11 @@ Fields:
 
 ## SingletonLiteral
 
-    Emitted for code like
-    ```text
-    def (1).foo; end
-    ```
+ Emitted for code like
+
+ ```text
+ def (1).foo; end
+ ```
 
 Fields:
 
@@ -984,10 +1067,11 @@ Fields:
 
 ## NthRefIsTooBig
 
-    Emitted for code like (only in $VERBOSE mode)
-    ```text
-    $100
-    ```
+ Emitted for code like (only in $VERBOSE mode)
+
+ ```text
+ $100
+ ```
 
 Fields:
 
@@ -997,10 +1081,11 @@ Fields:
 
 ## DuplicatedArgumentName
 
-    Emitted for code like
-    ```text
-    def foo(aa, aa); end
-    ```
+ Emitted for code like
+
+ ```text
+ def foo(aa, aa); end
+ ```
 
 Fields:
 
@@ -1008,10 +1093,11 @@ Fields:
 
 ## RegexError
 
-    Emitted for code like
-    ```text
-    /[/
-    ```
+ Emitted for code like
+
+ ```text
+ /[/
+ ```
 
 Fields:
 
@@ -1021,10 +1107,11 @@ Fields:
 
 ## InvalidSymbol
 
-    Emitted for code like
-    ```text
-    %I"x .\xc3."
-    ```
+ Emitted for code like
+
+ ```text
+ %I"x .\xc3."
+ ```
 
 Fields:
 
@@ -1034,10 +1121,11 @@ Fields:
 
 ## VoidValueExpression
 
-    Emitted for code like
-    ```text
-    a = return
-    ```
+ Emitted for code like
+
+ ```text
+ a = return
+ ```
 
 Fields:
 

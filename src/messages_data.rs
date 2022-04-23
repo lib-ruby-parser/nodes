@@ -6,43 +6,44 @@ use crate::{Message, MessageField, MessageFieldType};
 static FractionAfterNumeric: Message = Message {
     camelcase_name: "FractionAfterNumeric",
     fields: &[],
-    comment: &["Emitted for code", "```text", "1.2.3", "```"],
+    comment: &["Emitted for code", "", "```text", "1.2.3", "```"],
 };
 static NoDigitsAfterDot: Message = Message {
     camelcase_name: "NoDigitsAfterDot",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "foo.2", "```"],
+    comment: &["Emitted for code like", "", "```text", "foo.2", "```"],
 };
 static UnknownTypeOfPercentString: Message = Message {
     camelcase_name: "UnknownTypeOfPercentString",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "%k[foo]", "```"],
+    comment: &["Emitted for code like", "", "```text", "%k[foo]", "```"],
 };
 static NumericLiteralWithoutDigits: Message = Message {
     camelcase_name: "NumericLiteralWithoutDigits",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "0b", "```"],
+    comment: &["Emitted for code like", "", "```text", "0b", "```"],
 };
 static UnterminatedList: Message = Message {
     camelcase_name: "UnterminatedList",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "%w[foo bar", "```"],
+    comment: &["Emitted for code like", "", "```text", "%w[foo bar", "```"],
 };
 static UnterminatedRegexp: Message = Message {
     camelcase_name: "UnterminatedRegexp",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "/foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "/foo", "```"],
 };
 static UnterminatedString: Message = Message {
     camelcase_name: "UnterminatedString",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "\"foo", "```"],
 };
 static UnterminatedQuotedString: Message = Message {
     camelcase_name: "UnterminatedQuotedString",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "%s",
         "//    ^ EOF, not \"",
@@ -53,32 +54,50 @@ static UnterminatedQuotedString: Message = Message {
 static InvalidUnicodeEscape: Message = Message {
     camelcase_name: "InvalidUnicodeEscape",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\ufoo\"", "```"],
+    comment: &["Emitted for code like", "", "```text", "\"\\ufoo\"", "```"],
 };
 static TooLargeUnicodeCodepoint: Message = Message {
     camelcase_name: "TooLargeUnicodeCodepoint",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\u{999999}\"", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "\"\\u{999999}\"",
+        "```",
+    ],
 };
 static InvalidUnicodeCodepoint: Message = Message {
     camelcase_name: "InvalidUnicodeCodepoint",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\u{d800}\"", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "\"\\u{d800}\"",
+        "```",
+    ],
 };
 static MultipleCodepointAtSingleChar: Message = Message {
     camelcase_name: "MultipleCodepointAtSingleChar",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "?\\u{41 42}", "```"],
+    comment: &["Emitted for code like", "", "```text", "?\\u{41 42}", "```"],
 };
 static InvalidEscapeCharacter: Message = Message {
     camelcase_name: "InvalidEscapeCharacter",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\M-\u{1}\"", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "\"\\M-\u{1}\"",
+        "```",
+    ],
 };
 static InvalidHexEscape: Message = Message {
     camelcase_name: "InvalidHexEscape",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\xZZ\"", "```"],
+    comment: &["Emitted for code like", "", "```text", "\"\\xZZ\"", "```"],
 };
 static UnterminatedHeredoc: Message = Message {
     camelcase_name: "UnterminatedHeredoc",
@@ -87,18 +106,19 @@ static UnterminatedHeredoc: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Heredoc identifier"],
     }],
-    comment: &["Emitted for code like", "```text", "<<-HERE", "```"],
+    comment: &["Emitted for code like", "", "```text", "<<-HERE", "```"],
 };
 static UnterminatedHeredocId: Message = Message {
     camelcase_name: "UnterminatedHeredocId",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "<<-\"HERE", "```"],
+    comment: &["Emitted for code like", "", "```text", "<<-\"HERE", "```"],
 };
 static SlashRAtMiddleOfLine: Message = Message {
     camelcase_name: "SlashRAtMiddleOfLine",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "eval(\"foo \\r = 42\")",
         "```",
@@ -109,6 +129,7 @@ static DStarInterpretedAsArgPrefix: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "foo **arg",
         "```",
@@ -119,6 +140,7 @@ static StarInterpretedAsArgPrefix: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "foo *arg",
         "```",
@@ -129,6 +151,7 @@ static AmpersandInterpretedAsArgPrefix: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "foo &arg",
         "```",
@@ -137,13 +160,20 @@ static AmpersandInterpretedAsArgPrefix: Message = Message {
 static TripleDotAtEol: Message = Message {
     camelcase_name: "TripleDotAtEol",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "range = 1...", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "range = 1...",
+        "```",
+    ],
 };
 static ParenthesesIterpretedAsArglist: Message = Message {
     camelcase_name: "ParenthesesIterpretedAsArglist",
     fields: &[],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "def m (a, b, c); end",
         "```",
@@ -158,6 +188,7 @@ static AmbiguousFirstArgument: Message = Message {
     }],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "m +foo",
         "```",
@@ -179,6 +210,7 @@ static AmbiguousOperator: Message = Message {
     ],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "1 *2",
         "```",
@@ -191,12 +223,12 @@ static InvalidCharacterSyntax: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Valid syntax sugestions"],
     }],
-    comment: &["Emitted for code like", "```text", "\"\\M- \"", "```"],
+    comment: &["Emitted for code like", "", "```text", "\"\\M- \"", "```"],
 };
 static InvalidOctalDigit: Message = Message {
     camelcase_name: "InvalidOctalDigit",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "09", "```"],
+    comment: &["Emitted for code like", "", "```text", "09", "```"],
 };
 static TrailingCharInNumber: Message = Message {
     camelcase_name: "TrailingCharInNumber",
@@ -205,12 +237,12 @@ static TrailingCharInNumber: Message = Message {
         field_type: MessageFieldType::Byte,
         comment: &["Invalid trailing char"],
     }],
-    comment: &["Emitted for code like", "```text", "0_a", "```"],
+    comment: &["Emitted for code like", "", "```text", "0_a", "```"],
 };
 static EmbeddedDocumentMeetsEof: Message = Message {
     camelcase_name: "EmbeddedDocumentMeetsEof",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "=begin", "```"],
+    comment: &["Emitted for code like", "", "```text", "=begin", "```"],
 };
 static InvalidChar: Message = Message {
     camelcase_name: "InvalidChar",
@@ -221,6 +253,7 @@ static InvalidChar: Message = Message {
     }],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "eval(\"\\x01foo\")",
         "```",
@@ -237,7 +270,7 @@ static IncompleteCharacterSyntax: Message = Message {
 static GvarWithoutId: Message = Message {
     camelcase_name: "GvarWithoutId",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "$", "```"],
+    comment: &["Emitted for code like", "", "```text", "$", "```"],
 };
 static InvalidGvarName: Message = Message {
     camelcase_name: "InvalidGvarName",
@@ -246,12 +279,12 @@ static InvalidGvarName: Message = Message {
         field_type: MessageFieldType::Byte,
         comment: &["char after `$`"],
     }],
-    comment: &["Emitted for code like", "```text", "$@", "```"],
+    comment: &["Emitted for code like", "", "```text", "$@", "```"],
 };
 static IvarWithoutId: Message = Message {
     camelcase_name: "IvarWithoutId",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "@", "```"],
+    comment: &["Emitted for code like", "", "```text", "@", "```"],
 };
 static InvalidIvarName: Message = Message {
     camelcase_name: "InvalidIvarName",
@@ -260,12 +293,12 @@ static InvalidIvarName: Message = Message {
         field_type: MessageFieldType::Byte,
         comment: &["char after `@`"],
     }],
-    comment: &["Emitted for code like", "```text", "@1", "```"],
+    comment: &["Emitted for code like", "", "```text", "@1", "```"],
 };
 static CvarWithoutId: Message = Message {
     camelcase_name: "CvarWithoutId",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "@@", "```"],
+    comment: &["Emitted for code like", "", "```text", "@@", "```"],
 };
 static InvalidCvarName: Message = Message {
     camelcase_name: "InvalidCvarName",
@@ -274,7 +307,7 @@ static InvalidCvarName: Message = Message {
         field_type: MessageFieldType::Byte,
         comment: &["char after `@@`"],
     }],
-    comment: &["Emitted for code like", "```text", "@@1", "```"],
+    comment: &["Emitted for code like", "", "```text", "@@1", "```"],
 };
 static UnknownRegexOptions: Message = Message {
     camelcase_name: "UnknownRegexOptions",
@@ -283,12 +316,18 @@ static UnknownRegexOptions: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Concatenated unknown options"],
     }],
-    comment: &["Emitted for code like", "```text", "/re/foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "/re/foo", "```"],
 };
 static UnterminatedUnicodeEscape: Message = Message {
     camelcase_name: "UnterminatedUnicodeEscape",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "\"\\u{1234\"", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "\"\\u{1234\"",
+        "```",
+    ],
 };
 static EncodingError: Message = Message {
     camelcase_name: "EncodingError",
@@ -297,13 +336,20 @@ static EncodingError: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Error from decoder"],
     }],
-    comment: &["Emitted for code like", "```text", "# encoding: foo", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "# encoding: foo",
+        "```",
+    ],
 };
 static InvalidMultibyteChar: Message = Message {
     camelcase_name: "InvalidMultibyteChar",
     fields: &[],
     comment: &[
         "Emitter for code like",
+        "",
         "```text",
         "eval(\"\\xFF = 42\")",
         "```",
@@ -320,12 +366,12 @@ static AmbiguousTernaryOperator: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Source of the condition expression"],
     }],
-    comment: &["Emitted for code like", "```text", "a ?AA : 2", "```"],
+    comment: &["Emitted for code like", "", "```text", "a ?AA : 2", "```"],
 };
 static AmbiguousRegexp: Message = Message {
     camelcase_name: "AmbiguousRegexp",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "m /foo/", "```"],
+    comment: &["Emitted for code like", "", "```text", "m /foo/", "```"],
 };
 //
 // Parser errors
@@ -335,6 +381,7 @@ static ElseWithoutRescue: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "begin; else; end",
         "```",
@@ -345,6 +392,7 @@ static BeginNotAtTopLevel: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def f; BEGIN{}; end",
         "```",
@@ -353,22 +401,34 @@ static BeginNotAtTopLevel: Message = Message {
 static AliasNthRef: Message = Message {
     camelcase_name: "AliasNthRef",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "alias $a $1", "```"],
+    comment: &["Emitted for code like", "", "```text", "alias $a $1", "```"],
 };
 static CsendInsideMasgn: Message = Message {
     camelcase_name: "CsendInsideMasgn",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "*a&.x = 0", "```"],
+    comment: &["Emitted for code like", "", "```text", "*a&.x = 0", "```"],
 };
 static ClassOrModuleNameMustBeConstant: Message = Message {
     camelcase_name: "ClassOrModuleNameMustBeConstant",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "module foo; end", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "module foo; end",
+        "```",
+    ],
 };
 static EndlessSetterDefinition: Message = Message {
     camelcase_name: "EndlessSetterDefinition",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "def foo=() = 42", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "def foo=() = 42",
+        "```",
+    ],
 };
 static UnexpectedToken: Message = Message {
     camelcase_name: "UnexpectedToken",
@@ -384,6 +444,7 @@ static ClassDefinitionInMethodBody: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def a; class Foo; end; end",
         "```",
@@ -394,6 +455,7 @@ static ModuleDefinitionInMethodBody: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def a; module Foo; end; end",
         "```",
@@ -404,6 +466,7 @@ static InvalidReturnInClassOrModuleBody: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "class A; return; end",
         "```",
@@ -414,6 +477,7 @@ static ConstArgument: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo(Abc); end",
         "```",
@@ -424,6 +488,7 @@ static IvarArgument: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo(@abc); end",
         "```",
@@ -434,6 +499,7 @@ static GvarArgument: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo($abc); end",
         "```",
@@ -444,6 +510,7 @@ static CvarArgument: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo(@@abc); end",
         "```",
@@ -458,6 +525,7 @@ static NoSuchLocalVariable: Message = Message {
     }],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "case 0; in ^a; true; end",
         "```",
@@ -466,13 +534,20 @@ static NoSuchLocalVariable: Message = Message {
 static OrdinaryParamDefined: Message = Message {
     camelcase_name: "OrdinaryParamDefined",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "m { |a| _1 }", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "m { |a| _1 }",
+        "```",
+    ],
 };
 static NumparamUsed: Message = Message {
     camelcase_name: "NumparamUsed",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "foo { _1; bar { _2 }; }",
         "```",
@@ -487,6 +562,7 @@ static TokAtEolWithoutExpression: Message = Message {
     }],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "if",
         "42",
@@ -503,6 +579,7 @@ static InvalidIdToGet: Message = Message {
     }],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "{ foo?: }",
         "# or",
@@ -515,6 +592,7 @@ static ForwardArgAfterRestarg: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo *rest, ...",
         "end",
@@ -526,6 +604,7 @@ static NoAnonymousBlockarg: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo(); bar(&); end",
         "```",
@@ -540,6 +619,7 @@ static EndInMethod: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def m; END {}; end",
         "```",
@@ -554,6 +634,7 @@ static ComparisonAfterComparison: Message = Message {
     }],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "a < b < c",
         "```",
@@ -564,6 +645,7 @@ static DuplicateHashKey: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "{ 42 => value, 42 => another_value }",
         "```",
@@ -582,6 +664,7 @@ static CircularArgumentReference: Message = Message {
     }],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def m(foo = foo) end",
         "```",
@@ -592,6 +675,7 @@ static DynamicConstantAssignment: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def m; FOO = 1; end",
         "```",
@@ -600,38 +684,51 @@ static DynamicConstantAssignment: Message = Message {
 static CantAssignToSelf: Message = Message {
     camelcase_name: "CantAssignToSelf",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "self = foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "self = foo", "```"],
 };
 static CantAssignToNil: Message = Message {
     camelcase_name: "CantAssignToNil",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "nil = foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "nil = foo", "```"],
 };
 static CantAssignToTrue: Message = Message {
     camelcase_name: "CantAssignToTrue",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "true = foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "true = foo", "```"],
 };
 static CantAssignToFalse: Message = Message {
     camelcase_name: "CantAssignToFalse",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "false = foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "false = foo", "```"],
 };
 static CantAssignToFile: Message = Message {
     camelcase_name: "CantAssignToFile",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "__FILE__ = foo", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "__FILE__ = foo",
+        "```",
+    ],
 };
 static CantAssignToLine: Message = Message {
     camelcase_name: "CantAssignToLine",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "__LINE__ = foo", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "__LINE__ = foo",
+        "```",
+    ],
 };
 static CantAssignToEncoding: Message = Message {
     camelcase_name: "CantAssignToEncoding",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "__ENCODING__ = foo",
         "```",
@@ -646,6 +743,7 @@ static CantAssignToNumparam: Message = Message {
     }],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "proc {_1; _1 = nil}",
         "```",
@@ -658,18 +756,19 @@ static CantSetVariable: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Source of the read-only variable that is assigned"],
     }],
-    comment: &["Emitted for code like", "```text", "$1 = foo", "```"],
+    comment: &["Emitted for code like", "", "```text", "$1 = foo", "```"],
 };
 static BlockGivenToYield: Message = Message {
     camelcase_name: "BlockGivenToYield",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "yield(&foo)", "```"],
+    comment: &["Emitted for code like", "", "```text", "yield(&foo)", "```"],
 };
 static BlockAndBlockArgGiven: Message = Message {
     camelcase_name: "BlockAndBlockArgGiven",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "fun(&bar) do end",
         "```",
@@ -680,6 +779,7 @@ static SymbolLiteralWithInterpolation: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "case a; in \"#{a}\": 1; end",
         "```",
@@ -692,13 +792,14 @@ static ReservedForNumparam: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Numbered parameter that is treated as a local variable"],
     }],
-    comment: &["Emitted for code like", "```text", "_1 = 1", "```"],
+    comment: &["Emitted for code like", "", "```text", "_1 = 1", "```"],
 };
 static KeyMustBeValidAsLocalVariable: Message = Message {
     camelcase_name: "KeyMustBeValidAsLocalVariable",
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "case a; in a?:; end",
         "```",
@@ -709,6 +810,7 @@ static DuplicateVariableName: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "case 0; in a, a; end",
         "```",
@@ -719,6 +821,7 @@ static DuplicateKeyName: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "case 0; in a: 1, a: 2; end",
         "```",
@@ -729,6 +832,7 @@ static SingletonLiteral: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def (1).foo; end",
         "```",
@@ -743,6 +847,7 @@ static NthRefIsTooBig: Message = Message {
     }],
     comment: &[
         "Emitted for code like (only in $VERBOSE mode)",
+        "",
         "```text",
         "$100",
         "```",
@@ -753,6 +858,7 @@ static DuplicatedArgumentName: Message = Message {
     fields: &[],
     comment: &[
         "Emitted for code like",
+        "",
         "```text",
         "def foo(aa, aa); end",
         "```",
@@ -765,7 +871,7 @@ static RegexError: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Error from Onigurama engine"],
     }],
-    comment: &["Emitted for code like", "```text", "/[/", "```"],
+    comment: &["Emitted for code like", "", "```text", "/[/", "```"],
 };
 static InvalidSymbol: Message = Message {
     camelcase_name: "InvalidSymbol",
@@ -774,12 +880,18 @@ static InvalidSymbol: Message = Message {
         field_type: MessageFieldType::Str,
         comment: &["Source of the symbol"],
     }],
-    comment: &["Emitted for code like", "```text", "%I\"x .\\xc3.\"", "```"],
+    comment: &[
+        "Emitted for code like",
+        "",
+        "```text",
+        "%I\"x .\\xc3.\"",
+        "```",
+    ],
 };
 static VoidValueExpression: Message = Message {
     camelcase_name: "VoidValueExpression",
     fields: &[],
-    comment: &["Emitted for code like", "```text", "a = return", "```"],
+    comment: &["Emitted for code like", "", "```text", "a = return", "```"],
 };
 
 pub static ALL_MESSAGES: &[&Message] = &[

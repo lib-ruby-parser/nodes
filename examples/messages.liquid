@@ -3,7 +3,7 @@
 {% for message in messages -%}
 ## {{ message.camelcase_name }}
 
-   {{ message.comment | render_comment: "", 3 }}
+{{ message.comment | render_comment: "", 0 }}
 
 Fields:
 
