@@ -76,3 +76,18 @@ fn test_escape_c_keyword() {
     assert_eq!(escape_c_keyword("foo"), "foo");
     assert_eq!(escape_c_keyword("default"), "default_");
 }
+
+pub fn escape_cpp_keyword(s: &str) -> String {
+    match s {
+        "default" | "operator" | "else" | "const" | "and" | "break" | "case" | "class"
+        | "false" | "float" | "for" | "if" | "int" | "or" | "return" | "true" | "while"
+        | "ERANGE" => format!("{}_", s),
+        _ => s.to_string(),
+    }
+}
+
+#[test]
+fn test_escape_cpp_keyword() {
+    assert_eq!(escape_cpp_keyword("foo"), "foo");
+    assert_eq!(escape_cpp_keyword("default"), "default_");
+}

@@ -13,6 +13,9 @@ pub use escape_rust_keyword::EscapeRustKeyword;
 mod escape_c_keyword;
 pub use escape_c_keyword::EscapeCKeyword;
 
+mod escape_cpp_keyword;
+pub use escape_cpp_keyword::EscapeCppKeyword;
+
 pub fn invalid_input<S>(cause: S) -> liquid_core::Error
 where
     S: Into<liquid_core::model::KString>,
@@ -27,5 +30,6 @@ pub(crate) fn all() -> Vec<Box<dyn liquid_core::parser::ParseFilter>> {
         crate::filters::SnakecaseToCamelcase.into(),
         crate::filters::EscapeRustKeyword.into(),
         crate::filters::EscapeCKeyword.into(),
+        crate::filters::EscapeCppKeyword.into(),
     ]
 }

@@ -103,6 +103,7 @@ By default the following filters are available:
 + `| camelcase_to_snakecase` - converts `FooBar` string to `foo_bar`
 + `| snakecase_to_camelcase` - converts `foo_bar` string to `FooBar`
 + `| escape_c_keyword` - appends `_` to a string if it's a C keyword
++ `| escape_cpp_keyword` - appends `_` to a string if it's a C++ keyword
 + `| escape_rust_keyword` - appends `_` to a string if it's a Rust keyword
 + `| render_comment: "//", 4` - renders array of strings (like `node.comment`) to a string where each line is prefixed with "//" and has 4 spaces padding (except for the first line, it has no padding)
 
