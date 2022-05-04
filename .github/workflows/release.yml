@@ -17,9 +17,9 @@ jobs:
       fail-fast: false
       matrix:
         build:
-          - { os: ubuntu-latest, target: x86_64-unknown-linux-gnu }
-          - { os: macos-latest, target: x86_64-apple-darwin }
-          - { os: windows-latest, target: x86_64-pc-windows-msvc }
+          - { os: ubuntu-latest,  exe: ,     target: x86_64-unknown-linux-gnu }
+          - { os: macos-latest,   exe: ,     target: x86_64-apple-darwin      }
+          - { os: windows-latest, exe: .exe, target: x86_64-pc-windows-msvc   }
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -36,13 +36,13 @@ jobs:
         run: cargo build --example codegen --release
 
       - name: give executable representable name
-        run: cp target/release/examples/codegen ./codegen-${{ matrix.build.target }}
+        run: cp target/release/examples/codegen${{ matrix.build.exe }} ./codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
 
       - name: upload executable
         uses: actions/upload-artifact@v2
         with:
-          name: codegen-${{ matrix.build.target }}
-          path: codegen-${{ matrix.build.target }}
+          name: codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
+          path: codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
 
   make-release:
     name: release
@@ -59,7 +59,7 @@ jobs:
         with: { name: codegen-x86_64-apple-darwin }
 
       - uses: actions/download-artifact@v2
-        with: { name: codegen-x86_64-pc-windows-msvc }
+        with: { name: codegen-x86_64-pc-windows-msvc.exe }
 
       - name: release
         uses: ncipollo/release-action@v1
