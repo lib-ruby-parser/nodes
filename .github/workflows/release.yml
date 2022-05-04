@@ -1,0 +1,70 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: target = ${{ matrix.build.target }}
+    runs-on: ${{ matrix.build.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          - { os: ubuntu-latest, target: x86_64-unknown-linux-gnu }
+          - { os: macos-latest, target: x86_64-apple-darwin }
+          - { os: windows-latest, target: x86_64-pc-windows-msvc }
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: install rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          target: ${{ matrix.build.target }}
+          override: true
+
+      - name: build codegen executable
+        run: cargo build --example codegen --release
+
+      - name: give executable representable name
+        run: cp target/release/examples/codegen ./codegen-${{ matrix.build.target }}
+
+      - name: upload executable
+        uses: actions/upload-artifact@v2
+        with:
+          name: codegen-${{ matrix.build.target }}
+          path: codegen-${{ matrix.build.target }}
+
+  make-release:
+    name: release
+    needs: ['build']
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v2
+        with: { name: codegen-x86_64-unknown-linux-gnu }
+
+      - uses: actions/download-artifact@v2
+        with: { name: codegen-x86_64-apple-darwin }
+
+      - uses: actions/download-artifact@v2
+        with: { name: codegen-x86_64-pc-windows-msvc }
+
+      - name: release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          artifacts: "codegen-*"
+          token: ${{ secrets.GITHUB_TOKEN }}
