@@ -62,6 +62,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with: { name: codegen-x86_64-pc-windows-msvc.exe }
 
+      - uses: actions/download-artifact@v2
+        with: { name: codegen-x86_64-pc-windows-gnu.exe }
+
       - name: release
         uses: ncipollo/release-action@v1
         with:
