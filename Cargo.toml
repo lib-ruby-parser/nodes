@@ -5,7 +5,7 @@ edition = "2021"
 license = "MIT"
 name = "lib-ruby-parser-nodes"
 repository = "https://github.com/lib-ruby-parser/nodes"
-version = "0.52.0"
+version = "0.53.0"
 
 [dependencies]
 liquid = "0.26.0"
