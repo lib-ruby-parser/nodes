@@ -105,6 +105,7 @@ By default the following filters are available:
 + `| escape_c_keyword` - appends `_` to a string if it's a C keyword
 + `| escape_cpp_keyword` - appends `_` to a string if it's a C++ keyword
 + `| escape_rust_keyword` - appends `_` to a string if it's a Rust keyword
++ `| escape_js_keyword` - appends `_` to a string if it's a JavaScript keyword
 + `| render_comment: "//", 4` - renders array of strings (like `node.comment`) to a string where each line is prefixed with "//" and has 4 spaces padding (except for the first line, it has no padding)
 
 Custom filters can be registered by calling `.with_filter` on a template:

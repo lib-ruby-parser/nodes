@@ -91,3 +91,16 @@ fn test_escape_cpp_keyword() {
     assert_eq!(escape_cpp_keyword("foo"), "foo");
     assert_eq!(escape_cpp_keyword("default"), "default_");
 }
+
+pub fn escape_js_keyword(s: &str) -> String {
+    match s {
+        "const" | "default" | "var" | "else" => format!("{}_", s),
+        _ => s.to_string(),
+    }
+}
+
+#[test]
+fn test_escape_js_keyword() {
+    assert_eq!(escape_js_keyword("var"), "var_");
+    assert_eq!(escape_js_keyword("foo"), "foo");
+}
