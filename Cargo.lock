@@ -116,7 +116,7 @@ dependencies = [
 
 [[package]]
 name = "lib-ruby-parser-nodes"
-version = "0.54.0"
+version = "0.55.0"
 dependencies = [
  "liquid",
  "liquid-core",
@@ -131,9 +131,9 @@ checksum = "99227334921fae1a979cf0bfdfcc6b3e5ce376ef57e16fb6fb3ea2ed6095f80c"
 
 [[package]]
 name = "liquid"
-version = "0.26.1"
+version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9dfb833f0d41ed59a6c8d28e2f36d0362557c43fa83e9e096dd74e6e9517858f"
+checksum = "00f55b9db2305857de3b3ceaa0e75cb51a76aaec793875fe152e139cb8fed05c"
 dependencies = [
  "doc-comment",
  "liquid-core",
@@ -144,9 +144,9 @@ dependencies = [
 
 [[package]]
 name = "liquid-core"
-version = "0.26.1"
+version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ca2b58598eeb2cd39ea0e0b6c666bab002b4f58ebbeedcc649d164d6dec4b886"
+checksum = "a93764837aeac37f14b74708cd88a44d82edfa9ad2b1bcd9a3b4d8802fdd9f98"
 dependencies = [
  "anymap2",
  "itertools",
@@ -173,9 +173,9 @@ dependencies = [
 
 [[package]]
 name = "liquid-lib"
-version = "0.26.1"
+version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d3ffe1daafef416a71da31385dd3764906cbde22349767a8458d30c96644a512"
+checksum = "fd06ca30ae026d26ee7fa8596f9590959e2d3726bc5a0f16a21ac4f050ec83c0"
 dependencies = [
  "itertools",
  "liquid-core",
