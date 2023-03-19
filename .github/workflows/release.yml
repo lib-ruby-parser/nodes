@@ -71,7 +71,7 @@ jobs:
         with: { name: codegen-x86_64-pc-windows-msvc.exe }
 
       - uses: actions/download-artifact@v3
-        with: { name: codegen-x86_64-pc-windows-gnu.exe }
+        with: { name: codegen-aarch64-apple-darwin }
 
       - name: release
         uses: ncipollo/release-action@v1
