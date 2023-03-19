@@ -17,10 +17,10 @@ jobs:
       fail-fast: false
       matrix:
         build:
-          - { os: ubuntu-latest,  exe: ,     target: x86_64-unknown-linux-gnu }
-          - { os: macos-latest,   exe: ,     target: x86_64-apple-darwin      }
-          - { os: windows-latest, exe: .exe, target: x86_64-pc-windows-msvc   }
-          - { os: windows-latest, exe: .exe, target: x86_64-pc-windows-gnu    }
+          - { os: ubuntu-latest,  exe: ,     zig: false, build: build,    target: x86_64-unknown-linux-gnu }
+          - { os: macos-latest,   exe: ,     zig: false, build: build,    target: x86_64-apple-darwin      }
+          - { os: windows-latest, exe: .exe, zig: false, build: build,    target: x86_64-pc-windows-msvc   }
+          - { os: ubuntu-latest,  exe: ,     zig: true,  build: zigbuild, target: aarch64-apple-darwin     }
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -33,11 +33,19 @@ jobs:
           target: ${{ matrix.build.target }}
           override: true
 
+      - name: install zig
+        uses: goto-bus-stop/setup-zig@v2
+        if: ${{ matrix.build.zig }}
+
+      - name: install cargo-zigbuild
+        run: cargo install cargo-zigbuild
+        if: ${{ matrix.build.zig }}
+
       - name: build codegen executable
-        run: cargo build --example codegen --release
+        run: cargo ${{ matrix.build.build }} --example codegen --release --target ${{ matrix.build.target }}
 
       - name: give executable representable name
-        run: cp target/release/examples/codegen${{ matrix.build.exe }} ./codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
+        run: cp target/${{ matrix.build.target }}/release/examples/codegen${{ matrix.build.exe }} ./codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
 
       - name: upload executable
         uses: actions/upload-artifact@v3
