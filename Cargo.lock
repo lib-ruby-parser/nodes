@@ -144,9 +144,9 @@ dependencies = [
 
 [[package]]
 name = "liquid-core"
-version = "0.26.0"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a93764837aeac37f14b74708cd88a44d82edfa9ad2b1bcd9a3b4d8802fdd9f98"
+checksum = "ca2b58598eeb2cd39ea0e0b6c666bab002b4f58ebbeedcc649d164d6dec4b886"
 dependencies = [
  "anymap2",
  "itertools",
