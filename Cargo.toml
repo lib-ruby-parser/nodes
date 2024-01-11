@@ -8,6 +8,6 @@ repository = "https://github.com/lib-ruby-parser/nodes"
 version = "0.55.0"
 
 [dependencies]
-liquid = "= 0.26.0"
+liquid = "= 0.26.4"
 liquid-core = "= 0.26.0"
 serde = {version = "1.0", features = ["derive"]}
