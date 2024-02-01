@@ -2,8 +2,7 @@ name: release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ master ]
 
 defaults:
   run:
@@ -11,72 +10,23 @@ defaults:
 
 jobs:
   build:
-    name: target = ${{ matrix.build.target }}
-    runs-on: ${{ matrix.build.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        build:
-          - { os: ubuntu-latest,  exe: ,     zig: false, build: build,    target: x86_64-unknown-linux-gnu }
-          - { os: macos-latest,   exe: ,     zig: false, build: build,    target: x86_64-apple-darwin      }
-          - { os: windows-latest, exe: .exe, zig: false, build: build,    target: x86_64-pc-windows-msvc   }
-          - { os: ubuntu-latest,  exe: ,     zig: true,  build: zigbuild, target: aarch64-apple-darwin     }
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - name: install rust
-        uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          target: ${{ matrix.build.target }}
-          override: true
-
-      - name: install zig
-        uses: goto-bus-stop/setup-zig@v2
-        if: ${{ matrix.build.zig }}
-
-      - name: install cargo-zigbuild
-        run: cargo install cargo-zigbuild
-        if: ${{ matrix.build.zig }}
-
-      - name: build codegen executable
-        run: cargo ${{ matrix.build.build }} --example codegen --release --target ${{ matrix.build.target }}
-
-      - name: give executable representable name
-        run: cp target/${{ matrix.build.target }}/release/examples/codegen${{ matrix.build.exe }} ./codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
-
-      - name: upload executable
-        uses: actions/upload-artifact@v4
-        with:
-          name: codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
-          path: codegen-${{ matrix.build.target }}${{ matrix.build.exe }}
-
-  make-release:
     name: release
-    needs: ['build']
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
-        with: { name: codegen-x86_64-unknown-linux-gnu }
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasi
 
-      - uses: actions/download-artifact@v4
-        with: { name: codegen-x86_64-apple-darwin }
-
-      - uses: actions/download-artifact@v4
-        with: { name: codegen-x86_64-pc-windows-msvc.exe }
-
-      - uses: actions/download-artifact@v4
-        with: { name: codegen-aarch64-apple-darwin }
+      - run: cargo build --example codegen --release --target wasm32-wasi
 
       - name: release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           artifactErrorsFailBuild: true
-          artifacts: "codegen-*"
+          removeArtifacts: true
+          tag: latest
+          artifacts: target/wasm32-wasi/release/examples/codegen.wasm
           token: ${{ secrets.GITHUB_TOKEN }}
