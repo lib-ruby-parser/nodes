@@ -146,3 +146,19 @@ assert_eq!(template, "data foo");
 ```
 
 You can also check more complicated filter (like [`render_comment`](https://github.com/lib-ruby-parser/nodes/blob/master/src/filters/render_comment.rs)) to understand how parameters can be passed.
+
+## Publishing codegen script to wasmer.io
+
+1. bump version in `wasmer.toml`
+2. `cargo build --example codegen --release --target wasm32-wasi`
+3. `wasmer publish`
+
+Once published can be executed with
+
+```sh
+$ wasmer run \
+    --mapdir /pwd:. \
+    iliabylich/lib-ruby-parser-nodes -- \
+    --template /pwd/template.liquid \
+    --write-to /pwd/output.ext
+```
