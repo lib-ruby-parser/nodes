@@ -1,0 +1,22 @@
+[package]
+name = 'iliabylich/lib-ruby-parser-nodes'
+version = '0.56.0'
+description = 'Ruby parser nodes data'
+license = 'MIT'
+readme = 'README.md'
+repository = 'https://github.com/lib-ruby-parser/nodes'
+
+# See more keys and definitions at https://docs.wasmer.io/registry/manifest
+
+[[module]]
+name = 'lib-ruby-parser-nodes'
+source = 'target/wasm32-wasi/release/examples/codegen.wasm'
+abi = 'wasi'
+
+[module.interfaces]
+wasi = '0.1.0-unstable'
+
+[[command]]
+name = 'lib-ruby-parser-nodes'
+module = 'lib-ruby-parser-nodes'
+runner = 'wasi'

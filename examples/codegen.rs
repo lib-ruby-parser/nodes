@@ -3,28 +3,20 @@ fn print_usage_and_exit() -> ! {
     std::process::exit(1);
 }
 
+fn try_arg(key: &str) -> Option<String> {
+    let idx = std::env::args().position(|e| e == key)?;
+    let value = std::env::args().nth(idx + 1)?;
+    Some(value)
+}
+
+fn get_arg(key: &str) -> String {
+    try_arg(key).unwrap_or_else(|| {
+        eprintln!("No {} CLI option given", key);
+        print_usage_and_exit()
+    })
+}
+
 fn main() {
-    let mut args = std::env::args().collect::<Vec<_>>();
-
-    let mut get_arg = |key: &str| {
-        let key_idx = args
-            .iter()
-            .enumerate()
-            .find(|&(_idx, e)| e == key)
-            .unwrap_or_else(|| {
-                eprintln!("Unable to get {} CLI argument", key);
-                print_usage_and_exit()
-            })
-            .0;
-        let _key = args.remove(key_idx);
-        if key_idx >= args.len() {
-            eprintln!("No {} CLI option given", key);
-            print_usage_and_exit();
-        }
-        let value = args.remove(key_idx);
-        value
-    };
-
     let template_path = get_arg("--template");
     let output_path = get_arg("--write-to");
 
