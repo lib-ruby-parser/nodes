@@ -3513,6 +3513,18 @@ static Kwargs: Node = Node {
             comment: &["A list of key-value pairs"],
         },
         &NodeField {
+            snakecase_name: "begin_l",
+            field_type: NodeFieldType::MaybeLoc,
+            always_print: false,
+            comment: &["Always None"],
+        },
+        &NodeField {
+            snakecase_name: "end_l",
+            field_type: NodeFieldType::MaybeLoc,
+            always_print: false,
+            comment: &["Always None"],
+        },
+        &NodeField {
             snakecase_name: "expression_l",
             field_type: NodeFieldType::Loc,
             always_print: false,

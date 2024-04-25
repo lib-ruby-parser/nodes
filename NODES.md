@@ -2461,7 +2461,15 @@ Fields:
 
     A list of key-value pairs
 
-2. **expression_l** (`Loc`)
+2. **begin_l** (`MaybeLoc`)
+
+    Always None
+
+3. **end_l** (`MaybeLoc`)
+
+    Always None
+
+4. **expression_l** (`Loc`)
 
     Location of the full expression
    
